@@ -547,10 +547,10 @@ UI.AppInfo = React.createClass({
 					<div className="col-xs-11 col-md-5">
 						<h4>Built With</h4>
 						<div className="row">
-							<div className="pull-left"><a href="http://nodejs.org" target="_blank">nodejs</a></div>
-							<div className="pull-left"><a href="http://keystonejs.com" target="_blank">KeystoneJS</a></div>
-							<div className="pull-left"><a href="http://getbootstrap.com/" target="_blank">Bootstrap</a></div>
-							<div className="pull-left"><a href="http://facebook.github.io/react/docs/thinking-in-react.html" target="_blank">ReactJS</a></div>
+							<div className="col-xs-6 col-sm-4 col-md-3"><a href="http://nodejs.org" target="_blank">nodejs</a></div>
+							<div className="col-xs-6 col-sm-4 col-md-3"><a href="http://keystonejs.com" target="_blank">KeystoneJS</a></div>
+							<div className="col-xs-6 col-sm-4 col-md-3"><a href="http://getbootstrap.com/" target="_blank">Bootstrap</a></div>
+							<div className="col-xs-6 col-sm-4 col-md-3"><a href="http://facebook.github.io/react/docs/thinking-in-react.html" target="_blank">ReactJS</a></div>
 							
 						</div>
 					   

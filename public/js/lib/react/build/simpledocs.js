@@ -547,10 +547,10 @@ UI.AppInfo = React.createClass({displayName: 'AppInfo',
 					React.DOM.div({className: "col-xs-11 col-md-5"}, 
 						React.DOM.h4(null, "Built With"), 
 						React.DOM.div({className: "row"}, 
-							React.DOM.div({className: "pull-left"}, React.DOM.a({href: "http://nodejs.org", target: "_blank"}, "nodejs")), 
-							React.DOM.div({className: "pull-left"}, React.DOM.a({href: "http://keystonejs.com", target: "_blank"}, "KeystoneJS")), 
-							React.DOM.div({className: "pull-left"}, React.DOM.a({href: "http://getbootstrap.com/", target: "_blank"}, "Bootstrap")), 
-							React.DOM.div({className: "pull-left"}, React.DOM.a({href: "http://facebook.github.io/react/docs/thinking-in-react.html", target: "_blank"}, "ReactJS"))
+							React.DOM.div({className: "col-xs-6 col-sm-4 col-md-3"}, React.DOM.a({href: "http://nodejs.org", target: "_blank"}, "nodejs")), 
+							React.DOM.div({className: "col-xs-6 col-sm-4 col-md-3"}, React.DOM.a({href: "http://keystonejs.com", target: "_blank"}, "KeystoneJS")), 
+							React.DOM.div({className: "col-xs-6 col-sm-4 col-md-3"}, React.DOM.a({href: "http://getbootstrap.com/", target: "_blank"}, "Bootstrap")), 
+							React.DOM.div({className: "col-xs-6 col-sm-4 col-md-3"}, React.DOM.a({href: "http://facebook.github.io/react/docs/thinking-in-react.html", target: "_blank"}, "ReactJS"))
 							
 						), 
 					   
