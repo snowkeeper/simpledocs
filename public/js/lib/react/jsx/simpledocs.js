@@ -407,7 +407,9 @@ UI.UI = React.createClass({
 				_state.pagedata = resp.page;
 				_state.connecting = false;
 				_state.ready = true;
+				document.title = resp.page.title;
 				_this.setState(_state);
+				
 				var selector = $("#menu");
 				if(selector.css('height') !== '45px' && selector.find('.dropdown').css('display') === 'block')_this.toggleMenu();
 			} else {

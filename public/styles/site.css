@@ -45,11 +45,15 @@ kbd {
 	padding:4px;
 
 }
+#carousel-example-generic {
+	max-width: 940px;
+	margin:0 auto;
+}
 .simpledoc .carousel-indicators {
 	bottom: -5px;
 }
 .simpledoc .carousel-caption {
-	height:70px;
+	height:90px;
 	left:0%;
 	right:0%;
 	bottom:0;
@@ -67,8 +71,8 @@ kbd {
 }
 .simpledoc .carousel-caption:after {
 	  content: "";
-	  background: #6A8260;
-	  opacity: 0.85;
+	  background: #2E313C;
+	  opacity: 0.9;
 	  top: 0;
 	  left: 0;
 	  bottom: 0;
