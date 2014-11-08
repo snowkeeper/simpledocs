@@ -1,0 +1,61 @@
+{
+  "name": "simpledocs",
+  "version": "0.0.8",
+  "private": false,
+  "description": "simple documentation site using Keystone UI; built with ReactJS",
+  "main": "./lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/snowkeeper/simpledocs"
+  },
+  "directories": {
+    "lib": "./lib"
+  },
+  "dependencies": {
+    "keystone": "0.2.x",
+    "sanitizer": "",
+    "jade": "1.5.x",
+    "express": "3.3.x",
+    "hat": "",
+    "dotenv": "~0.0.3",
+    "async": "~0.9.x",
+    "snowpi-greeter": "0.1.x"
+  },
+  "devDependencies": {
+    "expose-loader": "^0.5.3",
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+    "grunt-react": "^0.9.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-express-server": "^0.4.19",
+    "grunt-shell": "^1.1.1",
+    "load-grunt-tasks": "^0.6.0"
+  },
+  "engines": {
+    "node": ">=0.10.22",
+    "npm": ">=1.3.14"
+  },
+  "author": {
+    "name": "snowkeeper"
+  },
+  "license": "MIT",
+  "keywords": [
+    "keystone",
+    "reactjs",
+    "app",
+    "docs",
+    "simple",
+    "ajax"
+  ],
+  "readmeFilename": "README.md",
+  "gitHead": "62e1cc88c69f1286cd1884f32489d684a24265eb",
+  "bugs": {
+    "url": "https://github.com/snowkeeper/simpledocs/issues"
+  },
+  "scripts": {},
+  "_id": "simpledocs@0.0.8",
+  "_from": "../github/simpledocs",
+  "readme": "# simpledocs\n### A simple documentation display page. \n\nBuilt with ReactJS & KeystoneJS\n\n### Install\n\n```\nnpm install simpledocs\n\n//or add to package.json\n\"dependencies\": {\n\t\"simpledocs\": \"~0.0.x\"\n}\n```\n\n",
+  "homepage": "https://github.com/snowkeeper/simpledocs",
+  "_shasum": "6e62b8933c111779d34d99434ad589a3adcb27dd"
+}

@@ -1,0 +1,62 @@
+doctype html
+html
+	//- HTML HEADER
+	head
+		meta(charset="utf-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		meta(http-equiv="X-UA-Compatible" content="IE=edge")
+
+		title= title || 'snowpi'
+		link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
+		
+		link(href="/snowdocs/styles/site.css", rel="stylesheet")
+		
+		if(customStyle)
+			link(href="#{customStyle}", rel="stylesheet")
+			
+		//- This file provides the default styling for the KeystoneJS Content Editor
+		if user && user.canAccessKeystone
+			link(href="/keystone/styles/content/editor.min.css", rel="stylesheet")
+		block css
+
+		//- Add any other template-specific HEAD tags by extending the head block
+		block head
+		
+	//- HTML BODY
+	body(class=theme)
+	
+		.fademessage(style='display:none;')
+			.html
+			.killfademessage(onClick="snowUI.killFlash('message')" )
+				button.close(type="button")
+					span(aria-hidden="true") &times;
+					span.sr-only Close
+		.fadesuccess
+			.html
+			.killfademessage(onClick="snowUI.killFlash('success')" )
+				button(type="button").close
+					span(aria-hidden="true") &times;
+					span.sr-only Close
+		.fadeerror(style='display:none;')
+			.html
+			.killfademessage(onClick="snowUI.killFlash('error')" )
+				button.close(type="button")
+					span(aria-hidden="true") &times;
+					span.sr-only Close
+		#simpledocs
+	
+		//- JAVASCRIPT
+		script(src='/snowdocs/js/snowbug.js')
+		script(src='/snowdocs/js/lib/jquery/jquery-2.1.1.min.js')
+		script(src='/snowdocs/js/lib/bootstrap/bootstrap-3.2.0.min.js')
+		script(src='/snowdocs/js/lib/react/build/react-with-addons.js')
+		script(src='/snowdocs/js/lib/bower_components/react-bootstrap/react-bootstrap.min.js')
+		script(src='/snowdocs/js/lib/bone.io/bone.io.min.js')
+		script.
+			snowUI = {name: '#{title}',homepage: '#{homepage}',api:{page:'#{apiPage}',tree:'#{apiTree}'},path:{root:'#{pathRoot}',logout:'#{pathLogout}'},isMe: '#{csrf_token_value}',isKey: '#{csrf_token_key}',breaks: {small:{width:768}}};
+		script(src='/snowdocs/js/config.js')
+		script(src='/snowdocs/js/comms.js')
+		script(src='/snowdocs/js/lib/react/build/simpledocs.js')
+		script(src='/snowdocs/js/lib/react/build/router.js')
+		
+			
