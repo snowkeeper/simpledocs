@@ -359,6 +359,7 @@ UI.Banner = React.createClass({
 	},
 	openEgg: function() {
 		$('#easter-egg').slideToggle();
+		$("#simpledocs").animate({ scrollTop: 0 }, 200);
 		return false;
 	},
 	render: function() {
