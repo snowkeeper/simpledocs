@@ -1,7 +1,9 @@
-# simpledocs
-### A simple documentation display page. 
+# SimpleDocs
+### A simple documentation app. 
 
 Built with ReactJS & KeystoneJS
+
+[Demo / Documentation](http://inquisive.link/docs/simpledocs)
 
 ### Install
 

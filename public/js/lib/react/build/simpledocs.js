@@ -416,7 +416,7 @@ UI.UI = React.createClass({displayName: 'UI',
 			} else {
 				snowlog.error(resp);
 				if(!getpage || !_this.state.ready) {
-					snowUI.flash('message','Welcome to '+snowText.build.name+'. Please select a document.');
+					snowUI.flash('message','Welcome to '+snowText.build.name+'. Please select a document.',8888);
 				} else {
 					snowUI.flash('error','' + resp.error) ;
 				}
