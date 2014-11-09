@@ -78,7 +78,7 @@ snowUI.flash = function(type,msg,delay,kill) {
 }
 
 /* change the theme */
-snowUI.toggleTheme: function() {
+snowUI.toggleTheme = function() {
 	$('body').toggleClass(snowUI.themeToToggle);
 	return false;
 }
