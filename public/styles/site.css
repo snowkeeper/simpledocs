@@ -449,6 +449,7 @@ body.dark-theme {
 	}
 	.simpledoc .carousel-control {
 		width:15%;
+		z-index: 1000;
 	}		
 }
 #menu.affix {
