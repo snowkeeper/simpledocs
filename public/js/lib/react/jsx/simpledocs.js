@@ -527,6 +527,12 @@ UI.AppInfo = React.createClass({
 		$('body').toggleClass('dark-theme');
 		return false;
 	},
+	statics: {
+		changeTheme: function() {
+			$('body').toggleClass('dark-theme');
+			return false;
+		}
+	},
 	render: function() {
 		return (
 			<div id="easter-egg" style={{display:'none'}} >
