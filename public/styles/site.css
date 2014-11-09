@@ -414,6 +414,7 @@ body.dark-theme {
 		position:relative;
 		overflow: hidden;
 		cursor:pointer;
+		z-index: 10000;
 	}
 	#menu .dropdown {
 		display:block;
