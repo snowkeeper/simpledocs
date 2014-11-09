@@ -503,7 +503,7 @@ UI.UI = React.createClass({displayName: 'UI',
 		return (
 			React.DOM.div(null, 
 				UI.Banner({page: this.state.pagedata, onActionChange: this.handleBannerChange}), 
-				React.DOM.div({className: "col-xs-12 col-sm-4 col-md-3 col-lg-2", id: "menu", 'data-spy': "affix", 'data-offset-top': "150"}, 
+				React.DOM.div({className: "col-xs-12 col-sm-4 col-md-3 col-lg-2", id: "menu", 'data-target': "#simpledocs", 'data-spy': "affix", 'data-offset-top': "25"}, 
 					React.DOM.div({className: "dropdown", onClick: this.toggleMenu}, React.DOM.span({className: "dropspan glyphicon glyphicon-chevron-down"})), 
 					UI.Menu({config: this.state, getPage: this.hrefRoute, toggleMenu: this.toggleMenu, page: this.props.page})
 				), 
