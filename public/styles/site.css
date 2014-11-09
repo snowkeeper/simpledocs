@@ -446,6 +446,9 @@ body.dark-theme {
 	}
 	.list-group-item {
 		padding:3px 0 3px 9px;
+	}
+	.simpledoc .carousel-control {
+		width:15%;
 	}		
 }
 #menu.affix {
