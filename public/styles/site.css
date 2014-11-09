@@ -88,10 +88,7 @@ kbd {
 	overflow: auto;
 	
 }
-#menu .affix {
-	top:0;
-	left:0;
-}
+
 #menu .dropdown {
 	display:none;
 	position:absolute;
@@ -438,4 +435,9 @@ body.dark-theme {
 	    height: 45px;
 	    z-index: 901;
 	}		
+}
+#menu.affix {
+	top:0;
+	left:0;
+	position:fixed;
 }
