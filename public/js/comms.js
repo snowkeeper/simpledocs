@@ -105,7 +105,7 @@ snowUI.flash = function(type,msg,delay,kill) {
 		if(typeof snowUI.menu !== 'object')snowUI.menu = {};
 		if(Object.prototype.toString.call(snowUI.tree) !== '[object Array]')snowUI.tree = [];
 		
-		console.log(snowUI.tree,snowUI.menu);
+		snowlog.log(snowUI.tree,snowUI.menu);
 	});
 	
 	
@@ -119,6 +119,7 @@ $(function() {
 		.done(function( resp,status,xhr ) {
 			snowlog.info(resp)
 			//start our app
+			bone.set('log', false);
 			bone.router.start({root:snowUI.path.root,pushState: true});	
 	});
 	
