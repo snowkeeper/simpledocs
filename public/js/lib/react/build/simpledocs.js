@@ -483,9 +483,10 @@ UI.UI = React.createClass({displayName: 'UI',
 				.animate({height: selector.data('nHeight')},400, function() {
 					selector.find('.dropdown').addClass('open');
 					selector.find('.dropspan').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+					selector.css('overflow','auto');
 					_this._toggled = true;
 				})
-				.css('overflow','auto');
+				
 			
 		} else {
 			selector.animate({height: 45}, 'slow', function(){ 
