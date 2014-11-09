@@ -506,6 +506,7 @@ UI.UI = React.createClass({
 		return (
 			<div>
 				<UI.Banner page={this.state.pagedata} onActionChange={this.handleBannerChange} />
+				<div id="menuspy" />
 				<div className="col-xs-12 col-sm-4 col-md-3 col-lg-2"  id="menu" data-target="#simpledocs" data-spy="affix"  data-offset-top="65" >
 					<div className="dropdown" onClick={this.toggleMenu}><span className="dropspan glyphicon glyphicon-chevron-down" /></div>
 					<UI.Menu config={this.state}  getPage={this.hrefRoute} toggleMenu={this.toggleMenu} page={this.props.page}/>

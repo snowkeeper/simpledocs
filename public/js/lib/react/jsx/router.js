@@ -8,7 +8,7 @@
 	var middleware = {
 	    // Scroll back to the top of the page on route change
 	    scrollTop: function(route, next) {
-		$("#simpledocs").animate({ scrollTop: 0 }, 200);
+		$("#simpledocs").animate({ scrollTop: 0 }, 800);
 		next();
 	    },
 	    // Track a page view with Google Analytics
