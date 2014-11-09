@@ -88,6 +88,10 @@ kbd {
 	overflow: auto;
 	
 }
+#menu .affix {
+	top:0;
+	left:0;
+}
 #menu .dropdown {
 	display:none;
 	position:absolute;
@@ -138,6 +142,7 @@ kbd {
     height: 45px;
     z-index: 901;
 }
+
 #banner .banner-inside {
     height: 45px;
 }
@@ -425,5 +430,13 @@ body.dark-theme {
 	}
 	#home {
 		margin-top: 0px;	
+	}
+	#banner {
+	    position: relative;
+	    top: 0px;
+	    right: 0;
+	    width: 100%;
+	    height: 45px;
+	    z-index: 901;
 	}		
 }

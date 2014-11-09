@@ -502,7 +502,7 @@ UI.UI = React.createClass({displayName: 'UI',
 		snowlog.log('state',this.state)
 		return (
 			React.DOM.div(null, 
-				React.DOM.div({className: "col-xs-12 col-sm-4 col-md-3 col-lg-2", id: "menu"}, 
+				React.DOM.div({className: "col-xs-12 col-sm-4 col-md-3 col-lg-2", id: "menu", 'data-spy': "affix", 'data-offset-top': "45"}, 
 					React.DOM.div({className: "dropdown", onClick: this.toggleMenu}, React.DOM.span({className: "dropspan glyphicon glyphicon-chevron-down"})), 
 					UI.Menu({config: this.state, getPage: this.hrefRoute, toggleMenu: this.toggleMenu, page: this.props.page})
 				), 
