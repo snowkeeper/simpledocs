@@ -524,7 +524,7 @@ UI.UI = React.createClass({displayName: 'UI',
 //app info
 UI.AppInfo = React.createClass({displayName: 'AppInfo',
 	changeTheme: function() {
-		$('body').toggleClass('dark-theme');
+		$('body').toggleClass(snowUI.themeToToggle);
 		return false;
 	},
 	render: function() {

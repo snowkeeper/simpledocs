@@ -53,7 +53,7 @@ html
 		script(src='/snowdocs/js/lib/bower_components/react-bootstrap/react-bootstrap.min.js')
 		script(src='/snowdocs/js/lib/bone.io/bone.io.min.js')
 		script.
-			snowUI = {name: '#{title}',homepage: '#{homepage}',api:{page:'#{apiPage}',tree:'#{apiTree}'},path:{root:'#{pathRoot}',logout:'#{pathLogout}'},isMe: '#{csrf_token_value}',isKey: '#{csrf_token_key}',breaks: {small:{width:768}}};
+			snowUI = {name: '#{title}',homepage: '#{homepage}',api:{page:'#{apiPage}',tree:'#{apiTree}'},path:{root:'#{pathRoot}',logout:'#{pathLogout}'},isMe: '#{csrf_token_value}',isKey: '#{csrf_token_key}',breaks: {small:{width:768}},themeToToggle:'#{theme || 'dark-theme'}'};
 		script(src='/snowdocs/js/config.js')
 		script(src='/snowdocs/js/comms.js')
 		script(src='/snowdocs/js/lib/react/build/simpledocs.js')

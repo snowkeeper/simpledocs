@@ -77,6 +77,12 @@ snowUI.flash = function(type,msg,delay,kill) {
 	
 }
 
+/* change the theme */
+snowUI.toggleTheme: function() {
+	$('body').toggleClass(snowUI.themeToToggle);
+	return false;
+}
+
 	/**
 	 * 
 	 * Setup the requests to add the token
