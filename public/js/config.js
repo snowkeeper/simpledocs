@@ -13,3 +13,6 @@ var snowText = {
 	init: function() { return this },
 }.init();
 
+/* turn logger off/on */
+snowlog.setLevel(0);
+

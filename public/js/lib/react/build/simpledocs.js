@@ -403,7 +403,7 @@ UI.UI = React.createClass({displayName: 'UI',
 		snowUI.ajax.GET(url,data,function(resp) {
 			if(resp.page) {
 				snowlog.info('get page',resp);
-				if(!_this.state.ready)snowUI.flash('message','Welcome to '+snowText.build.name+'. Please select a document.');
+				if(!_this.state.ready)snowUI.flash('message','Welcome to '+snowText.build.name+'. Please select a document.',8888);
 				var _state={}
 				_state.pagedata = resp.page;
 				_state.connecting = false;
