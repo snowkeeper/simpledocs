@@ -484,7 +484,8 @@ UI.UI = React.createClass({displayName: 'UI',
 					selector.find('.dropdown').addClass('open');
 					selector.find('.dropspan').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
 					_this._toggled = true;
-				});
+				})
+				.css('overflow','auto');
 			
 		} else {
 			selector.animate({height: 45}, 'slow', function(){ 
@@ -492,6 +493,7 @@ UI.UI = React.createClass({displayName: 'UI',
 				selector.css("height","");
 				selector.find('.dropdown').removeClass('open');
 				selector.find('.dropspan').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+				selector.css('overflow','hidden');
 				_this._toggled = false;
 			});
 			
