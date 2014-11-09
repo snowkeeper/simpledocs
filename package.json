@@ -17,7 +17,6 @@
     "jade": "1.5.x",
     "express": "3.3.x",
     "hat": "",
-    "dotenv": "~0.0.3",
     "async": "~0.9.x",
     "snowpi-greeter": "0.1.x"
   },
