@@ -67,7 +67,7 @@ kbd {
 	width:90%;
 	height:100%;
 	top:5px;
-	left:0;
+	left:5%;
 }
 .simpledoc .carousel-caption:after {
 	  content: "";
