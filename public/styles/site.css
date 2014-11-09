@@ -168,7 +168,7 @@ kbd {
 	padding:10px 5px;
 	overflow:hidden;
 }
-#banner .banner-inside #name .inside{
+#banner .banner-inside #name .inside, #banner .banner-inside #title .inside{
 	height: 25px;
 	overflow:hidden;
 }

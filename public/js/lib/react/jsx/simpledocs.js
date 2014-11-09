@@ -368,7 +368,7 @@ UI.Banner = React.createClass({
 						<div className="inside">{snowUI.name}</div>
 					</div>
 					<div id="title" className="col-xs-6 col-sm-4 col-md-9 col-lg-10">
-						{typeof this.props.page === 'object' ? this.props.page.title : ''}
+						<div className="inside">{typeof this.props.page === 'object' ? this.props.page.title : ''}</div>
 					</div>
 					<div id="logo">
 						<a onClick={this.openEgg} />
