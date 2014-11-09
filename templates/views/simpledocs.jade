@@ -23,7 +23,8 @@ html
 		block head
 		
 	//- HTML BODY
-	body(class='#{theme || ''}')
+	- var mytheme = theme || ''
+	body(class=mytheme)
 	
 		.fademessage(style='display:none;')
 			.html
