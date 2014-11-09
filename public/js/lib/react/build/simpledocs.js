@@ -523,10 +523,6 @@ UI.UI = React.createClass({displayName: 'UI',
 
 //app info
 UI.AppInfo = React.createClass({displayName: 'AppInfo',
-	changeTheme: function() {
-		$('body').toggleClass(snowUI.themeToToggle);
-		return false;
-	},
 	render: function() {
 		return (
 			React.DOM.div({id: "easter-egg", style: {display:'none'}}, 
@@ -579,7 +575,7 @@ UI.AppInfo = React.createClass({displayName: 'AppInfo',
 					React.DOM.div({className: "col-xs-11 col-md-10"}, 
 						React.DOM.h4(null, "Theme"), 
 						React.DOM.div({className: "row"}, 
-							React.DOM.div({title: "change theme", className: "col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10"}, " ", React.DOM.a({style: {cursor:'pointer'}, onClick: this.changeTheme}, "Switch between light and dark themes")), 
+							React.DOM.div({title: "change theme", className: "col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10"}, " ", React.DOM.a({style: {cursor:'pointer'}, onClick: snowUI.toggleTheme}, "Switch between light and dark themes")), 
 							React.DOM.br(null)
 						)
 					), 
