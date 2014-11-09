@@ -49,9 +49,13 @@ kbd {
 	max-width: 940px;
 	margin:0 auto;
 }
+.simpledoc .carousel-control {
+	width:7%;
+}
 .simpledoc .carousel-indicators {
 	bottom: -8px;
 }
+
 .simpledoc .carousel-caption {
 	height:95px;
 	left:0%;
