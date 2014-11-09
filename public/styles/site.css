@@ -85,7 +85,7 @@ kbd {
 	  z-index: 1;
 }
 #menuspy {
-	height:0;
+	height:45px;
 	display:none;
 }
 #menu {

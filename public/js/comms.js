@@ -122,6 +122,12 @@ $(function() {
 			bone.set('log', false);
 			bone.router.start({root:snowUI.path.root,pushState: true});	
 	});
+	$(document).on('affixed.bs.affix',function() {
+		$('#menuspy').show();
+	});
+	$(document).on('affixed-top.bs.affix',function() {
+		$('#menuspy').hide();
+	});
 	
 });
 
