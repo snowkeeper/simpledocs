@@ -182,13 +182,15 @@ UI.home = React.createClass({displayName: 'home',
 			var content = 
 				doc.display === 1 ? 
 					this.props.contents.markdown ? 
-						React.DOM.div({key: "fullcontent", dangerouslySetInnerHTML: {__html: this.props.contents.markdown.html}}) 
-						: React.DOM.span(null) : doc.display === 2 ? React.DOM.div({dangerouslySetInnerHTML: {__html: this.props.contents.html}}) 
-					: doc.display === 3 ? 
-						(React.DOM.div(null, " ", React.DOM.div({dangerouslySetInnerHTML: {__html: this.props.contents.markdown.html}}), React.DOM.div({dangerouslySetInnerHTML: {__html: this.props.contents.html}}))) 
-						: doc.display === 4 ? 
-							(React.DOM.div(null, " ", React.DOM.div({dangerouslySetInnerHTML: {__html: this.props.contents.html}}), React.DOM.div({dangerouslySetInnerHTML: {__html: this.props.contents.markdown.html}})) 
-							): React.DOM.span(null)  
+						(React.DOM.div(null, React.DOM.div({key: "fullcontent", dangerouslySetInnerHTML: {__html: this.props.contents.markdown.html}}), " "))
+						: React.DOM.span(null) 
+					: doc.display === 2 ? 
+						(React.DOM.div(null, React.DOM.div({dangerouslySetInnerHTML: {__html: this.props.contents.html}}), " "))
+						: doc.display === 3 ? 
+							(React.DOM.div(null, " ", React.DOM.div({dangerouslySetInnerHTML: {__html: this.props.contents.markdown.html}}), React.DOM.div({dangerouslySetInnerHTML: {__html: this.props.contents.html}}))) 
+							: doc.display === 4 ? 
+								(React.DOM.div(null, " ", React.DOM.div({dangerouslySetInnerHTML: {__html: this.props.contents.html}}), React.DOM.div({dangerouslySetInnerHTML: {__html: this.props.contents.markdown.html}})))
+								: React.DOM.span(null)  
 			
 			
 			if(doc.type === 1) {

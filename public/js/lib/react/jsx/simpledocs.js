@@ -182,13 +182,15 @@ UI.home = React.createClass({
 			var content = 
 				doc.display === 1 ? 
 					this.props.contents.markdown ? 
-						<div key="fullcontent" dangerouslySetInnerHTML={{__html: this.props.contents.markdown.html}} /> 
-						: <span /> : doc.display === 2 ? <div dangerouslySetInnerHTML={{__html: this.props.contents.html}} /> 
-					: doc.display === 3 ? 
-						(<div> <div dangerouslySetInnerHTML={{__html: this.props.contents.markdown.html}} /><div dangerouslySetInnerHTML={{__html: this.props.contents.html}} /></div>) 
-						: doc.display === 4 ? 
-							(<div> <div dangerouslySetInnerHTML={{__html: this.props.contents.html}} /><div dangerouslySetInnerHTML={{__html: this.props.contents.markdown.html}} /></div> 
-							): <span />  
+						(<div><div key="fullcontent" dangerouslySetInnerHTML={{__html: this.props.contents.markdown.html}} /> </div>)
+						: <span /> 
+					: doc.display === 2 ? 
+						(<div><div dangerouslySetInnerHTML={{__html: this.props.contents.html}} /> </div>)
+						: doc.display === 3 ? 
+							(<div> <div dangerouslySetInnerHTML={{__html: this.props.contents.markdown.html}} /><div dangerouslySetInnerHTML={{__html: this.props.contents.html}} /></div>) 
+							: doc.display === 4 ? 
+								(<div> <div dangerouslySetInnerHTML={{__html: this.props.contents.html}} /><div dangerouslySetInnerHTML={{__html: this.props.contents.markdown.html}} /></div>)
+								: <span />  
 			
 			
 			if(doc.type === 1) {
