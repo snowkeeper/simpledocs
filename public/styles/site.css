@@ -363,6 +363,10 @@ body.dark-theme {
 	background-color: #16313D;
 	color: #FFFCEF;
 }
+.dark-theme .list-group-item.active {
+	background-color: #142D38;
+	color: #FFFCEF;
+}
 .dark-theme .list-group {
 	background:  #0D1C23;
 	border-color:  #142D38;
