@@ -359,7 +359,7 @@ body.dark-theme {
 	background-color: #0D1C23;
 	color: #FFFCEF;
 }
-.dark-theme .list-group-item:hover {
+.dark-theme .list-group-item:hover, .dark-theme .list-group-item.active {
 	background-color: #16313D;
 	color: #FFFCEF;
 }
