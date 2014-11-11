@@ -1,6 +1,26 @@
 	/** 
 	 * Add the nonce for ajax requests
 	 * */
+snowUI.hrefRoute = function() {
+		
+		this.preventDefault()
+		
+		var _this = this;
+		var newroute = $(this);
+		
+		snowlog.log('href loader route',snowUI.path.root,newroute)
+		var moon =  newroute[0] ? newroute.closest('a')[0].pathname : false
+		if(moon) {
+			moon = moon.replace((snowUI.path.root + "/"),'')
+			snowlog.log('moon owner',moon)
+			bone.router.navigate(moon, {trigger:true});
+		} else {
+			snowUI.flash('error','Link error',2000)
+			_this.setState({showErrorPage:false}); //this is a quick way to rerender the page since we are mid laod
+		}		
+		
+		return false
+};
 snowUI.ajax = {
 		running: false,
 		GET: function(url,data,callback) {
@@ -134,6 +154,7 @@ $(function() {
 	$(document).on('affixed-top.bs.affix',function() {
 		$('#menuspy').hide();
 	});
+	$(document).on('click','.sdlink',snowUI.hrefRoute);
 	
 });
 

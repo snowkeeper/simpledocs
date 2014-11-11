@@ -391,7 +391,6 @@ UI.Banner = React.createClass({
 UI.UI = React.createClass({
 	
 	getInitialState: function() {
-		snowUI.hrefRoute = this.snowRoute;
 		return { 
 			pagedata: false,
 		};
@@ -452,26 +451,6 @@ UI.UI = React.createClass({
 		
 		this.setState({pagedata:{}});
 		return false;
-	},
-	snowRoute: function(route) {
-		
-		console.log(route);
-		
-		var _this = this;
-		var newroute = $(route);
-		
-		snowlog.log('href loader route',snowUI.path.root,newroute)
-		var moon =  newroute[0] ? newroute.closest('a')[0].pathname : false
-		if(moon) {
-			moon = moon.replace((snowUI.path.root + "/"),'')
-			snowlog.log('moon owner',moon)
-			bone.router.navigate(moon, {trigger:true});
-		} else {
-			snowUI.flash('error','Link error',2000)
-			_this.setState({showErrorPage:false}); //this is a quick way to rerender the page since we are mid laod
-		}		
-		
-		return false
 	},
 	hrefRoute: function(route) {
 		console.log(route);
