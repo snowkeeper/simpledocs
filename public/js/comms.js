@@ -1,9 +1,9 @@
 	/** 
 	 * Add the nonce for ajax requests
 	 * */
-snowUI.hrefRoute = function() {
+snowUI.hrefRoute = function(e) {
 		
-		this.preventDefault()
+		e.preventDefault()
 		
 		var _this = this;
 		var newroute = $(this);
