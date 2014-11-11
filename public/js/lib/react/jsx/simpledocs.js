@@ -391,6 +391,7 @@ UI.Banner = React.createClass({
 UI.UI = React.createClass({
 	
 	getInitialState: function() {
+		snowUI.hrefRoute = this.hrefRoute;
 		return { 
 			pagedata: false,
 		};
