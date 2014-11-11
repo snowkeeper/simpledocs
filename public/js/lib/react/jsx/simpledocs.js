@@ -457,10 +457,9 @@ UI.UI = React.createClass({
 		
 		console.log(route);
 		
-		this.preventDefault();
 		var _this = this;
 		var newroute = $(route);
-		route.preventDefault();
+		newroute.preventDefault();
 		
 		snowlog.log('href loader route',snowUI.path.root,newroute)
 		var moon =  newroute[0] ? newroute.closest('a')[0].pathname : false
