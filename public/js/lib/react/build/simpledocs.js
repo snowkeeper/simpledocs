@@ -316,6 +316,7 @@ UI.Menu = React.createClass({displayName: 'Menu',
 		snowlog.info('menu tree',snowUI.tree);
 		var _this = this;
 		var runTree = function(slug,children) {
+			console.log(children);
 			/* run through the kids and see if one of them is active so we can show the kid links */
 			if(Object.prototype.toString.call( children ) === '[object Array]' ) {
 				
