@@ -70,8 +70,27 @@ kbd {
 	right:0;
 	bottom:0;
 	color:#FFFCEF;
-	width:250px;
+	width:200px;
 	height:100%;
+	text-shadow:none;
+}
+.simpledoc .carousel-caption.left {
+	height:100%;
+	left:0;
+	right:initial;
+	bottom:0;
+	color:#FFFCEF;
+	width:200px;
+	height:100%;
+	text-shadow:none;
+}
+.simpledoc .carousel-caption.top {
+	height:95px;
+	left:0%;
+	right:0%;
+	bottom:initial;
+	top: 0;
+	color:#FFFCEF;
 	text-shadow:none;
 }
 .simpledoc .carousel-caption .top{
