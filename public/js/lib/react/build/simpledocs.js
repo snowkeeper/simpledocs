@@ -329,7 +329,7 @@ UI.Menu = React.createClass({displayName: 'Menu',
 					}
 					return runTree(slug,current.documents); 
 				}, false); 
-				console.log(ret,runner)
+				console.log(ret)
 				return ret;
 			} else {
 				return false;
