@@ -322,7 +322,7 @@ UI.Menu = React.createClass({displayName: 'Menu',
 				
 				return children.reduce(function(runner, current) {
 					console.log(current.slug,slug);
-					if(current.slug === slug) return true;
+					if(current.slug === slug) return runner = true;
 					return runTree(slug,current.documents); 
 				}, false); 
 			} else {
@@ -332,7 +332,7 @@ UI.Menu = React.createClass({displayName: 'Menu',
 		var printMenu = function(pages,skiptree) {
 			var list = pages.map(function(v) {
 				var active = _this.props.page === v.slug ? 'active' : '';
-				var rantree =  runTree(_this.props.page,v.documents) ;
+				var rantree = skiptree === undefined ? runTree(_this.props.page,v.documents) : skiptree;
 				console.log(v.slug,rantree);
 				var collapse = snowUI.collapse ? rantree === true ? ' ': ' hidden' : ' hidden';
 				return (React.DOM.div({key: v.slug, className: ""}, 
