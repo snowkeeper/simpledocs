@@ -148,6 +148,21 @@ kbd {
 .simpledoc .carousel-caption.h50 {
 	height:50%;
 }
+.simpledoc .carousel-caption.h60 {
+	height:60%;
+}
+.simpledoc .carousel-caption.h70 {
+	height:70%;
+}
+.simpledoc .carousel-caption.h80 {
+	height:80%;
+}
+.simpledoc .carousel-caption.h90 {
+	height:90%;
+}
+.simpledoc .carousel-caption.h99 {
+	height:100%;
+}
 .simpledoc .carousel-caption.h025 {
 	height:25px;
 }
