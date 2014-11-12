@@ -476,7 +476,6 @@ UI.UI = React.createClass({
 		return false;
 	},
 	hrefRoute: function(route) {
-		console.log(route);
 		route.preventDefault();
 		var _this = this
 		var newroute = $(route.target)	
