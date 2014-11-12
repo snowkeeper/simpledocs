@@ -315,14 +315,26 @@ UI.Menu = React.createClass({
 	render: function() {
 		snowlog.info('menu tree',snowUI.tree);
 		var _this = this;
-		
-		var printMenu = function(pages) {
+		var runTree = function(slug,children) {
+			/* run through the kids and see if one of them is active so we can show the kid links */
+			if(Object.prototype.toString.call( children ) === '[object Array]' ) {
+				return children.reduce(function(runner, current) {
+					if(current.slug === slug) return true;
+					return runTree(slug,v.documents); 
+				}, false); 
+			} else {
+				return false;
+			}
+		};
+		var printMenu = function(pages,skiptree) {
 			var list = pages.map(function(v) {
 				var active = _this.props.page === v.slug ? 'active' : '';
+				var rantree = !skiptree ? runTree(v.slug,v.documents) : false;
+				var collapse = snowUI.collapse ? rantree === true ? ' hidden': '' : '';
 				return (<div key={v.slug} className="">
 						<a className={"list-group-item " + active} onClick={_this.props.getPage} href={snowUI.path.root + '/' + v.slug}>{v.title}</a>
 						<div className="link">
-							{printMenu(v.documents)}
+							{printMenu(v.documents,true)}
 						</div>
 					</div>)
 			});
@@ -331,7 +343,9 @@ UI.Menu = React.createClass({
 		var menu = snowUI.tree.map(function(v) {
 			var active = _this.props.page === v.slug ? 'active' : '';
 			return (<div className="list-group" key={v.slug}>
-					
+					/* our first entry is the root document
+					 * printMenu takes care of the children
+					 * */
 					<a className="list-group-item head" onClick={_this.props.toggleMenu} >{snowText.menu}</a>
 					<div key={v.slug} className="">
 						<a className={"list-group-item " + active} onClick={_this.props.getPage} href={snowUI.path.root + '/' + v.slug}>{v.title}</a>
