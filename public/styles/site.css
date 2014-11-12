@@ -64,6 +64,16 @@ kbd {
 	color:#FFFCEF;
 	text-shadow:none;
 }
+.simpledoc .carousel-caption.right {
+	height:100%;
+	left:initial;
+	right:0;
+	bottom:0;
+	color:#FFFCEF;
+	width:250px;
+	height:100%;
+	text-shadow:none;
+}
 .simpledoc .carousel-caption .top{
 	color:#FFFCEF;
 	z-index:100;
