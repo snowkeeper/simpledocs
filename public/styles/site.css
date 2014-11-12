@@ -49,7 +49,7 @@ kbd {
 	max-width: 940px;
 	margin:0 auto;
 }
-.simpledoc #carousel-example-generic a {
+#carousel-example-generic.simpledoc  a {
 	color: #B3E3FB;
 }
 .simpledoc .carousel-indicators {
