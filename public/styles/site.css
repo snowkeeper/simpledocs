@@ -59,7 +59,7 @@ kbd {
 	width:auto;
 	margin-left: initial;
 	left:initial;
-	background:#070F13;
+	color:#070F13;
 }
 .simpledoc .carousel-control {
 	width:8%;
@@ -525,7 +525,7 @@ body.dark-theme {
 	border-color:  #142D38;
 }
 .dark-theme .simpledoc .carousel-indicators {
-	background:#FFFCEF;
+	color:#FFFCEF;
 }
 .dark-theme #menu {
 	background: #0A181E;
