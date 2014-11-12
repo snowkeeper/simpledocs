@@ -58,6 +58,10 @@ kbd {
 	margin-left: initial;
 	left:initial;
 }
+.simpledoc .carousel-control {
+	width:8%;
+
+}
 .simpledoc .carousel-control.right {
 	right: 0;
 	left: auto;
