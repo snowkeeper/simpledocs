@@ -318,7 +318,9 @@ UI.Menu = React.createClass({
 		var runTree = function(slug,children) {
 			/* run through the kids and see if one of them is active so we can show the kid links */
 			if(Object.prototype.toString.call( children ) === '[object Array]' ) {
+				
 				return children.reduce(function(runner, current) {
+					console.log(current.slug,slug);
 					if(current.slug === slug) return true;
 					return runTree(slug,current.documents); 
 				}, false); 
