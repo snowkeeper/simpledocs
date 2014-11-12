@@ -333,6 +333,7 @@ UI.Menu = React.createClass({
 			var list = pages.map(function(v) {
 				var active = _this.props.page === v.slug ? 'active' : '';
 				var rantree = skiptree === undefined ? runTree(_this.props.page,v.documents) : skiptree;
+				console.log(v.slug,rantree);
 				var collapse = snowUI.collapse ? rantree === true ? ' ': ' hidden' : ' hidden';
 				return (<div key={v.slug} className="">
 						<a className={"list-group-item " + active} onClick={_this.props.getPage} href={snowUI.path.root + '/' + v.slug}>{v.title}</a>
