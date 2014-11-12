@@ -175,6 +175,30 @@ kbd {
 .simpledoc .carousel-caption.w50 {
 	width:50%;
 }
+.simpledoc .carousel-caption.w60 {
+	width:60%;
+}
+.simpledoc .carousel-caption.w70 {
+	width:70%;
+}
+.simpledoc .carousel-caption.w80 {
+	width:80%;
+}
+.simpledoc .carousel-caption.w90 {
+	width:90%;
+}
+.simpledoc .carousel-caption.w99 {
+	width:100%;
+}
+.simpledoc .carousel-caption.w025 {
+	width:25px;
+}
+.simpledoc .carousel-caption.w050 {
+	width:50px;
+}
+.simpledoc .carousel-caption.w075 {
+	width:75px;
+}
 .simpledoc .carousel-caption.w100 {
 	width:100px;
 }
