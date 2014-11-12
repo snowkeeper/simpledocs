@@ -332,7 +332,7 @@ UI.Menu = React.createClass({
 		var printMenu = function(pages,skiptree) {
 			var list = pages.map(function(v) {
 				var active = _this.props.page === v.slug ? 'active' : '';
-				var rantree = skiptree === undefined ? runTree(_this.props.page,v.documents) : skiptree;
+				var rantree =  runTree(_this.props.page,v.documents) ;
 				console.log(v.slug,rantree);
 				var collapse = snowUI.collapse ? rantree === true ? ' ': ' hidden' : ' hidden';
 				return (<div key={v.slug} className="">
