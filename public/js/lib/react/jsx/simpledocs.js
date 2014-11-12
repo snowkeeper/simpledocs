@@ -324,11 +324,12 @@ UI.Menu = React.createClass({
 					
 					if(current.slug === slug) {
 						console.log(true,current.slug,slug);
-						return true;
+						runner = true
+						return runner;
 					}
 					return runTree(slug,current.documents); 
 				}, false); 
-				console.log(ret)
+				console.log(ret,runner)
 				return ret;
 			} else {
 				return false;
