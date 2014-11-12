@@ -332,7 +332,7 @@ UI.Menu = React.createClass({displayName: 'Menu',
 		var printMenu = function(pages,skiptree) {
 			var list = pages.map(function(v) {
 				var active = _this.props.page === v.slug ? 'active' : '';
-				var rantree = skiptree === undefined ? runTree(v.slug,v.documents) : false;
+				var rantree = skiptree === undefined ? runTree(_this.props.page,v.documents) : skiptree;
 				var collapse = snowUI.collapse ? rantree === true ? ' hidden': '' : '';
 				return (React.DOM.div({key: v.slug, className: ""}, 
 						React.DOM.a({className: "list-group-item " + active + collapse, onClick: _this.props.getPage, href: snowUI.path.root + '/' + v.slug}, v.title), 
