@@ -320,7 +320,7 @@ UI.Menu = React.createClass({displayName: 'Menu',
 			if(Object.prototype.toString.call( children ) === '[object Array]' ) {
 				return children.reduce(function(runner, current) {
 					if(runner)return runner;
-					if(current.slug === slug) {
+					if(current.slug === slug || (typeof current.parent === 'object' && current.parent.slug === slug)) {
 						snowlog.log(true,current.slug,slug);
 						runner = true
 						return runner;
