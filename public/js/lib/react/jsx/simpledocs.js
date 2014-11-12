@@ -320,7 +320,7 @@ UI.Menu = React.createClass({
 			/* run through the kids and see if one of them is active so we can show the kid links */
 			if(Object.prototype.toString.call( children ) === '[object Array]' ) {
 				
-				return children.reduce(function(runner, current) {
+				var ret =  children.reduce(function(runner, current) {
 					
 					if(current.slug === slug) {
 						console.log(true,current.slug,slug);
@@ -328,6 +328,8 @@ UI.Menu = React.createClass({
 					}
 					return runTree(slug,current.documents); 
 				}, false); 
+				console.log(ret)
+				return ret;
 			} else {
 				return false;
 			}
