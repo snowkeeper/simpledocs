@@ -320,7 +320,7 @@ UI.Menu = React.createClass({
 			if(Object.prototype.toString.call( children ) === '[object Array]' ) {
 				return children.reduce(function(runner, current) {
 					if(runner)return runner;
-					if(current.slug === slug || (typeof current.parent === 'object' && current.parent.slug === slug)) {
+					if(current.slug === slug || (snowUI.menu[current.parent] && snowUi.menu[current.parent].slug === slug)) {
 						snowlog.log(true,current.slug,slug);
 						runner = true
 						return runner;
@@ -341,7 +341,7 @@ UI.Menu = React.createClass({
 				return (<div key={v.slug} className="">
 						<a className={"list-group-item " + active} onClick={_this.props.getPage} href={snowUI.path.root + '/' + v.slug}>{v.title}</a>
 						<div className={"link " + collapse}>
-							{printMenu(v.documents)}
+							{printMenu(v.documents,rantree)}
 						</div>
 					</div>)
 			});
