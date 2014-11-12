@@ -60,6 +60,11 @@ kbd {
 	filter:none;
 	background-repeat: repeat-x;
 }
+.simpledoc .carousel-control.left {
+	background-image: none;
+	filter:none;
+	background-repeat: repeat-x;
+}
 .simpledoc .carousel-caption {
 	height:95px;
 	left:0%;
