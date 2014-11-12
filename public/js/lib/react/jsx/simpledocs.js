@@ -320,7 +320,7 @@ UI.Menu = React.createClass({
 			if(Object.prototype.toString.call( children ) === '[object Array]' ) {
 				return children.reduce(function(runner, current) {
 					if(current.slug === slug) return true;
-					return runTree(slug,v.documents); 
+					return runTree(slug,current.documents); 
 				}, false); 
 			} else {
 				return false;
