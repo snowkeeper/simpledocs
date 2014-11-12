@@ -132,6 +132,43 @@ kbd {
 .simpledoc .carousel-caption.w500 {
 	width:500px;
 }
+
+.simpledoc .carousel-caption.h20 {
+	height:20%;
+}
+.simpledoc .carousel-caption.h25 {
+	height:25%;
+}
+.simpledoc .carousel-caption.h30 {
+	height:30%;
+}
+.simpledoc .carousel-caption.h40 {
+	height:40%;
+}
+.simpledoc .carousel-caption.h50 {
+	height:50%;
+}
+.simpledoc .carousel-caption.h025 {
+	height:25px;
+}
+.simpledoc .carousel-caption.h050 {
+	height:50px;
+}
+.simpledoc .carousel-caption.h100 {
+	height:100px;
+}
+.simpledoc .carousel-caption.h250 {
+	height:250px;
+}
+.simpledoc .carousel-caption.h300 {
+	height:300px;
+}
+.simpledoc .carousel-caption.h400 {
+	height:400px;
+}
+.simpledoc .carousel-caption.h500 {
+	height:500px;
+}
 .simpledoc .carousel-caption .top{
 	color:#FFFCEF;
 	z-index:100;
