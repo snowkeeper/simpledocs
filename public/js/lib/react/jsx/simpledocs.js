@@ -318,17 +318,16 @@ UI.Menu = React.createClass({
 		var runTree = function(slug,children) {
 			/* run through the kids and see if one of them is active so we can show the kid links */
 			if(Object.prototype.toString.call( children ) === '[object Array]' ) {
-				
-				var ret =  children.reduce(function(runner, current) {
-					if(runner)return true;
+				return children.reduce(function(runner, current) {
+					if(runner)return runner;
 					if(current.slug === slug) {
 						snowlog.log(true,current.slug,slug);
 						runner = true
-						return true;
+						return runner;
 					}
 					return runTree(slug,current.documents); 
 				},false); 
-				return ret;
+				
 			} else {
 				return false;
 			}
