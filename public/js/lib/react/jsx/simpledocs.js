@@ -316,20 +316,18 @@ UI.Menu = React.createClass({
 		snowlog.info('menu tree',snowUI.tree);
 		var _this = this;
 		var runTree = function(slug,children) {
-			//console.log(children);
 			/* run through the kids and see if one of them is active so we can show the kid links */
 			if(Object.prototype.toString.call( children ) === '[object Array]' ) {
 				
 				var ret =  children.reduce(function(runner, current) {
 					if(runner)return true;
 					if(current.slug === slug) {
-						console.log(true,current.slug,slug);
+						snowlog.log(true,current.slug,slug);
 						runner = true
 						return true;
 					}
 					return runTree(slug,current.documents); 
 				},false); 
-				console.log('return',ret)
 				return ret;
 			} else {
 				return false;
@@ -339,7 +337,7 @@ UI.Menu = React.createClass({
 			var list = pages.map(function(v) {
 				var active = _this.props.page === v.slug ? 'active' : '';
 				var rantree = skiptree === undefined ? runTree(_this.props.page,v.documents) : skiptree;
-				console.log(v.slug,rantree,skiptree);
+				snowlog.log(v.slug,rantree,skiptree);
 				var collapse = snowUI.collapse ? rantree === true || active === 'active' ? ' ': ' hidden' : ' ';
 				return (<div key={v.slug} className="">
 						<a className={"list-group-item " + active} onClick={_this.props.getPage} href={snowUI.path.root + '/' + v.slug}>{v.title}</a>
