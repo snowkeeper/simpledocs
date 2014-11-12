@@ -319,6 +319,7 @@ UI.Menu = React.createClass({displayName: 'Menu',
 			/* run through the kids and see if one of them is active so we can show the kid links */
 			if(Object.prototype.toString.call( children ) === '[object Array]' ) {
 				return children.reduce(function(runner, current) {
+					console.log(snowUI.menu[current.parent].slug,'parent');
 					if(runner)return runner;
 					if(current.slug === slug || (snowUI.menu[current.parent] && snowUI.menu[current.parent].slug === slug)) {
 						snowlog.log(true,current.slug,slug);
