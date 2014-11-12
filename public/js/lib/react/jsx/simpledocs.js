@@ -329,12 +329,12 @@ UI.Menu = React.createClass({
 		var printMenu = function(pages,skiptree) {
 			var list = pages.map(function(v) {
 				var active = _this.props.page === v.slug ? 'active' : '';
-				var rantree = !skiptree ? runTree(v.slug,v.documents) : false;
+				var rantree = skiptree === undefined ? runTree(v.slug,v.documents) : false;
 				var collapse = snowUI.collapse ? rantree === true ? ' hidden': '' : '';
 				return (<div key={v.slug} className="">
-						<a className={"list-group-item " + active} onClick={_this.props.getPage} href={snowUI.path.root + '/' + v.slug}>{v.title}</a>
-						<div className="link">
-							{printMenu(v.documents,true)}
+						<a className={"list-group-item " + active + collapse} onClick={_this.props.getPage} href={snowUI.path.root + '/' + v.slug}>{v.title}</a>
+						<div className={"link " + collapse}>
+							{printMenu(v.documents,rantree)}
 						</div>
 					</div>)
 			});
