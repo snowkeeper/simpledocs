@@ -102,34 +102,34 @@ kbd {
 	color:#FFFCEF;
 	text-shadow:none;
 }
-.simpledoc .w20 {
+.simpledoc .carousel-caption.w20 {
 	width:20%;
 }
-.simpledoc .w25 {
+.simpledoc .carousel-caption.w25 {
 	width:25%;
 }
-.simpledoc .w30 {
+.simpledoc .carousel-caption.w30 {
 	width:30%;
 }
-.simpledoc .w40 {
+.simpledoc .carousel-caption.w40 {
 	width:40%;
 }
-.simpledoc .w50 {
+.simpledoc .carousel-caption.w50 {
 	width:50%;
 }
-.simpledoc .w100 {
+.simpledoc .carousel-caption.w100 {
 	width:100px;
 }
-.simpledoc .w250 {
+.simpledoc .carousel-caption.w250 {
 	width:250px;
 }
-.simpledoc .w300 {
+.simpledoc .carousel-caption.w300 {
 	width:300px;
 }
-.simpledoc .w400 {
+.simpledoc .carousel-caption.w400 {
 	width:400px;
 }
-.simpledoc .w500 {
+.simpledoc .carousel-caption.w500 {
 	width:500px;
 }
 .simpledoc .carousel-caption .top{
