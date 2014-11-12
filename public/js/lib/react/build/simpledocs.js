@@ -319,7 +319,7 @@ UI.Menu = React.createClass({displayName: 'Menu',
 			/* run through the kids and see if one of them is active so we can show the kid links */
 			if(Object.prototype.toString.call( children ) === '[object Array]' ) {
 				return children.reduce(function(runner, current) {
-					console.log(snowUI.menu[current.parent].slug,'parent');
+					snowlog.log(current.slug,slug);
 					if(runner)return runner;
 					if(current.slug === slug || (snowUI.menu[current.parent] && snowUI.menu[current.parent].slug === slug)) {
 						snowlog.log(true,current.slug,slug);
@@ -336,13 +336,13 @@ UI.Menu = React.createClass({displayName: 'Menu',
 		var printMenu = function(pages,skiptree) {
 			var list = pages.map(function(v) {
 				var active = _this.props.page === v.slug ? 'active' : '';
-				var rantree = skiptree === undefined ? runTree(_this.props.page,v.documents) : skiptree;
+				var rantree = active === 'active' && !snowUI.singleBranch ? true : skiptree === undefined ? runTree(_this.props.page,v.documents) : skiptree;
 				snowlog.log(v.slug,rantree,skiptree);
 				var collapse = snowUI.collapse ? rantree === true || active === 'active' ? ' ': ' hidden' : ' ';
 				return (React.DOM.div({key: v.slug, className: ""}, 
 						React.DOM.a({className: "list-group-item " + active, onClick: _this.props.getPage, href: snowUI.path.root + '/' + v.slug}, v.title), 
 						React.DOM.div({className: "link " + collapse}, 
-							printMenu(v.documents)
+							printMenu(v.documents,rantree)
 						)
 					))
 			});
