@@ -119,11 +119,33 @@ kbd {
 	height:100%;
 	text-shadow:none;
 }
+.simpledoc .carousel-caption.right-top {
+	height:100%;
+	left:initial;
+	right:0;
+	bottom:initial;
+	top:0;
+	color:#FFFCEF;
+	width:200px;
+	height:100%;
+	text-shadow:none;
+}
 .simpledoc .carousel-caption.left {
 	height:100%;
 	left:0;
 	right:initial;
 	bottom:0;
+	color:#FFFCEF;
+	width:200px;
+	height:100%;
+	text-shadow:none;
+}
+.simpledoc .carousel-caption.left-top {
+	height:100%;
+	left:0;
+	right:initial;
+	bottom:intial;
+	top:0;
 	color:#FFFCEF;
 	width:200px;
 	height:100%;

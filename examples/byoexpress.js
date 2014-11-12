@@ -4,8 +4,14 @@ require('dotenv')().load();
 var express = require('express'),
     mongoose = require('mongoose'),
     app = express(),
-    keystone = require('keystone'),
     simpledocs = require('simpledocs');
+
+// Mongoose connection to MongoDB 
+mongoose.connect('mongodb://localhost/snowcoins', function (error) {
+    if (error) {
+        console.log(error);
+    }
+});
 	
 var init = {
     
