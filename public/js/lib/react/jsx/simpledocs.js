@@ -327,8 +327,8 @@ UI.Menu = React.createClass({
 						runner = true
 						return runner;
 					}
-					return runTree(slug,current.documents); 
-				}); 
+					runTree(slug,current.documents); 
+				},false); 
 				console.log('return',ret)
 				return ret;
 			} else {
