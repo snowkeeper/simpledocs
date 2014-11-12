@@ -328,7 +328,7 @@ UI.Menu = React.createClass({displayName: 'Menu',
 						return runner;
 					}
 					return runTree(slug,current.documents); 
-				}, false); 
+				}); 
 				console.log('return',ret)
 				return ret;
 			} else {
