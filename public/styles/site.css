@@ -59,6 +59,9 @@ kbd {
 	width:auto;
 	margin-left: initial;
 	left:initial;
+	border-color:#070F13;
+}
+.simpledoc .carousel-indicators.active {
 	color:#070F13;
 }
 .simpledoc .carousel-control {
@@ -525,6 +528,9 @@ body.dark-theme {
 	border-color:  #142D38;
 }
 .dark-theme .simpledoc .carousel-indicators {
+	border-:#FFFCEF;
+}
+.dark-theme .simpledoc .carousel-indicators.active {
 	color:#FFFCEF;
 }
 .dark-theme #menu {
