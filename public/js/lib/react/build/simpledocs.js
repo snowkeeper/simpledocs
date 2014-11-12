@@ -342,10 +342,11 @@ UI.Menu = React.createClass({displayName: 'Menu',
 		}
 		var menu = snowUI.tree.map(function(v) {
 			var active = _this.props.page === v.slug ? 'active' : '';
+			/* our first entry is the root document
+			 * printMenu takes care of the children
+			* */
 			return (React.DOM.div({className: "list-group", key: v.slug}, 
-					"/* our first entry is the root document" + ' ' +
-					 "* printMenu takes care of the children" + ' ' +
-					 "* */", 
+					
 					React.DOM.a({className: "list-group-item head", onClick: _this.props.toggleMenu}, snowText.menu), 
 					React.DOM.div({key: v.slug, className: ""}, 
 						React.DOM.a({className: "list-group-item " + active, onClick: _this.props.getPage, href: snowUI.path.root + '/' + v.slug}, v.title)
