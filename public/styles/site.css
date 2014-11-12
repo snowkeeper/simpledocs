@@ -61,8 +61,11 @@ kbd {
 	left:initial;
 	border-color:#070F13;
 }
-.simpledoc .carousel-indicators.active {
-	color:#070F13;
+.simpledoc .carousel-indicators li{
+	border-color:#070F13;
+}
+.simpledoc .carousel-indicators .active {
+	background-color:#070F13;
 }
 .simpledoc .carousel-control {
 	width:8%;
@@ -527,11 +530,11 @@ body.dark-theme {
 	background:  #0D1C23;
 	border-color:  #142D38;
 }
-.dark-theme .simpledoc .carousel-indicators {
-	border-:#FFFCEF;
+.dark-theme .simpledoc .carousel-indicators li{
+	border-color:#FFFCEF;
 }
 .dark-theme .simpledoc .carousel-indicators.active {
-	color:#FFFCEF;
+	background-color:#FFFCEF;
 }
 .dark-theme #menu {
 	background: #0A181E;
