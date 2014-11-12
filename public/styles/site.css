@@ -51,7 +51,12 @@ kbd {
 }
 
 .simpledoc .carousel-indicators {
-	bottom: -8px;
+	bottom: initial;
+	position:relative;
+	top:initial;
+	width:auto;
+	margin-left: initial;
+	left:initial;
 }
 .simpledoc .carousel-control.right {
 	right: 0;
