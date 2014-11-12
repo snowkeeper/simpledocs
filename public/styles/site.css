@@ -533,7 +533,7 @@ body.dark-theme {
 .dark-theme .simpledoc .carousel-indicators li{
 	border-color:#FFFCEF;
 }
-.dark-theme .simpledoc .carousel-indicators.active {
+.dark-theme .simpledoc .carousel-indicators .active {
 	background-color:#FFFCEF;
 }
 .dark-theme #menu {
