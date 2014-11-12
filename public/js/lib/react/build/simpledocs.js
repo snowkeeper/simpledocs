@@ -321,13 +321,13 @@ UI.Menu = React.createClass({displayName: 'Menu',
 			if(Object.prototype.toString.call( children ) === '[object Array]' ) {
 				
 				var ret =  children.reduce(function(runner, current) {
-					
+					if(runner)return true;
 					if(current.slug === slug) {
 						console.log(true,current.slug,slug);
 						runner = true
-						return runner;
+						return true;
 					}
-					runTree(slug,current.documents); 
+					return runTree(slug,current.documents); 
 				},false); 
 				console.log('return',ret)
 				return ret;
