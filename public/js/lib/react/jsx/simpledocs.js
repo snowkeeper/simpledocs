@@ -341,7 +341,7 @@ UI.Menu = React.createClass({
 				return (<div key={v.slug} className="">
 						<a className={"list-group-item " + active} onClick={_this.props.getPage} href={snowUI.path.root + '/' + v.slug}>{v.title}</a>
 						<div className={"link " + collapse}>
-							{printMenu(v.documents,rantree)}
+							{printMenu(v.documents)}
 						</div>
 					</div>)
 			});
