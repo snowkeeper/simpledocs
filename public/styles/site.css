@@ -169,27 +169,46 @@ kbd {
 .simpledoc .carousel-caption.w30 {
 	width:30%;
 }
+.simpledoc .carousel-caption.w35 {
+	width:35%;
+}
 .simpledoc .carousel-caption.w40 {
 	width:40%;
+}
+.simpledoc .carousel-caption.w45 {
+	width:45%;
 }
 .simpledoc .carousel-caption.w50 {
 	width:50%;
 }
+.simpledoc .carousel-caption.w55 {
+	width:55%;
+}
 .simpledoc .carousel-caption.w60 {
 	width:60%;
+}
+.simpledoc .carousel-caption.w65 {
+	width:65%;
 }
 .simpledoc .carousel-caption.w70 {
 	width:70%;
 }
+.simpledoc .carousel-caption.w75 {
+	width:75%;
+}
 .simpledoc .carousel-caption.w80 {
 	width:80%;
+}
+.simpledoc .carousel-caption.w85 {
+	width:85%;
 }
 .simpledoc .carousel-caption.w90 {
 	width:90%;
 }
-.simpledoc .carousel-caption.w99 {
-	width:100%;
+.simpledoc .carousel-caption.w95 {
+	width:95%;
 }
+
 .simpledoc .carousel-caption.w025 {
 	width:25px;
 }
@@ -224,26 +243,44 @@ kbd {
 .simpledoc .carousel-caption.h30 {
 	height:30%;
 }
+.simpledoc .carousel-caption.h35 {
+	height:35%;
+}
 .simpledoc .carousel-caption.h40 {
 	height:40%;
+}
+.simpledoc .carousel-caption.h45 {
+	height:45%;
 }
 .simpledoc .carousel-caption.h50 {
 	height:50%;
 }
+.simpledoc .carousel-caption.h55 {
+	height:55%;
+}
 .simpledoc .carousel-caption.h60 {
 	height:60%;
+}
+.simpledoc .carousel-caption.h65 {
+	height:65%;
 }
 .simpledoc .carousel-caption.h70 {
 	height:70%;
 }
+.simpledoc .carousel-caption.h75 {
+	height:75%;
+}
 .simpledoc .carousel-caption.h80 {
 	height:80%;
 }
+.simpledoc .carousel-caption.h85 {
+	height:85%;
+}
+.simpledoc .carousel-caption.h95 {
+	height:95%;
+}
 .simpledoc .carousel-caption.h90 {
 	height:90%;
-}
-.simpledoc .carousel-caption.h99 {
-	height:100%;
 }
 .simpledoc .carousel-caption.h025 {
 	height:25px;
