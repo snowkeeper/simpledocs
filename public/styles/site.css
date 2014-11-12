@@ -198,6 +198,9 @@ kbd {
 .simpledoc .carousel-caption.h050 {
 	height:50px;
 }
+.simpledoc .carousel-caption.h075 {
+	height:75px;
+}
 .simpledoc .carousel-caption.h100 {
 	height:100px;
 }
@@ -213,7 +216,7 @@ kbd {
 .simpledoc .carousel-caption.h500 {
 	height:500px;
 }
-.simpledoc .carousel-caption .top{
+.simpledoc .carousel-caption .caption-text{
 	color:#FFFCEF;
 	z-index:100;
 	position: absolute;
