@@ -45,6 +45,11 @@ kbd {
 	padding:4px;
 
 }
+pre {
+	word-wrap: initial;
+	word-break: initial;
+}
+	
 #carousel-example-generic {
 	max-width: 940px;
 	margin:0 auto;
