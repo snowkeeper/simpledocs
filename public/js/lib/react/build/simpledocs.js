@@ -424,13 +424,16 @@ UI.UI = React.createClass({displayName: 'UI',
 		var _this = this,
 			url = snowUI.api.page + '/' + page
 			data = {};
-		snowUI.flash('message','Loading ' + page,10000);
+			
+		var showLoadingIfTimer = setTimeout(function(){snowUI.flash('message','Loading ' + page,10000)},500);
+		
 		//snowlog.log('target',$(e.target)[0].dataset.snowslug);
 		snowUI.ajax.GET(url,data,function(resp) {
+			clearTimeout(showLoadingIfTimer);
 			snowUI.killFlash('message');
 			if(resp.page) {
 				snowlog.info('get page',resp);
-				if(!_this.state.ready)snowUI.flash('message','Welcome to '+snowText.build.name+'. Please select a document.',8888);
+				if(!_this.state.ready)snowUI.flash('message','Welcome to '+snowText.build.name+'.',8888);
 				var _state={}
 				_state.pagedata = resp.page;
 				_state.connecting = false;
@@ -454,7 +457,7 @@ UI.UI = React.createClass({displayName: 'UI',
 				_this.setState(_state);
 			}
 			return false;
-		})
+		});
 		
 	},
 	
