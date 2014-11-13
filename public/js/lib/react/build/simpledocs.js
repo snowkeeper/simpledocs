@@ -424,8 +424,10 @@ UI.UI = React.createClass({displayName: 'UI',
 		var _this = this,
 			url = snowUI.api.page + '/' + page
 			data = {};
+		snowUI.flash('message','Loading ' + page,10000);
 		//snowlog.log('target',$(e.target)[0].dataset.snowslug);
 		snowUI.ajax.GET(url,data,function(resp) {
+			snowUI.killFlash('message');
 			if(resp.page) {
 				snowlog.info('get page',resp);
 				if(!_this.state.ready)snowUI.flash('message','Welcome to '+snowText.build.name+'. Please select a document.',8888);
