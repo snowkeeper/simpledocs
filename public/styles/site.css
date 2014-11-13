@@ -16,6 +16,10 @@ body {
     width: 100%;
     overflow: auto;
 }
+.container-fluid {
+	padding-right: 0px;
+	padding-left: 0px;
+}
 .list-group-item {
 	border:none;
 	border-radius:0;
@@ -491,6 +495,7 @@ pre {
 .fademessage {
     background-color: #49618F;
     background-color: #414d66;
+    
     color: #fff;
     font-size: 15px;
     font-weight: bold;
