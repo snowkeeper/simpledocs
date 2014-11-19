@@ -245,7 +245,7 @@ UI.home = React.createClass({
 							: <span />
 					: <span />;
 			}
-			var related = [];
+			var related = []; 
 			if(Object.prototype.toString.call(doc.links) !== '[object Array]')doc.links=[];
 			if(doc.links.length > 0) {
 				related = doc.links.map(function(v){
