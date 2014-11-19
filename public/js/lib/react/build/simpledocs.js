@@ -571,7 +571,7 @@ UI.AppInfo = React.createClass({displayName: 'AppInfo',
 					React.DOM.div({className: "col-xs-11 col-md-5"}, 
 						React.DOM.h4(null, "Share"), 
 						React.DOM.div({className: "row"}, 
-							React.DOM.div({title: "inquisive.link/.simpledocs", className: "col-sm-offset-1 col-sm-5 col-md-offset-1 col-md-5"}, " ", React.DOM.a({href: "https://inquisive.link/.simpledocs", target: "_blank"}, ".simpledocs")), 
+							React.DOM.div({title: "inquisive.link/.simpledocs", className: "col-sm-offset-1 col-sm-5 col-md-offset-1 col-md-5"}, " ", React.DOM.a({href: "http://inquisive.link/.simpledocs", target: "_blank"}, ".simpledocs")), 
 							React.DOM.br(null)
 						)
 					), 
@@ -592,13 +592,13 @@ UI.AppInfo = React.createClass({displayName: 'AppInfo',
 					React.DOM.div({className: "col-xs-11 col-md-5"}, 
 						React.DOM.h4(null, "About"), 
 						React.DOM.div({className: "row"}, 
-							React.DOM.div({className: "col-sm-offset-1"}, React.DOM.a({href: "https://inquisive.link/docs/simpledocs", target: "_blank"}, "About / Documents / Demo"))
+							React.DOM.div({className: "col-sm-offset-1"}, React.DOM.a({href: "http://inquisive.link/docs/simpledocs", target: "_blank"}, "About / Documents / Demo"))
 						)
 					), 
 					React.DOM.div({className: "col-xs-11 col-md-5"}, 
 						React.DOM.h4(null, "Donate"), 
 						React.DOM.div({className: "row"}, 
-							React.DOM.div({title: "inquisive.link/.simpledocs.donate", className: "col-sm-offset-1 col-sm-5 col-md-offset-1 col-md-5"}, " ", React.DOM.a({href: "https://inquisive.link/.simpledocs.donate", target: "_blank"}, ".simpledocs.donate")), 
+							React.DOM.div({title: "inquisive.link/.simpledocs.donate", className: "col-sm-offset-1 col-sm-5 col-md-offset-1 col-md-5"}, " ", React.DOM.a({href: "http://inquisive.link/.simpledocs.donate", target: "_blank"}, ".simpledocs.donate")), 
 							React.DOM.br(null)
 						)
 					), 
