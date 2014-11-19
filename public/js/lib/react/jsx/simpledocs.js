@@ -571,7 +571,7 @@ UI.AppInfo = React.createClass({
 					<div className="col-xs-11 col-md-5">
 						<h4>Share</h4>
 						<div className="row">
-							<div title="inquisive.link/.simpledocs" className="col-sm-offset-1 col-sm-5 col-md-offset-1 col-md-5"> <a href="https://inquisive.link/.simpledocs" target="_blank">.simpledocs</a></div>
+							<div title="inquisive.link/.simpledocs" className="col-sm-offset-1 col-sm-5 col-md-offset-1 col-md-5"> <a href="http://inquisive.link/.simpledocs" target="_blank">.simpledocs</a></div>
 							<br />
 						</div>
 					</div>
@@ -592,13 +592,13 @@ UI.AppInfo = React.createClass({
 					<div className="col-xs-11 col-md-5">
 						<h4>About</h4>
 						<div className="row">
-							<div className="col-sm-offset-1"><a href="https://inquisive.link/docs/simpledocs" target="_blank">About / Documents / Demo</a></div>
+							<div className="col-sm-offset-1"><a href="http://inquisive.link/docs/simpledocs" target="_blank">About / Documents / Demo</a></div>
 						</div>
 					</div>
 					<div className="col-xs-11 col-md-5">
 						<h4>Donate</h4>
 						<div className="row">
-							<div title="inquisive.link/.simpledocs.donate" className="col-sm-offset-1 col-sm-5 col-md-offset-1 col-md-5"> <a href="https://inquisive.link/.simpledocs.donate" target="_blank">.simpledocs.donate</a></div>
+							<div title="inquisive.link/.simpledocs.donate" className="col-sm-offset-1 col-sm-5 col-md-offset-1 col-md-5"> <a href="http://inquisive.link/.simpledocs.donate" target="_blank">.simpledocs.donate</a></div>
 							<br />
 						</div>
 					</div>
