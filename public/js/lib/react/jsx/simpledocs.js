@@ -246,7 +246,7 @@ UI.home = React.createClass({
 					: <span />;
 			}
 			var related = [];
-			if(!snowUI.isArray(doc.links))doc.links=[];
+			if(Object.prototype.toString.call(doc.links) !== '[object Array]')doc.links=[];
 			if(doc.links.length > 0) {
 				related = doc.links.map(function(v){
 					return (<div className="related-bubble" key={v.slug + 'related'} ><a className="badge bg-primary" onClick={_this.props.getPage} href={snowUI.path.root + '/' + v.slug}>{v.title}</a></div>);

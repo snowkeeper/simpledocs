@@ -246,7 +246,7 @@ UI.home = React.createClass({displayName: 'home',
 					: React.DOM.span(null);
 			}
 			var related = [];
-			if(!snowUI.isArray(doc.links))doc.links=[];
+			if(Object.prototype.toString.call(doc.links) !== '[object Array]')doc.links=[];
 			if(doc.links.length > 0) {
 				related = doc.links.map(function(v){
 					return (React.DOM.div({className: "related-bubble", key: v.slug + 'related'}, React.DOM.a({className: "badge bg-primary", onClick: _this.props.getPage, href: snowUI.path.root + '/' + v.slug}, v.title)));
