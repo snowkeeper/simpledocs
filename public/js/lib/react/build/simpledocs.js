@@ -174,7 +174,7 @@ UI.home = React.createClass({displayName: 'home',
 			});
 			return list;
 		}
-		console.log(this.state.ready,this.props.contents);
+		//console.log(this.state.ready,this.props.contents);
 		if(this.state.ready && this.props.contents) {
 			var doc = this.props.contents;
 			if(doc.ok) {
@@ -491,7 +491,7 @@ UI.UI = React.createClass({displayName: 'UI',
 			snowUI.killFlash('message');
 			if(resp.search) {
 				
-				console.log('got search results',resp);
+				//console.log('got search results',resp);
 				if(!_this.state.ready)snowUI.flash('message','Welcome to '+snowText.build.name+'.',8888);
 				var _state={}
 				_state.searchdata = resp.search;
