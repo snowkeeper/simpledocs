@@ -3,7 +3,7 @@
 
 Built with ReactJS & KeystoneJS
 
-[Demo / Documentation](http://inquisive.link/docs/simpledocs)
+[Demo / Documentation](https://inquisive.link/docs/simpledocs)
 
 ### Install
 
@@ -16,4 +16,4 @@ npm install simpledocs
 }
 ```
 
-![simpledocs](https://res.cloudinary.com/snowpi/image/upload/v1422889925/About_-_Google_Chrome_014_hqff7l.png)
+[![simpledocs](https://res.cloudinary.com/snowpi/image/upload/v1422889925/About_-_Google_Chrome_014_hqff7l.png)](https://inquisive.link/docs/simpledocs)
