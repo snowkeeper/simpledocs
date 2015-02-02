@@ -1,6 +1,6 @@
 {
   "name": "simpledocs",
-  "version": "0.0.13",
+  "version": "0.0.15",
   "private": false,
   "description": "simple documentation site using Keystone UI; built with ReactJS",
   "main": "./lib/index.js",
@@ -15,7 +15,7 @@
     "keystone": "0.2.x",
     "sanitizer": "",
     "jade": "1.5.x",
-    "express": "3.3.x",
+    "express": "4.x.x",
     "hat": "",
     "async": "~0.9.x",
     "snowpi-greeter": "0.1.x"
@@ -52,8 +52,8 @@
     "url": "https://github.com/snowkeeper/simpledocs/issues"
   },
   "scripts": {},
-  "_id": "simpledocs@0.0.13",
-  "_from": "simpledocs@0.0.12",
+  "_id": "simpledocs@0.0.15",
+  "_from": "simpledocs@0.0.14",
   "homepage": "https://inquisive.link/docs/simpledocs",
   "_shasum": "6e62b8933c111779d34d99434ad589a3adcb27dd"
 }
