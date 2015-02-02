@@ -635,9 +635,9 @@ UI.AppInfo = React.createClass({
 					<div className="col-xs-10 col-md-5">
 						<h4>Get SimpleDocs</h4>
 						<div className="row">
-							<div className="col-sm-offset-1 col-sm-11">GitHub &nbsp;&nbsp;&nbsp;<a href="https://github.com/snowkeeper/simpledocs" target="_blank">source</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="https://github.com/snowkeeper/simpledocs/archive/latest.zip" target="_blank">latest.zip</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://github.com/snowkeeper/simpledocs/archive/latest.tar.gz" target="_blank">latest.tar.gz</a></div>
-							<div className="col-sm-offset-1 col-sm-11"><a href="https://npmjs.org/package/simpledocs" target="_blank">NPMJS</a></div>
-							<div className="col-sm-offset-1 col-sm-11">Standalone <a href="https://github.com/snowkeeper/simpledocs-standalone" target="_blank">source</a>&nbsp;|&nbsp;<a href="https://github.com/snowkeeper/simpledocs-standalone/archive/latest.zip" target="_blank">zip</a>&nbsp;|&nbsp;<a href="https://github.com/snowkeeper/simpledocs-standalone/archive/latest.tar.gz" target="_blank">gz</a></div>
+							<div className="col-sm-offset-1 col-sm-11">GitHub &nbsp;&nbsp;&nbsp;<a href="https://github.com/inquisive/simpledocs" target="_blank">source</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="https://github.com/snowkeeper/simpledocs/archive/latest.zip" target="_blank">latest.zip</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://github.com/snowkeeper/simpledocs/archive/latest.tar.gz" target="_blank">latest.tar.gz</a></div>
+							<div className="col-sm-offset-1 col-sm-11"><a href="https://npmjs.org/package/simpledocs" target="_blank">NPM</a></div>
+							<div className="col-sm-offset-1 col-sm-11">Standalone <a href="https://github.com/inquisive/simpledocs-standalone" target="_blank">source</a>&nbsp;|&nbsp;<a href="https://github.com/snowkeeper/simpledocs-standalone/archive/latest.zip" target="_blank">zip</a>&nbsp;|&nbsp;<a href="https://github.com/snowkeeper/simpledocs-standalone/archive/latest.tar.gz" target="_blank">gz</a></div>
 							
 						</div>
 						<div style={{borderBottom:'transparent 15px solid'}} />

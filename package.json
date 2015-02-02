@@ -1,12 +1,12 @@
 {
   "name": "simpledocs",
-  "version": "0.0.19",
+  "version": "0.0.20",
   "private": false,
   "description": "simple documentation site using Keystone UI; built with ReactJS",
   "main": "./lib/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/snowkeeper/simpledocs"
+    "url": "https://github.com/inquisive/simpledocs"
   },
   "directories": {
     "lib": "./lib"
@@ -50,7 +50,7 @@
   "readmeFilename": "README.md",
   "gitHead": "62e1cc88c69f1286cd1884f32489d684a24265eb",
   "bugs": {
-    "url": "https://github.com/snowkeeper/simpledocs/issues"
+    "url": "https://github.com/inquisive/simpledocs/issues"
   },
   "scripts": {},
   "homepage": "https://inquisive.link/docs/simpledocs",
