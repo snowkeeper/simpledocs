@@ -602,8 +602,8 @@ body.light-theme {
     color: #61636D;
 }
 .light-theme pre,.light-theme code {
-	background:  #D8E6EE;
-	border-color:  #193947;
+	background:  #EBEDF3;
+	border-color:  #C4CCD4;
 	color: #2C3940;
 	overflow:auto;
 }
@@ -654,7 +654,7 @@ body.light-theme {
 	background: #2890C1;
 }
 .light-theme #banner .banner-inside #title {
-	color: #C3C4D4;
+	color: #A6A8B0/*#A2B0C6;*/
 	font-size:20px;
 	font-weight:bold;
 }
