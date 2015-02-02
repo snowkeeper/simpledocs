@@ -16,3 +16,4 @@ npm install simpledocs
 }
 ```
 
+![simpledocs](https://res.cloudinary.com/snowpi/image/upload/v1422889925/About_-_Google_Chrome_014_hqff7l.png)
