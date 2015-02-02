@@ -1,5 +1,5 @@
 # SimpleDocs
-### create app documention. 
+### documentation builder
 
 Built with ReactJS & KeystoneJS
 
