@@ -596,6 +596,59 @@ body {
 	border-color:#D1CFC4;
 }
 
+.searchToggle {
+	position: absolute;
+	width:25px;
+	height:25px;
+	padding:8px 0 0;
+	font-size:16px;
+	color: #666;
+	top:0;
+	right: 0;
+	cursor: pointer;
+	z-index:10;
+	color:#aaa;
+}
+.search-slider {
+	z-index:10;
+	background: #fff;
+	border: #eff;
+	width: 100%;
+	height:0px;
+	position: static;
+	-webkit-transition: all 0.5s ease-in-out 0s;
+	transition: all 0.5s ease-in-out 0s;
+}
+.search-slider input {
+	border: 0;
+	height:0;
+	display:none;
+	font-size:14px;
+}
+.search-slider.open, .search-slider.open input  {
+	height: 45px;
+	border: 0;
+	display: block;
+}
+
+.search-result.item {
+	padding: 10px;
+	margin-bottom:20px;
+}
+.search-result.item .score {
+	height:3px;
+	background:#2890C1;
+	max-width:100%;
+}
+.search-result.item .title {
+	
+}
+.search-result.item .blurb {
+	max-height:80px;
+	overflow: hidden;
+}
+
+
 /* light theme */
 body.light-theme {
     background-color: #FDFDFD;
@@ -654,9 +707,8 @@ body.light-theme {
 	background: #2890C1;
 }
 .light-theme #banner .banner-inside #title {
-	color: #A6A8B0/*#A2B0C6;*/
-	font-size:20px;
-	font-weight:bold;
+	color: #A6A8B0;/*#A2B0C6;*/
+	font-size:18px;
 }
 .light-theme #home .related {
 	border-color:#0D1E26;

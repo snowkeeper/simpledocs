@@ -154,7 +154,7 @@ UI.home = React.createClass({
 	},
 	componentWillReceiveProps: function(props) {
 		snowlog.log('home got props',props)
-		if(props.contents.slug) {
+		if(props.contents.slug || props.contents.ok) {
 			this.setState({ready:yes});
 		} else {
 			this.setState({ready:no});
@@ -174,76 +174,112 @@ UI.home = React.createClass({
 			});
 			return list;
 		}
+		console.log(this.state.ready,this.props.contents);
 		if(this.state.ready && this.props.contents) {
-			
 			var doc = this.props.contents;
-			if(typeof doc !== 'object')doc = {}
-			if(typeof doc.parent !== 'object')doc.parent = {}
-			var content = 
-				doc.display === 1 ? 
-					this.props.contents.markdown ? 
-						(<div key="fullcontent"><div dangerouslySetInnerHTML={{__html: this.props.contents.markdown.html}} /> </div>)
-						: <span /> 
-					: doc.display === 2 ? 
-						(<div key="fullcontent" ><div dangerouslySetInnerHTML={{__html: this.props.contents.html}} /> </div>)
-						: doc.display === 3 ? 
-							(<div key="fullcontent"> <div key="fullcontentB"  dangerouslySetInnerHTML={{__html: this.props.contents.markdown.html}} /><div  key="fullcontentA"  dangerouslySetInnerHTML={{__html: this.props.contents.html}} /></div>) 
-							: doc.display === 4 ? 
-								(<div key="fullcontent"> <div key="fullcontentA"  dangerouslySetInnerHTML={{__html: this.props.contents.html}} /><div  key="fullcontentB"  dangerouslySetInnerHTML={{__html: this.props.contents.markdown.html}} /></div>)
-								: <span />  
-			
-			
-			if(doc.type === 1) {
-				/* show the content only */
-				var display = content;
-				
-			} else if(doc.type === 2) {
-				/* show list of child root documents */
-				if(snowUI.menu[doc._id]) {
-					var list = snowUI.menu[doc._id].docs;
-					var display = printMenu(list)			
+			if(doc.ok) {
+				/* search results */
+				var search = true;
+				var prev;
+				var next;
+				var results = doc.results.length;
+				if(results > 0) {
+					var display = doc.results.map(function(result) {
+						var score = result.score;
+						var page = result.obj;
+						var content = 
+							page.display === 1 ? 
+								page.markdown ? 
+									(<div key="fullcontent"><div dangerouslySetInnerHTML={{__html: page.markdown.html}} /> </div>)
+									: <span /> 
+								: page.display === 2 ? 
+									(<div key="fullcontent" ><div dangerouslySetInnerHTML={{__html:page.html}} /> </div>)
+									: page.display === 3 ? 
+										(<div key="fullcontent"> <div key="fullcontentB"  dangerouslySetInnerHTML={{__html: page.html}} /><div  key="fullcontentA"  dangerouslySetInnerHTML={{__html: page.html}} /></div>) 
+										: page.display === 4 ? 
+											(<div key="fullcontent"> <div key="fullcontentA"  dangerouslySetInnerHTML={{__html: page.html}} /><div  key="fullcontentB"  dangerouslySetInnerHTML={{__html: page.markdown.html}} /></div>)
+											: <span />  
+						return (<div key={score} className="search-result item">
+							<div className="title"><h3><a href={snowUI.path.root + '/' + page.slug} className="sdlink" >{page.title}</a></h3></div>
+							<div className="score" style={{width:(parseFloat(score)*100) + '%'}} />
+							<div className="blurb">{content}</div>
+						</div>);
+					});
+				} else {
+					var display = <h4>No results</h4>;
 				}
 				
 			} else {
-				/* show the contents then a list of child root documents */
-				//snowlog.info('show content and child doc list',snowUI.menu,doc._id);
-				var display = [];
-				if(snowUI.menu[doc._id]) {
-					var list = snowUI.menu[doc._id].docs;
-					var display = printMenu(list)			
-				}
-				display.unshift(<div key="dualpage">{content}</div>);
-			}
-			if(snowUI.menu[doc._id]) {
-				var prev = snowUI.menu[doc.parent._id] ? 
-					typeof snowUI.menu[doc.parent._id].docs[doc.order-2] === 'object' ? 
-						(<li className="previous"><a href={snowUI.path.root + '/' + snowUI.menu[doc.parent._id].docs[doc.order-2].slug}  onClick={_this.props.getPage}  >&larr; {snowUI.menu[doc.parent._id].docs[doc.order-2].title}</a></li>) 
-						: <span /> 
-					: <span />;
-				var next = snowUI.menu[doc._id] ? 
-					typeof snowUI.menu[doc._id].docs[0] === 'object' ? 
-						(<li className="next"><a href={snowUI.path.root + '/' + snowUI.menu[doc._id].docs[0].slug}  onClick={_this.props.getPage}  >&rarr; {snowUI.menu[doc._id].docs[0].title}</a></li>) 
-						: <span /> 
-					: <span />;
-			} else {
-				var prev = snowUI.menu[doc.parent._id] ?
-					typeof snowUI.menu[doc.parent._id].docs[doc.order-2] === 'object' ?
-						(<li className="previous"><a href={snowUI.path.root + '/' + snowUI.menu[doc.parent._id].docs[doc.order-2].slug}  onClick={_this.props.getPage}  >&larr; {snowUI.menu[doc.parent._id].docs[doc.order-2].title}</a></li>) 
-						:  snowUI.menu[doc.parent.parent] ?
-							typeof snowUI.menu[doc.parent.parent].docs[doc.parent.order-1] === 'object' ?
-								(<li className="previous"><a href={snowUI.path.root + '/' + snowUI.menu[doc.parent.parent].docs[doc.parent.order-1].slug}  onClick={_this.props.getPage}  >&larr; {snowUI.menu[doc.parent.parent].docs[doc.parent.order-1].title}</a></li>) 
-								: <span />
+				/* page data */
+				var search = false;
+				if(typeof doc !== 'object')doc = {}
+				if(typeof doc.parent !== 'object')doc.parent = {}
+				var content = 
+					doc.display === 1 ? 
+						this.props.contents.markdown ? 
+							(<div key="fullcontent"><div dangerouslySetInnerHTML={{__html: this.props.contents.markdown.html}} /> </div>)
 							: <span /> 
-					: <span />;
-				var next = snowUI.menu[doc.parent._id] ?
-					typeof snowUI.menu[doc.parent._id].docs[doc.order] === 'object' ? 
-						(<li className="next"><a href={snowUI.path.root + '/' + snowUI.menu[doc.parent._id].docs[doc.order].slug}  onClick={_this.props.getPage}  >&rarr;  {snowUI.menu[doc.parent._id].docs[doc.order].title}</a></li>) 
-						: snowUI.menu[doc.parent.parent] ?
-							typeof snowUI.menu[doc.parent.parent].docs[doc.parent.order] === 'object' ? 
-								(<li className="next"><a href={snowUI.path.root + '/' + snowUI.menu[doc.parent.parent].docs[doc.parent.order].slug}  onClick={_this.props.getPage}  >&rarr;  {snowUI.menu[doc.parent.parent].docs[doc.parent.order].title}</a></li>) 
+						: doc.display === 2 ? 
+							(<div key="fullcontent" ><div dangerouslySetInnerHTML={{__html: this.props.contents.html}} /> </div>)
+							: doc.display === 3 ? 
+								(<div key="fullcontent"> <div key="fullcontentB"  dangerouslySetInnerHTML={{__html: this.props.contents.markdown.html}} /><div  key="fullcontentA"  dangerouslySetInnerHTML={{__html: this.props.contents.html}} /></div>) 
+								: doc.display === 4 ? 
+									(<div key="fullcontent"> <div key="fullcontentA"  dangerouslySetInnerHTML={{__html: this.props.contents.html}} /><div  key="fullcontentB"  dangerouslySetInnerHTML={{__html: this.props.contents.markdown.html}} /></div>)
+									: <span />  
+				
+				
+				if(doc.type === 1) {
+					/* show the content only */
+					var display = content;
+					
+				} else if(doc.type === 2) {
+					/* show list of child root documents */
+					if(snowUI.menu[doc._id]) {
+						var list = snowUI.menu[doc._id].docs;
+						var display = printMenu(list)			
+					}
+					
+				} else {
+					/* show the contents then a list of child root documents */
+					//snowlog.info('show content and child doc list',snowUI.menu,doc._id);
+					var display = [];
+					if(snowUI.menu[doc._id]) {
+						var list = snowUI.menu[doc._id].docs;
+						var display = printMenu(list)			
+					}
+					display.unshift(<div key="dualpage">{content}</div>);
+				}
+				if(snowUI.menu[doc._id]) {
+					var prev = snowUI.menu[doc.parent._id] ? 
+						typeof snowUI.menu[doc.parent._id].docs[doc.order-2] === 'object' ? 
+							(<li className="previous"><a href={snowUI.path.root + '/' + snowUI.menu[doc.parent._id].docs[doc.order-2].slug}  onClick={_this.props.getPage}  >&larr; {snowUI.menu[doc.parent._id].docs[doc.order-2].title}</a></li>) 
+							: <span /> 
+						: <span />;
+					var next = snowUI.menu[doc._id] ? 
+						typeof snowUI.menu[doc._id].docs[0] === 'object' ? 
+							(<li className="next"><a href={snowUI.path.root + '/' + snowUI.menu[doc._id].docs[0].slug}  onClick={_this.props.getPage}  >&rarr; {snowUI.menu[doc._id].docs[0].title}</a></li>) 
+							: <span /> 
+						: <span />;
+				} else {
+					var prev = snowUI.menu[doc.parent._id] ?
+						typeof snowUI.menu[doc.parent._id].docs[doc.order-2] === 'object' ?
+							(<li className="previous"><a href={snowUI.path.root + '/' + snowUI.menu[doc.parent._id].docs[doc.order-2].slug}  onClick={_this.props.getPage}  >&larr; {snowUI.menu[doc.parent._id].docs[doc.order-2].title}</a></li>) 
+							:  snowUI.menu[doc.parent.parent] ?
+								typeof snowUI.menu[doc.parent.parent].docs[doc.parent.order-1] === 'object' ?
+									(<li className="previous"><a href={snowUI.path.root + '/' + snowUI.menu[doc.parent.parent].docs[doc.parent.order-1].slug}  onClick={_this.props.getPage}  >&larr; {snowUI.menu[doc.parent.parent].docs[doc.parent.order-1].title}</a></li>) 
+									: <span />
+								: <span /> 
+						: <span />;
+					var next = snowUI.menu[doc.parent._id] ?
+						typeof snowUI.menu[doc.parent._id].docs[doc.order] === 'object' ? 
+							(<li className="next"><a href={snowUI.path.root + '/' + snowUI.menu[doc.parent._id].docs[doc.order].slug}  onClick={_this.props.getPage}  >&rarr;  {snowUI.menu[doc.parent._id].docs[doc.order].title}</a></li>) 
+							: snowUI.menu[doc.parent.parent] ?
+								typeof snowUI.menu[doc.parent.parent].docs[doc.parent.order] === 'object' ? 
+									(<li className="next"><a href={snowUI.path.root + '/' + snowUI.menu[doc.parent.parent].docs[doc.parent.order].slug}  onClick={_this.props.getPage}  >&rarr;  {snowUI.menu[doc.parent.parent].docs[doc.parent.order].title}</a></li>) 
+									: <span />
 								: <span />
-							: <span />
-					: <span />;
+						: <span />;
+				}
 			}
 			var related = []; 
 			if(Object.prototype.toString.call(doc.links) !== '[object Array]')doc.links=[];
@@ -320,7 +356,7 @@ UI.Menu = React.createClass({
 			/* run through the kids and see if one of them is active so we can show the kid links */
 			if(Object.prototype.toString.call( children ) === '[object Array]' ) {
 				return children.reduce(function(runner, current) {
-					snowlog.log(current.slug,slug);
+					//snowlog.log(current.slug,slug);
 					if(runner)return runner;
 					if(current.slug === slug || (snowUI.menu[current.parent] && snowUI.menu[current.parent].slug === slug)) {
 						snowlog.log(true,current.slug,slug);
@@ -337,8 +373,12 @@ UI.Menu = React.createClass({
 		var printMenu = function(pages,skiptree) {
 			var list = pages.map(function(v) {
 				var active = _this.props.page === v.slug ? 'active' : '';
-				var rantree = active === 'active' && !snowUI.singleBranch ? true : skiptree === undefined ? runTree(_this.props.page,v.documents) : skiptree;
-				snowlog.log(v.slug,rantree,skiptree);
+				var rantree = active === 'active' && !snowUI.singleBranch 
+					? true 
+					: skiptree === undefined 
+						? runTree(_this.props.page,v.documents) 
+						: skiptree;
+				//snowlog.log(v.slug,rantree,skiptree);
 				var collapse = snowUI.collapse ? rantree === true || active === 'active' ? ' ': ' hidden' : ' ';
 				return (<div key={v.slug} className="">
 						<a className={"list-group-item " + active} onClick={_this.props.getPage} href={snowUI.path.root + '/' + v.slug}>{v.title}</a>
@@ -355,12 +395,15 @@ UI.Menu = React.createClass({
 			 * printMenu takes care of the children
 			* */
 			return (<div className="list-group" key={v.slug}>
-					
-					<a className="list-group-item head" onClick={_this.props.toggleMenu} >{snowText.menu}</a>
-					<div key={v.slug} className="">
-						<a className={"list-group-item " + active} onClick={_this.props.getPage} href={snowUI.path.root + '/' + v.slug}>{v.title}</a>
-						
+					<div className="search-slider">
+						<input className="form-control" placeholder="Search" title="Press Enter to submit search" />
 					</div>
+					<a className="list-group-item head" onClick={_this.props.toggleMenu} >{snowText.menu}</a>
+					<div key={v.slug} style={{position:'relative'}}>
+						<a className={"list-group-item " + active} onClick={_this.props.getPage} href={snowUI.path.root + '/' + v.slug}>{v.title}</a>
+						<span className="glyphicon glyphicon-search searchToggle"  onClick={_this.searchToggle} />
+					</div>
+					
 					{printMenu(v.documents)}
 				</div>
 			);
@@ -369,6 +412,19 @@ UI.Menu = React.createClass({
 		return ( <div> 
 				{menu}
 			</div>);
+	},
+	searchToggle: function(e) {
+		$(e.target).parent().prev().prev().toggleClass('open');
+		var $input = $(e.target).parent().prev().prev().find('input');
+		$input.val('');
+		$input.focus();
+		$input.keypress(function( event ) {
+			if ( event.which == 13 ) {
+				event.preventDefault();
+				bone.router.navigate("search:doc/" + $input.val(), {trigger:true});
+			}
+			
+		});
 	},
 	componentDidMount: function() {
 		// When the component is added let me know
@@ -394,7 +450,7 @@ UI.Banner = React.createClass({
 						<div className="inside">{snowUI.name}</div>
 					</div>
 					<div id="title" className="col-xs-6 col-sm-4 col-md-9 col-lg-10">
-						<div className="inside">{typeof this.props.page === 'object' ? this.props.page.title : ''}</div>
+						<div className="inside">{typeof this.props.page === 'object' && !this.props.page.term ? this.props.page.title : typeof this.props.page === 'object' && this.props.page.term ? 'search: ' + this.props.page.term : ''}</div>
 					</div>
 					<div id="logo">
 						<a onClick={this.openEgg} />
@@ -419,11 +475,12 @@ UI.UI = React.createClass({
 			pagedata: false,
 		};
 	},
-	getPage: function(getpage) {
+	getPage: function(getpage, moon) {
 		this.setState({connecting:true});
 		var page = getpage ? getpage : snowUI.homepage;
+		var root = moon === 'search:doc' ? snowUI.api.search : snowUI.api.page;
 		var _this = this,
-			url = snowUI.api.page + '/' + page
+			url = root + '/' + page
 			data = {};
 			
 		var showLoadingIfTimer = setTimeout(function(){snowUI.flash('message','Loading ' + page,10000)},500);
@@ -432,11 +489,27 @@ UI.UI = React.createClass({
 		snowUI.ajax.GET(url,data,function(resp) {
 			clearTimeout(showLoadingIfTimer);
 			snowUI.killFlash('message');
-			if(resp.page) {
-				snowlog.info('get page',resp);
+			if(resp.search) {
+				
+				console.log('got search results',resp);
+				if(!_this.state.ready)snowUI.flash('message','Welcome to '+snowText.build.name+'.',8888);
+				var _state={}
+				_state.searchdata = resp.search;
+				_state.pagedata = false;
+				_state.connecting = false;
+				_state.ready = true;
+				document.title = 'Search Results';
+				_this.setState(_state);
+				
+				var selector = $("#menu");
+				if(selector.css('height') !== '45px' && selector.find('.dropdown').css('display') === 'block')_this.toggleMenu();
+			
+			} else if(resp.page) {
+
 				if(!_this.state.ready)snowUI.flash('message','Welcome to '+snowText.build.name+'.',8888);
 				var _state={}
 				_state.pagedata = resp.page;
+				_state.searchdata = false;
 				_state.connecting = false;
 				_state.ready = true;
 				document.title = resp.page.title;
@@ -454,6 +527,7 @@ UI.UI = React.createClass({
 				var _state={}
 				_state.connecting = false;
 				_state.pagedata = {};
+				_state.searchdata = false;
 				_state.ready = true;
 				_this.setState(_state);
 			}
@@ -475,7 +549,7 @@ UI.UI = React.createClass({
 		snowlog.log('update props',props)
 		var _this = this;
 		
-		this.getPage(props.page);
+		this.getPage(props.page,props.moon);
 		return false;
 		
 		this.setState({pagedata:{}});
@@ -536,14 +610,14 @@ UI.UI = React.createClass({
 		snowlog.log('state',this.state)
 		return (
 			<div>
-				<UI.Banner page={this.state.pagedata} onActionChange={this.handleBannerChange} />
+				<UI.Banner page={this.state.searchdata || this.state.pagedata} onActionChange={this.handleBannerChange} />
 				<div id="menuspy" />
 				<div className="col-xs-12 col-sm-4 col-md-3 col-lg-2"  id="menu" data-target="#simpledocs" data-spy="affix"  data-offset-top="65" >
 					<div className="dropdown" onClick={this.toggleMenu}><span className="dropspan glyphicon glyphicon-chevron-down" /></div>
 					<UI.Menu config={this.state}  getPage={this.hrefRoute} toggleMenu={this.toggleMenu} page={this.props.page}/>
 				</div>
 				<div className="col-xs-12 col-sm-offset-4 col-sm-8 col-md-offset-3 col-md-9 col-lg-offset-2 col-lg-10"  id="home">
-					<UI.home config={this.state}  getPage={this.hrefRoute} contents={this.state.pagedata} />
+					<UI.home config={this.state}  getPage={this.hrefRoute} contents={this.state.searchdata || this.state.pagedata} />
 				</div>
 				
 				

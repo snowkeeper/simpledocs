@@ -1,6 +1,6 @@
 {
   "name": "simpledocs",
-  "version": "0.0.17",
+  "version": "0.0.19",
   "private": false,
   "description": "simple documentation site using Keystone UI; built with ReactJS",
   "main": "./lib/index.js",
@@ -12,12 +12,13 @@
     "lib": "./lib"
   },
   "dependencies": {
-    "keystone": "0.2.x",
-    "sanitizer": "",
-    "jade": "1.5.x",
+    "async": "~0.9.x",
     "express": "4.x.x",
     "hat": "",
-    "async": "~0.9.x",
+    "jade": "1.5.x",
+    "keystone": "0.2.x",
+    "mongoose-text-search": "0.0.2",
+    "sanitizer": "",
     "snowpi-greeter": "0.1.x"
   },
   "devDependencies": {
