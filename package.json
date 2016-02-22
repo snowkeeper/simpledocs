@@ -1,6 +1,6 @@
 {
   "name": "simpledocs",
-  "version": "0.0.25",
+  "version": "0.0.26",
   "private": false,
   "description": "simple documentation site using Keystone UI; built with ReactJS",
   "main": "./lib/index.js",

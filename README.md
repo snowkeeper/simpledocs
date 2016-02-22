@@ -12,7 +12,7 @@ npm install simpledocs
 
 //or add to package.json
 "dependencies": {
-	"simpledocs": "~0.0.x"
+	"simpledocs": "~0.0.26"
 }
 ```
 
