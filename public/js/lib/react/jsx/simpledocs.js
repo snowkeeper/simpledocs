@@ -635,18 +635,17 @@ UI.AppInfo = React.createClass({
 					<div className="col-xs-10 col-md-5">
 						<h4>Get SimpleDocs</h4>
 						<div className="row">
-							<div className="col-sm-offset-1 col-sm-11">GitHub &nbsp;&nbsp;&nbsp;<a href="https://github.com/inquisive/simpledocs" target="_blank">source</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="https://github.com/snowkeeper/simpledocs/archive/latest.zip" target="_blank">latest.zip</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://github.com/snowkeeper/simpledocs/archive/latest.tar.gz" target="_blank">latest.tar.gz</a></div>
-							<div className="col-sm-offset-1 col-sm-11"><a href="https://npmjs.org/package/simpledocs" target="_blank">NPM</a></div>
-							<div className="col-sm-offset-1 col-sm-11">Standalone <a href="https://github.com/inquisive/simpledocs-standalone" target="_blank">source</a>&nbsp;|&nbsp;<a href="https://github.com/snowkeeper/simpledocs-standalone/archive/latest.zip" target="_blank">zip</a>&nbsp;|&nbsp;<a href="https://github.com/snowkeeper/simpledocs-standalone/archive/latest.tar.gz" target="_blank">gz</a></div>
+							<div className="col-sm-offset-1 col-sm-11">GitHub &nbsp;&nbsp;&nbsp;<a href="https://github.com/inquisive/simpledocs" target="_blank">source</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="https://github.com/inquisive/simpledocs/archive/latest.zip" target="_blank">latest.zip</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://github.com/inquisive/simpledocs/archive/latest.tar.gz" target="_blank">latest.tar.gz</a></div>
+							<div className="col-sm-offset-1 col-sm-11">NPM &nbsp;&nbsp;&nbsp;<a href="https://npmjs.org/package/simpledocs" target="_blank">Package Info</a></div>
+							<div className="col-sm-offset-1 col-sm-11">Standalone <a href="https://github.com/inquisive/simpledocs-standalone" target="_blank">source</a>&nbsp;|&nbsp;<a href="https://github.com/inquisive/simpledocs-standalone/archive/latest.zip" target="_blank">zip</a>&nbsp;|&nbsp;<a href="https://github.com/inquisive/simpledocs-standalone/archive/latest.tar.gz" target="_blank">gz</a></div>
 							
 						</div>
 						<div style={{borderBottom:'transparent 15px solid'}} />
 					</div>
 					<div className="col-xs-11 col-md-5">
-						<h4>Share</h4>
+						<h4>About</h4>
 						<div className="row">
-							<div title="inquisive.link/.simpledocs" className="col-sm-offset-1 col-sm-5 col-md-offset-1 col-md-5"> <a href="http://inquisive.link/.simpledocs" target="_blank">.simpledocs</a></div>
-							<br />
+							<div className="col-sm-offset-1"><a href="http://simpledocs.inquisive.com/" target="_blank">About / Documents / Demo</a></div>
 						</div>
 					</div>
 					<div className="clearfix" />
@@ -661,20 +660,6 @@ UI.AppInfo = React.createClass({
 						</div>
 					   
 						<div style={{borderBottom:'transparent 15px solid'}} />
-					</div>
-					<div className="clearfix" />
-					<div className="col-xs-11 col-md-5">
-						<h4>About</h4>
-						<div className="row">
-							<div className="col-sm-offset-1"><a href="http://inquisive.link/docs/simpledocs" target="_blank">About / Documents / Demo</a></div>
-						</div>
-					</div>
-					<div className="col-xs-11 col-md-5">
-						<h4>Donate</h4>
-						<div className="row">
-							<div title="inquisive.link/.simpledocs.donate" className="col-sm-offset-1 col-sm-5 col-md-offset-1 col-md-5"> <a href="http://inquisive.link/.simpledocs.donate" target="_blank">.simpledocs.donate</a></div>
-							<br />
-						</div>
 					</div>
 					<div className="clearfix" style={{borderBottom:'transparent 15px solid'}} />
 					<div className="col-xs-11 col-md-10">

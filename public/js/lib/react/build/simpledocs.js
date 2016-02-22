@@ -635,18 +635,17 @@ UI.AppInfo = React.createClass({displayName: 'AppInfo',
 					React.DOM.div({className: "col-xs-10 col-md-5"}, 
 						React.DOM.h4(null, "Get SimpleDocs"), 
 						React.DOM.div({className: "row"}, 
-							React.DOM.div({className: "col-sm-offset-1 col-sm-11"}, "GitHub    ", React.DOM.a({href: "https://github.com/inquisive/simpledocs", target: "_blank"}, "source"), "   |   ", React.DOM.a({href: "https://github.com/snowkeeper/simpledocs/archive/latest.zip", target: "_blank"}, "latest.zip"), "  |  ", React.DOM.a({href: "https://github.com/snowkeeper/simpledocs/archive/latest.tar.gz", target: "_blank"}, "latest.tar.gz")), 
-							React.DOM.div({className: "col-sm-offset-1 col-sm-11"}, React.DOM.a({href: "https://npmjs.org/package/simpledocs", target: "_blank"}, "NPM")), 
-							React.DOM.div({className: "col-sm-offset-1 col-sm-11"}, "Standalone ", React.DOM.a({href: "https://github.com/inquisive/simpledocs-standalone", target: "_blank"}, "source"), " | ", React.DOM.a({href: "https://github.com/snowkeeper/simpledocs-standalone/archive/latest.zip", target: "_blank"}, "zip"), " | ", React.DOM.a({href: "https://github.com/snowkeeper/simpledocs-standalone/archive/latest.tar.gz", target: "_blank"}, "gz"))
+							React.DOM.div({className: "col-sm-offset-1 col-sm-11"}, "GitHub    ", React.DOM.a({href: "https://github.com/inquisive/simpledocs", target: "_blank"}, "source"), "   |   ", React.DOM.a({href: "https://github.com/inquisive/simpledocs/archive/latest.zip", target: "_blank"}, "latest.zip"), "  |  ", React.DOM.a({href: "https://github.com/inquisive/simpledocs/archive/latest.tar.gz", target: "_blank"}, "latest.tar.gz")), 
+							React.DOM.div({className: "col-sm-offset-1 col-sm-11"}, "NPM    ", React.DOM.a({href: "https://npmjs.org/package/simpledocs", target: "_blank"}, "Package Info")), 
+							React.DOM.div({className: "col-sm-offset-1 col-sm-11"}, "Standalone ", React.DOM.a({href: "https://github.com/inquisive/simpledocs-standalone", target: "_blank"}, "source"), " | ", React.DOM.a({href: "https://github.com/inquisive/simpledocs-standalone/archive/latest.zip", target: "_blank"}, "zip"), " | ", React.DOM.a({href: "https://github.com/inquisive/simpledocs-standalone/archive/latest.tar.gz", target: "_blank"}, "gz"))
 							
 						), 
 						React.DOM.div({style: {borderBottom:'transparent 15px solid'}})
 					), 
 					React.DOM.div({className: "col-xs-11 col-md-5"}, 
-						React.DOM.h4(null, "Share"), 
+						React.DOM.h4(null, "About"), 
 						React.DOM.div({className: "row"}, 
-							React.DOM.div({title: "inquisive.link/.simpledocs", className: "col-sm-offset-1 col-sm-5 col-md-offset-1 col-md-5"}, " ", React.DOM.a({href: "http://inquisive.link/.simpledocs", target: "_blank"}, ".simpledocs")), 
-							React.DOM.br(null)
+							React.DOM.div({className: "col-sm-offset-1"}, React.DOM.a({href: "http://simpledocs.inquisive.com/", target: "_blank"}, "About / Documents / Demo"))
 						)
 					), 
 					React.DOM.div({className: "clearfix"}), 
@@ -661,20 +660,6 @@ UI.AppInfo = React.createClass({displayName: 'AppInfo',
 						), 
 					   
 						React.DOM.div({style: {borderBottom:'transparent 15px solid'}})
-					), 
-					React.DOM.div({className: "clearfix"}), 
-					React.DOM.div({className: "col-xs-11 col-md-5"}, 
-						React.DOM.h4(null, "About"), 
-						React.DOM.div({className: "row"}, 
-							React.DOM.div({className: "col-sm-offset-1"}, React.DOM.a({href: "http://inquisive.link/docs/simpledocs", target: "_blank"}, "About / Documents / Demo"))
-						)
-					), 
-					React.DOM.div({className: "col-xs-11 col-md-5"}, 
-						React.DOM.h4(null, "Donate"), 
-						React.DOM.div({className: "row"}, 
-							React.DOM.div({title: "inquisive.link/.simpledocs.donate", className: "col-sm-offset-1 col-sm-5 col-md-offset-1 col-md-5"}, " ", React.DOM.a({href: "http://inquisive.link/.simpledocs.donate", target: "_blank"}, ".simpledocs.donate")), 
-							React.DOM.br(null)
-						)
 					), 
 					React.DOM.div({className: "clearfix", style: {borderBottom:'transparent 15px solid'}}), 
 					React.DOM.div({className: "col-xs-11 col-md-10"}, 
