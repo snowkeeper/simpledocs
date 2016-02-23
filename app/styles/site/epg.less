@@ -1,0 +1,255 @@
+.epg__container {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	overflow: auto;
+	top: 0;
+	left: 0;
+	color: @snowstreams-blue;
+	.col1 {
+		float: left;
+		width: 20%;
+		height: 100%;
+		position: relative;
+		overflow: hidden;
+		padding: 0;
+	}
+	.col2 {
+		float: left;
+		width: 80%;
+		height: 100%;
+		position: relative;
+		overflow: auto;
+		padding: 0;
+		
+	}
+}
+
+.epg__menuBarTop {
+	width: 100%;
+	height:5%;
+	background: #666;
+	text-align: center;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 15;
+}
+
+.epg__menuBarFloat {
+	width: 100%;
+	height:5%;
+	background: #666;
+	text-align: center;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	z-index: 15;
+}
+
+.epg__confirm {
+	color: #2b2b2b;	
+}
+
+.epg__amber {
+	background-color: rgba(156, 79, 0, 0.8);
+}
+
+
+.epg__box {
+	height: 100%;
+	position: relative;
+	overflow-y: hidden;
+}
+
+.epg__row {
+	clear: both;
+	width: 100%;
+	position: relative;
+	height: 18.5%
+}
+
+.epg__headerRow {
+	clear: both;
+	width: 100%;
+	position: relative;
+	height: 5%;
+}
+
+.epg__footerRow {
+	clear: both;
+	width: 100%;
+	position: relative;
+	height: 5%;
+}
+
+.epg__blankRow {
+	clear: both;
+	width: 100%;
+	position: relative;
+	height: 10%;
+}
+
+.epg__base {
+	width: 100%;
+	height: 100%;
+	background: #fff;
+	z-index: 10;
+	overflow: hidden;
+	touch-action: none;
+	position: relative;
+	margin-top: 20%;
+	#swiping {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.epg__timeSlot {
+	z-index: 9;
+	border-right: 1px dashed lighten(@ftc-black, 10%);
+	border-bottom: 1px dashed lighten(@ftc-black, 10%);
+	color: white;
+	font-size: 12px;
+	height: 99%;
+	overflow: hidden;
+	
+	&.click, .click {
+		cursor:pointer;		
+	}
+	
+}
+
+.epg__ProgramDialog {
+	.divB {
+		background-color: rgba(255,255,255,0.90);
+		padding: 15px;
+		color: #222;
+	}
+}
+
+.epg__programInfo_prop {
+	float: left;
+	padding:5px;
+	margin-left:5px;
+}
+
+
+.epg__channelSlot {	
+	position: relative;
+	padding: 0;
+	background-color: @ftc-white;
+	.text {
+		width: 40px;
+		height:20px;
+		background: @ftc-white;
+		position: absolute;
+		top: 5px;
+		right: 0px;
+		z-index:2;
+		font-size:22px;
+		font-weight: bold;
+		text-align: center;
+		color: darken(@snowstreams-blue, 0%);
+	}
+	.logo {
+		background-position: center;
+		background-size: contain;
+		background-repeat: no-repeat;
+		width: 75%;
+		height: 75%;
+		top: 12.5%;
+		left: 12.5%;
+		position: absolute;
+		z-index:1;
+		background-color: @ftc-white;
+		cursor: pointer;
+	}
+}
+.epg__headerTime {
+	width: 150px;
+	height: 100%;
+	position:absolute;
+	top: 0;
+	left: 0;
+	background: #444;
+	z-index: 10;
+	color: #fff;
+	font-weight: bold;
+	font-size: 14px;
+	border-right: 1px dashed #555;
+	border-bottom: 1px dashed #555;
+	
+	text-align: center;
+}
+
+.public_fixedDataTable_main {
+    border: none;
+}
+.public_fixedDataTable_header, .public_fixedDataTable_hasBottomBorder {
+    border: none;
+}
+.public_fixedDataTable_footer, .public_fixedDataTable_footer .public_fixedDataTableCell_main,
+.public_fixedDataTable_header, .public_fixedDataTable_header .public_fixedDataTableCell_main {
+	background: #444;
+	color: #fff;
+	font-weight: bold;
+	font-size: 14px;
+	border-right: 1px dashed #555;
+	border-bottom: 1px dashed #555;
+}
+
+.public_fixedDataTableCell_custom {
+	background: @ftc-black;
+	border:none;
+}
+.fixedDataTableCellLayout_main {
+	/*position: relative;*/
+}
+.public_fixedDataTableCell_main {
+	border: none;
+	.tartan;
+	background-color: @ftc-black;
+}
+.public_fixedDataTableRow_highlighted, .public_fixedDataTableRow_highlighted .public_fixedDataTableCell_main {
+	border: none;
+	background-color: @ftc-black;
+}
+.public_fixedDataTableRow, .public_fixedDataTableRow .public_fixedDataTableCell_main {
+	
+	background-color: lighten(@ftc-black, 5%);
+	border: none;
+}
+
+.tartan {
+	background-color: @ftc-black;
+	background-image: repeating-linear-gradient(transparent, transparent 50px, rgba(0,0,0,.4) 50px, rgba(0,0,0,.4) 53px, transparent 53px, transparent 63px, rgba(0,0,0,.4) 63px, rgba(0,0,0,.4) 66px, transparent 66px, transparent 116px, rgba(0,0,0,.5) 116px, rgba(0,0,0,.5) 166px, rgba(255,255,255,.2) 166px, rgba(255,255,255,.2) 169px, rgba(0,0,0,.5) 169px, rgba(0,0,0,.5) 179px, rgba(255,255,255,.2) 179px, rgba(255,255,255,.2) 182px, rgba(0,0,0,.5) 182px, #424754 232px, transparent 232px),
+	repeating-linear-gradient(270deg, transparent, transparent 50px, rgba(0,0,0,.4) 50px, rgba(0,0,0,.4) 53px, transparent 53px, transparent 63px, rgba(0,0,0,.4) 63px, rgba(0,0,0,.4) 66px, transparent 66px, transparent 116px, rgba(0,0,0,.5) 116px, rgba(0,0,0,.5) 166px, rgba(255,255,255,.2) 166px, rgba(255,255,255,.2) 169px, rgba(0,0,0,.5) 169px, rgba(0,0,0,.5) 179px, rgba(255,255,255,.2) 179px, rgba(255,255,255,.2) 182px, rgba(0,0,0,.5) 182px, rgba(0,0,0,.5) 232px, transparent 232px),
+	repeating-linear-gradient(125deg, transparent, transparent 2px, rgba(0,0,0,.2) 2px, rgba(0,0,0,.2) 3px, transparent 3px, transparent 5px, rgba(0,0,0,.2) 5px);
+}
+.blueprint {
+	background-color:#269;
+	background-image: linear-gradient(white 2px, transparent 2px),
+	linear-gradient(90deg, white 2px, transparent 2px),
+	linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px),
+	linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px);
+	background-size:100px 100px, 100px 100px, 20px 20px, 20px 20px;
+	background-position:-2px -2px, -2px -2px, -1px -1px, -1px -1px;
+}
+.stripes {
+	background-color: gray;
+	background-image: repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.5) 35px, rgba(255,255,255,.5) 70px);
+}
+
+.center {
+	text-align: center;
+}
+
+.page-middle {
+	position: relative;
+	top: 40%;
+	transform: translateY(-50%);
+}
