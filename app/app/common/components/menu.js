@@ -12,7 +12,7 @@ export default class Menu extends React.Component {
 	}
 	render() {
 		debug('menu render', this.props);
-		 const _this = this;
+		const _this = this;
 		let runTree = (slug,children) => {
 			/* run through the kids and see if one of them is active so we can show the kid links */
 			if(Object.prototype.toString.call( children ) === '[object Array]' ) {
@@ -102,9 +102,15 @@ export default class Menu extends React.Component {
 					})
 				}}
 			>
-				<List subheading={snowUI.name}>
-					{menuList}
-				</List>
+				<div style={{
+					height: '100%',
+					width: '100%',
+					overflow: 'auto',
+				}} >
+					<List subheading={snowUI.name}>
+						{menuList}
+					</List>
+				</div>
 			</LeftNav>
 		);
 		

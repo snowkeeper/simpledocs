@@ -665,7 +665,9 @@ UI.AppInfo = React.createClass({
 					<div className="col-xs-11 col-md-10">
 						<h4>Theme</h4>
 						<div className="row">
-							<div title="change theme" className="col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10"> <a style={{cursor:'pointer'}} onClick={snowUI.toggleTheme}>Switch between light and dark themes</a></div>
+							<div title="change theme" className="col-sm-6"> <a style={{cursor:'pointer'}} onClick={snowUI.toggleTheme}>Switch theme</a></div>
+							<div title="change ui" className="col-sm-6"> <a style={{cursor:'pointer'}} href={snowUI.path.material}>material-ui</a></div>
+							<div className="clearfix" />
 							<br />
 						</div>
 					</div>

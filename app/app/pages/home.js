@@ -1,10 +1,7 @@
 import React from 'react';
 import Debug from 'debug'
 import Gab from '../common/gab'
-import { pickIcon } from '../common/utils';
 import { DropDownMenu, MenuItem, ToolbarGroup, Toolbar, ToolbarSeparator, Divider, CardText, CardMedia, CardHeader, CardActions, Card, CardTitle, Styles, List, IconButton, ListItem, FlatButton, FontIcon } from 'material-ui/lib';
-import { Col } from 'react-bootstrap';
-import Icons from '../assets/icons';
 import Menu from '../common/components/menu';
 
 let debug = Debug('simpledocs:app:pages:home');
@@ -47,13 +44,13 @@ export default class Home extends React.Component {
 		} else {
 			content = 'Loading';
 		}
-		return (<Col xs={12} >
+		return (<div style={{width:'100%'}} >
 			<Card>
 				<CardText>
 					{content}
 				</CardText>
 			</Card>
-		</Col>);
+		</div>);
 	}
 }
 let UI ={
@@ -146,10 +143,13 @@ let UI ={
 									label={snowUI.menu[doc.parent._id].docs[doc.order-2].title}
 									onClick={e => {
 										e.preventDefault();
-										this.props.goTo(snowUI.menu[doc.parent._id].docs[doc.order-2].slug);
+										this.props.goTo({
+											page: snowUI.menu[doc.parent._id].docs[doc.order-2].slug,
+											current: snowUI.menu[doc.parent._id].docs[doc.order-2]
+										});
 									}}
 									secondary={true}
-									icon={<FontIcon className="material-icons" color={Styles.Colors.lightBlue600} hoverColor={Styles.Colors.lightBlue300} >home</FontIcon>}
+									icon={<FontIcon className="material-icons" color={Styles.Colors.lightBlue600} hoverColor={Styles.Colors.lightBlue300} >chevron_left</FontIcon>}
 								/>
 							) 
 							: <span /> 
@@ -161,7 +161,10 @@ let UI ={
 									label={snowUI.menu[doc._id].docs[0].title}
 									onClick={e => {
 										e.preventDefault();
-										this.props.goTo(snowUI.menu[doc._id].docs[0].slug);
+										this.props.goTo({
+											page: snowUI.menu[doc._id].docs[0].slug,
+											current: snowUI.menu[doc._id].docs[0]
+										});
 									}}
 									labelPosition="before"
 									secondary={true}
@@ -178,10 +181,13 @@ let UI ={
 									label={snowUI.menu[doc.parent._id].docs[doc.order-2].title}
 									onClick={e => {
 										e.preventDefault();
-										this.props.goTo(snowUI.menu[doc.parent._id].docs[doc.order-2].slug);
+										this.props.goTo({
+											page: snowUI.menu[doc.parent._id].docs[doc.order-2].slug,
+											current: snowUI.menu[doc.parent._id].docs[doc.order-2]
+										});
 									}}
 									secondary={true}
-									icon={<FontIcon className="material-icons" color={Styles.Colors.lightBlue600} hoverColor={Styles.Colors.lightBlue300} >home</FontIcon>}
+									icon={<FontIcon className="material-icons" color={Styles.Colors.lightBlue600} hoverColor={Styles.Colors.lightBlue300} >chevron_left</FontIcon>}
 								/>
 							) 
 							:  snowUI.menu[doc.parent.parent] ?
@@ -191,10 +197,13 @@ let UI ={
 											label={snowUI.menu[doc.parent.parent].docs[doc.parent.order-1].title}
 											onClick={e => {
 												e.preventDefault();
-												this.props.goTo(snowUI.menu[doc.parent.parent].docs[doc.parent.order-1].slug);
+												this.props.goTo({
+													page: snowUI.menu[doc.parent.parent].docs[doc.parent.order-1].slug,
+													current: snowUI.menu[doc.parent.parent].docs[doc.parent.order-1]
+												});
 											}}
 											secondary={true}
-											icon={<FontIcon className="material-icons" color={Styles.Colors.lightBlue600} hoverColor={Styles.Colors.lightBlue300} >home</FontIcon>}
+											icon={<FontIcon className="material-icons" color={Styles.Colors.lightBlue600} hoverColor={Styles.Colors.lightBlue300} >chevron_left</FontIcon>}
 										/>
 									
 									) 
@@ -208,10 +217,13 @@ let UI ={
 									label={snowUI.menu[doc.parent._id].docs[doc.order].title}
 									onClick={e => {
 										e.preventDefault();
-										this.props.goTo(snowUI.menu[doc.parent._id].docs[doc.order].slug);
+										this.props.goTo({
+											page: snowUI.menu[doc.parent._id].docs[doc.order].slug,
+											current: snowUI.menu[doc.parent._id].docs[doc.order]
+										});
 									}}
 									labelPosition="before"
-									icon={<FontIcon className="material-icons" color={Styles.Colors.lightBlue600} hoverColor={Styles.Colors.lightBlue300} >home</FontIcon>}
+									icon={<FontIcon className="material-icons" color={Styles.Colors.lightBlue600} hoverColor={Styles.Colors.lightBlue300} >chevron_right</FontIcon>}
 								/>
 							) 
 							: snowUI.menu[doc.parent.parent] ?
@@ -221,11 +233,14 @@ let UI ={
 											label={snowUI.menu[doc.parent.parent].docs[doc.parent.order].title}
 											onClick={e => {
 												e.preventDefault();
-												this.props.goTo(snowUI.menu[doc.parent.parent].docs[doc.parent.order].slug);
+												this.props.goTo({
+													page: snowUI.menu[doc.parent.parent].docs[doc.parent.order].slug,
+													current: snowUI.menu[doc.parent.parent].docs[doc.parent.order]
+												});
 											}}
 											labelPosition="before"
 											
-											icon={<FontIcon className="material-icons" color={Styles.Colors.lightBlue600} hoverColor={Styles.Colors.lightBlue300} >home</FontIcon>}
+											icon={<FontIcon className="material-icons" color={Styles.Colors.lightBlue600} hoverColor={Styles.Colors.lightBlue300} >chevron_right</FontIcon>}
 										/>
 									) 
 									: <span />

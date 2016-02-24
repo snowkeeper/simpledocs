@@ -1,11 +1,9 @@
-
-// end globals
 import React from 'react';
-import { render } from 'react-dom'
-import App from './render.js'
-import Debug from 'debug'
+import { render } from 'react-dom';
+import App from './render.js';
+import Debug from 'debug';
 
-window.myDebug = Debug
+window.myDebug = Debug;
 
 render( <App />, document.getElementById('epg'));
 

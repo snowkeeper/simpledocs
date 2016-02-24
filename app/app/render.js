@@ -142,6 +142,7 @@ class Main extends Component {
 		}
 		
 		this.setState(Object.assign(_defaults, state), () => {
+			window.scrollTop = 0;
 			debug('push history', '/' , this.state.page)
 			this.state.history.push({
 				pathname: Path.join('/' , this.state.page),
@@ -190,7 +191,7 @@ class Main extends Component {
 	render() {
 		debug('render state', this.state);
 		
-		let title = this.state.current.name || this.state.page;
+		let title = this.state.current.title || this.state.page;
 		
 		let isConnectedIcon = this.state.connected === true ? 
 			<span />
@@ -204,6 +205,9 @@ class Main extends Component {
 				iconButtonElement={<FontIcon className="material-icons" color={Styles.Colors.lightBlue600} hoverColor={Styles.Colors.lightBlue300} >invert_colors</FontIcon>}
 				onItemTouchTap={(e, val) => {
 					debug(e, val);
+					if(val.props.value === 'boot') {
+						return location.href = snowUI.path.bootstrap;
+					}
 					this.switchTheme(val.props.value);
 				}}
 			>
@@ -211,6 +215,7 @@ class Main extends Component {
 			  <MenuItem primaryText="Main 2" value="main2"/>
 			  <MenuItem primaryText="Default Light" value="light" />
 			  <MenuItem primaryText="Default Dark" value="dark" />
+			  <MenuItem primaryText="Bootstrap" value="boot" />
 			</IconMenu>
 			{isConnectedIcon}
 		</span>);

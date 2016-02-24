@@ -665,7 +665,9 @@ UI.AppInfo = React.createClass({displayName: 'AppInfo',
 					React.DOM.div({className: "col-xs-11 col-md-10"}, 
 						React.DOM.h4(null, "Theme"), 
 						React.DOM.div({className: "row"}, 
-							React.DOM.div({title: "change theme", className: "col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10"}, " ", React.DOM.a({style: {cursor:'pointer'}, onClick: snowUI.toggleTheme}, "Switch between light and dark themes")), 
+							React.DOM.div({title: "change theme", className: "col-sm-6"}, " ", React.DOM.a({style: {cursor:'pointer'}, onClick: snowUI.toggleTheme}, "Switch theme")), 
+							React.DOM.div({title: "change ui", className: "col-sm-6"}, " ", React.DOM.a({style: {cursor:'pointer'}, href: snowUI.path.material}, "material-ui")), 
+							React.DOM.div({className: "clearfix"}), 
 							React.DOM.br(null)
 						)
 					), 

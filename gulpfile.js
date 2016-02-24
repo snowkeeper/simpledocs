@@ -20,7 +20,7 @@ var gutil = require('gulp-util');
  */
  
 // bundle all dependencies
-// see public/app.js to use
+// see app/app/app.js to use
 gulp.task('bundle',  function (cb) {
 	var builder = new Builder('./app', './app/config.js');
 	builder.bundle('app/app - [app/**/*]', './app/bundles/dependencies.js', { minify: true, sourceMaps: false })
@@ -34,25 +34,9 @@ gulp.task('bundle',  function (cb) {
 		cb()
 	});
 });
-
-
-// bundle worker dependencies
-gulp.task('bundle-worker',  function (cb) {
-	var builder = new Builder('./app', './app/config.js');
-	builder.bundle('app/common/workers/guideData - [app/**/*]', './app/bundles/worker-dependencies.js', { minify: true, sourceMaps: false })
-	.then(function() {
-		gutil.log('wrote /bundles/worker-dependencies.js');
-		builder.reset()
-		cb()
-	})
-	.catch(function(err) {
-		gutil.log('FAILED dep bundle ',err)
-		cb()
-	});
-});
  
 // bundle all dependencies
-// see public/app.js to use
+// see app/app/app.js to use
 gulp.task('bundle-client',  function (cb) {
 	var builder = new Builder('./app', './app/config.js');
 	builder.bundle('app/app - dependencies', './app/bundles/client.js', { minify: false, sourceMaps: true })
@@ -66,11 +50,11 @@ gulp.task('bundle-client',  function (cb) {
 		cb()
 	});
 });
-gulp.task('dev-bundle',  function (cb) {
+gulp.task('production-bundle',  function (cb) {
 	var builder = new Builder('./app', './app/config.js');
-	builder.bundle('app/app - [app/**/*]', './app/bundles/dependencies.js', { minify: false, sourceMaps: true })
+	builder.bundle('app/app', './app/bundles/production.js', { minify: true, sourceMaps: false })
 	.then(function() {
-		gutil.log('wrote /bundles/dependencies.js');
+		gutil.log('wrote /bundles/production.js');
 		builder.reset()
 		cb()
 	})
