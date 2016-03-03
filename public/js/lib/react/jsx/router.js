@@ -28,14 +28,21 @@
 	    redirect: function() {
 		var args = window.location.pathname.split('/').slice(1);
 		if(window.location.pathname !== snowUI.path.root) {
-			var page = args.pop();
-			var moon = args.pop();
+		    var page = args.pop();
+		    var moon = args.pop();
 		} else {
-			var page = snowUI.homepage;
-			var moon = 'simpledocs';
+		    var page = snowUI.homepage;
+		    var moon = '';
+		}
+		if(snowUI.singlePage === moon) {
+		    var moon = page;
+		    var page = snowUI.singlePage;
 		}	
-		snowlog.warn('REDIRECT',moon,args)
-		React.renderComponent(<snowUI.UI.UI moon={moon}  page={page}  params={args} />, document.getElementById('simpledocs'));
+		snowlog.warn('REDIRECT', page, moon, args);
+		
+		var allinone = (page === snowUI.singlePage) ? true : false;
+		
+		React.renderComponent(<snowUI.UI.UI moon={moon} page={page} allinone={allinone} params={args} />, document.getElementById('simpledocs'));
 	    
 	    },
 	    

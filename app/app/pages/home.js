@@ -3,6 +3,7 @@ import Debug from 'debug'
 import Gab from '../common/gab'
 import { DropDownMenu, MenuItem, ToolbarGroup, Toolbar, ToolbarSeparator, Divider, CardText, CardMedia, CardHeader, CardActions, Card, CardTitle, Styles, List, IconButton, ListItem, FlatButton, FontIcon } from 'material-ui/lib';
 import Menu from '../common/components/menu';
+import { Col } from 'react-bootstrap';
 
 let debug = Debug('simpledocs:app:pages:home');
 		
@@ -13,54 +14,97 @@ export default class Home extends React.Component {
 		this.state = {
 			ready: true,
 			page: props.page,
+			contents: props.contents
 		};
-		if(props.page) props.sockets.page(props.page);
+		if(props.page === snowUI.singlePage) {
+			Gab.request(snowUI.api.allinone);
+		} else if(props.page) {
+			props.sockets.page(props.page, props.search);
+		}
+		debug('home start props', props);
 		this._update = false;
+		this._updating = true;
 	}
 	
 	componentWillReceiveProps(props) {
-		this._update = true;
-		debug('home got props',props, props.sockets.page)
-		if(props.page !== this.state.page) {
-			props.sockets.page(props.page);
+		
+		if(props.page !== this.state.page || (props.forceGrab && !this._updating)) {
+			debug('home got page', props)
+			if(props.page === snowUI.singlePage) {
+				Gab.request(snowUI.api.allinone);
+			} else {
+				props.sockets.page(props.page, props.search);
+			}
+			
 			snowUI.page = props.page;
 			this.setState({
-				page: props.page
+				page: props.page,
+				contents: false
 			});
+			this._updating = true;
+			return true;
+		}
+		if(props.contents && this._updating) {
+			debug('home got contents',props)
+			this.setState({
+				contents: props.contents
+			}, function() {
+				
+			});
+			this._update = true;
+			this._updating = false;
+			return true;
+		}
+		if(props.forceUpdate) {
+			this._update = true;
 		}
 	}
+	shouldComponentUpdate() {
+		debug('should update? ', this._update);
+		return this._update;
+	}
 	componentDidUpdate() {
-		debug('didUpdate');
+		debug('didUpdate', this._update);
+		var simple = document.getElementById("simpledocs");
+		simple.scrollTop = 0;
+		this._update = false;
+		
 	}
 	componentDidMount() {
 		debug('did mount');
-		
+		if(this.props.page) {
+			this.props.sockets.page(this.props.page);
+		}
 	}
 	render() {
 		debug('home render', this.state, this.props);
-		let content;
-		if(this.props.contents) {
-			content = UI.render.call(this);
+		let content = [];
+		let _this = this;
+		if(this.state.contents instanceof Array) {
+			this.props.contents.forEach(function(v) {
+				content.push(UI.render.call(_this, v, true));
+			});
+		} else if(this.state.contents) {
+			content.push(UI.render.call(this, this.props.contents));
 		} else {
-			content = 'Loading';
+			content.push(<span>Fetching Page...</span>);
 		}
-		return (<div style={{width:'100%'}} >
-			<Card>
+		return (<Col xs={12} >
+			<Card style={{minHeight: snowUI.contentHeight}} >
 				<CardText>
 					{content}
 				</CardText>
 			</Card>
-		</div>);
+		</Col>);
 	}
 }
 let UI ={
-	render: function() {
+	render: function( doc, allinone ) {
 		var _this = this;
-		var printMenu = <Menu { ...this.props } />;
+		var printMenu = <Menu { ..._this.props } />;
 		
 		//console.log(this.state.ready,this.props.contents);
-		if(this.state.ready && this.props.contents) {
-			var doc = this.props.contents;
+		if(this.state.ready && doc) {
 			if(doc.ok) {
 				/* search results */
 				var search = true;
@@ -95,48 +139,54 @@ let UI ={
 				
 			} else {
 				/* page data */
-				debug('display page data', doc, this.props.contents)
+				//debug('display page data', doc)
 				var search = false;
 				if(typeof doc !== 'object')doc = {}
 				if(typeof doc.parent !== 'object')doc.parent = {}
 				var content = 
 					doc.display === 1 ? 
-						this.props.contents.markdown ? 
-							(<div key="fullcontent"><div dangerouslySetInnerHTML={{__html: this.props.contents.markdown.html}} /> </div>)
+						doc.markdown ? 
+							(<div key="fullcontent"><div dangerouslySetInnerHTML={{__html: doc.markdown.html}} /> </div>)
 							: <span /> 
 						: doc.display === 2 ? 
-							(<div key="fullcontent" ><div dangerouslySetInnerHTML={{__html: this.props.contents.html}} /> </div>)
+							(<div key="fullcontent" ><div dangerouslySetInnerHTML={{__html: doc.html}} /> </div>)
 							: doc.display === 3 ? 
-								(<div key="fullcontent"> <div key="fullcontentB"  dangerouslySetInnerHTML={{__html: this.props.contents.markdown.html}} /><div  key="fullcontentA"  dangerouslySetInnerHTML={{__html: this.props.contents.html}} /></div>) 
+								(<div key="fullcontent"> <div key="fullcontentB"  dangerouslySetInnerHTML={{__html: doc.markdown.html}} /><div  key="fullcontentA"  dangerouslySetInnerHTML={{__html: doc.html}} /></div>) 
 								: doc.display === 4 ? 
-									(<div key="fullcontent"> <div key="fullcontentA"  dangerouslySetInnerHTML={{__html: this.props.contents.html}} /><div  key="fullcontentB"  dangerouslySetInnerHTML={{__html: this.props.contents.markdown.html}} /></div>)
+									(<div key="fullcontent"> <div key="fullcontentA"  dangerouslySetInnerHTML={{__html: doc.html}} /><div  key="fullcontentB"  dangerouslySetInnerHTML={{__html: doc.markdown.html}} /></div>)
 									: <span />  
 				
+				var newcontent = [];
+				newcontent.push(<input type="hidden" value={doc.slug} className="hiddenTitle" />)
+				newcontent.push(content);
 				
 				if(doc.type === 1) {
 					/* show the content only */
-					var display = content;
+					var display = newcontent;
 					
 				} else if(doc.type === 2) {
 					/* show list of child root documents */
 					if(snowUI.menu[doc._id]) {
-						var list = snowUI.menu[doc._id].docs;
-						var display = <Menu list={list} { ...this.props } />;			
+						var list = doc;
+						list.documents = snowUI.menu[doc._id].docs;
+						var display = <Menu list={[list]} { ...this.props } open={!this.props.allinone} childopen={!this.props.allinone} />;			
 					}
-					
 				} else {
 					/* show the contents then a list of child root documents */
 					//snowlog.info('show content and child doc list',snowUI.menu,doc._id);
 					var display = [];
 					if(snowUI.menu[doc._id]) {
-						var list = snowUI.menu[doc._id].docs;
-						display.push(<Menu list={list} { ...this.props } />);			
+						var list = doc;
+						list.documents = snowUI.menu[doc._id].docs;
+						display.push(<Menu list={[list]} { ...this.props } key="displayMenu" open={!this.props.allinone} childopen={!this.props.allinone}  />);			
 					}
-					display.unshift(<div key="dualpage">{content}</div>);
+					display.unshift(<div key="dualpage">{newcontent}</div>);
 				}
+				var prev;
+				var next;
 				/* navigation butoons for bottom */
 				if(snowUI.menu[doc._id]) {
-					var prev = snowUI.menu[doc.parent._id] ? 
+					prev = snowUI.menu[doc.parent._id] ? 
 						typeof snowUI.menu[doc.parent._id].docs[doc.order-2] === 'object' ? 
 							(
 								 <FlatButton
@@ -154,7 +204,7 @@ let UI ={
 							) 
 							: <span /> 
 						: <span />;
-					var next = snowUI.menu[doc._id] ? 
+					next = snowUI.menu[doc._id] ? 
 						typeof snowUI.menu[doc._id].docs[0] === 'object' ? 
 							(
 								<FlatButton
@@ -173,8 +223,8 @@ let UI ={
 							) 
 							: <span /> 
 						: <span />;
-				} else {
-					var prev = snowUI.menu[doc.parent._id] ?
+				} else if(doc.parent) {
+					prev = snowUI.menu[doc.parent._id] ?
 						typeof snowUI.menu[doc.parent._id].docs[doc.order-2] === 'object' ?
 							(
 								<FlatButton
@@ -210,7 +260,7 @@ let UI ={
 									: <span />
 								: <span /> 
 						: <span />;
-					var next = snowUI.menu[doc.parent._id] ?
+					next = snowUI.menu[doc.parent._id] ?
 						typeof snowUI.menu[doc.parent._id].docs[doc.order] === 'object' ? 
 							(
 								<FlatButton
@@ -249,35 +299,28 @@ let UI ={
 				}
 			}
 			var related = []; 
-			if(Object.prototype.toString.call(doc.links) !== '[object Array]')doc.links=[];
+			if(Object.prototype.toString.call(doc.links) !== '[object Array]') {
+				doc.links=[];
+			}
+			
 			if(doc.links.length > 0) {
 				related = doc.links.map(function(v){
 					return (<div className="related-bubble" key={v.slug + 'related'} ><a className="badge bg-primary" onClick={e => { e.preventDefault(); _this.props.goTo(v.slug);}}>{v.title}</a></div>);
 				});
 			}
+			
 			if(doc.externalLinks) {
 				var ll = doc.externalLinks.replace(',',' ').split(' ');
 				ll.forEach(function(v){
 					related.push(<div className="related-bubble" key={v + 'linksE'}><a  className="badge bg-primary" target="_blank" href={v}>{v}</a></div>);
 				});
 			}
-			if(related.length>0)related.unshift(<div className="related" key="related">Related</div>);
 			
-			var printMenu = function(pages) {
-				//snowlog.log('print menu', pages);
-				var list = pages.map(function(v) {
-					return (
-						<MenuItem primaryText={v.title} />
-					);
-				});
-				return list;
+			if(related.length>0) {
+				related.unshift(<div className="related" key="related">Related</div>);
 			}
 			
-			return ( <div id="showconent"> 
-				{display}
-				<div className="clearfix ">
-					{related}
-				</div>
+			let nav = this.props.allinone ? <span /> : (
 				<Toolbar style={{marginTop:25, background: Styles.Colors.blueGrey50}}>
 					<ToolbarGroup firstChild={true} float="left">
 						<IconButton onClick={(e)=>{e.preventDefault();this.props.goTo(snowUI.homepage);}} ><FontIcon className="material-icons" color={Styles.Colors.lightBlue600} hoverColor={Styles.Colors.lightBlue300} >home</FontIcon></IconButton>
@@ -290,24 +333,22 @@ let UI ={
 						{next}
 					</ToolbarGroup>
 				</Toolbar>
-			<div className="clearfix" style={{ height: 25 }} />
+			);
+			
+			return ( <div id="showconent" key={doc.slug + Math.random()}> 
+				{display}
+				<div className="clearfix ">
+					{related}
+				</div>
+				{nav}
+				<div className="clearfix" style={{ height: 25 }} />
 			</div>);
 		} else {
-			var menu;
-			if(snowUI.tree>0) {
-				menu = snowUI.tree.map(function(v) {
-					
-					return (<div className="" key={v.slug}>
-							
-							<a className="" >{v.title}</a>
-							
-							{v.documents.length > 0  ? <Menu list={v.documents} { ...this.props } />: ''}
-						</div>
-					);
-					
-				});
+			var menu = <span />;
+			if(snowUI.tree > 0) {
+				menu = <Menu { ...this.props } />;
 			}
-			return ( <div id=""> 
+			return ( <div id="" key={Math.random()}> 
 				{menu}
 			</div>);
 		}

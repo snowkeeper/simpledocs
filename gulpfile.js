@@ -50,7 +50,20 @@ gulp.task('bundle-client',  function (cb) {
 		cb()
 	});
 });
-gulp.task('production-bundle',  function (cb) {
+gulp.task('production-build',  function (cb) {
+	var builder = new Builder('./app', './app/config.js');
+	builder.buildStatic('app/app', '../public/js/material.js', { minify: true, sourceMaps: false })
+	.then(function() {
+		gutil.log('wrote /js/material.js');
+		builder.reset()
+		cb()
+	})
+	.catch(function(err) {
+		gutil.log('FAILED dep bundle ',err)
+		cb()
+	});
+});
+gulp.task('bundle-production',  function (cb) {
 	var builder = new Builder('./app', './app/config.js');
 	builder.bundle('app/app', './app/bundles/production.js', { minify: true, sourceMaps: false })
 	.then(function() {
@@ -63,7 +76,6 @@ gulp.task('production-bundle',  function (cb) {
 		cb()
 	});
 });
-
 
 gulp.task('vendor', function() {
 	

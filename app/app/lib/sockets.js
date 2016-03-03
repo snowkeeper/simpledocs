@@ -19,7 +19,7 @@ let Sockets = function() {
 
 
 Sockets.prototype.connectAuth = function(callback) {
-	this.io = io('//' + this.host + ':' + this.port + snowUI.namespace, { 'force new connection': true });
+	this.io = io('//' + this.host + ':' + this.port + snowUI.namespace, { 'forceNew': true });
 	this.auth = this.io;
 	debug('reconnect open', this.auth);
 	
@@ -31,15 +31,16 @@ Sockets.prototype.connectAuth = function(callback) {
 				this.io.socket.isConnected();
 			}
 		}
+		if(isFunction(callback)) {
+			callback(null,true);
+		}
 	});
 	this.io.on('connect-error',(err) => {
 		debug('auth connect-error',err);
 	});
 	
 	
-	if(isFunction(callback)) {
-		callback(null,true);
-	}
+	
 }
 
 Sockets.prototype.init = function(opts, callback) {
@@ -64,7 +65,7 @@ Sockets.prototype.init = function(opts, callback) {
 	
 	// connection
 	debug(snowUI);
-	this.io = io('//' + this.host + ':' + this.port + snowUI.namespace, { 'force new connection': true });
+	this.io = io('//' + this.host + ':' + this.port + snowUI.namespace, { 'forceNew': true });
 	
 	this.io.on('connect',(data) => {
 		debug('io connected', snowUI.namespace);

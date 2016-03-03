@@ -8,15 +8,13 @@ html
 
 		title= title || 'snowpi'
 		link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
-		
+		link(href="/snowdocs/styles/prism.css", rel="stylesheet")
 		link(href="/snowdocs/styles/site.css", rel="stylesheet")
 		
 		if(customeStyle)
 			link(href="#{customeStyle}", rel="stylesheet")
-			
-		//- This file provides the default styling for the KeystoneJS Content Editor
-		if user && user.canAccessKeystone
-			link(href="/keystone/styles/content/editor.min.css", rel="stylesheet")
+		
+		
 		block css
 
 		//- Add any other template-specific HEAD tags by extending the head block
@@ -56,6 +54,8 @@ html
 		| <script src="#{pathConfig}"></script>
 		script(src='/snowdocs/js/config.js')
 		script(src='/snowdocs/js/comms.js')
+		script(src='/snowdocs/js/api-code.js')
+		script(src='/snowdocs/js/prism.js')
 		script(src='/snowdocs/js/lib/react/build/simpledocs.js')
 		script(src='/snowdocs/js/lib/react/build/router.js')
 		

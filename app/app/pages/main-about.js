@@ -30,7 +30,7 @@ export default class About extends React.Component {
 	}
 	render() {
 		debug('main about render', this.state, this.props);
-		return (
+		let div =  (
 				<div className="col-xs-offset-1 col-md-offset-1">
 					<div className="col-xs-10 col-md-5">
 						<h4>Get SimpleDocs</h4>
@@ -72,6 +72,19 @@ export default class About extends React.Component {
 					<div className="clearfix" style={{borderBottom:'transparent 15px solid'}} />
 			      </div>
 		);
+		return (<Col xs={12}  >
+			<Card>
+				<CardTitle 
+					title={"About SimpleDocs"}
+					subtitle={""}
+					titleColor={Styles.Colors.blueGrey500}
+					subtitleColor={Styles.Colors.grey500}
+				/>
+				<CardText style={{padding:0, height:300, textAlign:'center', paddingTop:20}} >
+					{div}
+				</CardText>
+			</Card>
+		</Col>);
 	}
 }
 

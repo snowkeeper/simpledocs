@@ -5,6 +5,6 @@ import Debug from 'debug';
 
 window.myDebug = Debug;
 
-render( <App />, document.getElementById('epg'));
+render( <App />, document.getElementById('simpledocs'));
 
 

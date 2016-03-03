@@ -150,14 +150,38 @@ UI.Content = React.createClass({
 /* home content */
 UI.home = React.createClass({
 	getInitialState: function() {
-		return {ready: no,register: no,mounted: no,response:no,data:{}};
+		return {
+			ready: no,
+			register: no,
+			mounted: no,
+			response:no,
+			page: false,
+			data:{},
+		};
+		this._update = false;
 	},
 	componentWillReceiveProps: function(props) {
-		snowlog.log('home got props',props)
-		if(props.contents.slug || props.contents.ok) {
-			this.setState({ready:yes});
+		snowlog.log('home got props', props)
+		if(props.contents.slug || props.contents.ok || props.contents.length || props.config.allinone) {
+			var page = this.state.page;
+			if(props.page !== this.state.page) {
+				this._update = true;
+				page = props.page;
+			}
+			this.setState({ ready: yes, page: page });
 		} else {
-			this.setState({ready:no});
+			this.setState({ ready: no });
+		}
+	},
+	componentDidMount: function() {
+		// When the component is added let me know
+		this.setState({mounted: yes})
+		
+	},
+	componentDidUpdate: function() {
+		if(this._update && this.props.moon !== snowUI.singlePage) {
+			
+			this._update = false;
 		}
 	},
 	render: function() {
@@ -165,18 +189,62 @@ UI.home = React.createClass({
 		var printMenu = function(pages) {
 			//snowlog.log('print menu', pages);
 			var list = pages.map(function(v) {
+				var onclick = (!_this.props.config.allinone) ?
+					_this.props.getPage
+				:
+					function(e) {
+						e.preventDefault();
+						_this.props.goToAnchor(v.slug);
+					
+					}
 				return (<div key={v.slug} className="link">
-						<a onClick={_this.props.getPage} href={snowUI.path.root + '/' + v.slug}>{v.title}</a>
-						<div className="link">
-							{v.documents.length > 0  ? printMenu(v.documents): ''}
-						</div>
-					</div>)
+					<a onClick={onclick} href={snowUI.path.root + '/' + v.slug}>{v.title}</a>
+					<div className="link">
+						{v.documents.length > 0  ? printMenu(v.documents): ''}
+					</div>
+				</div>)
 			});
 			return list;
 		}
+		
+		var doc = this.props.contents
 		//console.log(this.state.ready,this.props.contents);
 		if(this.state.ready && this.props.contents) {
 			var doc = this.props.contents;
+			var fullpage = [];
+			if(doc.length > 1) {
+				doc.forEach(function(v) {
+					fullpage.push(displayDoc(v, true));
+				});
+			} else {
+				fullpage.push(displayDoc(doc));
+			}
+			return (<div>
+				{fullpage}
+			</div>);
+			
+		} else {
+			var menu;
+			if(snowUI.tree>0) {
+				menu = snowUI.tree.map(function(v) {
+					
+					return (<div className="" key={v.slug}>
+							
+							<a className="" onClick={_this.props.getPage} href={snowUI.path.root + '/' + v.slug}>{v.title}</a>
+							
+							{v.documents.length > 0  ? printMenu(v.documents): ''}
+						</div>
+					);
+					
+				});
+			}
+			return ( <div id=""> 
+				<UI.AppInfo  />
+				{menu}
+			</div>);
+		}
+		
+		function displayDoc( doc, allinone ) {
 			if(doc.ok) {
 				/* search results */
 				var search = true;
@@ -216,21 +284,24 @@ UI.home = React.createClass({
 				if(typeof doc.parent !== 'object')doc.parent = {}
 				var content = 
 					doc.display === 1 ? 
-						this.props.contents.markdown ? 
-							(<div key="fullcontent"><div dangerouslySetInnerHTML={{__html: this.props.contents.markdown.html}} /> </div>)
+						doc.markdown ? 
+							(<div key="fullcontent"><div dangerouslySetInnerHTML={{__html: doc.markdown.html}} /> </div>)
 							: <span /> 
 						: doc.display === 2 ? 
-							(<div key="fullcontent" ><div dangerouslySetInnerHTML={{__html: this.props.contents.html}} /> </div>)
+							(<div key="fullcontent" ><div dangerouslySetInnerHTML={{__html: doc.html}} /> </div>)
 							: doc.display === 3 ? 
-								(<div key="fullcontent"> <div key="fullcontentB"  dangerouslySetInnerHTML={{__html: this.props.contents.markdown.html}} /><div  key="fullcontentA"  dangerouslySetInnerHTML={{__html: this.props.contents.html}} /></div>) 
+								(<div key="fullcontent"> <div key="fullcontentB"  dangerouslySetInnerHTML={{__html: doc.markdown.html}} /><div  key="fullcontentA"  dangerouslySetInnerHTML={{__html: doc.html}} /></div>) 
 								: doc.display === 4 ? 
-									(<div key="fullcontent"> <div key="fullcontentA"  dangerouslySetInnerHTML={{__html: this.props.contents.html}} /><div  key="fullcontentB"  dangerouslySetInnerHTML={{__html: this.props.contents.markdown.html}} /></div>)
+									(<div key="fullcontent"> <div key="fullcontentA"  dangerouslySetInnerHTML={{__html: doc.html}} /><div  key="fullcontentB"  dangerouslySetInnerHTML={{__html: doc.markdown.html}} /></div>)
 									: <span />  
 				
+				var newcontent = [];
+				newcontent.push(<input type="hidden" value={doc.slug} className="hiddenTitle" />)
+				newcontent.push(content);
 				
 				if(doc.type === 1) {
 					/* show the content only */
-					var display = content;
+					var display = newcontent;
 					
 				} else if(doc.type === 2) {
 					/* show list of child root documents */
@@ -247,21 +318,23 @@ UI.home = React.createClass({
 						var list = snowUI.menu[doc._id].docs;
 						var display = printMenu(list)			
 					}
-					display.unshift(<div key="dualpage">{content}</div>);
+					display.unshift(<div key="dualpage">{newcontent}</div>);
 				}
+				var prev;
+				var next;
 				if(snowUI.menu[doc._id]) {
-					var prev = snowUI.menu[doc.parent._id] ? 
+					prev = snowUI.menu[doc.parent._id] ? 
 						typeof snowUI.menu[doc.parent._id].docs[doc.order-2] === 'object' ? 
 							(<li className="previous"><a href={snowUI.path.root + '/' + snowUI.menu[doc.parent._id].docs[doc.order-2].slug}  onClick={_this.props.getPage}  >&larr; {snowUI.menu[doc.parent._id].docs[doc.order-2].title}</a></li>) 
 							: <span /> 
 						: <span />;
-					var next = snowUI.menu[doc._id] ? 
+					next = snowUI.menu[doc._id] ? 
 						typeof snowUI.menu[doc._id].docs[0] === 'object' ? 
 							(<li className="next"><a href={snowUI.path.root + '/' + snowUI.menu[doc._id].docs[0].slug}  onClick={_this.props.getPage}  >&rarr; {snowUI.menu[doc._id].docs[0].title}</a></li>) 
 							: <span /> 
 						: <span />;
-				} else {
-					var prev = snowUI.menu[doc.parent._id] ?
+				} else if(doc.parent) {
+					prev = snowUI.menu[doc.parent._id] ?
 						typeof snowUI.menu[doc.parent._id].docs[doc.order-2] === 'object' ?
 							(<li className="previous"><a href={snowUI.path.root + '/' + snowUI.menu[doc.parent._id].docs[doc.order-2].slug}  onClick={_this.props.getPage}  >&larr; {snowUI.menu[doc.parent._id].docs[doc.order-2].title}</a></li>) 
 							:  snowUI.menu[doc.parent.parent] ?
@@ -270,7 +343,7 @@ UI.home = React.createClass({
 									: <span />
 								: <span /> 
 						: <span />;
-					var next = snowUI.menu[doc.parent._id] ?
+					next = snowUI.menu[doc.parent._id] ?
 						typeof snowUI.menu[doc.parent._id].docs[doc.order] === 'object' ? 
 							(<li className="next"><a href={snowUI.path.root + '/' + snowUI.menu[doc.parent._id].docs[doc.order].slug}  onClick={_this.props.getPage}  >&rarr;  {snowUI.menu[doc.parent._id].docs[doc.order].title}</a></li>) 
 							: snowUI.menu[doc.parent.parent] ?
@@ -282,7 +355,10 @@ UI.home = React.createClass({
 				}
 			}
 			var related = []; 
-			if(Object.prototype.toString.call(doc.links) !== '[object Array]')doc.links=[];
+			if(Object.prototype.toString.call(doc.links) !== '[object Array]')
+			{
+				doc.links=[];
+			}
 			if(doc.links.length > 0) {
 				related = doc.links.map(function(v){
 					return (<div className="related-bubble" key={v.slug + 'related'} ><a className="badge bg-primary" onClick={_this.props.getPage} href={snowUI.path.root + '/' + v.slug}>{v.title}</a></div>);
@@ -294,14 +370,11 @@ UI.home = React.createClass({
 					related.push(<div className="related-bubble" key={v + 'linksE'}><a  className="badge bg-primary" target="_blank" href={v}>{v}</a></div>);
 				});
 			}
-			if(related.length>0)related.unshift(<div className="related" key="related">Related</div>);
-			return ( <div id="showconent"> 
-					<UI.AppInfo  />
-				{display}
-				<div className="clearfix ">
-					{related}
-				</div>
-				<div className="clearfix linkPager">
+			if(related.length>0) {
+				related.unshift(<div className="related" key="related">Related</div>);
+			}
+			if(!allinone) {
+				var navLinks = (<div className="clearfix linkPager">
 					<nav className="">
 						<ul className="pager">
 							{prev}
@@ -310,108 +383,143 @@ UI.home = React.createClass({
 							
 						</ul>
 					</nav>
-				</div>
-			</div>);
-		} else {
-			var menu;
-			if(snowUI.tree>0) {
-				menu = snowUI.tree.map(function(v) {
-					
-					return (<div className="" key={v.slug}>
-							
-							<a className="" onClick={_this.props.getPage} href={snowUI.path.root + '/' + v.slug}>{v.title}</a>
-							
-							{v.documents.length > 0  ? printMenu(v.documents): ''}
-						</div>
-					);
-					
-				});
+				</div>)
+			} else {
+				var navlinks = <span />;
 			}
-			return ( <div id=""> 
-				<UI.AppInfo  />
-				{menu}
+			return ( <div id="showconent" key={doc._id}> 
+					<UI.AppInfo  />
+				{display}
+				<div className="clearfix ">
+					{related}
+				</div>
+				{navLinks}
 			</div>);
+			
 		}
 	},
-	componentDidMount: function() {
-		// When the component is added let me know
-		this.setState({mounted: yes})
-	},
-	
 	
 });
 
 /* shortcut content */
 UI.Menu = React.createClass({
 	getInitialState: function() {
-		return {ready: yes,register: no,mounted: no,response:no,data:{}};
+		return {
+			ready: yes,
+			register: no,
+			mounted: no,
+			response:no,
+			data:{}
+		};
 	},
 	componentWillReceiveProps: function(props) {
-		snowlog.log(props)
+		snowlog.log('menu', props);
+	},
+	componentDidMount() {
+		
 	},
 	render: function() {
 		snowlog.info('menu tree',snowUI.tree);
 		var _this = this;
-		var runTree = function(slug,children) {
+		var propPage = this.props.page;
+		var runTree = function(slug, children) {
 			/* run through the kids and see if one of them is active so we can show the kid links */
 			if(Object.prototype.toString.call( children ) === '[object Array]' ) {
 				return children.reduce(function(runner, current) {
 					//snowlog.log(current.slug,slug);
-					if(runner)return runner;
+					if(runner) {
+						return runner;
+					}
 					if(current.slug === slug || (snowUI.menu[current.parent] && snowUI.menu[current.parent].slug === slug)) {
-						snowlog.log(true,current.slug,slug);
+						snowlog.log(true, current.slug, slug);
 						runner = true
 						return runner;
 					}
-					return runTree(slug,current.documents); 
+					return runTree(slug, current.documents); 
 				},false); 
 				
 			} else {
 				return false;
 			}
 		};
-		var printMenu = function(pages,skiptree) {
+		var printMenu = function(pages, skiptree) {
 			var list = pages.map(function(v) {
-				var active = _this.props.page === v.slug ? 'active' : '';
+				var active = propPage === v.slug ? 'active' : '';
 				var rantree = active === 'active' && !snowUI.singleBranch 
 					? true 
 					: skiptree === undefined 
-						? runTree(_this.props.page,v.documents) 
+						? runTree(propPage, v.documents) 
 						: skiptree;
-				//snowlog.log(v.slug,rantree,skiptree);
 				var collapse = snowUI.collapse ? rantree === true || active === 'active' ? ' ': ' hidden' : ' ';
+				//snowlog.log('should menu list be open', collapse, snowUI.collapse, rantree, active, snowUI.singleBranch, v.slug, _this.props.page);
+
+				if(_this.props.config.allinone) {
+					var linkto = <a 
+						className={"list-group-item " + active}
+						onClick={function(e) {
+							e.preventDefault();
+							_this.props.goToAnchor(v.slug);
+						}} 
+						href={"#" + v.slug}
+					>{v.menuTitle || v.title}</a>;
+				} else {
+					var linkto = <a className={"list-group-item " + active} onClick={_this.props.hrefRoute} href={snowUI.path.root + '/' + v.slug}>{v.menuTitle || v.title}</a>;
+				}
 				return (<div key={v.slug} className="">
-						<a className={"list-group-item " + active} onClick={_this.props.getPage} href={snowUI.path.root + '/' + v.slug}>{v.title}</a>
+						{linkto}
 						<div className={"link " + collapse}>
-							{printMenu(v.documents,rantree)}
+							{printMenu(v.documents )}
 						</div>
 					</div>)
 			});
 			return list;
 		}
+		
 		var menu = snowUI.tree.map(function(v) {
-			var active = _this.props.page === v.slug ? 'active' : '';
+			var active = propPage === v.slug ? 'active' : '';
 			/* our first entry is the root document
 			 * printMenu takes care of the children
 			* */
+			var allinone = !snowUI.allinone || v.documents.length < 1 ?
+				<span />
+			:
+				(_this.props.config.allinone) ?
+					<a className={"list-group-item " + active} onClick={_this.props.hrefRoute} href={snowUI.path.root + '/' + v.slug }>method view</a>
+				:
+					<a className="list-group-item" onClick={_this.props.hrefRoute} href={snowUI.path.root + '/' + snowUI.singlePage }>single page view</a>
+			if(_this.props.config.allinone) {
+				var linkto = <a className={"list-group-item " + active} onClick={function(e) {
+							e.preventDefault();
+							_this.props.goToAnchor(v.slug);
+						}} 
+					href={"#" + v.slug}>{v.menuTitle || v.title}</a>;
+			} else {
+				var linkto = <a className={"list-group-item " + active} onClick={_this.props.hrefRoute} href={snowUI.path.root + '/' + v.slug}>{v.menuTitle || v.title}</a>;
+			}
 			return (<div className="list-group" key={v.slug}>
+					
 					<div className="search-slider">
 						<input className="form-control" placeholder="Search" title="Press Enter to submit search" />
 					</div>
-					<a className="list-group-item head" onClick={_this.props.toggleMenu} >{snowText.menu}</a>
+					<div style={{position:'relative'}}>
+						<a className="list-group-item head" onClick={_this.props.toggleMenu} >{snowText.menu}</a>
+					</div>
 					<div key={v.slug} style={{position:'relative'}}>
-						<a className={"list-group-item " + active} onClick={_this.props.getPage} href={snowUI.path.root + '/' + v.slug}>{v.title}</a>
+						{linkto}
 						<span className="glyphicon glyphicon-search searchToggle"  onClick={_this.searchToggle} />
 					</div>
-					
+					<div style={{position:'relative'}}>
+						{allinone}
+					</div>
 					{printMenu(v.documents)}
 				</div>
 			);
-			
 		});
-		return ( <div> 
+		return (
+			<div> 
 				{menu}
-			</div>);
+			</div>
+		);
 	},
 	searchToggle: function(e) {
 		$(e.target).parent().prev().prev().toggleClass('open');
@@ -423,14 +531,8 @@ UI.Menu = React.createClass({
 				event.preventDefault();
 				bone.router.navigate("search:doc/" + $input.val(), {trigger:true});
 			}
-			
 		});
-	},
-	componentDidMount: function() {
-		// When the component is added let me know
-		this.setState({mounted: yes})
-	},
-	
+	}
 });
 
 /* main banner */
@@ -450,7 +552,7 @@ UI.Banner = React.createClass({
 						<div className="inside">{snowUI.name}</div>
 					</div>
 					<div id="title" className="col-xs-6 col-sm-4 col-md-9 col-lg-10">
-						<div className="inside">{typeof this.props.page === 'object' && !this.props.page.term ? this.props.page.title : typeof this.props.page === 'object' && this.props.page.term ? 'search: ' + this.props.page.term : ''}</div>
+						<div className="inside">{typeof this.props.page === 'object' && this.props.page.term ? 'search: ' + this.props.page.term : this.props.title}</div>
 					</div>
 					<div id="logo">
 						<a onClick={this.openEgg} />
@@ -462,42 +564,84 @@ UI.Banner = React.createClass({
 	componentDidMount: function() {
 		// When the component is added, turn it into a modal
 		this.setState({mounted: !this.state.mounted});
-		
 	}
 });
 	
 
 /* main div */
 UI.UI = React.createClass({
-	
 	getInitialState: function() {
 		return { 
 			pagedata: false,
+			allinone: false
 		};
 	},
+	componentDidMount: function() {
+		this.componentWillReceiveProps(this.props);
+		snowlog.log('did mount')
+		snowUI.loadApiCode();
+		var $menu = $('#menu');
+		var $home = $('#home');
+		var clientHeight = document.documentElement.clientHeight;
+		var appbar = document.getElementById('banner');
+		$menu.css('height', clientHeight - appbar.clientHeight);
+		$menu.css('marginTop',appbar.clientHeight);
+		$home.css('maxHeight', clientHeight - appbar.clientHeight);
+		$home.css('marginTop',appbar.clientHeight);
+		snowlog.log('menu', menu.style.height , clientHeight - appbar.clientHeight);
+	},
+	componentDidUpdate() {
+		
+	},
+	componentWillReceiveProps: function(props) {
+		snowlog.log('update props',props)
+		var _this = this;
+		
+		if(props.moon === snowUI.singlePage) {
+			return;
+		}
+		
+		this.getPage(props.page, props.moon);
+		return;
+	},
 	getPage: function(getpage, moon) {
-		this.setState({connecting:true});
+		this.setState({
+			connecting:true,
+			pagedata: false,
+			searchdata: false,
+		});
 		var page = getpage ? getpage : snowUI.homepage;
-		var root = moon === 'search:doc' ? snowUI.api.search : snowUI.api.page;
+		if(page === snowUI.singlePage) {
+			page = 'allinone';
+			var root = snowUI.api.allinone;
+		} else if(moon === 'search:doc') {
+			var root = snowUI.api.search;
+		} else {
+			var root = snowUI.api.page;
+		}
 		var _this = this,
 			url = root + '/' + page
 			data = {};
-			
+		
+		
 		var showLoadingIfTimer = setTimeout(function(){snowUI.flash('message','Loading ' + page,10000)},500);
 		
 		//snowlog.log('target',$(e.target)[0].dataset.snowslug);
-		snowUI.ajax.GET(url,data,function(resp) {
+		snowUI.ajax.GET(url, data, function(resp) {
 			clearTimeout(showLoadingIfTimer);
+			snowlog.info('page', resp)
 			snowUI.killFlash('message');
 			if(resp.search) {
 				
 				//console.log('got search results',resp);
 				if(!_this.state.ready)snowUI.flash('message','Welcome to '+snowText.build.name+'.',8888);
-				var _state={}
+				var _state={
+					allinone: false
+				}
 				_state.searchdata = resp.search;
 				_state.pagedata = false;
 				_state.connecting = false;
-				_state.ready = true;
+				_state.ready = true; 
 				document.title = 'Search Results';
 				_this.setState(_state);
 				
@@ -506,17 +650,28 @@ UI.UI = React.createClass({
 			
 			} else if(resp.page) {
 
-				if(!_this.state.ready)snowUI.flash('message','Welcome to '+snowText.build.name+'.',8888);
-				var _state={}
+				if(!_this.state.ready) {
+					snowUI.flash('message', 'Welcome to '+snowText.build.name+'.', 1000);
+				}
+				var _state={
+					allinone: _this.props.allinone
+				}
+					
 				_state.pagedata = resp.page;
 				_state.searchdata = false;
 				_state.connecting = false;
 				_state.ready = true;
-				document.title = resp.page.title;
-				_this.setState(_state);
-				
+				document.title = resp.page.title || _this.props.page || snowUI.name;
+				_this.setState(_state, function() {
+					snowlog.log('### run new page js ###############################S');
+					snowUI.apiCode();
+					Prism.highlightAll();
+				});
+				bone.router.navigate(getpage, {trigger:false});
 				var selector = $("#menu");
-				if(selector.css('height') !== '45px' && selector.find('.dropdown').css('display') === 'block')_this.toggleMenu();
+				if(selector.css('height') !== '45px' && selector.find('.dropdown').css('display') === 'block') {
+					_this.toggleMenu();
+				}
 			} else {
 				snowlog.error(resp);
 				if(!getpage || !_this.state.ready) {
@@ -535,42 +690,42 @@ UI.UI = React.createClass({
 		});
 		
 	},
-	
 	handleBannerChange: function(e) {
 		e.preventDefault();
 	},
 	handleActionChange: function(e) {
 		e.preventDefault();
 	},
-	componentDidMount: function() {
-		this.componentWillReceiveProps(this.props);
-	},
-	componentWillReceiveProps: function(props) {
-		snowlog.log('update props',props)
-		var _this = this;
-		
-		this.getPage(props.page,props.moon);
-		return false;
-		
-		this.setState({pagedata:{}});
-		return false;
-	},
 	hrefRoute: function(route) {
 		route.preventDefault();
-		var _this = this
-		var newroute = $(route.target)	
+		var _this = this;
+		var newroute = $(route.target);
 		
-		snowlog.log('href loader route',snowUI.path.root,newroute)
-		var moon =  newroute[0] ? newroute.closest('a')[0].pathname : false
+		snowlog.log('href loader route',snowUI.path.root,newroute);
+		var moon =  newroute[0] ? newroute.closest('a')[0].pathname : false;
 		if(moon) {
-			moon = moon.replace((snowUI.path.root + "/"),'')
-			snowlog.log('moon owner',moon)
+			moon = moon.replace((snowUI.path.root + "/"), '');
+			snowlog.log('moon owner', moon);
 			bone.router.navigate(moon, {trigger:true});
 		} else {
-			snowUI.flash('error','Link error',2000)
-			_this.setState({showErrorPage:false}); //this is a quick way to rerender the page since we are mid laod
+			snowUI.flash('error','Link error',2000);
+			_this.setState({showErrorPage:false});
 		}		
 		
+		return false
+	},
+	goToAnchor: function(route) {
+		//$('#simpledocs').scrollTo('#' + route,{duration:'slow', offsetTop : '50'});		
+		var simple = document.getElementById("simpledocs");
+		var goto = document.getElementById(route).offsetTop;
+		simple.scrollTop = goto - 20;
+		bone.router.navigate(snowUI.singlePage + '/' + route, {trigger: false});
+		snowlog.log('gotoanchor', route);
+		this.setProps({
+			page: route,
+			moon: snowUI.singlePage,
+			allinone: true,
+		});
 		return false
 	},
 	_toggled: false,
@@ -608,16 +763,17 @@ UI.UI = React.createClass({
 	},	
 	render: function() {
 		snowlog.log('state',this.state)
+		var page = this.state.searchdata || this.state.pagedata || {};
 		return (
 			<div>
-				<UI.Banner page={this.state.searchdata || this.state.pagedata} onActionChange={this.handleBannerChange} />
+				<UI.Banner title={page.title || this.props.page} page={page} onActionChange={this.handleBannerChange} />
 				<div id="menuspy" />
-				<div className="col-xs-12 col-sm-4 col-md-3 col-lg-2"  id="menu" data-target="#simpledocs" data-spy="affix"  data-offset-top="65" >
+				<div className="col-xs-12 col-sm-4 col-md-3 col-lg-2"  id="menu" >
 					<div className="dropdown" onClick={this.toggleMenu}><span className="dropspan glyphicon glyphicon-chevron-down" /></div>
-					<UI.Menu config={this.state}  getPage={this.hrefRoute} toggleMenu={this.toggleMenu} page={this.props.page}/>
+					<UI.Menu config={this.state} hrefRoute={this.hrefRoute} goToAnchor={this.goToAnchor}  getPage={this.getPage} toggleMenu={this.toggleMenu} page={this.props.page} moon={this.props.moon} />
 				</div>
 				<div className="col-xs-12 col-sm-offset-4 col-sm-8 col-md-offset-3 col-md-9 col-lg-offset-2 col-lg-10"  id="home">
-					<UI.home config={this.state}  getPage={this.hrefRoute} contents={this.state.searchdata || this.state.pagedata} />
+					<UI.home config={this.state} goToAnchor={this.goToAnchor} getPage={this.hrefRoute} contents={this.state.searchdata || this.state.pagedata} page={this.props.page} moon={this.props.moon} />
 				</div>
 				
 				

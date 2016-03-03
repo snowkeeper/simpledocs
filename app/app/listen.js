@@ -25,17 +25,27 @@ export default (Component) => {
 			
 			const clean = location.pathname;
 			
-			let paths = location.pathname.split( '/' ).filter(v => v !== '');
-			
+			let pages = clean.replace(snowUI.path.material, '').split('/');
+			let page = pages[1];
+			let anchor = pages[2] || false;
+			debug('clean page', page, pages, anchor) 
+			if(page.charAt(0) == '/') {
+				page = page.substring(1);
+			}
+			var search = false;
+			if(page.search('::') > -1 ) {
+				var ss = page.split('::');
+				search = ss[1];
+			}
 			this.state = { 
-				route: clean,
-				prev: clean,
-				paths,
 				sockets: Sockets,
+				forceGrab: false,
 				history,
 				location,
-				page: paths[1] || snowUI.homepage,
-				connected: true
+				anchor,
+				search: search || history.search || false,
+				page: page || snowUI.homepage,
+				connected: false
 			}
 			
 			snowUI.page = this.state.page;
@@ -44,6 +54,46 @@ export default (Component) => {
 			this._limiters = {};
 						
 			this.initiate();
+			this.newState = this.newState.bind(this);
+		}
+		
+		newState(state, cb) {
+			this.setState(state, cb);		
+		}
+		
+		pageResults(data) {
+			snowUI.watingForPage = false;
+			if(!data.success) {
+				this.setState({
+					page: '404',
+					contents: {
+						title: 'Page not found',
+						slug: '404'
+					},
+					newalert: {
+						style: 'danger',
+						html: data.message,
+						show: true,
+						duration: 1500
+					}
+				});
+			} else {
+				this.setState({ 
+					page: data.slug || snowUI.page,
+					contents: data.page
+				}, function() {
+					/* run page js for new content */
+					debug('##  RUN page js  ############');
+					snowUI.apiCode();
+					Prism.highlightAll();
+				});
+				if(_.isObject(data.menu)) {
+					snowUI.menu = data.menu;
+				}
+				if(_.isArray(data.tree)) {
+					snowUI.tree = data.tree;
+				}
+			}
 		}
 		
 		// add static listeners here
@@ -53,6 +103,7 @@ export default (Component) => {
 			
 			// Listen for changes to the current location. The 
 			// listener is called once immediately. 
+			/*
 			function checkPath(a, b) {
 				return a.page === b.page;
 			}
@@ -64,7 +115,7 @@ export default (Component) => {
 					this.setState(newLocation.state);
 				}
 			})
-			
+			*/
 			// listen for error
 			Gab.on('error',(data) => {
 				this.setState({
@@ -76,6 +127,11 @@ export default (Component) => {
 				});
 			});
 			
+			Gab.on('request',(data) => {
+				debug('got page request data', data);
+				thisComponent.pageResults(data);
+			});
+			
 			// sockets
 			// initialize
 			Sockets.init(() => {
@@ -83,47 +139,26 @@ export default (Component) => {
 				// setup a 15 sec heartbeat for socket connection loss
 				this.heartbeat = setInterval(() => {
 					//debug('heartbeat', Sockets.io.connected);
-					if(Sockets.io.connected === false && this.state.connected === true) {
+					if(!Sockets.io.connected && this.state.connected) {
 						debug('io connect-error');
 						this.setState({
-							connected: !this.state.connected,
+							connected: false,
 							newalert: {},
 						});
 					}
-					if(Sockets.io.connected === true && this.state.connected === false) {
+					if(Sockets.io.connected && !this.state.connected) {
 						debug('io connect');
 						this.setState({
-							connected: !this.state.connected,
+							connected: true,
 							newalert: {},
 						});
 					}
-				},15000);
+				},2500);
 				
 				// page
 				Sockets.io.on('page', (data) => {
-					debug('got page data', data);
-					if(data.err) {
-						this.setState({
-							newalert: {
-								style: 'danger',
-								html: data.err.message,
-								show: true,
-								duration: 1500
-							}
-						});
-					} else if(data.code === 200) {
-						this.setState({ 
-							page: data.slug || snowUI.page,
-							contents: data.page
-						});
-						if(_.isObject(data.menu)) {
-							snowUI.menu = data.menu;
-						}
-						if(_.isArray(data.tree)) {
-							snowUI.tree = data.tree;
-						}
-					}
-					
+					debug('got page socket data', data);
+					thisComponent.pageResults(data);
 				});
 				
 				// listen for a server error event
@@ -133,7 +168,7 @@ export default (Component) => {
 						newalert: {
 							show: true,
 							style: 'danger',
-							html: data.error.message
+							html: data.error
 						}
 					});
 				});
@@ -143,7 +178,7 @@ export default (Component) => {
 		render() {
 			// return React.cloneElement(Component, this.props)
 			debug('render listeners state', this.state, this.props);
-			return  <Component { ...this.props } { ...this.state } />;
+			return  <Component { ...this.props } { ...this.state } setState={this.newState} />;
 		}
 		componentWillReceiveProps(props) {
 			const clean = props.path

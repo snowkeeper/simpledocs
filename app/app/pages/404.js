@@ -31,10 +31,10 @@ export default class Disconnect extends React.Component {
 	render() {
 		debug('disconnect render', this.state, this.props);
 		
-		return (<Col xs={12} md={8} mdOffset={2} lg={6} lgOffset={3} ><Card>
+		return (<Col xs={12}  ><Card>
 					<CardTitle 
 						title={"404"}
-						subtitle={"The requested headend could not be found"}
+						subtitle={"The requested page could not be found"}
 						titleColor={Styles.Colors.red600}
 						subtitleColor={Styles.Colors.grey500}
 					/>
