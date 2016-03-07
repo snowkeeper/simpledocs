@@ -1,9 +1,18 @@
 var async = require('async');
 var highlight = require('highlight.js');
-/**
- * SimpleDocs Model
- * ==========
- */
+
+ /**
+ * model
+ * 
+ * create and register a model for this doc source
+ *
+ * ####Example:
+ *
+ *     SimpleDocs.model() 
+ *
+ * @method get
+ * @api public
+ */ 
 module.exports = function() {
 
 	var simpledocs = this;
@@ -11,16 +20,19 @@ module.exports = function() {
 	var config = simpledocs.get('simpledocs model config');
 	var Types = this.keystone.Field.Types;
 	var keystone = this.keystone;
+	var	route = this.get('route');
+	var wild = (route === '/' || route === '*' || route === '') ? '/' : route;
+	var	bootstrap = wild + '/bootstrap';
+	var material = wild + '/material';
 	
 	if(typeof config !== 'object')config = {};
 
 	/**
-	 * User Model
+	 * SimpleDocs Model
 	 * ==========
-	 **/
+	 */
 	var SimpleDocModel = new keystone.List(model,{
 			track:true,
-			autokey: { path: 'key', from: 'title', unique: true },
 			map: { name: 'title' },
 			label: config.label || 'Simple Documentation',
 			path: config.path || model + '-documentation',
@@ -46,7 +58,6 @@ module.exports = function() {
 		},
 		menuTitle: { 
 			type: String,  
-			index: true, 
 			initial: false,
 			required: false,
 			note: 'String to use for menu displays.  Title will be used if not defined.'
@@ -54,7 +65,8 @@ module.exports = function() {
 		slug: { 
 			type: Types.Key,
 			index: true,
-			note:'leave blank to auto-generate based on title.  Will be reformed if neccessary.'
+			unique: true,
+			note:'leave blank to auto-generate based on title.  Will be reformed uniquely if neccessary.'
 		},
 		display: {
 			type: Types.Select, 
@@ -71,7 +83,7 @@ module.exports = function() {
 		},
 		html: { 
 			type: Types.Html,
-			height:simpledocs.get('html height'), 
+			height: simpledocs.get('html height'), 
 			dependsOn: { $or: { display: [2,3,4] } },  
 			wysiwyg: simpledocs.get('wysiwyg'), 
 			label: 'Document HTML Contents'  
@@ -84,10 +96,11 @@ module.exports = function() {
 			note:'here is an editor you can use to copy/paste... <a href="http://jbt.github.io/markdown-editor/" target="_blank">http://jbt.github.io/markdown-editor/</a>', 
 			markedOptions: { 
 				langPrefix: 'language-',
-				highlight: function (code) {
-					return highlight.highlightAuto(code).value;
+				highlight: function (code, lang, callback) {
+					console.log('highlight code', code);
+					callback(err, highlight.highlightAuto(code).value);
 				}
-		} 
+			} 
 		},
 		links: {
 			type: Types.Relationship,
@@ -97,7 +110,7 @@ module.exports = function() {
 		},
 		externalLinks: {
 			type: Types.Url,  
-			many:true , 
+			many: true, 
 			label: 'Related External Links' ,
 			note:'separate links with a comma or space.'  
 		},
@@ -175,8 +188,8 @@ module.exports = function() {
 	SimpleDocModel.defaultColumns = 'title|30%, parent|30%,  slug, publish';
 
 	// add text indexes 
-	SimpleDocModel.schema.index({ 'markdown.html': 'text', html: 'text' });
-
+	SimpleDocModel.schema.index({ 'markdown.html': 'text',  'title': 'text', 'html': 'text' });
+	
 	SimpleDocModel.relationship({ ref: model, refPath: 'parent', path: 'childof' ,label:'Child Documents'});
 	SimpleDocModel.relationship({ ref: model, refPath: 'links', path: 'linkedto',label:'Showing links to' });
 	
@@ -185,7 +198,7 @@ module.exports = function() {
 	 * =====
 	*/
 	SimpleDocModel.schema.statics.search = function search(term, cb) {
-		var model = this;
+		var model = this; 
 		console.log('search', term);
 		model.find(
 			{ $text: { $search: term } },
@@ -503,11 +516,39 @@ module.exports = function() {
 	 **/
 	SimpleDocModel.register();
 	
+	
+	/**
+	 * Ensure indexes
+	 * */
+	if(simpledocs.get('ensure indexes')) {
+		SimpleDocModel.model.ensureIndexes(function(err) {
+			if(err) {
+				console.log('ERROR ensuring indexes', err, config.label);
+			}
+		});
+	}
 	/**
 	 * Nav
 	 **/
 	var nav = keystone.get('nav');
 	nav = typeof nav === 'object' ? nav : {};
-	nav[config.label] = SimpleDocModel.path
+	if(nav.documents instanceof Array) {
+		nav.documents.push(SimpleDocModel.path);
+	} else {
+		nav['documents'] = [SimpleDocModel.path];
+	}
+	if(!nav['packages']) {
+		nav['packages'] = [{
+			path: material + '/gh-pages',
+			label: SimpleDocModel.path + ' gh-pages',
+			key: SimpleDocModel.path + 'ghpages',
+		}];
+	} else {
+		nav['packages'].push({
+			path: material + '/gh-pages',
+			label: SimpleDocModel.path + ' gh-pages',
+			key: SimpleDocModel.path + 'ghpages',
+		});
+	}
 	keystone.set('nav', nav);
 }

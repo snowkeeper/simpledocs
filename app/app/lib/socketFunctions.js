@@ -1,6 +1,7 @@
-import randomNumber from 'hat';
 import debugging from 'debug';
 let	debug = debugging('simpledocs:app:lib:socketFunctions');
+
+let randomNumber = Math.random;
 
 function options() {
 	 

@@ -1,42 +1,3 @@
-/*
-@import url(//fonts.googleapis.com/css?family=Raleway:400,700,500,800);
-@import url(//fonts.googleapis.com/css?family=Ubuntu:400,700,500,800);
-
-*/
-
-// Import the fonts
-@font-face {
-  font-family: 'Material Icons';
-  font-style: normal;
-  font-weight: 400;
-  src: url('@{icon-font-path}material/MaterialIcons-Regular.eot'); /* For IE6-8 */
-  src: local('Material Icons'),
-       local('MaterialIcons-Regular'),
-       url('@{icon-font-path}material/MaterialIcons-Regular.woff2') format('woff2'),
-       url('@{icon-font-path}material/MaterialIcons-Regular.woff') format('woff'),
-       url('@{icon-font-path}material/MaterialIcons-Regular.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Oxygen';
-  src:  url('@{icon-font-path}Oxygen-Regular.ttf') format('truetype'),
-		url('@{icon-font-path}Oxygen-Bold.ttf') format('truetype'),
-		url('@{icon-font-path}Oxygen-Light.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'ubuntu';
-  src:  url('@{icon-font-path}Ubuntu/Ubuntu-Regular.ttf') format('truetype'),
-		url('@{icon-font-path}Ubuntu/Ubuntu-Bold.ttf') format('truetype'),
-		url('@{icon-font-path}Ubuntu/Ubuntu-Light.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'roboto';
-  src:  url('@{icon-font-path}Roboto/Roboto-Regular.ttf') format('truetype'),
-		url('@{icon-font-path}Roboto/Roboto-Bold.ttf') format('truetype'),
-		url('@{icon-font-path}Roboto/Roboto-Light.ttf') format('truetype');
-}
-
-//@import url(//fonts.googleapis.com/css?family=Quicksand:400,300,700);
 .roboto() {
     font-family: 'roboto';
     font-weight: 400;
@@ -56,37 +17,12 @@
 @border-radius-large:       1px;
 @border-radius-small:       1px;
 
-
-.material-icons {
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;  /* Preferred icon size */
-  display: inline-block;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;
-
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased;
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility;
-
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale;
-
-  /* Support for IE. */
-  font-feature-settings: 'liga';
-}
-
 body {
-	background-color: @ftc-black;
-	color: @ftc-white;
+	background-color: @ftc-white;
+	color: @ftc-black;
 	.ubuntu();
 }
+
 .body {
 	width: 100%;
 	height:100%;
@@ -403,22 +339,42 @@ a {
 }
 
 body.dark-theme {
-    background-color: #303030;
+    background-color: #303234;
     color: #CBCED4;
 }
 .dark-theme .list-group-item {
-	background-color: #303030;
+	background-color: #303234;
 	color: #FFFCEF;
 }
 .dark-theme .list-group-item:hover {
-	background-color: #212121;
+	background-color: #2C2E30;
 	color: #FFFCEF;
 }
 .dark-theme .list-group-item.active {
-	background-color: #223E77;
+	background-color: #383B3D;
 	color: #FFFCEF;
 }
 .dark-theme .list-group {
-	background:  #303030;
-	border-color:  #303030;
+	background:  #303234;
+	border-color:  #303234;
+}
+
+body.default {
+	background-color: @ftc-black;
+	color: @ftc-black;
+}
+.list-group-item, .list-group {
+	background-color: @ftc-white;
+}
+
+.theme-light .list-group-item, .theme-light .list-group {
+	background-color: #FCFDFF;
+	color: #0C87C1;
+}
+.theme-light .list-group-item.active {
+	background-color: #D9DADC;
+	color: #0C87C1;
+}
+.theme-light #menu {
+    background-color: #FCFDFF;
 }

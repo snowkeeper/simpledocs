@@ -3,24 +3,19 @@ import Debug from 'debug'
 import Gab from '../common/gab'
 import { DropDownMenu, MenuItem, ToolbarGroup, Toolbar, ToolbarSeparator, Divider, CardText, CardMedia, CardHeader, CardActions, Card, CardTitle, Styles, List, IconButton, ListItem, FlatButton, FontIcon } from 'material-ui/lib';
 import Menu from '../common/components/menu';
-import { Col } from 'react-bootstrap';
 
 let debug = Debug('simpledocs:app:pages:home');
 		
 export default class Home extends React.Component {
 	constructor(props) {
-		super(props)
+		super(props);
 		this.displayName = 'Home Component';	
 		this.state = {
 			ready: true,
 			page: props.page,
 			contents: props.contents
 		};
-		if(props.page === snowUI.singlePage) {
-			Gab.request(snowUI.api.allinone);
-		} else if(props.page) {
-			props.sockets.page(props.page, props.search);
-		}
+		
 		debug('home start props', props);
 		this._update = false;
 		this._updating = true;
@@ -29,19 +24,21 @@ export default class Home extends React.Component {
 	componentWillReceiveProps(props) {
 		
 		if(props.page !== this.state.page || (props.forceGrab && !this._updating)) {
-			debug('home got page', props)
+			debug('home got page', props, this._updating)
 			if(props.page === snowUI.singlePage) {
-				Gab.request(snowUI.api.allinone);
+				Gab.request(props.page, props.anchor);
+			} else if(!snowUI.usesockets) {
+				Gab.request(props.page, props.search);
 			} else {
 				props.sockets.page(props.page, props.search);
 			}
-			
+			this._updating = true;
 			snowUI.page = props.page;
 			this.setState({
 				page: props.page,
 				contents: false
 			});
-			this._updating = true;
+			
 			return true;
 		}
 		if(props.contents && this._updating) {
@@ -59,46 +56,65 @@ export default class Home extends React.Component {
 			this._update = true;
 		}
 	}
+	
 	shouldComponentUpdate() {
 		debug('should update? ', this._update);
-		return this._update;
+		var ret = this._update ? this._update : this._update; // !this.props.allinone;
+		return ret;
 	}
+	
 	componentDidUpdate() {
 		debug('didUpdate', this._update);
-		var simple = document.getElementById("simpledocs");
-		simple.scrollTop = 0;
-		this._update = false;
-		
-	}
-	componentDidMount() {
-		debug('did mount');
-		if(this.props.page) {
-			this.props.sockets.page(this.props.page);
+		if(this._update) {
+			var simple = document.getElementById("simpledocs");
+			simple.scrollTop = 0;
+			this._update = false;
+			snowUI.fadeIn();
 		}
 	}
+	
+	componentDidMount() {
+		debug('did mount');
+		if(this.props.page === snowUI.singlePage) {
+			Gab.request(this.props.page, this.props.anchor);
+		} else if( !snowUI.usesockets) {
+			Gab.request(this.props.page, this.props.search);
+		} else if(this.props.page) {
+			this.props.sockets.page(this.props.page, this.props.search);
+		}
+	}
+	
+	componentWillUnmount() {
+		snowUI.code.__unmountUI();
+	}
+	
 	render() {
 		debug('home render', this.state, this.props);
 		let content = [];
 		let _this = this;
-		if(this.state.contents instanceof Array) {
+		if(Array.isArray( this.state.contents ) ) { 
 			this.props.contents.forEach(function(v) {
-				content.push(UI.render.call(_this, v, true));
+				content.push(Home.UI.render.call(_this, v, true));
 			});
 		} else if(this.state.contents) {
-			content.push(UI.render.call(this, this.props.contents));
+			content.push(Home.UI.render.call(this, this.props.contents));
 		} else {
-			content.push(<span>Fetching Page...</span>);
+			content.push(<div style={{textAlign:'center',width:'100%'}}><FontIcon style={{fontSize:'128px'}} className="material-icons" color={Styles.Colors.blueGrey100} >file_download</FontIcon></div>);
 		}
-		return (<Col xs={12} >
+		return (<div className="col-xs-12" >
 			<Card style={{minHeight: snowUI.contentHeight}} >
 				<CardText>
-					{content}
+					
+						{content}
+					
 				</CardText>
 			</Card>
-		</Col>);
+		</div>);
 	}
 }
-let UI ={
+
+/* page display renderer */
+Home.UI = {
 	render: function( doc, allinone ) {
 		var _this = this;
 		var printMenu = <Menu { ..._this.props } />;
@@ -352,8 +368,5 @@ let UI ={
 				{menu}
 			</div>);
 		}
-	},
-	
-	
-	
+	},	
 };

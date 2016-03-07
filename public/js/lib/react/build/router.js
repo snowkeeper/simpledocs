@@ -1,7 +1,5 @@
-/**
- * @jsx React.DOM
- */
- 
+module.exports = function() {
+	var React = require('react');
 	var addroutes = {}	
 	addroutes['*'] = "redirect";
 	addroutes[''] = "redirect";
@@ -42,11 +40,11 @@
 		
 		var allinone = (page === snowUI.singlePage) ? true : false;
 		
-		React.renderComponent(snowUI.UI.UI({moon: moon, page: page, allinone: allinone, params: args}), document.getElementById('simpledocs'));
+		React.renderComponent(<snowUI.UI.UI moon={moon} page={page} allinone={allinone} params={args} />, document.getElementById('simpledocs'));
 	    
 	    },
 	    
 	});
 
-
+}
 

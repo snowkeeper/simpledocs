@@ -40,6 +40,6 @@ module.exports = function(keystone) {
 	 */
 	var nav = keystone.get('nav');
 	nav = typeof nav === 'object' ? nav : {};
-	nav[User.key] = User.path
+	nav['users'] = User.path
 	keystone.set('nav', nav);
 }

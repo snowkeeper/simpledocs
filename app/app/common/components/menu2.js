@@ -123,12 +123,12 @@ export default class Menu extends React.Component {
 							current: v
 						});
 					}} 
-					href={snowUI.path.root + '/' + v.slug} >single methods</a>
+					href={snowUI.path.root + '/' + v.slug} >{snowUI.text['multi page']}</a>
 				:
 					<a className="list-group-item" href="" onClick={(e) => {
 						e.preventDefault();
 						this.props.allInOne(v.slug);
-					}} >single page</a>
+					}} >{snowUI.text['single page']}</a>
 			
 			if(_this.props.allinone) {
 				linkto = <a className={"list-group-item " + active} onClick={(e) => {
@@ -146,16 +146,26 @@ export default class Menu extends React.Component {
 					}
 				linkto = <a className={"list-group-item " + active} onClick={onclick} href={snowUI.path.root + '/' + v.slug}>{v.menuTitle || v.title}</a>;
 			}
-			return (<div className="list-group" key={v.slug}>
-					
+			let search;
+			if(snowUI.search) {
+				search = (<span>
 					<div className="search-slider">
 						<input className="form-control" placeholder="Search" title="Press Enter to submit search" />
 					</div>
 					<div key={v.slug} style={{position:'relative'}}>
 						{linkto}
-						
 						<span className="glyphicon glyphicon-search searchToggle"  onClick={this.props.searchToggle} />
 					</div>
+				</span>);
+			} else {
+				search = (<span>
+					<div key={v.slug} style={{position:'relative'}}>
+						{linkto}
+					</div>
+				</span>);
+			}
+			return (<div className="list-group" key={v.slug}>
+					{search}
 					<div style={{position:'relative'}}>
 						{allinone}
 					</div>

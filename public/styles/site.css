@@ -1,10 +1,49 @@
-@import url(//fonts.googleapis.com/css?family=Courgette|Roboto+Slab:400,700|Roboto);
-@import url("/snowdocs/styles/bootstrap.css");
-
+@import url("/_simpledocs_/styles/bootstrap.css");
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/_simpledocs_/fonts/material/MaterialIcons-Regular.eot');
+  /* For IE6-8 */
+  src: local('Material Icons'), local('MaterialIcons-Regular'), url('/_simpledocs_/fonts/material/MaterialIcons-Regular.woff2') format('woff2'), url('/_simpledocs_/fonts/material/MaterialIcons-Regular.woff') format('woff'), url('/_simpledocs_/fonts/material/MaterialIcons-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Oxygen';
+  src: url('/_simpledocs_/fonts/Oxygen-Regular.ttf') format('truetype'), url('/_simpledocs_/fonts/Oxygen-Bold.ttf') format('truetype'), url('/_simpledocs_/fonts/Oxygen-Light.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'ubuntu';
+  src: url('/_simpledocs_/fonts/Ubuntu/Ubuntu-Regular.ttf') format('truetype'), url('/_simpledocs_/fonts/Ubuntu/Ubuntu-Bold.ttf') format('truetype'), url('/_simpledocs_/fonts/Ubuntu/Ubuntu-Light.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'roboto';
+  src: url('/_simpledocs_/fonts/Roboto/Roboto-Regular.ttf') format('truetype'), url('/_simpledocs_/fonts/Roboto/Roboto-Bold.ttf') format('truetype'), url('/_simpledocs_/fonts/Roboto/Roboto-Light.ttf') format('truetype');
+}
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
 body {
-	font-family: 'Roboto';
-
-	background-color: #FAFBFD;
+	font-family: ubuntu, roboto, sans-serif;
+	background-color: #FCFDFF;
 	color: #242730;
 }
 
@@ -517,7 +556,7 @@ pre {
 
 #easter-egg {
 	background: #ffffff;
-	border:1px solid #D1CFC4;
+	border:1px solid #eee;
 	border-top:none;
 	padding-bottom:50px;
 	line-height:1.6;
@@ -557,10 +596,6 @@ pre {
 #home .related, #home .linkPager {
 	border-color:#EEEBDE;
 	color: #A8A79D;
-}
-#easter-egg {
-	background: #FAF7EB;
-	border-color:#D1CFC4;
 }
 
 .searchToggle {
@@ -731,9 +766,9 @@ body.light-theme {
 	color: #FFFCEF;
 }
 .light-theme #easter-egg {
-	background: #142D38;
-	border-color:#1D4151;
-	color: #FFFCEF;
+	background: #ffffff;
+	border-color:#eeeeee;
+	color: #4F4E52;
 }
 .light-theme .pager li>a, .pager li>span {
 	background-color: #0C87C1;
@@ -810,8 +845,8 @@ body.dark-theme {
 	color: #FFFCEF;
 }
 .dark-theme #easter-egg {
-	background: #142D38;
-	border-color:#1D4151;
+	background: #081217;
+	border-color:#0A181E;
 	color: #FFFCEF;
 }
 .dark-theme .pager li>a, .pager li>span {

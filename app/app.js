@@ -2,7 +2,7 @@
 //System.liveReloadPort = 9999; // This is optional, defaults to 8012
 
 System
-	.import('/simpledocs-files/config.js')
+	.import('/_simpledocs-files_/config.js')
 	.then(function() {
 		System.import('dependencies').catch(console.error.bind(console));
 		//System.import('client').catch(console.error.bind(console));	

@@ -15,7 +15,7 @@ class Gab extends EventEmitter {
 		
 	}
 	
-	request(route, callback) {
+	request(route, moon, callback) {
 		var _this = this;
 		if(!isFunction(callback)) {
 			callback = function(){};
@@ -28,8 +28,19 @@ class Gab extends EventEmitter {
 			this.emit('request', res);
 			return callback(res);
 		}
+		var page = route ? route : snowUI.homepage;
+		if(page === snowUI.singlePage) {
+			var root = snowUI.api.allinone;
+		} else if(route.search('search::') > -1) {
+			var root = snowUI.api.search;
+		} else {
+			var root = snowUI.api.page;
+		}
+		let	url = root + '/' + page;
+		debug('request', url, root, page);
+		
 		request
-			.get(route)
+			.get(url)
 			.set({
 				'Accept': 'application/json'
 			})
@@ -44,7 +55,7 @@ class Gab extends EventEmitter {
 					return callback(result);
 				} else {
 					result.success = true;
-					result.page = res.body.page;
+					result.page = res.body.page || res.body.search;
 					result.tree = res.body.tree;
 					result.menu = res.body.menu;
 					_this.emit('request', result);

@@ -112,7 +112,11 @@ snowUI.flash = function(type,msg,delay,kill) {
 	 * 
 	 * */
 	$(document).ajaxComplete(function(event, xhr, settings) {
-		var data = $.parseJSON(xhr.responseText);
+		try {
+			var data = $.parseJSON(xhr.responseText);
+		} catch(e) {
+			var data = {};
+		}
 		if(data.redirect) {
 			location.href=data.redirect;
 		} 

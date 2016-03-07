@@ -1,7 +1,6 @@
 import Home from './pages/home';
 import Status from './pages/status';
-import MainAbout from './pages/main-about';
-
+import Builds from './pages/builds';
 import { isObject } from 'lodash';
 import Debug from 'debug';
 import fourofour from './pages/404.js';
@@ -10,7 +9,7 @@ let debug = Debug('simpledocs:app:routes');
 
 let routes = {
 	status: Status,
-	'main-about': MainAbout,
+	builds: Builds,
 	redirect: {
 		lost: '404',
 		disconnected: 'status'

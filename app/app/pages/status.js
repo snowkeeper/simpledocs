@@ -1,16 +1,14 @@
 import React from 'react';
 import Debug from 'debug'
 import Gab from '../common/gab'
-import { pickIcon } from '../common/utils';
 import { GridList, GridTile, Divider, FontIcon, Styles, CardText, Card, CardActions, CardHeader, CardMedia, CardTitle } from 'material-ui/lib';
-import { Col } from 'react-bootstrap';
 
-let debug = Debug('simpledocs:app:pages:disconnect');
+let debug = Debug('simpledocs:app:pages:status');
 		
-export default class Disconnect extends React.Component {
+export default class Status extends React.Component {
 	constructor(props) {
 		super(props)
-		this.displayName = 'Disconnect Component'	
+		this.displayName = 'Status Component'	
 		this.state = {
 			
 		}
@@ -22,20 +20,22 @@ export default class Disconnect extends React.Component {
 		this._update = true;
 	}
 	componentDidUpdate() {
+		snowUI.fadeIn();
 		debug('didUpdate');
 	}
 	componentDidMount() {
 		debug('did mount');
-		
+		snowUI.fadeIn();
 	}
 	render() {
-		debug('disconnect render', this.state, this.props);
+		debug('status render', this.props);
 		let status;
-		if(this.props.sockets.io.connected) {
+		if(this.props.connected || !snowUI.usesockets) {
+			let msg = !snowUI.usesockets ? '' : "The server is online and accepting page requests.";
 			status =  (
 				<CardHeader 
-					title={"Server Connected"}
-					subtitle={"The agent is currently responding to socket requests"}
+					title={"SimpleDocs document generator"}
+					subtitle={msg}
 					avatar={<FontIcon style={{fontSize:'42px'}} className="material-icons" color={Styles.Colors.green600} hoverColor={Styles.Colors.blue600} >cloud_done</FontIcon>}
 					titleColor={Styles.Colors.green600}
 					subtitleColor={Styles.Colors.grey500}
@@ -52,14 +52,58 @@ export default class Disconnect extends React.Component {
 				/>
 			);
 		}
-		
-		return (<Col xs={12}  >
+		let ghpages = <span />;
+		if(snowUI.chief) {
+			ghpages = (
+				<Card>
+					<CardHeader 
+						title={"Create Builds"}
+						subtitle={"Create static build for ghpages and download"}
+						avatar={<FontIcon style={{}} className="material-icons" color={Styles.Colors.blueGrey600} hoverColor={Styles.Colors.blueGrey600} >file_download</FontIcon>}
+						titleColor={Styles.Colors.blue600}
+						subtitleColor={Styles.Colors.grey500}
+						actAsExpander={true}
+						showExpandableButton={true}
+					/>
+					<CardText expandable={true} >
+						<GridList
+							cellHeight={100}
+							style={{width:'100%'}}
+							cols={3}
+						>
+							<GridTile 
+								key="GitHub"
+								title="GitHub Pages"
+								onClick={e => this.props.goTo('builds')}
+								subtitle="Build for gh-pages"
+								style={{backgroundColor: '#333335', cursor: 'pointer'}}
+							/>
+							<GridTile 
+								key="pdf"
+								title="PDF"
+								onClick={e => this.props.goTo('builds')}
+								subtitle="Download a PDF"
+								style={{backgroundColor: '#9F4206', cursor: 'pointer'}}
+							/>
+							<GridTile 
+								key="static"
+								title="HTML Download"
+								onClick={e => this.props.goTo('builds')}
+								subtitle="all pages zipped up"
+								style={{backgroundColor: '#23214C', cursor: 'pointer'}}
+							/>
+						</GridList>
+					</CardText>
+				</Card>
+			);
+		}
+		return (<div className="col-xs-12" >
 			<Card>
 				{status}
 				<CardText style={{}} >
 					
 				</CardText>
-			
+				{ghpages}
 				<Card>
 					<CardHeader 
 						title={"Get SimpleDocs"}
@@ -72,23 +116,22 @@ export default class Disconnect extends React.Component {
 					/>
 					<CardText expandable={true} >
 						<GridList
-							cellHeight={150}
+							cellHeight={75}
 							style={{width:'100%'}}
 						>
 							<GridTile 
 								key="npmTile"
 								title="NPM"
-								subtitle={<a style={{color: Styles.Colors.grey300}} href="https://npmjs.org/package/simpledocs" target="_blank">Package Info</a>}
+								subtitle={<a style={{color: Styles.Colors.grey300, textDecoration: 'none'}} href="https://npmjs.org/package/simpledocs" target="_blank">Package Info</a>}
 								style={{backgroundColor: '#CB3837'}}
 							/>
 							<GridTile 
 								key="github"
 								title="GitHub"
-								subtitle={<a style={{color: Styles.Colors.grey300}} href="https://github.com/inquisive/simpledocs" target="_blank">Source</a>}
+								subtitle={<a style={{color: Styles.Colors.grey300, textDecoration: 'none'}} href="https://github.com/inquisive/simpledocs" target="_blank">Source</a>}
 								style={{backgroundColor: '#333333'}}
 							/>
 						</GridList>
-						<div style={{borderBottom:'transparent 15px solid'}} />
 					</CardText>
 				</Card>
 				<Card>
@@ -102,17 +145,43 @@ export default class Disconnect extends React.Component {
 						showExpandableButton={true}
 					/>
 					<CardText expandable={true} >
-						<div className="">
-							SimpleDocs is built with these libraries and more...
-							<div className="row">
-								<div className="col-xs-6 col-sm-4 col-md-3"><a href="http://nodejs.org" target="_blank">nodejs</a></div>
-								<div className="col-xs-6 col-sm-4 col-md-3"><a href="http://keystonejs.com" target="_blank">KeystoneJS</a></div>
-								<div className="col-xs-6 col-sm-4 col-md-3"><a href="http://getbootstrap.com/" target="_blank">Bootstrap</a></div>
-								<div className="col-xs-6 col-sm-4 col-md-3"><a href="http://facebook.github.io/react/docs/thinking-in-react.html" target="_blank">ReactJS</a></div>
-								
-							</div>
-							<div style={{borderBottom:'transparent 15px solid'}} />
-						</div>
+						<h4>A few of the libraries used to build SimpleDocs. </h4> 
+						<GridList
+							cellHeight={75}
+							style={{ width:'100%' }}
+							cols={3}
+						>
+							<GridTile 
+								key="nodeTile"
+								title={<a style={{color: Styles.Colors.grey300, textDecoration: 'none'}} href="http://nodejs.org" target="_blank">Nodejs</a>}
+								style={{backgroundColor: '#2D542D'}}
+							/>
+							<GridTile 
+								key="mongoTile"
+								title={<a style={{color: Styles.Colors.grey300, textDecoration: 'none'}} href="http://mongoosejs.com/" target="_blank">Mongoose & MongoDB</a>}
+								style={{backgroundColor: '#2B4BA7'}}
+							/>
+							<GridTile 
+								key="keystoneTime"
+								title={<a style={{color: Styles.Colors.grey300, textDecoration: 'none'}} href="http://keystonejs.com/" target="_blank">Keystone</a>}
+								style={{backgroundColor: '#2B4BA7'}}
+							/>
+							<GridTile 
+								key="bootTile"
+								title={<a style={{color: Styles.Colors.grey300, textDecoration: 'none'}} href="http://getbootstrap.com/" target="_blank">Bootstrap</a>}
+								style={{backgroundColor: '#2B4BA7'}}
+							/>
+							<GridTile 
+								key="reactTile"
+								title={<a style={{color: Styles.Colors.grey300, textDecoration: 'none'}} href="http://facebook.github.io/react/docs/thinking-in-react.html" target="_blank">React JS</a>}
+								style={{backgroundColor: '#2B3D6D'}}
+							/>
+							<GridTile 
+								key="matrerialTile"
+								title={<a style={{color: Styles.Colors.grey300, textDecoration: 'none'}} href="http://material-ui.com/" target="_blank">Material-UI</a>}
+								style={{backgroundColor: '#4EAEBB'}}
+							/>
+						</GridList>
 					</CardText>
 				</Card>
 				<Card>
@@ -122,22 +191,71 @@ export default class Disconnect extends React.Component {
 						avatar={<FontIcon style={{}} className="material-icons" color={Styles.Colors.blueGrey600} hoverColor={Styles.Colors.blueGrey600} >invert_colors</FontIcon>}
 						titleColor={Styles.Colors.blue600}
 						subtitleColor={Styles.Colors.grey500}
-						actAsExpander={true}
-						showExpandableButton={true}
+						actAsExpander={false}
+						showExpandableButton={false}
 					/>
-					<CardText expandable={true} >
-						<div className="">
-							<div className="row">
-								<div title="change theme" className="col-xs-offset-1 col-xs-11"> <a style={{cursor:'pointer'}} onClick={snowUI.toggleTheme}>Switch between light and dark themes</a></div>
-								<br />
-							</div>
-							<div style={{borderBottom:'transparent 15px solid'}} />
-						</div>
-					</CardText>
 				</Card>
-				
+				<GridList
+					cellHeight={100}
+					style={{width:'100%'}}
+					cols={7}
+					padding={0}
+				>
+					<GridTile 
+						key="MaterialL7ightTheme"
+						title={"Cream"}
+						onClick={e => this.props.switchTheme('cream')}
+						style={{backgroundColor: '#FFFCEF', cursor: 'pointer'}}
+					/>
+					<GridTile 
+						key="MaterialLightTheme"
+						title={"Light"}
+						onClick={e => this.props.switchTheme('light')}
+						style={{backgroundColor: '#eeeeee', cursor: 'pointer'}}
+					/>
+					<GridTile 
+						key="MaterialDLightTheme"
+						title={"Blue"}
+						onClick={e => this.props.switchTheme('blue')}
+						style={{backgroundColor: '#0C87C1', cursor: 'pointer'}}
+					/>
+					<GridTile 
+						key="MaterialTheme"
+						title={"Graphite"}
+						onClick={e => this.props.switchTheme('graphite')}
+						style={{backgroundColor: '#303030', cursor: 'pointer'}}
+					/>
+					<GridTile 
+						key="MaterialDarkTheme"
+						title={"Night"}
+						onClick={e => this.props.switchTheme('night')}
+						style={{backgroundColor: '#223E77', cursor: 'pointer'}}
+					/>
+					<GridTile 
+						key="MateriallDDarkTheme"
+						title={"Dark"}
+						onClick={e => this.props.switchTheme('dark')}
+						style={{backgroundColor: '#0097A7', cursor: 'pointer'}}
+					/>
+					<GridTile 
+						cols={1}
+						key="bliteTheme"
+						title="Bootstrap UI"
+						onClick={e => this.props.assets({
+							newconfirm: {
+								html: 'Do you want to switch to the Bootstrap UI?',
+								title: 'Bootstrap UI',
+								open: true,
+								yesText: 'Yes, go to Bootstrap UI.',
+								noText: 'No, close prompt.',
+								answer: () => { location.href = snowUI.path.bootstrap }
+							}
+						})}
+						style={{backgroundColor: '#0C87C1', cursor: 'pointer'}}
+					/>
+				</GridList>
 			</Card>
-		</Col>);	
+		</div>);	
 	}
 }
 

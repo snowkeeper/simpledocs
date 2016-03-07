@@ -11,8 +11,6 @@ import Confirm from './common/components/confirm';
 import routes from './routes';
 import {Card, CardText, FontIcon, IconMenu, IconButton, AppBar, RaisedButton, LeftNav, MenuItem, Styles, Divider, List, ListItem} from 'material-ui/lib';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import Alert from './common/alert';
-import { Col } from 'react-bootstrap';
 
 //Needed for onTouchTap
 //Can go away when react 1.0 release
@@ -58,19 +56,35 @@ class Main extends Component {
 		debug(props, 'location', location,)
 		
 		this.styles = {
-			main: Styles.ThemeManager.modifyRawThemePalette(Styles.ThemeManager.getMuiTheme(Styles.LightRawTheme), myStylesLight),
-			maindark: Styles.ThemeManager.modifyRawThemePalette(Styles.ThemeManager.getMuiTheme(Styles.LightRawTheme), Object.assign(myStyles, snowUI.materialStyle.mainDark)),
-			light: Styles.ThemeManager.modifyRawThemePalette(Styles.ThemeManager.getMuiTheme(Styles.LightRawTheme), Object.assign(myStylesDefault, snowUI.materialStyle.defaultLight) ),
+			main: Styles.ThemeManager.modifyRawThemePalette(Styles.ThemeManager.getMuiTheme(Styles.LightRawTheme), Object.assign(myStylesLight, snowUI.materialStyle.main)),
+			night: Styles.ThemeManager.modifyRawThemePalette(Styles.ThemeManager.getMuiTheme(Styles.LightRawTheme), Object.assign(myStyles, snowUI.materialStyle.mainDark)),
+			blue: Styles.ThemeManager.modifyRawThemePalette(Styles.ThemeManager.getMuiTheme(Styles.LightRawTheme), Object.assign(myStylesDefault, snowUI.materialStyle.defaultLight) ),
 			dark: Styles.ThemeManager.modifyRawThemePalette(Styles.ThemeManager.getMuiTheme(Styles.DarkRawTheme), Object.assign(myStylesDefaultDark, snowUI.materialStyle.defaultDark) ),
 		}
 		
 		this.styles.main.appBar.textColor = Styles.Colors.grey700;
 		
+		const clean = location.pathname;
+			
+		let pages = clean.replace(snowUI.path.material, '').split('/');
+		let page = pages[1] || snowUI.homepage;
+		let anchor = pages[2] || false;
+		
+		debug('clean page', page, pages, anchor) 
+		
+		if(page.charAt(0) == '/') {
+			page = page.substring(1);
+		}
+		
+		var search = false;
+		if(page.search('::') > -1 ) {
+			var ss = page.split('::');
+			search = ss[1];
+		}
+		
 		this.state = Object.assign({
 			leftNav: false,
 			theme: this.styles.main,
-			query: location.search,
-			location: { ...location },
 			current: {},
 			contents: false,
 			newalert: {},
@@ -78,14 +92,15 @@ class Main extends Component {
 			newconfirm: {
 				open: false
 			},
+			anchor,
+			search: search || history.search || false,
+			page: page || snowUI.homepage,
 		}, props);
 		
 		this._defaults = {
 			leftNav: false,
 			current: {},
 			contents: false,
-			location: location,
-			query: '',
 			allinone: false,
 			search: '',
 			forceUpdate: false,
@@ -101,27 +116,22 @@ class Main extends Component {
 		this.allInOne = this.allInOne.bind(this);
 		this.goToAnchor = this.goToAnchor.bind(this);
 		this.setAsset = this.setAsset.bind(this);
-		this.dismissAlert = this.dismissAlert.bind(this);
 		this.answerConfirm = this.answerConfirm.bind(this);
-		this.showAlert = this.showAlert.bind(this);
 		this.switchTheme = this.switchTheme.bind(this);
 		this.searchToggle = this.searchToggle.bind(this);
 	}
 	
 	componentDidMount() {
-		// load external github files
-		snowUI.loadApiCode();
 		
 		/* set the height of the menu and minimum height of content */
-		let menu = document.getElementById('menu');
-		
+		var menu = document.getElementById('menu');
 		let clientHeight = document.documentElement.clientHeight;
-		let footer = document.getElementById('simpledocs-footer').clientHeight;
-		let appbar = document.getElementById('appbar').clientHeight;
+		let footer = document.getElementById('simpledocs-footer');
+		let appbar = document.getElementById('appbar');
 		
-		//debug(menu, clientHeight, appbar.clientHeight);
-		menu.style.height = clientHeight - appbar;	
-		snowUI.contentHeight = clientHeight - appbar - footer - 25;
+		menu.style.height = clientHeight - appbar.clientHeight + "px";	
+		debug('menu height',  clientHeight, appbar.clientHeight, clientHeight - appbar.clientHeight, menu.style.height, menu.style);
+		//snowUI.contentHeight = clientHeight - appbar.clientHeight - footer.clientHeight - 25;
 	}
 	
 	componentWillReceiveProps(props) {
@@ -134,15 +144,23 @@ class Main extends Component {
 		this.setState(p);	
 	}
 	
+	componentWillUnmount() {
+		
+	}
+	
 	switchTheme(theme = 'main') {
 		let style = this.styles[theme];
 		if(!style) {
 			style = this.styles.main;
 		}
-		if(theme.search('dark') > -1) {
+		if(theme == 'dark' || theme == 'graphite') {
 			snowUI.setTheme('dark-theme');
-		} else if(theme == 'main') {
+		} else if(theme == 'night') {
 			snowUI.setTheme('default');
+		} else if(theme == 'cream') {
+			snowUI.setTheme('');
+		} else if(theme == 'light') {
+			snowUI.setTheme('light-theme theme-light ');
 		} else {
 			snowUI.setTheme('light-theme');
 		}
@@ -153,16 +171,6 @@ class Main extends Component {
 			Prism.highlightAll();
 		});
 		
-	}
-	
-	showAlert(style, message, type = 'html') {
-		this.setState({
-			newalert: {
-				show: true,
-				[type]: message,
-				style
-			}
-		});
 	}
 	
 	getChildContext() {
@@ -190,6 +198,7 @@ class Main extends Component {
 		$input.val('');
 		$input.focus();
 		$input.keypress((event) => {
+			// keyboard Enter event
 			if ( event.which == 13 ) {
 				event.preventDefault();
 				let state = {
@@ -197,14 +206,10 @@ class Main extends Component {
 					search:  $input.val()
 				}
 				
-				this.props.setState(Object.assign({...this._defaults}, state), () => {
+				this.props.setState(Object.assign({ ...this._defaults }, state), () => {
 					this.state.history.push({
 						pathname: 'search::',
 						search: $input.val(),
-						state: {
-							page: this.state.page,
-							current: this.state.current
-						}
 					})
 				});
 			}
@@ -213,8 +218,7 @@ class Main extends Component {
 	}
 	
 	goToAnchor(route, v) {
-		//$('#simpledocs').scrollTo('#' + route,{duration:'slow', offsetTop : '50'});		
-		console.log('goToAnchor', route, v);
+		debug('goToAnchor', route, v);
 		var simple = document.getElementById("simpledocs");
 		var goto = document.getElementById(route) ? document.getElementById(route).offsetTop : 0;
 		simple.scrollTop = goto < 30 ? 0 : goto - 30;
@@ -225,14 +229,10 @@ class Main extends Component {
 			contents: this.props.contents
 		}
 		
-		this.props.setState(Object.assign({...this._defaults}, state), () => {
+		this.props.setState(Object.assign({ ...this._defaults }, state), () => {
 			this.state.history.push({
 				pathname: Path.join('/' , snowUI.singlePage, route),
 				search: this.state.query,
-				state: {
-					page: this.state.page,
-					current: this.state.current
-				}
 			})
 		});
 		return false
@@ -247,19 +247,18 @@ class Main extends Component {
 			allinone: true
 		}
 		
-		this.props.setState(Object.assign({...this._defaults}, state), () => {
-			var simple = document.getElementById("simpledocs");
-			simple.scrollTop = 0;
-			debug('push history', '/', snowUI.singlePage, state.anchor);
-			this.state.history.push({
-				pathname: Path.join('/' , snowUI.singlePage, state.anchor),
-				search: this.state.query,
-				state: {
-					page: this.state.page,
-					current: this.state.current
-				}
+		// fade the content div before its replaced
+		snowUI.fadeOut('slow', () => {
+			this.props.setState(Object.assign({ ...this._defaults }, state), () => {
+				var simple = document.getElementById("simpledocs");
+				simple.scrollTop = 0;
+				debug('push history', '/', snowUI.singlePage, state.anchor);
+				this.state.history.push({
+					pathname: Path.join('/' , snowUI.singlePage, state.anchor),
+					search: this.state.query,
+				});
+				
 			});
-			
 		});
 	}
 	
@@ -272,34 +271,28 @@ class Main extends Component {
 				page: state,
 			}
 		}
+		
 		if(this.props.page === snowUI.singlePage) {
 			state.forceGrab = true;
 		}
-		var send = Object.assign({...this._defaults}, state);
-		debug('goTo send', this._defaults, state, send);
-		this.props.setState(send, () => {
-			debug('push history ', '/' , this.state.page)
-			this.state.history.push({
-				pathname: Path.join('/' , this.state.page),
-				search: this.state.query,
-				state: {
-					page: this.state.page,
-					current: this.state.current
-				}
-			});
-		});	
+		
+		// fade the content div before its replaced
+		snowUI.fadeOut('slow', () => {
+			var send = Object.assign({ ...this._defaults }, state);
+				
+			this.props.setState(send, () => {
+				debug('push history ', '/' , this.state.page, this._defaults, state, send)
+				this.state.history.push({
+					pathname: Path.join('/' , this.state.page),
+					search: this.state.query,
+				});
+			});	
+		});
+		
 	}
 	
 	setAsset(asset, callback) {
 		this.setState(asset, callback);
-	}
-	
-	dismissAlert() {
-		this.setState({ 
-			newalert: {
-				show: false
-			}
-		});
 	}
 	
 	dismissConfirm() {
@@ -312,7 +305,11 @@ class Main extends Component {
 	
 	answerConfirm(success) {
 		if(success) {
-			this[this.state.answerMethod](this.state.answerConfirm);
+			if(typeof this.state.newconfirm.answer === 'function') {
+				this.state.newconfirm.answer(this.state.answerConfirm);
+			} else if(typeof this[this.state.answerMethod] === 'function') {
+				this[this.state.answerMethod](this.state.answerConfirm);
+			}
 		}
 		this.setState({
 			newconfirm: {
@@ -328,16 +325,16 @@ class Main extends Component {
 		
 		let title = this.state.current.title || this.state.page;
 		
-		let isConnectedIcon = this.state.connected === true ? 
-			<IconButton onClick={(e)=>{e.preventDefault();this.goTo('status');}} ><FontIcon color={Styles.Colors.green900} className="material-icons"  >airplanemode_active</FontIcon></IconButton>
+		let isConnectedIcon = this.state.connected === true || !snowUI.usesockets ? 
+			<IconButton onClick={(e)=>{e.preventDefault();this.goTo('status');}} ><FontIcon className="material-icons"  >info_outline</FontIcon></IconButton>
 		:
-			<span><IconButton onClick={(e)=>{e.preventDefault();this.goTo('Status');}} ><FontIcon className="material-icons" style={{fontSize:'20px'}} color={Styles.Colors.amber100} hoverColor={Styles.Colors.red900} title="Connection to server lost">airplanemode_inactive</FontIcon></IconButton> <span style={{color:Styles.Colors.amber100,fontSize:'20px'}}></span></span>
+			<span><IconButton onClick={(e)=>{e.preventDefault();this.goTo('Status');}} ><FontIcon className="material-icons" style={{fontSize:'20px'}} color={Styles.Colors.red900} hoverColor={Styles.Colors.red500} title="Connection to server lost">cloud_offline</FontIcon></IconButton></span>
 		
 		let appBarRightIcons = (<span>
-			<IconButton onClick={(e)=>{e.preventDefault();this.goTo(snowUI.homepage);}} ><FontIcon className="material-icons"  >home</FontIcon></IconButton>
 			
 			{isConnectedIcon}
-			<span >
+			
+			<span style={{ cursor: 'pointer' }}>
 				<IconMenu
 					iconButtonElement={<FontIcon className="material-icons" >invert_colors</FontIcon>}
 					onItemTouchTap={(e, val) => {
@@ -348,25 +345,38 @@ class Main extends Component {
 						this.switchTheme(val.props.value);
 					}}
 				>
-				  <MenuItem primaryText="Main" value="main"/>
-				  <MenuItem primaryText="Main Dark" value="maindark"/>
-				  <MenuItem primaryText="Default Light" value="light" />
-				  <MenuItem primaryText="Default Dark" value="dark" />
+				  <MenuItem primaryText="Cream" value="cream"/>
+				  <MenuItem primaryText="Light" value="light" />
+				  <MenuItem primaryText="Blue" value="blue"/>
+				  <MenuItem primaryText="Graphite" value="graphite"/>
+				  <MenuItem primaryText="Night" value="night"/>
+				  <MenuItem primaryText="Dark" value="dark" />
 				  <MenuItem primaryText="Bootstrap" value="boot" />
 				</IconMenu>
 			</span>
+			
+			<IconButton onClick={(e)=>{e.preventDefault();this.goTo(snowUI.homepage);}} ><FontIcon className="material-icons"  >home</FontIcon></IconButton>
 			
 			<div style={{width:20,height:20,display:'inline-block'}} />
 		</span>);
 		
 		let appbar =<div id="appbar"> <div style={{zIndex:1101, width: '100%', height: '64px' ,position: 'fixed', }} ><AppBar
-			title={title}
+			title={<div id="appbarTitle" >{title}</div>}
 			onLeftIconButtonTouchTap={this.handleLeftNav} 
 			iconElementRight={appBarRightIcons}
 			style={{boxShadow: 'none'}}
 		/></div><div style={{height:65,width:'100%'}} /></div>;
         
         const Page = routes(this.state.page);
+        
+		const xs = snowUI.breaks.menu[0] === 12 ? 'hidden-xs' : 'col-xs-' + snowUI.breaks.menu[0];
+		const sm = snowUI.breaks.menu[1] === 12 ? 'hidden-sm' : 'col-sm-' + snowUI.breaks.menu[1];
+		const md = snowUI.breaks.menu[2] === 0 ? 'hidden-md' : 'col-md-' + snowUI.breaks.menu[2];
+		const lg = snowUI.breaks.menu[3] === 0 ? 'hidden-lg' : 'col-lg-' + snowUI.breaks.menu[3];
+		const xsC = snowUI.breaks.content[0] === 0 ? 'hidden-xs' : 'col-xs-' + snowUI.breaks.content[0];
+		const smC = snowUI.breaks.content[1] === 0 ? 'hidden-sm' : 'col-sm-' + snowUI.breaks.content[1];
+		const mdC = snowUI.breaks.content[2] === 0 ? 'hidden-md' : 'col-md-' + snowUI.breaks.content[2];
+		const lgC = snowUI.breaks.content[3] === 0 ? 'hidden-lg' : 'col-lg-' + snowUI.breaks.content[3];
 		
         return (<div>
 			{appbar}
@@ -375,14 +385,16 @@ class Main extends Component {
 			
 			<div className="clearfix" />
 			<div className="simpledocs-container" >
-				<Col className="stickyMenu-not" style={{padding:0}} xsHidden={true} smHidden={true} md={3} lg={2} >
-					<Col  id="menu" className="no-padding" xsHidden={true} smHidden={true} md={3} lg={2} >
+				<div className={xs + " " + sm + " " + md + " " + lg + " "}  style={{padding:0}} >
+					<div  id="menu" className={xs + " " + sm + " " + md + " " + lg + " no-padding"}  >
 						<Menu2 update={snowUI.alwaysloadtree} docked={false} searchToggle={this.searchToggle} goTo={this.goTo} handleLeftNav={this.handleLeftNav} goToAnchor={this.goToAnchor} allInOne={this.allInOne} { ...this.state } />
-					</Col>
-				</Col>
-				<Col style={{paddingRight:7, paddingLeft:7}} xs={12} sm={12} md={9} lg={10} >
-					<Page { ...this.state } assets={this.setAsset} showAlert={this.showAlert} goTo={this.goTo} handleLeftNav={this.handleLeftNav} goToAnchor={this.goToAnchor} allInOne={this.allInOne} />
-				</Col>
+					</div>
+				</div>
+				<div style={{paddingRight:0, paddingLeft:0}} className={xsC + " " + smC + " " + mdC + " " + lgC + " "}  >
+					<div id="content-fader">
+						<Page { ...this.state } assets={this.setAsset} switchTheme={this.switchTheme} goTo={this.goTo} handleLeftNav={this.handleLeftNav} goToAnchor={this.goToAnchor} allInOne={this.allInOne} />
+					</div>
+				</div>
 			</div>
 			<div className="clearfix" />
 			<div className="simpledocs-footer" id="simpledocs-footer" >

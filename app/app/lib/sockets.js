@@ -13,7 +13,6 @@ let Sockets = function() {
 		io: false,
 		open: false
 	}
-		
 	this.proxy = 'proxy';
 }
 
