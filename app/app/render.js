@@ -20,9 +20,6 @@ injectTapEventPlugin();
 
 let debug = Debug('simpledocs:app:render');
 
-debug('dark raw theme', Styles.DarkRawTheme);
-debug('dark  base theme', Styles.darkBaseTheme);
-
 let myStyles = {
 	primary1Color: '#223E77',
 	textColor: Styles.Colors.blueGrey200,
@@ -61,7 +58,8 @@ class Main extends Component {
 			blue: Styles.ThemeManager.modifyRawThemePalette(Styles.ThemeManager.getMuiTheme(Styles.LightRawTheme), Object.assign(myStylesDefault, snowUI.materialStyle.defaultLight) ),
 			dark: Styles.ThemeManager.modifyRawThemePalette(Styles.ThemeManager.getMuiTheme(Styles.DarkRawTheme), Object.assign(myStylesDefaultDark, snowUI.materialStyle.defaultDark) ),
 		}
-		
+		debug('blue theme', this.styles.blue);
+
 		this.styles.main.appBar.textColor = Styles.Colors.grey700;
 		
 		const clean = location.pathname;
@@ -123,6 +121,11 @@ class Main extends Component {
 	
 	componentDidMount() {
 		
+		/* set the theme */
+		if(snowUI.materialTheme) {
+			this.switchTheme(snowUI.materialTheme);
+		}
+		
 		/* set the height of the menu and minimum height of content */
 		var menu = document.getElementById('menu');
 		let clientHeight = document.documentElement.clientHeight;
@@ -153,16 +156,24 @@ class Main extends Component {
 		if(!style) {
 			style = this.styles.main;
 		}
-		if(theme == 'dark' || theme == 'graphite') {
+		if(theme == 'dark') {
 			snowUI.setTheme('dark-theme');
+			snowUI.shortenTitle = false;
+		} else if(theme == 'graphite') {
+			snowUI.setTheme('dark-theme graphite');
+			snowUI.shortenTitle = true;
 		} else if(theme == 'night') {
-			snowUI.setTheme('default');
+			snowUI.setTheme('dark-theme default');
+			snowUI.shortenTitle = false;
 		} else if(theme == 'cream') {
 			snowUI.setTheme('');
+			snowUI.shortenTitle = true;
 		} else if(theme == 'light') {
 			snowUI.setTheme('light-theme theme-light ');
+			snowUI.shortenTitle = true;
 		} else {
-			snowUI.setTheme('light-theme');
+			snowUI.setTheme('light-theme blue');
+			snowUI.shortenTitle = false;
 		}
 		this.setState({
 			theme: style,

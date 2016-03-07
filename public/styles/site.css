@@ -364,6 +364,11 @@ pre {
 	margin-top: 0px;
 	position:fixed;
 	overflow: auto;
+	
+}
+
+.menu {
+	background: #FFFCEF;
 }
 
 #menu .dropdown {
@@ -729,7 +734,7 @@ body.light-theme {
 .light-theme .simpledoc .carousel-indicators .active {
 	background-color:#FFFCEF;
 }
-.light-theme #menu {
+.light-theme .menu {
 	background: #0C87C1;
 }
 .light-theme #menu .dropdown{
@@ -1061,7 +1066,7 @@ body.dark-theme {
 .contextual-note pre,
 .contextual-note code {
 	border-color: #d6e8f7;
-	background: #fbfdfe
+	background: #fbfdfe;
 }
 
 pre.command-line:before {

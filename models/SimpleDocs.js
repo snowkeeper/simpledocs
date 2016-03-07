@@ -215,6 +215,22 @@ module.exports = function() {
 		});
 	}
 		
+	SimpleDocModel.schema.statics.getPublished = function getPublished(callback) {
+		var model = this;
+		//console.log('page model request',slug);
+		model.find({ publish: 'published' })
+			.select('-__v')
+			.populate('parent','parent title slug order')
+			.populate('links','parent title slug order')
+			.lean()
+			.exec(function(err, docs) {
+				if(err) {
+					return callback(err);
+				}
+				return callback(null, docs);
+			});
+	}	
+		
 	SimpleDocModel.schema.statics.getPage = function getPage(slug,cb) {
 		var model = this;
 		//console.log('page model request',slug);
@@ -516,6 +532,11 @@ module.exports = function() {
 	 **/
 	SimpleDocModel.register();
 	
+	/**
+	 * Expose the list
+	 * */
+	this.list = SimpleDocModel;
+	this.model = SimpleDocModel.model;
 	
 	/**
 	 * Ensure indexes
