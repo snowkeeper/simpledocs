@@ -1,0 +1,40 @@
+---
+permalink: -json/page/list-autokey.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.List.schemaPlugins.autokey",
+  "slug": "list-autokey",
+  "page": {
+    "_id": "56d7deb688dd57d17d544926",
+    "title": "Keystone.List.schemaPlugins.autokey",
+    "menuTitle": "schemaPlugins.autokey",
+    "parent": {
+      "_id": "56d7d408dc8aef5a45e620ea",
+      "order": 31,
+      "slug": "keystone-list",
+      "title": "Keystone.List Class",
+      "parent": "56ce85b72016dcfc71d320fd"
+    },
+    "slug": "list-autokey",
+    "publish": "published",
+    "sortNumber": "33",
+    "type": 1,
+    "links": [],
+    "markdown": {
+      "md": "#### List _schemaPlugins_.autokey (  )  \r\n> _@api_ **private**   \r\n\r\n<div class=\"code-header\"> \r\n#### Adds a key to each document in a collection\r\nUses a current field, `from`, to create a key.    \r\nCreates a new field based on `path`.  \r\nKey will be unique if `unique` is **boolean** `true`.  \r\nKey will update anytime the `from` field updates unless `fixed` is **boolean** `true`.  \r\n</div><pre class=\" language-javascript\"><code class=\"language-javascript\">    autokey: { \r\n\t\tpath: 'slug', \r\n\t\tfrom: 'name',\r\n\t\tunique: true,\r\n\t\tfixed: false\r\n\t}\r\n</code></pre>\r\n\r\nUses <code class=\"default-value\"> list.schema.pre('save'...) </code> to alter documents.\r\n\r\n<div class=\"code-header addGitHubLink\" data-file=\"lib/schemaPlugins/autokey.js\"><a href=\"#\" class=\"loadCode\">code</a></div><pre class=\" language-javascript hideCode api\"></pre> \r\n",
+      "html": "<h4 id=\"list-_schemaplugins_-autokey-\">List <em>schemaPlugins</em>.autokey (  )</h4>\n<blockquote>\n<p><em>@api</em> <strong>private</strong>   </p>\n</blockquote>\n<p><div class=\"code-header\"> </p>\n<h4 id=\"adds-a-key-to-each-document-in-a-collection\">Adds a key to each document in a collection</h4>\n<p>Uses a current field, <code>from</code>, to create a key.<br>Creates a new field based on <code>path</code>.<br>Key will be unique if <code>unique</code> is <strong>boolean</strong> <code>true</code>.<br>Key will update anytime the <code>from</code> field updates unless <code>fixed</code> is <strong>boolean</strong> <code>true</code>.<br></div><pre class=\" language-javascript\"><code class=\"language-javascript\">    autokey: { \n        path: &#39;slug&#39;, \n        from: &#39;name&#39;,\n        unique: true,\n        fixed: false\n    }\n</code></pre></p>\n<p>Uses <code class=\"default-value\"> list.schema.pre(&#39;save&#39;...) </code> to alter documents.</p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"lib/schemaPlugins/autokey.js\"><a href=\"#\" class=\"loadCode\">code</a></div><pre class=\" language-javascript hideCode api\"></pre> </p>\n"
+    },
+    "display": 1,
+    "currentOrder": 33,
+    "externalLinks": "",
+    "order": 33,
+    "sortBy": 1,
+    "updatedAt": "2016-03-06T07:21:34.780Z",
+    "updatedBy": "56d3ec56c3bc4bb55f32eb6f"
+  }
+}
