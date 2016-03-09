@@ -9,16 +9,15 @@ html
 
 		title= title || 'SimpleDocs'
 		link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
-		link(href="/_simpledocs_/styles/prism.css", rel="stylesheet")
-		link(href="/_simpledocs_/styles/bootstrap.css", rel="stylesheet")
-		link(href="/_simpledocs_/styles/bootstrap-ui.css", rel="stylesheet")
+		link(href="styles/prism.css", rel="stylesheet")
+		link(href="styles/bootstrap.css", rel="stylesheet")
+		link(href="styles/bootstrap-ui.css", rel="stylesheet")
 		
 		if(material)
-			link(href="/_simpledocs-css_/material-ui.css", rel="stylesheet")
+			link(href="styles/material-ui.css", rel="stylesheet")
 		
 		if(customeStyle)
 			link(href="#{customeStyle}", rel="stylesheet")
-		
 		
 		block css
 
@@ -54,12 +53,12 @@ html
 			if(development)
 				| <script src="#{pathConfig}"></script>
 				| <script src="#{pathUser}"></script>
-				script(src='/_simpledocs_/js/bundles/material-ui-dev.js')
+				script(src='js/bundles/material-ui-dev.js')
 			else
 				| <script src="#{pathConfig}"></script>
 				| <script src="#{pathUser}"></script>
-				script(src='/_simpledocs_/js/bundles/material-ui.js')
+				script(src='js/bundles/material-ui.js')
 		else
 			| <script src="#{pathConfig}"></script>
 			| <script src="#{pathUser}"></script>
-			script(src='/_simpledocs_/js/bundles/bootstrap-ui.js')
+			script(src='js/bundles/bootstrap-ui.js')

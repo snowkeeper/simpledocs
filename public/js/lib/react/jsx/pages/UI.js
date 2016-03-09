@@ -89,16 +89,20 @@ export default class UI extends React.Component {
 			searchdata: false,
 		});
 		var page = getpage ? getpage : snowUI.homepage;
+		
 		if(moon === snowUI.singlePage) {
 			page = 'allinone';
 			var root = snowUI.api.allinone;
+			var	url = root + '/' + page;
 		} else if(moon === 'search') {
 			var root = snowUI.api.search;
+			var	url = root + '/' + page;
 		} else {
 			var root = snowUI.api.page;
+			var	url = root + '/' + page + '.json';
 		}
 		let _this = this;
-		let	url = root + '/' + page;
+		
 		let data = {};		
 		
 		var showLoadingIfTimer = setTimeout(function(){snowUI.flash('message','Loading ' + page,10000)},500);
@@ -289,7 +293,7 @@ export default class UI extends React.Component {
 		return (<div>
 			<UI.Banner title={page.title || this.state.page} page={page} onActionChange={this.handleBannerChange} /> 
 			<div id="menuspy" />
-			<div className={xs + " " + sm + " " + md + " " + lg + " stickyMenu"}  id="menu" >
+			<div className={xs + " " + sm + " " + md + " " + lg + " stickyMenu menu"}  id="menu" >
 				<div className="dropdown" onClick={this.toggleMenu}><span className="dropspan glyphicon glyphicon-chevron-down" /></div>
 				<UI.Menu config={this.state} hrefRoute={this.hrefRoute} goToAnchor={this.goToAnchor}  getPage={this.getPage} toggleMenu={this.toggleMenu} page={this.state.page} moon={this.state.moon} />
 			</div>

@@ -5,7 +5,7 @@ export default class AppIfo extends React.Component {
 		this.displayName = 'AppInfo Component';	
 		this.state = {};
 	}	
-	render() {
+	render() { 
 		return (
 			<div id="easter-egg" style={{display:'none'}} >
 				<div className="col-xs-offset-1 col-md-offset-1">

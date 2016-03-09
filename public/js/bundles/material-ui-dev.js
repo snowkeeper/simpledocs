@@ -90,10 +90,10 @@ snowUI.stickyMenu = function() {
 		var appbarTitle = document.getElementById('appbarTitle');
 		var menu = document.getElementById('menu');
 		
-		if (snowUI.shortenTitle && simpledocs.scrollTop > 35){
+		if(snowUI.shortenTitle && simpledocs.scrollTop > 35) {
 			appbarTitle.style.width = menu.clientWidth - 60 +'px';
 			appbarTitle.style.overflow = 'hidden';
-		} else {
+		} else if(snowUI.shortenTitle) {
 			appbarTitle.style.width = 'initial';
 			appbarTitle.style.overflow = 'initial';
 		}	

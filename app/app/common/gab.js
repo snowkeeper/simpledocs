@@ -31,12 +31,15 @@ class Gab extends EventEmitter {
 		var page = route ? route : snowUI.homepage;
 		if(page === snowUI.singlePage) {
 			var root = snowUI.api.allinone;
+			var	url = root + '/' + page;
 		} else if(route.search('search::') > -1) {
 			var root = snowUI.api.search;
+			var	url = root + '/' + page;
 		} else {
 			var root = snowUI.api.page;
+			var	url = root + '/' + page + '.json';
 		}
-		let	url = root + '/' + page;
+		
 		debug('request', url, root, page);
 		
 		request

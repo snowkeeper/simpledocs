@@ -958,10 +958,10 @@ snowUI.stickyMenu = function() {
 		var appbarTitle = document.getElementById('appbarTitle');
 		var menu = document.getElementById('menu');
 		
-		if (snowUI.shortenTitle && simpledocs.scrollTop > 35){
+		if(snowUI.shortenTitle && simpledocs.scrollTop > 35) {
 			appbarTitle.style.width = menu.clientWidth - 60 +'px';
 			appbarTitle.style.overflow = 'hidden';
-		} else {
+		} else if(snowUI.shortenTitle) {
 			appbarTitle.style.width = 'initial';
 			appbarTitle.style.overflow = 'initial';
 		}	
@@ -20811,16 +20811,20 @@ var UI = function (_React$Component) {
 				searchdata: false
 			});
 			var page = getpage ? getpage : snowUI.homepage;
+
 			if (moon === snowUI.singlePage) {
 				page = 'allinone';
 				var root = snowUI.api.allinone;
+				var url = root + '/' + page;
 			} else if (moon === 'search') {
 				var root = snowUI.api.search;
+				var url = root + '/' + page;
 			} else {
 				var root = snowUI.api.page;
+				var url = root + '/' + page + '.json';
 			}
 			var _this = this;
-			var url = root + '/' + page;
+
 			var data = {};
 
 			var showLoadingIfTimer = setTimeout(function () {
@@ -21020,7 +21024,7 @@ var UI = function (_React$Component) {
 				_react2.default.createElement('div', { id: 'menuspy' }),
 				_react2.default.createElement(
 					'div',
-					{ className: xs + " " + sm + " " + md + " " + lg + " stickyMenu", id: 'menu' },
+					{ className: xs + " " + sm + " " + md + " " + lg + " stickyMenu menu", id: 'menu' },
 					_react2.default.createElement(
 						'div',
 						{ className: 'dropdown', onClick: this.toggleMenu },
