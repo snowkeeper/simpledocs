@@ -1,0 +1,34 @@
+---
+permalink: keystone/reference/0.3.x-json/page/list-paginate.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.List.paginate",
+  "slug": "list-paginate",
+  "page": {
+    "_id": "56d7dd389c22d3957d0f96c5",
+    "title": "Keystone.List.paginate",
+    "menuTitle": ".paginate",
+    "parent": {
+      "_id": "56d7d408dc8aef5a45e620ea",
+      "order": 31,
+      "slug": "keystone-list",
+      "title": "Keystone.List Class",
+      "parent": "56ce85b72016dcfc71d320fd"
+    },
+    "slug": "list-paginate",
+    "publish": "published",
+    "sortNumber": "append",
+    "type": 1,
+    "links": [],
+    "markdown": {
+      "md": "#### List.paginate( options  [, _callback_ ] )  \n> _@param_ **options** {Object} - options  \n> _@param_ **callback** {Function} - callback   \n> _@return_ **chain** - exec\n\nGets a special Query object that will paginate documents in the list.  \n\n```javascript\nlist.paginate({\n\tpage: 1,\n\tperPage: 100,\n\tmaxPages: 10\n}).exec(function(err, results) {\n\t// do something\n});\n \n```\n<div class=\"code-header addGitHubLink\" data-file=\"lib/list/paginate.js\"><a href=\"#\" class=\"loadCode\"> code</a></div><pre class=\" language-javascript hideCode api\"></pre> \n",
+      "html": "<h4 id=\"list-paginate-options-_callback_-\">List.paginate( options  [, <em>callback</em> ] )</h4>\n<blockquote>\n<p><em>@param</em> <strong>options</strong> {Object} - options<br><em>@param</em> <strong>callback</strong> {Function} - callback<br><em>@return</em> <strong>chain</strong> - exec</p>\n</blockquote>\n<p>Gets a special Query object that will paginate documents in the list.  </p>\n<pre><code class=\"language-javascript\">list.paginate({\n    page: 1,\n    perPage: 100,\n    maxPages: 10\n}).exec(function(err, results) {\n    // do something\n});\n</code></pre>\n<p><div class=\"code-header addGitHubLink\" data-file=\"lib/list/paginate.js\"><a href=\"#\" class=\"loadCode\"> code</a></div><pre class=\" language-javascript hideCode api\"></pre> </p>\n"
+    },
+    "display": 1
+  }
+}

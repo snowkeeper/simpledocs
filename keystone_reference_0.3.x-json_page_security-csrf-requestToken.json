@@ -1,0 +1,34 @@
+---
+permalink: keystone/reference/0.3.x-json/page/security-csrf-requestToken.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.security.csrf.requestToken",
+  "slug": "security-csrf-requestToken",
+  "page": {
+    "_id": "56da2c50dc1ac22930bd50b7",
+    "title": "Keystone.security.csrf.requestToken",
+    "menuTitle": ".requestToken",
+    "parent": {
+      "_id": "56da2817dc8aef5a45e620ec",
+      "order": 33,
+      "slug": "keystone-security-csrf",
+      "title": "Keystone.security.csrf helpers",
+      "parent": "56ce85b72016dcfc71d320fd"
+    },
+    "slug": "security-csrf-requestToken",
+    "publish": "published",
+    "sortNumber": "append",
+    "type": 1,
+    "links": [],
+    "markdown": {
+      "md": "#### .security.csrf.requestToken( req )   \n> *@param* **req** _{Object}_  - express request object    \n> *@api* **public**  \n\n<div class=\"code-header addGitHubLink\" data-file=\"lib/security/csrf.js#L36-L47\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> \n",
+      "html": "<h4 id=\"-security-csrf-requesttoken-req-\">.security.csrf.requestToken( req )</h4>\n<blockquote>\n<p><em>@param</em> <strong>req</strong> <em>{Object}</em>  - express request object<br><em>@api</em> <strong>public</strong>  </p>\n</blockquote>\n<p><div class=\"code-header addGitHubLink\" data-file=\"lib/security/csrf.js#L36-L47\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> </p>\n"
+    },
+    "display": 1
+  }
+}

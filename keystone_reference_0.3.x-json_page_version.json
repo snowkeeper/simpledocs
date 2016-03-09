@@ -1,0 +1,43 @@
+---
+permalink: keystone/reference/0.3.x-json/page/version.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.version",
+  "slug": "version",
+  "page": {
+    "_id": "56ceb3cdc27737507f93c8a3",
+    "sortBy": 1,
+    "currentOrder": 25,
+    "order": 25,
+    "slug": "version",
+    "updatedBy": "54ce583de345cf3359db79bd",
+    "updatedAt": "2016-02-29T03:43:33.750Z",
+    "createdBy": "54ce583de345cf3359db79bd",
+    "createdAt": "2016-02-25T07:57:01.921Z",
+    "key": "keystoneversion",
+    "title": "Keystone.version",
+    "parent": {
+      "_id": "56ce85b72016dcfc71d320fd",
+      "order": 2,
+      "slug": "keystone",
+      "title": "Keystone",
+      "parent": "56d194a6020b01635cade433"
+    },
+    "publish": "published",
+    "sortNumber": "25",
+    "type": 1,
+    "links": [],
+    "display": 1,
+    "externalLinks": "",
+    "markdown": {
+      "html": "<h4 id=\"-version\">.version</h4>\n<blockquote>\n<p><em>@api</em> <strong>public</strong> {Number} </p>\n</blockquote>\n<p>Current version</p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"index.js#L236-L242\"> &nbsp;  </div><pre class=\" language-javascript hideCode api\"></pre> </p>\n",
+      "md": "#### .version \r\n> _@api_ **public** {Number} \r\n\r\nCurrent version\r\n\r\n<div class=\"code-header addGitHubLink\" data-file=\"index.js#L236-L242\"> &nbsp;  </div><pre class=\" language-javascript hideCode api\"></pre> \r\n"
+    },
+    "menuTitle": ".version"
+  }
+}

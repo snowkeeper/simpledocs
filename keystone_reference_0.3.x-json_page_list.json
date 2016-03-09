@@ -1,0 +1,43 @@
+---
+permalink: keystone/reference/0.3.x-json/page/list.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.list",
+  "slug": "list",
+  "page": {
+    "_id": "56ceb223c27737507f93c898",
+    "sortBy": 1,
+    "currentOrder": 14,
+    "order": 14,
+    "slug": "list",
+    "updatedBy": "54ce583de345cf3359db79bd",
+    "updatedAt": "2016-02-25T07:50:07.557Z",
+    "createdBy": "54ce583de345cf3359db79bd",
+    "createdAt": "2016-02-25T07:49:55.352Z",
+    "key": "list",
+    "title": "Keystone.list",
+    "parent": {
+      "_id": "56ce85b72016dcfc71d320fd",
+      "order": 2,
+      "slug": "keystone",
+      "title": "Keystone",
+      "parent": "56d194a6020b01635cade433"
+    },
+    "publish": "published",
+    "sortNumber": "14",
+    "type": 1,
+    "links": [],
+    "display": 1,
+    "externalLinks": "",
+    "markdown": {
+      "html": "<h4 id=\"-list-arg-\">.list( arg )</h4>\n<blockquote>\n<p><em>@param</em> <strong>arg</strong> <em>{...String|Function}</em>  - current list key or new constructed List<br><em>@return</em> <strong>list</strong> </p>\n</blockquote>\n<p>Registers or retrieves a list.  Used by <code>List.register()</code> to register a newly constructed List with Keystone.   </p>\n<pre><code class=\"lang-javascript\">var User = keystone.list(&#39;User&#39;);\n\nUser.model.find().exec(function(docs,err) {\n\n});\n</code></pre>\n<p><p class=\"api-note\">To retrieve a list that may return <code>undefined</code> you should use <code>keystone.lists[key]</code>.  Using <code>.list()</code> will throw a <code>ReferenceError</code> if the arg is not a valid <code>List</code> or the <code>key</code> for a valid <code>List</code> </p> `  </p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"lib/core/list.js\"> <a href=\"#\" class=\"loadCode\"> code</a> </div><pre class=\" language-javascript hideCode api\"></pre> </p>\n",
+      "md": "#### .list( arg )\r\n> *@param* **arg** _{...String|Function}_  - current list key or new constructed List  \r\n> _@return_ **list** \r\n\r\nRegisters or retrieves a list.  Used by `List.register()` to register a newly constructed List with Keystone.   \r\n\r\n```javascript\r\nvar User = keystone.list('User');\r\n\r\nUser.model.find().exec(function(docs,err) {\r\n\r\n});\r\n```  \r\n<p class=\"api-note\">To retrieve a list that may return `undefined` you should use `keystone.lists[key]`.  Using `.list()` will throw a `ReferenceError` if the arg is not a valid `List` or the `key` for a valid `List` </p> `  \r\n\r\n\r\n<div class=\"code-header addGitHubLink\" data-file=\"lib/core/list.js\"> <a href=\"#\" class=\"loadCode\"> code</a> </div><pre class=\" language-javascript hideCode api\"></pre> \r\n"
+    },
+    "menuTitle": ".list"
+  }
+}

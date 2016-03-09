@@ -1,0 +1,43 @@
+---
+permalink: keystone/reference/0.3.x-json/page/getpath.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.getPath",
+  "slug": "getpath",
+  "page": {
+    "_id": "56ceb0ab21152bbe7d485d6e",
+    "sortBy": 1,
+    "currentOrder": 9,
+    "order": 9,
+    "slug": "getpath",
+    "updatedBy": "54ce583de345cf3359db79bd",
+    "updatedAt": "2016-02-25T07:43:55.184Z",
+    "createdBy": "54ce583de345cf3359db79bd",
+    "createdAt": "2016-02-25T07:43:39.399Z",
+    "key": "getpath",
+    "title": "Keystone.getPath",
+    "parent": {
+      "_id": "56ce85b72016dcfc71d320fd",
+      "order": 2,
+      "slug": "keystone",
+      "title": "Keystone",
+      "parent": "56d194a6020b01635cade433"
+    },
+    "publish": "published",
+    "sortNumber": "9",
+    "links": [],
+    "display": 1,
+    "externalLinks": "",
+    "markdown": {
+      "html": "<h4 id=\"-getpath-key-defaultvalue-\">.getPath( key, defaultValue )</h4>\n<blockquote>\n<p><em>@param</em> <strong>key</strong> <em>{String}</em>  - Key of the option you want to retrieve<br><em>@param</em> <strong>defaultValue</strong> <em>{String}</em>  - Default value if <code>key</code> is not a valid option<br><em>@return</em> <strong>path</strong> </p>\n</blockquote>\n<p>Gets an expanded path option, expanded to include moduleRoot if it is relative.  </p>\n<pre><code class=\"lang-javascript\">var path = keystone.getPath(&#39;views&#39;, &#39;templates/views&#39;);\n</code></pre>\n<p><div class=\"code-header addGitHubLink\" data-file=\"lib/core/options.js#L206-L218\"> &nbsp; </div><pre class=\" language-javascript hideCode api\"></pre> </p>\n",
+      "md": "#### .getPath( key, defaultValue )\r\n> *@param* **key** _{String}_  - Key of the option you want to retrieve  \r\n> *@param* **defaultValue** _{String}_  - Default value if `key` is not a valid option   \r\n> _@return_ **path** \r\n\r\nGets an expanded path option, expanded to include moduleRoot if it is relative.  \r\n\r\n```javascript\r\nvar path = keystone.getPath('views', 'templates/views');\r\n```\r\n<div class=\"code-header addGitHubLink\" data-file=\"lib/core/options.js#L206-L218\"> &nbsp; </div><pre class=\" language-javascript hideCode api\"></pre> \r\n"
+    },
+    "menuTitle": ".getPath",
+    "type": 1
+  }
+}

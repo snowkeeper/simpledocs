@@ -1,0 +1,43 @@
+---
+permalink: keystone/reference/0.3.x-json/page/page-set.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": ".Page.set",
+  "slug": "page-set",
+  "page": {
+    "_id": "56d230f162dab7af73a8340b",
+    "sortBy": 1,
+    "currentOrder": 7,
+    "order": 7,
+    "slug": "page-set",
+    "updatedBy": "56d3ec56c3bc4bb55f32eb6f",
+    "updatedAt": "2016-03-01T07:15:08.985Z",
+    "createdBy": "54ce583de345cf3359db79bd",
+    "createdAt": "2016-02-27T23:27:45.033Z",
+    "key": "set-1",
+    "title": ".Page.set",
+    "parent": {
+      "_id": "56ce86532016dcfc71d32100",
+      "order": 6,
+      "slug": "contentpage",
+      "title": "Keystone.content.Page",
+      "parent": "56ce862d2016dcfc71d320ff"
+    },
+    "publish": "published",
+    "sortNumber": "7",
+    "type": 1,
+    "links": [],
+    "display": 1,
+    "externalLinks": "",
+    "markdown": {
+      "html": "<h4 id=\"-content-page-set-key-value-\">.content.Page.set( key, value )</h4>\n<blockquote>\n<p><em>@param</em> <strong>key</strong> <em>{String}</em><br><em>@param</em> <strong>value</strong> <em>{Array|Function|Object|String}</em><br><em>@api</em> <strong>public</strong>     </p>\n</blockquote>\n<p><div class=\"code-header\"> <h4>Sets page options.</h4></div><pre class=\" language-javascript\"><code class=\"language-javascript\">page.set(&#39;test&#39;, value) // sets the &#39;test&#39; option to <code>value</code></code></pre></p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"lib/content/page.js#L35-L56\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> </p>\n",
+      "md": "#### .content.Page.set( key, value )   \r\n> *@param* **key** _{String}_  \r\n> *@param* **value** _{Array|Function|Object|String}_  \r\n> *@api* **public**     \r\n\r\n<div class=\"code-header\"> <h4>Sets page options.</h4></div><pre class=\" language-javascript\"><code class=\"language-javascript\">page.set('test', value) // sets the 'test' option to `value`</code></pre>\r\n\r\n\r\n<div class=\"code-header addGitHubLink\" data-file=\"lib/content/page.js#L35-L56\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> \r\n"
+    },
+    "menuTitle": ".set"
+  }
+}

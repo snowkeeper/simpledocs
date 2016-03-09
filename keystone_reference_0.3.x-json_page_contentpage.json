@@ -1,0 +1,44 @@
+---
+permalink: keystone/reference/0.3.x-json/page/contentpage.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.content.Page",
+  "slug": "contentpage",
+  "page": {
+    "_id": "56ce86532016dcfc71d32100",
+    "sortBy": 1,
+    "currentOrder": 6,
+    "order": 6,
+    "slug": "contentpage",
+    "updatedBy": "54ce583de345cf3359db79bd",
+    "updatedAt": "2016-02-25T07:08:18.436Z",
+    "createdBy": "54ce583de345cf3359db79bd",
+    "createdAt": "2016-02-25T04:42:59.138Z",
+    "key": "page",
+    "title": "Keystone.content.Page",
+    "parent": {
+      "_id": "56ce862d2016dcfc71d320ff",
+      "order": 27,
+      "slug": "content-class",
+      "title": "Keystone.content Class",
+      "parent": "56ce85b72016dcfc71d320fd"
+    },
+    "publish": "published",
+    "sortNumber": "6",
+    "links": [],
+    "externalLinks": "",
+    "html": "",
+    "markdown": {
+      "html": "<h4 id=\"keystone-content-page-key-options-\">Keystone.content.Page( key, options )</h4>\n<blockquote>\n<p><em>@param</em> <strong>key</strong>  {String}<br><em>@param</em> <strong>options</strong>  {Options}<br><em>@api</em> <strong>public</strong>    </p>\n</blockquote>\n<p><div class=\"code-header addGitHubLink\" data-file=\"lib/content/page.js\"> <a href=\"#\" class=\"loadCode\"> code</a></div><pre class=\" language-javascript hideCode api\"></pre> </p>\n",
+      "md": "#### Keystone.content.Page( key, options )\r\n> _@param_ **key**  {String}  \r\n> _@param_ **options**  {Options}   \r\n> _@api_ **public**    \r\n\r\n<div class=\"code-header addGitHubLink\" data-file=\"lib/content/page.js\"> <a href=\"#\" class=\"loadCode\"> code</a></div><pre class=\" language-javascript hideCode api\"></pre> \r\n\r\n"
+    },
+    "display": 1,
+    "type": 1,
+    "menuTitle": ".Page"
+  }
+}

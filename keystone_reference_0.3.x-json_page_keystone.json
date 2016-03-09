@@ -1,0 +1,43 @@
+---
+permalink: keystone/reference/0.3.x-json/page/keystone.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone",
+  "slug": "keystone",
+  "page": {
+    "_id": "56ce85b72016dcfc71d320fd",
+    "sortBy": 1,
+    "currentOrder": 2,
+    "order": 2,
+    "slug": "keystone",
+    "updatedBy": "56d3ec56c3bc4bb55f32eb6f",
+    "updatedAt": "2016-03-02T06:54:56.270Z",
+    "createdBy": "54ce583de345cf3359db79bd",
+    "createdAt": "2016-02-25T04:40:23.290Z",
+    "key": "keystone",
+    "title": "Keystone",
+    "publish": "published",
+    "sortNumber": "2",
+    "links": [],
+    "externalLinks": "",
+    "html": "",
+    "markdown": {
+      "html": "<h4 id=\"new-keystone-\">new Keystone( )</h4>\n<blockquote>\n<p><em>@return</em> <strong>Instance</strong>   </p>\n</blockquote>\n<p><div class=\"code-header\" ><h4> The Keystone instance is a global object.</h4></div><pre class=\" language-javascript  \"><code  class=\" language-javascript\">var keystone = require(&#39;keystone&#39;); </code></pre> </p>\n<p><div class=\"code-header\" ><h4> defaults</h4>Set with:<br /><code>keystone.init({ &#39;key&#39;: value, ... })</code> <br />  <code>keystone.options({ &#39;key&#39;: value, ... })</code><br /><code>keystone.set(&#39;key&#39;, value)</code>  </div><pre class=\" language-javascript  \"><code  class=\" language-javascript\">this.express = express; // exposes express\nthis.lists = {};\nthis.paths = {}; </p>\n<p>this._options = {\n    &#39;name&#39;: &#39;Keystone&#39;,\n    &#39;brand&#39;: &#39;Keystone&#39;,\n    &#39;compress&#39;: true,\n    &#39;headless&#39;: false,\n    &#39;logger&#39;: &#39;:method :url :status :response-time ms&#39;,\n    &#39;auto update&#39;: false,\n    &#39;model prefix&#39;: null,\n    &#39;module root&#39;: moduleRoot,\n    &#39;frame guard&#39;: &#39;sameorigin&#39;,\n    &#39;env&#39;: process.env.NODE_ENV || &#39;development&#39;,\n    &#39;port&#39;: process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT,\n    &#39;host&#39;: process.env.HOST || process.env.IP || process.env.OPENSHIFT_NODEJS_IP,\n    &#39;listen&#39;: process.env.LISTEN,\n    &#39;ssl&#39;: process.env.SSL,\n    &#39;ssl port&#39;: process.env.SSL_PORT,\n    &#39;ssl host&#39;: process.env.SSL_HOST,\n    &#39;ssl key&#39;: process.env.SSL_KEY,\n    &#39;ssl cert&#39;: process.env.SSL_CERT,\n    &#39;cookie secret&#39;: process.env.COOKIE_SECRET,\n    &#39;cookie signin&#39;: this.get(&#39;env&#39;) === &#39;development&#39;) ? true : false,\n    &#39;embedly api key&#39;: process.env.EMBEDLY_API_KEY || process.env.EMBEDLY_APIKEY,\n    &#39;mandrill api key&#39;: process.env.MANDRILL_API_KEY || process.env.MANDRILL_APIKEY,\n    &#39;mandrill username&#39;: process.env.MANDRILL_USERNAME,\n    &#39;google api key&#39;:  process.env.GOOGLE_BROWSER_KEY,\n    &#39;google server api key&#39;:  process.env.GOOGLE_SERVER_KEY,\n    &#39;ga property&#39;:  process.env.GA_PROPERTY,\n    &#39;ga domain&#39;: process.env.GA_DOMAIN,\n    &#39;chartbeat property&#39;: process.env.CHARTBEAT_PROPERTY,\n    &#39;chartbeat domain&#39;: process.env.CHARTBEAT_DOMAIN,\n    &#39;allowed ip ranges&#39;: process.env.ALLOWED_IP_RANGES,\n    // process.env.CLOUDINARY_URL is processed by the cloudinary package when this is set\n    &#39;cloudinary config&#39;: process.env.CLOUDINARY_URL ? true : false,\n    // s3 conditional on process.env.S3_<em> vars\n    &#39;s3 config&#39;: { bucket: process.env.S3_BUCKET, key: process.env.S3_KEY, secret: process.env.S3_SECRET, region: process.env.S3<em>REGION }, \n    // azure conditional on process.env.AZURE</em></em> vars\n    &#39;azurefile config&#39;: { account: process.env.AZURE_STORAGE_ACCOUNT, key: process.env.AZURE_STORAGE_ACCESS_KEY },</p>\n<p>};</p>\n<p></code></pre> </p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"index.js\"> <a href=\"#\" class=\"loadCode\"> code</a></div><pre class=\" language-javascript hideCode api\"></pre> </p>\n",
+      "md": "#### new Keystone( )  \r\n> _@return_ **Instance**   \r\n\r\n<div class=\"code-header\" ><h4> The Keystone instance is a global object.</h4></div><pre class=\" language-javascript  \"><code  class=\" language-javascript\">var keystone = require('keystone'); </code></pre> \r\n\r\n<div class=\"code-header\" ><h4> defaults</h4>Set with:<br /><code>keystone.init({ 'key': value, ... })</code> <br />  <code>keystone.options({ 'key': value, ... })</code><br /><code>keystone.set('key', value)</code>  </div><pre class=\" language-javascript  \"><code  class=\" language-javascript\">this.express = express; // exposes express\r\nthis.lists = {};\r\nthis.paths = {}; \r\n\r\nthis._options = {\r\n\t'name': 'Keystone',\r\n\t'brand': 'Keystone',\r\n\t'compress': true,\r\n\t'headless': false,\r\n\t'logger': ':method :url :status :response-time ms',\r\n\t'auto update': false,\r\n\t'model prefix': null,\r\n\t'module root': moduleRoot,\r\n\t'frame guard': 'sameorigin',\r\n\t'env': process.env.NODE_ENV || 'development',\r\n\t'port': process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT,\r\n\t'host': process.env.HOST || process.env.IP || process.env.OPENSHIFT_NODEJS_IP,\r\n\t'listen': process.env.LISTEN,\r\n\t'ssl': process.env.SSL,\r\n\t'ssl port': process.env.SSL_PORT,\r\n\t'ssl host': process.env.SSL_HOST,\r\n\t'ssl key': process.env.SSL_KEY,\r\n\t'ssl cert': process.env.SSL_CERT,\r\n\t'cookie secret': process.env.COOKIE_SECRET,\r\n\t'cookie signin': this.get('env') === 'development') ? true : false,\r\n\t'embedly api key': process.env.EMBEDLY_API_KEY || process.env.EMBEDLY_APIKEY,\r\n\t'mandrill api key': process.env.MANDRILL_API_KEY || process.env.MANDRILL_APIKEY,\r\n\t'mandrill username': process.env.MANDRILL_USERNAME,\r\n\t'google api key':  process.env.GOOGLE_BROWSER_KEY,\r\n\t'google server api key':  process.env.GOOGLE_SERVER_KEY,\r\n\t'ga property':  process.env.GA_PROPERTY,\r\n\t'ga domain': process.env.GA_DOMAIN,\r\n\t'chartbeat property': process.env.CHARTBEAT_PROPERTY,\r\n\t'chartbeat domain': process.env.CHARTBEAT_DOMAIN,\r\n\t'allowed ip ranges': process.env.ALLOWED_IP_RANGES,\r\n\t// process.env.CLOUDINARY_URL is processed by the cloudinary package when this is set\r\n\t'cloudinary config': process.env.CLOUDINARY\\_URL ? true : false,\r\n\t// s3 conditional on process.env.S3_* vars\r\n\t's3 config': { bucket: process.env.S3_BUCKET, key: process.env.S3_KEY, secret: process.env.S3_SECRET, region: process.env.S3_REGION }, \r\n\t// azure conditional on process.env.AZURE_* vars\r\n\t'azurefile config': { account: process.env.AZURE_STORAGE_ACCOUNT, key: process.env.AZURE_STORAGE_ACCESS_KEY },\r\n\t\t\r\n};\r\n\r\n\r\n\r\n</code></pre> \r\n\r\n<div class=\"code-header addGitHubLink\" data-file=\"index.js\"> <a href=\"#\" class=\"loadCode\"> code</a></div><pre class=\" language-javascript hideCode api\"></pre> \r\n\r\n\r\n"
+    },
+    "display": 1,
+    "type": 3,
+    "parent": {
+      "_id": "56d194a6020b01635cade433",
+      "order": 0,
+      "slug": "contents",
+      "title": "0.3.x"
+    },
+    "menuTitle": "Keystone"
+  }
+}

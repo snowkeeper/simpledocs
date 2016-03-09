@@ -1,0 +1,34 @@
+---
+permalink: keystone/reference/0.3.x-json/page/list-selectColumns.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.List.selectColumns",
+  "slug": "list-selectColumns",
+  "page": {
+    "_id": "56d7dd389c22d3957d0f96ca",
+    "title": "Keystone.List.selectColumns",
+    "menuTitle": ".selectColumns",
+    "parent": {
+      "_id": "56d7d408dc8aef5a45e620ea",
+      "order": 31,
+      "slug": "keystone-list",
+      "title": "Keystone.List Class",
+      "parent": "56ce85b72016dcfc71d320fd"
+    },
+    "slug": "list-selectColumns",
+    "publish": "published",
+    "sortNumber": "append",
+    "type": 1,
+    "links": [],
+    "markdown": {
+      "md": "#### List.selectColumns( q, cols )  \n> _@param_ **q** {Query} - query    \n> _@param_ **cols** {Array} - columns    \n> _@return_ **Query** - q   \n\nSpecified select and populate options for a query based the provided columns.  \n\n<div class=\"code-header addGitHubLink\" data-file=\"lib/list/selectColumns.js\"><a href=\"#\" class=\"loadCode\"> code</a></div><pre class=\" language-javascript hideCode api\"></pre> \n",
+      "html": "<h4 id=\"list-selectcolumns-q-cols-\">List.selectColumns( q, cols )</h4>\n<blockquote>\n<p><em>@param</em> <strong>q</strong> {Query} - query<br><em>@param</em> <strong>cols</strong> {Array} - columns<br><em>@return</em> <strong>Query</strong> - q   </p>\n</blockquote>\n<p>Specified select and populate options for a query based the provided columns.  </p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"lib/list/selectColumns.js\"><a href=\"#\" class=\"loadCode\"> code</a></div><pre class=\" language-javascript hideCode api\"></pre> </p>\n"
+    },
+    "display": 1
+  }
+}

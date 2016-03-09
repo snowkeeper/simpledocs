@@ -1,0 +1,43 @@
+---
+permalink: keystone/reference/0.3.x-json/page/getsize.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.Field.getSize",
+  "slug": "getsize",
+  "page": {
+    "_id": "56d3863b23e5f34d21a1727c",
+    "sortBy": 1,
+    "currentOrder": 11,
+    "order": 11,
+    "slug": "getsize",
+    "updatedBy": "54ce583de345cf3359db79bd",
+    "updatedAt": "2016-02-28T23:44:04.016Z",
+    "createdBy": "54ce583de345cf3359db79bd",
+    "createdAt": "2016-02-28T23:43:55.858Z",
+    "key": "getsize",
+    "title": "Keystone.Field.getSize",
+    "parent": {
+      "_id": "56ce867a2016dcfc71d32102",
+      "order": 29,
+      "slug": "field",
+      "title": "Keystone.Field Class",
+      "parent": "56ce85b72016dcfc71d320fd"
+    },
+    "publish": "published",
+    "sortNumber": "11",
+    "type": 1,
+    "links": [],
+    "display": 1,
+    "externalLinks": "",
+    "markdown": {
+      "html": "<h4 id=\"field-getsize-\">Field.getSize( )</h4>\n<blockquote>\n<p><em>@api</em> <strong>private</strong>  </p>\n</blockquote>\n<p>Validates and returns the size of the field.<br>Defaults to deprecated &#39;width&#39; option.</p>\n<p><div class=\"code-header\"> <h4>Return</h4></div><pre class=\" language-javascript\"><code class=\"language-javascript\">return this.__size\n</code></pre></p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"fields/types/Type.js#L109-L122\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> </p>\n",
+      "md": "#### Field.getSize( )   \r\n> *@api* **private**  \r\n\r\nValidates and returns the size of the field.  \r\nDefaults to deprecated 'width' option.\r\n\r\n<div class=\"code-header\"> <h4>Return</h4></div><pre class=\" language-javascript\"><code class=\"language-javascript\">return this.__size\r\n</code></pre>\r\n\r\n<div class=\"code-header addGitHubLink\" data-file=\"fields/types/Type.js#L109-L122\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> \r\n"
+    },
+    "menuTitle": ".getSize"
+  }
+}
