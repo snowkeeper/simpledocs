@@ -1,0 +1,43 @@
+---
+permalink: /-json/page/bindunderscoremethods.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.Field.bindUnderscoreMethods",
+  "slug": "bindunderscoremethods",
+  "page": {
+    "_id": "56d3853e23e5f34d21a17273",
+    "sortBy": 1,
+    "currentOrder": 2,
+    "order": 2,
+    "slug": "bindunderscoremethods",
+    "updatedBy": "54ce583de345cf3359db79bd",
+    "updatedAt": "2016-02-29T00:39:01.801Z",
+    "createdBy": "54ce583de345cf3359db79bd",
+    "createdAt": "2016-02-28T23:39:42.292Z",
+    "key": "bindunderscoremethods",
+    "title": "Keystone.Field.bindUnderscoreMethods",
+    "parent": {
+      "_id": "56ce867a2016dcfc71d32102",
+      "order": 29,
+      "slug": "field",
+      "title": "Keystone.Field Class",
+      "parent": "56ce85b72016dcfc71d320fd"
+    },
+    "publish": "published",
+    "sortNumber": "2",
+    "type": 1,
+    "links": [],
+    "display": 1,
+    "externalLinks": "",
+    "markdown": {
+      "html": "<h4 id=\"field-bindunderscoremethods-methods-\">Field.bindUnderscoreMethods( methods )</h4>\n<blockquote>\n<p><em>@param</em> <strong>methods</strong> {Array}<br><em>@api</em> <strong>private</strong>  </p>\n</blockquote>\n<p>Automatically bind underscore methods specified by the _underscoreMethods property.</p>\n<p class=\"note\">Will always include the &#39;update&#39; method</p>\n\n<p><div class=\"code-header addGitHubLink\" data-file=\"fields/types/Type.js#L230-L246\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> </p>\n",
+      "md": "#### Field.bindUnderscoreMethods( methods )  \r\n> *@param* **methods** {Array}    \r\n> *@api* **private**  \r\n\r\nAutomatically bind underscore methods specified by the _underscoreMethods property.\r\n<p class=\"note\">Will always include the 'update' method</p>\r\n\r\n<div class=\"code-header addGitHubLink\" data-file=\"fields/types/Type.js#L230-L246\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> \r\n"
+    },
+    "menuTitle": ".bindUnderscoreMethods"
+  }
+}

@@ -1,0 +1,43 @@
+---
+permalink: /-json/page/rendermandrill.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.Email.renderMandrill",
+  "slug": "rendermandrill",
+  "page": {
+    "_id": "56d2328d62dab7af73a83414",
+    "sortBy": 1,
+    "currentOrder": 7,
+    "order": 7,
+    "slug": "rendermandrill",
+    "updatedBy": "54ce583de345cf3359db79bd",
+    "updatedAt": "2016-02-27T23:34:43.500Z",
+    "createdBy": "54ce583de345cf3359db79bd",
+    "createdAt": "2016-02-27T23:34:37.457Z",
+    "key": "rendermandrill",
+    "title": "Keystone.Email.renderMandrill",
+    "parent": {
+      "_id": "56ce866b2016dcfc71d32101",
+      "order": 28,
+      "slug": "email",
+      "title": "Keystone.Email Class",
+      "parent": "56ce85b72016dcfc71d320fd"
+    },
+    "publish": "published",
+    "sortNumber": "7",
+    "type": 1,
+    "links": [],
+    "display": 1,
+    "externalLinks": "",
+    "markdown": {
+      "html": "<h4 id=\"email-rendermandrill-_locals_-options-_callback_-\">Email.renderMandrill( [<em>locals</em> ,] options [, <em>callback</em> ] )</h4>\n<blockquote>\n<p><em>@param</em> <strong>locals</strong> <em>{Object}</em>  - backwards compatibility<br><em>@param</em> <strong>options</strong> <em>{Object}</em>  - locals options object<br><em>@param</em> <strong>callback</strong> <em>{Object}</em>  - callback(err, info)      </p>\n</blockquote>\n<p>Renders a Mandrill template</p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"lib/email.js#L637-L689\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> </p>\n",
+      "md": "#### Email.renderMandrill( [_locals_ ,] options [, _callback_ ] ) \r\n> *@param* **locals** _{Object}_  - backwards compatibility    \r\n> *@param* **options** _{Object}_  - locals options object   \r\n> *@param* **callback** _{Object}_  - callback(err, info)      \r\n\r\nRenders a Mandrill template\r\n\r\n<div class=\"code-header addGitHubLink\" data-file=\"lib/email.js#L637-L689\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> \r\n"
+    },
+    "menuTitle": ".renderMandrill"
+  }
+}

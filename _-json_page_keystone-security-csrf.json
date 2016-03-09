@@ -1,0 +1,43 @@
+---
+permalink: /-json/page/keystone-security-csrf.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.security.csrf helpers",
+  "slug": "keystone-security-csrf",
+  "page": {
+    "_id": "56da2817dc8aef5a45e620ec",
+    "sortBy": 1,
+    "currentOrder": 33,
+    "order": 33,
+    "menuTitle": "Keystone.security.csrf",
+    "slug": "keystone-security-csrf",
+    "updatedBy": "56d3ec56c3bc4bb55f32eb6f",
+    "updatedAt": "2016-03-05T00:29:19.402Z",
+    "createdBy": "56d3ec56c3bc4bb55f32eb6f",
+    "createdAt": "2016-03-05T00:28:07.111Z",
+    "key": "keystonesecuritycsrf-helpers",
+    "title": "Keystone.security.csrf helpers",
+    "parent": {
+      "_id": "56ce85b72016dcfc71d320fd",
+      "order": 2,
+      "slug": "keystone",
+      "title": "Keystone",
+      "parent": "56d194a6020b01635cade433"
+    },
+    "publish": "published",
+    "sortNumber": "33",
+    "type": 1,
+    "links": [],
+    "display": 1,
+    "externalLinks": "",
+    "markdown": {
+      "html": "<h4 id=\"keystone-security-csrf\">Keystone.security.csrf</h4>\n<blockquote>\n<p><em>@api</em> <strong>public</strong>  </p>\n</blockquote>\n<p>Helper to uilize csrf   </p>\n<p><span class=\"subMethod\"> .security.csrf.TOKEN_KEY </span>= <code>&#39;_csrf&#39;</code><br><span class=\"subMethod\"> .security.csrf.LOCAL_KEY</span>  = <code>&#39;csrf_token_key&#39;</code><br><span class=\"subMethod\"> .security.csrf.LOCAL_VALUE </span>= <code>&#39;csrf_token_value&#39;</code><br><span class=\"subMethod\"> .security.csrf.SECRET_KEY </span>= <code>.TOKEN_KEY + &#39;_secret&#39;</code><br><span class=\"subMethod\"> .security.csrf.SECRET_LENGTH </span>= <code>10</code><br><span class=\"subMethod\"> .security.csrf.CSRF_HEADER_KEY</span>  = <code>&#39;x-csrf-token&#39;</code><br><span class=\"subMethod\"> .security.csrf.XSRF_HEADER_KEY </span>= <code>&#39;x-xsrf-token&#39;</code><br><span class=\"subMethod\"> .security.csrf.XSRF_COOKIE_KEY </span> = <code>&#39;XSRF-TOKEN&#39;</code>  </p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"lib/security/csrf.js\"> <a href=\"#\" class=\"loadCode\"> code</a></div><pre class=\" language-javascript  hideCode api\"></pre> </p>\n",
+      "md": "#### Keystone.security.csrf  \r\n> _@api_ **public**  \r\n\r\nHelper to uilize csrf   \r\n\r\n\r\n<span class=\"subMethod\"> .security.csrf.TOKEN_KEY </span>= `'_csrf'`   \r\n<span class=\"subMethod\"> .security.csrf.LOCAL_KEY</span>  = `'csrf_token_key'`  \r\n<span class=\"subMethod\"> .security.csrf.LOCAL_VALUE </span>= `'csrf_token_value'`    \r\n<span class=\"subMethod\"> .security.csrf.SECRET_KEY </span>= `.TOKEN_KEY + '_secret'`  \r\n<span class=\"subMethod\"> .security.csrf.SECRET_LENGTH </span>= `10`   \r\n<span class=\"subMethod\"> .security.csrf.CSRF_HEADER_KEY</span>  = `'x-csrf-token'`  \r\n<span class=\"subMethod\"> .security.csrf.XSRF_HEADER_KEY </span>= `'x-xsrf-token'`    \r\n<span class=\"subMethod\"> .security.csrf.XSRF_COOKIE_KEY </span> = `'XSRF-TOKEN'`  \r\n\r\n\r\n\r\n<div class=\"code-header addGitHubLink\" data-file=\"lib/security/csrf.js\"> <a href=\"#\" class=\"loadCode\"> code</a></div><pre class=\" language-javascript  hideCode api\"></pre> \r\n"
+    }
+  }
+}

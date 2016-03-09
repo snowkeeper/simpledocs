@@ -1,0 +1,43 @@
+---
+permalink: /-json/page/emaildefaults.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.Email.defaults",
+  "slug": "emaildefaults",
+  "page": {
+    "_id": "56d231a962dab7af73a8340f",
+    "sortBy": 1,
+    "currentOrder": 2,
+    "order": 2,
+    "slug": "emaildefaults",
+    "updatedBy": "56d3ec56c3bc4bb55f32eb6f",
+    "updatedAt": "2016-03-06T07:29:53.371Z",
+    "createdBy": "54ce583de345cf3359db79bd",
+    "createdAt": "2016-02-27T23:30:49.704Z",
+    "key": "keystoneemaildefaults",
+    "title": "Keystone.Email.defaults",
+    "parent": {
+      "_id": "56ce866b2016dcfc71d32101",
+      "order": 28,
+      "slug": "email",
+      "title": "Keystone.Email Class",
+      "parent": "56ce85b72016dcfc71d320fd"
+    },
+    "publish": "published",
+    "sortNumber": "2",
+    "type": 1,
+    "links": [],
+    "display": 1,
+    "externalLinks": "",
+    "markdown": {
+      "html": "<h4 id=\"email-defaults\">Email.defaults</h4>\n<blockquote>\n<p><em>@api</em> <strong>public</strong>  </p>\n</blockquote>\n<p><div class=\"code-header\"> <h4>Email.defaults </h4></div><pre class=\" language-javascript\"><code class=\"language-javascript\">{\n    templateExt: &#39;jade&#39;,\n    templateEngine: require(&#39;jade&#39;),\n    templateBasePath: path.normalize(path.join(__dirname, &#39;..&#39;, &#39;templates&#39;, &#39;helpers&#39;, &#39;emails&#39;)),\n    mandrill: {\n        track_opens: true,\n        track_clicks: true,\n        preserve_recipients: false,\n        inline_css: true\n    },\n    // Mandrill template\n    templateMandrillName: null,\n    templateForceHtml: false // Force html render\n}\n</code></pre> </p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"lib/email.js#L12-L25\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> </p>\n",
+      "md": "#### Email.defaults    \r\n> *@api* **public**  \r\n\r\n<div class=\"code-header\"> <h4>Email.defaults </h4></div><pre class=\" language-javascript\"><code class=\"language-javascript\">{\r\n\ttemplateExt: 'jade',\r\n\ttemplateEngine: require('jade'),\r\n\ttemplateBasePath: path.normalize(path.join(__dirname, '..', 'templates', 'helpers', 'emails')),\r\n\tmandrill: {\r\n\t\ttrack_opens: true,\r\n\t\ttrack_clicks: true,\r\n\t\tpreserve_recipients: false,\r\n\t\tinline_css: true\r\n\t},\r\n\t// Mandrill template\r\n\ttemplateMandrillName: null,\r\n\ttemplateForceHtml: false // Force html render\r\n}\r\n</code></pre> \r\n\r\n<div class=\"code-header addGitHubLink\" data-file=\"lib/email.js#L12-L25\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> \r\n"
+    },
+    "menuTitle": ".defaults"
+  }
+}

@@ -1,0 +1,41 @@
+---
+permalink: /-json/page/field-types-geopoint.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.Field.Types.GeoPoint",
+  "slug": "field-types-geopoint",
+  "page": {
+    "_id": "56d7df5323816ef67d075cd1",
+    "title": "Keystone.Field.Types.GeoPoint",
+    "menuTitle": ".GeoPoint",
+    "parent": {
+      "_id": "56d3b3697262188f4f6ef23b",
+      "order": 30,
+      "slug": "keystonefieldtypes",
+      "title": "Keystone.Field.Types",
+      "parent": "56ce85b72016dcfc71d320fd"
+    },
+    "slug": "field-types-geopoint",
+    "publish": "published",
+    "sortNumber": "11",
+    "type": 1,
+    "links": [],
+    "markdown": {
+      "md": "#### .Field.Types.GeoPoint( list, path, options )  \r\n> *@param* **list** _{Object}_  - valid Keystone list   \r\n> *@param* **path** _{String}_  - path   \r\n> *@param* **options** _{Object}_  - options   \r\n> *@api* **public**  \r\n\r\n<div class=\"code-header\"> <h4>defaults</h4></div><pre class=\" language-javascript\"><code class=\"language-javascript\">this._fixedSize = 'medium';\r\n\r\n// TODO: implement filtering, usage disabled for now\r\noptions.nofilter = true;\r\n\r\n</code></pre>\r\n\r\n<div class=\"code-header addGitHubLink\" data-file=\"fields/types/geopoint/GeoPointType.js\"> <a href=\"#\" class=\"loadCode\"> code</a></div><pre class=\" language-javascript hideCode api\"></pre> \r\n\r\n---\r\n<span class=\"subMethod\"> .Field.Types.GeoPoint.addToSchema(  ) </span>      \r\n> *@api* **public**    \r\n\r\nRegisters the field on the List's Mongoose Schema.  \r\nAdds a 2dsphere indexed lat/lng pair.      \r\n<div class=\"code-header addGitHubLink\" data-file=\"fields/types/geopoint/GeoPointType.js#L34-L45\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> \r\n\r\n---\r\n\r\n<span class=\"subMethod\"> .Field.Types.GeoPoint.getData( item ) </span>  \r\n> *@param* **item** {Object} - valid item object       \r\n> *@api* **public**     \r\n\r\nGets the field's data from an Item, as used by the React components\r\n\r\n<div class=\"code-header addGitHubLink\" data-file=\"fields/types/geopoint/GeoPointType.js#L48-L55\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> \r\n\r\n---\r\n<span class=\"subMethod\"> .Field.Types.GeoPoint.format( item ) </span>  \r\n> *@param* **item** {Object} - valid field object   \r\n> *@api* **public**     \r\n\r\nFormats the field value.\r\n```javascript\r\nreturn item.get(this.paths.html);\r\n```\r\n<div class=\"code-header addGitHubLink\" data-file=\"fields/types/geopoint/GeoPointType.js#L58-L69\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> \r\n\r\n---\r\n<span class=\"subMethod\"> .Field.Types.GeoPoint.validateInput( data [, required, item ] )  </span> \r\n> *@param* **data** {Object} - valid data object  \r\n> *@param* **required** {Boolean} - true if this is a required field  \r\n> *@param* **item** {Object} - valid item object  \r\n> *@api* **public**   \r\n  \r\nValidates that a value for this field has been provided in a data object.  \r\n\r\n<div class=\"code-header addGitHubLink\" data-file=\"fields/types/geopoint/GeoPointType.js#L72-L93\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> \r\n\r\n\r\n---\r\n<span class=\"subMethod\"> .Field.Types.GeoPoint.updateItem( item, data )  </span> \r\n> *@param* **item** {Object} - valid field object  \r\n> *@param* **data** {Object} - data to update  \r\n> *@api* **public**  \r\n\r\nUpdates the value for this field in the item from a data object.    \r\n\r\n<div class=\"code-header addGitHubLink\" data-file=\"fields/types/geopoint/GeoPointType.js#L96-L130\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> \r\n",
+      "html": "<h4 id=\"-field-types-geopoint-list-path-options-\">.Field.Types.GeoPoint( list, path, options )</h4>\n<blockquote>\n<p><em>@param</em> <strong>list</strong> <em>{Object}</em>  - valid Keystone list<br><em>@param</em> <strong>path</strong> <em>{String}</em>  - path<br><em>@param</em> <strong>options</strong> <em>{Object}</em>  - options<br><em>@api</em> <strong>public</strong>  </p>\n</blockquote>\n<p><div class=\"code-header\"> <h4>defaults</h4></div><pre class=\" language-javascript\"><code class=\"language-javascript\">this._fixedSize = &#39;medium&#39;;</p>\n<p>// TODO: implement filtering, usage disabled for now\noptions.nofilter = true;</p>\n<p></code></pre></p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"fields/types/geopoint/GeoPointType.js\"> <a href=\"#\" class=\"loadCode\"> code</a></div><pre class=\" language-javascript hideCode api\"></pre> </p>\n<hr>\n<p><span class=\"subMethod\"> .Field.Types.GeoPoint.addToSchema(  ) </span>      </p>\n<blockquote>\n<p><em>@api</em> <strong>public</strong>    </p>\n</blockquote>\n<p>Registers the field on the List&#39;s Mongoose Schema.<br>Adds a 2dsphere indexed lat/lng pair.      </p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"fields/types/geopoint/GeoPointType.js#L34-L45\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> </p>\n<hr>\n<p><span class=\"subMethod\"> .Field.Types.GeoPoint.getData( item ) </span>  </p>\n<blockquote>\n<p><em>@param</em> <strong>item</strong> {Object} - valid item object<br><em>@api</em> <strong>public</strong>     </p>\n</blockquote>\n<p>Gets the field&#39;s data from an Item, as used by the React components</p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"fields/types/geopoint/GeoPointType.js#L48-L55\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> </p>\n<hr>\n<p><span class=\"subMethod\"> .Field.Types.GeoPoint.format( item ) </span>  </p>\n<blockquote>\n<p><em>@param</em> <strong>item</strong> {Object} - valid field object<br><em>@api</em> <strong>public</strong>     </p>\n</blockquote>\n<p>Formats the field value.</p>\n<pre><code class=\"language-javascript\"><span class=\"hljs-built_in\">return</span> <span class=\"hljs-built_in\">item</span>.<span class=\"hljs-keyword\">get</span>(this.paths.html);\n</code></pre>\n<p><div class=\"code-header addGitHubLink\" data-file=\"fields/types/geopoint/GeoPointType.js#L58-L69\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> </p>\n<hr>\n<p><span class=\"subMethod\"> .Field.Types.GeoPoint.validateInput( data [, required, item ] )  </span> </p>\n<blockquote>\n<p><em>@param</em> <strong>data</strong> {Object} - valid data object<br><em>@param</em> <strong>required</strong> {Boolean} - true if this is a required field<br><em>@param</em> <strong>item</strong> {Object} - valid item object<br><em>@api</em> <strong>public</strong>   </p>\n</blockquote>\n<p>Validates that a value for this field has been provided in a data object.  </p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"fields/types/geopoint/GeoPointType.js#L72-L93\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> </p>\n<hr>\n<p><span class=\"subMethod\"> .Field.Types.GeoPoint.updateItem( item, data )  </span> </p>\n<blockquote>\n<p><em>@param</em> <strong>item</strong> {Object} - valid field object<br><em>@param</em> <strong>data</strong> {Object} - data to update<br><em>@api</em> <strong>public</strong>  </p>\n</blockquote>\n<p>Updates the value for this field in the item from a data object.    </p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"fields/types/geopoint/GeoPointType.js#L96-L130\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> </p>\n"
+    },
+    "display": 1,
+    "currentOrder": 11,
+    "order": 11,
+    "externalLinks": "",
+    "key": "keystonefieldtypesgeopoint",
+    "sortBy": 1,
+    "updatedAt": "2016-03-03T07:07:17.166Z",
+    "updatedBy": "56d3ec56c3bc4bb55f32eb6f"
+  }
+}

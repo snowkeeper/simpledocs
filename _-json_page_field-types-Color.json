@@ -1,0 +1,36 @@
+---
+permalink: /-json/page/field-types-Color.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.Field.Types.Color",
+  "slug": "field-types-Color",
+  "page": {
+    "_id": "56d7df5323816ef67d075cb9",
+    "title": "Keystone.Field.Types.Color",
+    "menuTitle": ".Color",
+    "parent": {
+      "_id": "56d3b3697262188f4f6ef23b",
+      "order": 30,
+      "slug": "keystonefieldtypes",
+      "title": "Keystone.Field.Types",
+      "parent": "56ce85b72016dcfc71d320fd"
+    },
+    "slug": "field-types-Color",
+    "publish": "published",
+    "sortNumber": "5",
+    "type": 1,
+    "links": [],
+    "markdown": {
+      "md": "#### .Field.Types.Color( list, path, options )  \n> *@param* **list** _{Object}_  - valid Keystone list   \n> *@param* **path** _{String}_  - path   \n> *@param* **options** _{Object}_  - options   \n> *@api* **public**  \n\n<div class=\"code-header\"> <h4>defaults</h4></div><pre class=\" language-javascript\"><code class=\"language-javascript\">this._nativeType = String;\nthis._underscoreMethods = [];\nthis._fixedSize = 'small';</code></pre>\n\n<div class=\"code-header addGitHubLink\" data-file=\"fields/types/color/ColorType.js\"> <a href=\"#\" class=\"loadCode\"> code</a></div><pre class=\" language-javascript hideCode api\"></pre> \n",
+      "html": "<h4 id=\"-field-types-color-list-path-options-\">.Field.Types.Color( list, path, options )</h4>\n<blockquote>\n<p><em>@param</em> <strong>list</strong> <em>{Object}</em>  - valid Keystone list<br><em>@param</em> <strong>path</strong> <em>{String}</em>  - path<br><em>@param</em> <strong>options</strong> <em>{Object}</em>  - options<br><em>@api</em> <strong>public</strong>  </p>\n</blockquote>\n<p><div class=\"code-header\"> <h4>defaults</h4></div><pre class=\" language-javascript\"><code class=\"language-javascript\">this._nativeType = String;\nthis._underscoreMethods = [];\nthis._fixedSize = &#39;small&#39;;</code></pre></p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"fields/types/color/ColorType.js\"> <a href=\"#\" class=\"loadCode\"> code</a></div><pre class=\" language-javascript hideCode api\"></pre> </p>\n"
+    },
+    "display": 1,
+    "currentOrder": 5,
+    "order": 5
+  }
+}

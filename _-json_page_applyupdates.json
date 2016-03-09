@@ -1,0 +1,44 @@
+---
+permalink: /-json/page/applyupdates.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.applyUpdates",
+  "slug": "applyupdates",
+  "page": {
+    "_id": "56ce8e5f5ddab73273b72e65",
+    "sortBy": 1,
+    "currentOrder": 2,
+    "order": 2,
+    "slug": "applyupdates",
+    "updatedBy": "54ce583de345cf3359db79bd",
+    "updatedAt": "2016-02-25T05:17:54.880Z",
+    "createdBy": "54ce583de345cf3359db79bd",
+    "createdAt": "2016-02-25T05:17:19.141Z",
+    "key": "applyupdates",
+    "title": "Keystone.applyUpdates",
+    "parent": {
+      "_id": "56ce85b72016dcfc71d320fd",
+      "order": 2,
+      "slug": "keystone",
+      "title": "Keystone",
+      "parent": "56d194a6020b01635cade433"
+    },
+    "publish": "published",
+    "sortNumber": "2",
+    "links": [],
+    "display": 1,
+    "externalLinks": "",
+    "html": "",
+    "markdown": {
+      "html": "<h4 id=\"-applyupdates-callback-\">.applyUpdates( callback )</h4>\n<blockquote>\n<p><em>@param</em> <strong>callback</strong> <em>{Function}</em>  - callback function  </p>\n</blockquote>\n<p>Applies Application updates</p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"index.js#L202-L219\"> <a href=\"#\" class=\"loadCode\"> code</a> </div><pre class=\" language-javascript hideCode api\"></pre> </p>\n",
+      "md": "#### .applyUpdates( callback )\r\n> *@param* **callback** _{Function}_  - callback function  \r\n\r\nApplies Application updates\r\n\r\n\r\n<div class=\"code-header addGitHubLink\" data-file=\"index.js#L202-L219\"> <a href=\"#\" class=\"loadCode\"> code</a> </div><pre class=\" language-javascript hideCode api\"></pre> \r\n"
+    },
+    "menuTitle": ".applyUpdates",
+    "type": 1
+  }
+}

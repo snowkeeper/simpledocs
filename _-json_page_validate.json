@@ -1,0 +1,43 @@
+---
+permalink: /-json/page/validate.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": ".Page.validate",
+  "slug": "validate",
+  "page": {
+    "_id": "56d2311262dab7af73a8340c",
+    "sortBy": 1,
+    "currentOrder": 8,
+    "order": 8,
+    "slug": "validate",
+    "updatedBy": "54ce583de345cf3359db79bd",
+    "updatedAt": "2016-02-27T23:28:36.445Z",
+    "createdBy": "54ce583de345cf3359db79bd",
+    "createdAt": "2016-02-27T23:28:18.202Z",
+    "key": "validate",
+    "title": ".Page.validate",
+    "parent": {
+      "_id": "56ce86532016dcfc71d32100",
+      "order": 6,
+      "slug": "contentpage",
+      "title": "Keystone.content.Page",
+      "parent": "56ce862d2016dcfc71d320ff"
+    },
+    "publish": "published",
+    "sortNumber": "8",
+    "type": 1,
+    "links": [],
+    "display": 1,
+    "externalLinks": "",
+    "markdown": {
+      "html": "<h4 id=\"-content-page-validate-data-\">.content.Page.validate( data )</h4>\n<blockquote>\n<p><em>@param</em> <strong>data</strong> <em>{Object}</em><br><em>@api</em> <strong>public</strong>     </p>\n</blockquote>\n<p>Validates a data structure based on defined fields.</p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"lib/content/page.js#L163-L179\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> </p>\n",
+      "md": "#### .content.Page.validate( data )  \r\n> *@param* **data** _{Object}_  \r\n> *@api* **public**     \r\n\r\nValidates a data structure based on defined fields.\r\n\r\n<div class=\"code-header addGitHubLink\" data-file=\"lib/content/page.js#L163-L179\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> \r\n"
+    },
+    "menuTitle": ".validate"
+  }
+}

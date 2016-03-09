@@ -1,0 +1,34 @@
+---
+permalink: /-json/page/session-signinWithUser.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.session.signinWithUser",
+  "slug": "session-signinWithUser",
+  "page": {
+    "_id": "56da2d4ee6045843301b31bf",
+    "title": "Keystone.session.signinWithUser",
+    "menuTitle": ".signinWithUser",
+    "parent": {
+      "_id": "56da2889dc8aef5a45e620ed",
+      "order": 34,
+      "slug": "keystone-session",
+      "title": "Keystone.session helpers",
+      "parent": "56ce85b72016dcfc71d320fd"
+    },
+    "slug": "session-signinWithUser",
+    "publish": "published",
+    "sortNumber": "append",
+    "type": 1,
+    "links": [],
+    "markdown": {
+      "md": "#### .session.signinWithUser( user, req, res, onSuccess )  \n> *@param* **user** _{Object}_  - user object  \n> *@param* **req** _{Object}_  - express request object  \n> *@param* **res** _{Object}_  - express response object  \n> *@param* **onSuccess** _{Object}_  - onSuccess callback, is passed the User instance  \n\nCreates a user session by supplying a user object \n\n<div class=\"code-header\"> <h4>Example</h4></div><pre class=\" language-javascript\"><code class=\"language-javascript\">\n\n\n// express route\nkeystone.app.post('/signin', function(req, res) {\n\t\t\n\t\tvar passwordCheck = req.body.password;\n\t\tvar onSuccess = function(user) {\n\t\t\t// successful session generation\n\t\t}\n\t\tUser.model.find({email: req.body.email}).exec(function(err, user) {\n\t\t\tif (user && (!passwordCheck || scmp(passwordCheck, hash(user.password)))) {\n\t\t\t\tkeystone.session.signinWithUser(user, req, res, onSuccess);\n\t\t\t} else {\n\t\t\t\t// handle error\n\t\t\t}\n\t\t});\n}\n</code></pre>\n\n<div class=\"code-header addGitHubLink\" data-file=\"lib/session.js#L23-L58\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> \n",
+      "html": "<h4 id=\"-session-signinwithuser-user-req-res-onsuccess-\">.session.signinWithUser( user, req, res, onSuccess )</h4>\n<blockquote>\n<p><em>@param</em> <strong>user</strong> <em>{Object}</em>  - user object<br><em>@param</em> <strong>req</strong> <em>{Object}</em>  - express request object<br><em>@param</em> <strong>res</strong> <em>{Object}</em>  - express response object<br><em>@param</em> <strong>onSuccess</strong> <em>{Object}</em>  - onSuccess callback, is passed the User instance  </p>\n</blockquote>\n<p>Creates a user session by supplying a user object </p>\n<p><div class=\"code-header\"> <h4>Example</h4></div><pre class=\" language-javascript\"><code class=\"language-javascript\"></p>\n<p>// express route\nkeystone.app.post(&#39;/signin&#39;, function(req, res) {</p>\n<pre><code>    var passwordCheck = req.body.password;\n    var onSuccess = function(user) {\n        // successful session generation\n    }\n    User.model.find({email: req.body.email}).exec(function(err, user) {\n        if (user &amp;&amp; (!passwordCheck || scmp(passwordCheck, hash(user.password)))) {\n            keystone.session.signinWithUser(user, req, res, onSuccess);\n        } else {\n            // handle error\n        }\n    });\n</code></pre><p>}\n</code></pre></p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"lib/session.js#L23-L58\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> </p>\n"
+    },
+    "display": 1
+  }
+}

@@ -1,0 +1,44 @@
+---
+permalink: /-json/page/content-class.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.content Class",
+  "slug": "content-class",
+  "page": {
+    "_id": "56ce862d2016dcfc71d320ff",
+    "sortBy": 1,
+    "currentOrder": 27,
+    "order": 27,
+    "slug": "content-class",
+    "updatedBy": "54ce583de345cf3359db79bd",
+    "updatedAt": "2016-02-29T03:02:38.675Z",
+    "createdBy": "54ce583de345cf3359db79bd",
+    "createdAt": "2016-02-25T04:42:21.395Z",
+    "key": "keystonecontent-class",
+    "title": "Keystone.content Class",
+    "parent": {
+      "_id": "56ce85b72016dcfc71d320fd",
+      "order": 2,
+      "slug": "keystone",
+      "title": "Keystone",
+      "parent": "56d194a6020b01635cade433"
+    },
+    "publish": "published",
+    "sortNumber": "27",
+    "links": [],
+    "externalLinks": "",
+    "html": "",
+    "markdown": {
+      "html": "<h4 id=\"keystone-content-\">Keystone.content(  )</h4>\n<blockquote>\n<p><em>@api</em> <strong>public</strong>    </p>\n</blockquote>\n<p><div class=\"code-header addGitHubLink\" data-file=\"lib/content/index.js\"> <a href=\"#\" class=\"loadCode\"> code</a></div><pre class=\" language-javascript hideCode api\"></pre> </p>\n",
+      "md": "#### Keystone.content(  )\r\n> _@api_ **public**    \r\n\r\n<div class=\"code-header addGitHubLink\" data-file=\"lib/content/index.js\"> <a href=\"#\" class=\"loadCode\"> code</a></div><pre class=\" language-javascript hideCode api\"></pre> \r\n\r\n"
+    },
+    "display": 1,
+    "menuTitle": "Keystone.content",
+    "type": 1
+  }
+}

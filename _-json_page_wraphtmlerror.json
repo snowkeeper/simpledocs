@@ -1,0 +1,43 @@
+---
+permalink: /-json/page/wraphtmlerror.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.wrapHTMLError",
+  "slug": "wraphtmlerror",
+  "page": {
+    "_id": "56ceb3f1c27737507f93c8a4",
+    "sortBy": 1,
+    "currentOrder": 26,
+    "order": 26,
+    "slug": "wraphtmlerror",
+    "updatedBy": "54ce583de345cf3359db79bd",
+    "updatedAt": "2016-02-25T07:57:48.432Z",
+    "createdBy": "54ce583de345cf3359db79bd",
+    "createdAt": "2016-02-25T07:57:37.314Z",
+    "key": "wraphtmlerror",
+    "title": "Keystone.wrapHTMLError",
+    "parent": {
+      "_id": "56ce85b72016dcfc71d320fd",
+      "order": 2,
+      "slug": "keystone",
+      "title": "Keystone",
+      "parent": "56d194a6020b01635cade433"
+    },
+    "publish": "published",
+    "sortNumber": "26",
+    "type": 1,
+    "links": [],
+    "display": 1,
+    "externalLinks": "",
+    "markdown": {
+      "html": "<h4 id=\"-wraphtmlerror-title-_err_-\">.wrapHTMLError( title, [<em>err</em>] )</h4>\n<blockquote>\n<p><em>@param</em> <strong>title</strong> <em>{String}</em>  - Error title<br><em>@param</em> <strong>err</strong> <em>{String}</em>  - <em>Optional</em> Error message<br><em>@return</em> <strong>html</strong> </p>\n</blockquote>\n<p>Wraps an error in simple HTML to be sent as a response to the browser</p>\n<pre><code class=\"lang-javascript\">var html = keystone.wrapHTMLError(&#39;Credential Error&#39;,&#39;Please &lt;a href=&quot;/keystone/signin&quot;&gt;login&lt;/a&gt; to view this page&#39;);\n</code></pre>\n<p><div class=\"code-header addGitHubLink\" data-file=\"lib/core/wrapHTMLError.js\"> <a href=\"#\" class=\"loadCode\"> code</a> </div><pre class=\" language-javascript hideCode api\"></pre> </p>\n",
+      "md": "#### .wrapHTMLError( title, [_err_] )\r\n> *@param* **title** _{String}_  - Error title  \r\n> *@param* **err** _{String}_  - _Optional_ Error message  \r\n> _@return_ **html** \r\n\r\nWraps an error in simple HTML to be sent as a response to the browser\r\n\r\n```javascript\r\nvar html = keystone.wrapHTMLError('Credential Error','Please <a href=\"/keystone/signin\">login</a> to view this page');\r\n```\r\n<div class=\"code-header addGitHubLink\" data-file=\"lib/core/wrapHTMLError.js\"> <a href=\"#\" class=\"loadCode\"> code</a> </div><pre class=\" language-javascript hideCode api\"></pre> \r\n"
+    },
+    "menuTitle": ".wrapHTMLError"
+  }
+}

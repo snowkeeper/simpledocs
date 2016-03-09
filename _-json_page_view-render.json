@@ -1,0 +1,43 @@
+---
+permalink: /-json/page/view-render.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.View.render",
+  "slug": "view-render",
+  "page": {
+    "_id": "56d233d562dab7af73a8341b",
+    "sortBy": 1,
+    "currentOrder": 3,
+    "order": 3,
+    "slug": "view-render",
+    "updatedBy": "56d3ec56c3bc4bb55f32eb6f",
+    "updatedAt": "2016-03-06T07:25:46.621Z",
+    "createdBy": "54ce583de345cf3359db79bd",
+    "createdAt": "2016-02-27T23:40:05.696Z",
+    "key": "render-2",
+    "title": "Keystone.View.render",
+    "parent": {
+      "_id": "56d2337a62dab7af73a83418",
+      "order": 35,
+      "slug": "view",
+      "title": "Keystone.View Class",
+      "parent": "56ce85b72016dcfc71d320fd"
+    },
+    "publish": "published",
+    "sortNumber": "3",
+    "type": 1,
+    "links": [],
+    "display": 1,
+    "externalLinks": "",
+    "markdown": {
+      "html": "<h4 id=\"view-render-renderfn-locals-callback-\">View.render( renderFn, locals, callback )</h4>\n<blockquote>\n<p><em>@param</em> <strong>renderFn</strong> <em>{Function|String}</em>  - Render function<br><em>@param</em> <strong>locals</strong> <em>{Object}</em>  - Locals<br><em>@param</em> <strong>callback</strong> <em>{Function}</em>  - Render callback  </p>\n</blockquote>\n<p>Executes the current queue of init and action methods in series, and then executes the render function.<br>If <strong>renderFn</strong> is a String, it is provided to <code>res.render</code>.<br>It is expected that <em>most</em> init stacks require processing in series, but it is safe to execute actions in parallel.<br>If there are several <code>init</code> methods that should be run in parallel, queue them as an Array, e.g. <code>view.on(&#39;init&#39;, [first, second])</code>.  </p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"lib/view.js#L312-L375\">&nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> </p>\n",
+      "md": "#### View.render( renderFn, locals, callback )\r\n> *@param* **renderFn** _{Function|String}_  - Render function  \r\n> *@param* **locals** _{Object}_  - Locals  \r\n> *@param* **callback** _{Function}_  - Render callback  \r\n\r\nExecutes the current queue of init and action methods in series, and then executes the render function.  \r\nIf **renderFn** is a String, it is provided to `res.render`.  \r\nIt is expected that *most* init stacks require processing in series, but it is safe to execute actions in parallel.  \r\nIf there are several `init` methods that should be run in parallel, queue them as an Array, e.g. `view.on('init', [first, second])`.  \r\n\r\n<div class=\"code-header addGitHubLink\" data-file=\"lib/view.js#L312-L375\">&nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> \r\n"
+    },
+    "menuTitle": ".render"
+  }
+}
