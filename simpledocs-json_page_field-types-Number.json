@@ -1,0 +1,36 @@
+---
+permalink: simpledocs-json/page/field-types-Number.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.Field.Types.Number",
+  "slug": "field-types-Number",
+  "page": {
+    "_id": "56d7df5323816ef67d075cc7",
+    "title": "Keystone.Field.Types.Number",
+    "menuTitle": ".Number",
+    "parent": {
+      "_id": "56d3b3697262188f4f6ef23b",
+      "order": 30,
+      "slug": "keystonefieldtypes",
+      "title": "Keystone.Field.Types",
+      "parent": "56ce85b72016dcfc71d320fd"
+    },
+    "slug": "field-types-Number",
+    "publish": "published",
+    "sortNumber": "20",
+    "type": 1,
+    "links": [],
+    "markdown": {
+      "md": "#### .Field.Types.Number( list, path, options )  \n> *@param* **list** _{Object}_  - valid Keystone list   \n> *@param* **path** _{String}_  - path   \n> *@param* **options** _{Object}_  - options   \n> *@api* **public**  \n\n<div class=\"code-header\"> <h4>defaults</h4></div><pre class=\" language-javascript\"><code class=\"language-javascript\">this._nativeType = Number;\nthis._fixedSize = 'small';\nthis._underscoreMethods = ['format'];\nthis._formatString = (options.format === false) ? false : (options.format || '0,0[.][000000000000]');</code></pre>\n\n<div class=\"code-header addGitHubLink\" data-file=\"fields/types/number/NumberType.js\"> <a href=\"#\" class=\"loadCode\"> code</a></div><pre class=\" language-javascript hideCode api\"></pre> \n\n<span class=\"subMethod\"> .Field.Types.Number.addFilterToQuery( filter, query ) </span>  \n> *@param* **filter** {Object} - valid filter object \n> *@param* **query** {Object} - valid query object   \n> *@api* **public**     \n\nAdds filters to a query.   \n\n<div class=\"code-header addGitHubLink\" data-file=\"fields/types/number/NumberType.js#L23-L56\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> \n\n---\n\n<span class=\"subMethod\"> .Field.Types.Number.format( item ) </span>  \n> *@param* **item** {Object} - valid field object   \n> *@api* **public**     \n\nFormats the field value.  \n\n<div class=\"code-header addGitHubLink\" data-file=\"fields/types/number/NumberType.js#L32-L51\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> \n\n---\n<span class=\"subMethod\"> .Field.Types.Number.validateInput( data )  </span> \n> *@param* **data** {Object} - valid data object  \n> *@api* **public**   \n \nChecks that a valid array of number has been provided in a data object.  \nAn empty value clears the stored value and is considered valid.  \n\n<div class=\"code-header addGitHubLink\" data-file=\"fields/types/number/NumberType.js#L69-L84\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> \n\n\n---\n<span class=\"subMethod\"> .Field.Types.Number.updateItem( item, data )  </span> \n> *@param* **item** {Object} - valid field object  \n> *@param* **data** {Object} - data to update  \n> *@api* **public**  \n\nUpdates the value for this field in the item from a data object.  \n\n<div class=\"code-header addGitHubLink\" data-file=\"fields/types/number/NumberType.js#L86-L102\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> \n",
+      "html": "<h4 id=\"-field-types-number-list-path-options-\">.Field.Types.Number( list, path, options )</h4>\n<blockquote>\n<p><em>@param</em> <strong>list</strong> <em>{Object}</em>  - valid Keystone list<br><em>@param</em> <strong>path</strong> <em>{String}</em>  - path<br><em>@param</em> <strong>options</strong> <em>{Object}</em>  - options<br><em>@api</em> <strong>public</strong>  </p>\n</blockquote>\n<p><div class=\"code-header\"> <h4>defaults</h4></div><pre class=\" language-javascript\"><code class=\"language-javascript\">this._nativeType = Number;\nthis._fixedSize = &#39;small&#39;;\nthis._underscoreMethods = [&#39;format&#39;];\nthis._formatString = (options.format === false) ? false : (options.format || &#39;0,0[.][000000000000]&#39;);</code></pre></p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"fields/types/number/NumberType.js\"> <a href=\"#\" class=\"loadCode\"> code</a></div><pre class=\" language-javascript hideCode api\"></pre> </p>\n<p><span class=\"subMethod\"> .Field.Types.Number.addFilterToQuery( filter, query ) </span>  </p>\n<blockquote>\n<p><em>@param</em> <strong>filter</strong> {Object} - valid filter object \n<em>@param</em> <strong>query</strong> {Object} - valid query object<br><em>@api</em> <strong>public</strong>     </p>\n</blockquote>\n<p>Adds filters to a query.   </p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"fields/types/number/NumberType.js#L23-L56\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> </p>\n<hr>\n<p><span class=\"subMethod\"> .Field.Types.Number.format( item ) </span>  </p>\n<blockquote>\n<p><em>@param</em> <strong>item</strong> {Object} - valid field object<br><em>@api</em> <strong>public</strong>     </p>\n</blockquote>\n<p>Formats the field value.  </p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"fields/types/number/NumberType.js#L32-L51\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> </p>\n<hr>\n<p><span class=\"subMethod\"> .Field.Types.Number.validateInput( data )  </span> </p>\n<blockquote>\n<p><em>@param</em> <strong>data</strong> {Object} - valid data object<br><em>@api</em> <strong>public</strong>   </p>\n</blockquote>\n<p>Checks that a valid array of number has been provided in a data object.<br>An empty value clears the stored value and is considered valid.  </p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"fields/types/number/NumberType.js#L69-L84\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> </p>\n<hr>\n<p><span class=\"subMethod\"> .Field.Types.Number.updateItem( item, data )  </span> </p>\n<blockquote>\n<p><em>@param</em> <strong>item</strong> {Object} - valid field object<br><em>@param</em> <strong>data</strong> {Object} - data to update<br><em>@api</em> <strong>public</strong>  </p>\n</blockquote>\n<p>Updates the value for this field in the item from a data object.  </p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"fields/types/number/NumberType.js#L86-L102\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> </p>\n"
+    },
+    "display": 1,
+    "currentOrder": 20,
+    "order": 20
+  }
+}

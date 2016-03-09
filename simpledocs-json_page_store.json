@@ -1,0 +1,43 @@
+---
+permalink: simpledocs-json/page/store.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.content.store",
+  "slug": "store",
+  "page": {
+    "_id": "56d22ecad1902cec63bd2b51",
+    "sortBy": 1,
+    "currentOrder": 5,
+    "order": 5,
+    "slug": "store",
+    "updatedBy": "54ce583de345cf3359db79bd",
+    "updatedAt": "2016-02-27T23:18:46.723Z",
+    "createdBy": "54ce583de345cf3359db79bd",
+    "createdAt": "2016-02-27T23:18:34.229Z",
+    "key": "store",
+    "title": "Keystone.content.store",
+    "parent": {
+      "_id": "56ce862d2016dcfc71d320ff",
+      "order": 27,
+      "slug": "content-class",
+      "title": "Keystone.content Class",
+      "parent": "56ce85b72016dcfc71d320fd"
+    },
+    "publish": "published",
+    "sortNumber": "5",
+    "type": 1,
+    "links": [],
+    "display": 1,
+    "externalLinks": "",
+    "markdown": {
+      "html": "<h4 id=\"-content-store-page-content-callback-\">.content.store( page, content, callback )</h4>\n<blockquote>\n<p><em>@param</em> <strong>page</strong> <em>{String}</em><br><em>@param</em> <strong>content</strong> <em>{Object}</em><br><em>@param</em> <strong>callback</strong> <em>{Function}</em><br><em>@api</em> <strong>public</strong>     </p>\n</blockquote>\n<p><div class=\"code-header\"> <h4>Sets page content by page key.</h4>Merges content with existing content.</div><pre class=\" language-javascript\"><code class=\"language-javascript\">keystone.content.store(&#39;home&#39;, { title: &#39;Welcome&#39; }, function(err) { ... });</code></pre> </p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"lib/content/index.js#L84-L129\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> </p>\n",
+      "md": "#### .content.store( page, content, callback )  \r\n> *@param* **page** _{String}_  \r\n> *@param* **content** _{Object}_  \r\n> *@param* **callback** _{Function}_    \r\n> *@api* **public**     \r\n\r\n<div class=\"code-header\"> <h4>Sets page content by page key.</h4>Merges content with existing content.</div><pre class=\" language-javascript\"><code class=\"language-javascript\">keystone.content.store('home', { title: 'Welcome' }, function(err) { ... });</code></pre> \r\n\r\n<div class=\"code-header addGitHubLink\" data-file=\"lib/content/index.js#L84-L129\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> \r\n"
+    },
+    "menuTitle": ".store"
+  }
+}

@@ -1,0 +1,34 @@
+---
+permalink: simpledocs-json/page/session-keystoneAuth.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.session.keystoneAuth",
+  "slug": "session-keystoneAuth",
+  "page": {
+    "_id": "56da2d4ee6045843301b31c0",
+    "title": "Keystone.session.keystoneAuth",
+    "menuTitle": ".keystoneAuth",
+    "parent": {
+      "_id": "56da2889dc8aef5a45e620ed",
+      "order": 34,
+      "slug": "keystone-session",
+      "title": "Keystone.session helpers",
+      "parent": "56ce85b72016dcfc71d320fd"
+    },
+    "slug": "session-keystoneAuth",
+    "publish": "published",
+    "sortNumber": "append",
+    "type": 1,
+    "links": [],
+    "markdown": {
+      "md": "#### .session.keystoneAuth( req, res, next )  \n> *@param* **req** _{Object}_  - express request object  \n> *@param* **res** _{Object}_  - express response object  \n> *@param* **next** _{Object}_  - callback  \n\nMiddleware to enable access to Keystone.\n\nBounces the user to the signin screen if they are not signed in or do not have permission.  \n\n`req.user` is the user returned by the database. It's type is Keystone.List.  \n`req.user.canAccessKeystone` denotes whether the user has access to the admin panel.\n<p class=\"note\">If you're having issues double check your user model. Setting `canAccessKeystone` to true in the database will not be reflected here if it is virtual. <br/> See http://mongoosejs.com/docs/guide.html#virtuals</p>\n\n\n<div class=\"code-header addGitHubLink\" data-file=\"lib/session.js#L190-L215\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> \n",
+      "html": "<h4 id=\"-session-keystoneauth-req-res-next-\">.session.keystoneAuth( req, res, next )</h4>\n<blockquote>\n<p><em>@param</em> <strong>req</strong> <em>{Object}</em>  - express request object<br><em>@param</em> <strong>res</strong> <em>{Object}</em>  - express response object<br><em>@param</em> <strong>next</strong> <em>{Object}</em>  - callback  </p>\n</blockquote>\n<p>Middleware to enable access to Keystone.</p>\n<p>Bounces the user to the signin screen if they are not signed in or do not have permission.  </p>\n<p><code>req.user</code> is the user returned by the database. It&#39;s type is Keystone.List.<br><code>req.user.canAccessKeystone</code> denotes whether the user has access to the admin panel.</p>\n<p class=\"note\">If you&#39;re having issues double check your user model. Setting <code>canAccessKeystone</code> to true in the database will not be reflected here if it is virtual. <br/> See <a href=\"http://mongoosejs.com/docs/guide.html#virtuals\">http://mongoosejs.com/docs/guide.html#virtuals</a></p>\n\n\n<p><div class=\"code-header addGitHubLink\" data-file=\"lib/session.js#L190-L215\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> </p>\n"
+    },
+    "display": 1
+  }
+}

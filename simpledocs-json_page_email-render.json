@@ -1,0 +1,43 @@
+---
+permalink: simpledocs-json/page/email-render.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.Email.render",
+  "slug": "email-render",
+  "page": {
+    "_id": "56d2321f62dab7af73a83413",
+    "sortBy": 1,
+    "currentOrder": 6,
+    "order": 6,
+    "slug": "email-render",
+    "updatedBy": "54ce583de345cf3359db79bd",
+    "updatedAt": "2016-02-27T23:32:53.532Z",
+    "createdBy": "54ce583de345cf3359db79bd",
+    "createdAt": "2016-02-27T23:32:47.120Z",
+    "key": "render-1",
+    "title": "Keystone.Email.render",
+    "parent": {
+      "_id": "56ce866b2016dcfc71d32101",
+      "order": 28,
+      "slug": "email",
+      "title": "Keystone.Email Class",
+      "parent": "56ce85b72016dcfc71d320fd"
+    },
+    "publish": "published",
+    "sortNumber": "6",
+    "type": 1,
+    "links": [],
+    "display": 1,
+    "externalLinks": "",
+    "markdown": {
+      "html": "<h4 id=\"email-render-locals-_callback_-\">Email.render( locals [, <em>callback</em> ] )</h4>\n<blockquote>\n<p><em>@param</em> <strong>locals</strong> <em>{Object}</em>  - object of local variables provided to the template<br><em>@param</em> <strong>callback</strong> <em>{Object}</em>  - callback(err, email)  </p>\n</blockquote>\n<p>Renders the email and passes it to the callback. Used by <code>Email.send()</code> but can also be called directly to generate a preview.</p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"lib/email.js#L172-L270\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> </p>\n",
+      "md": "#### Email.render( locals [, _callback_ ] )   \r\n> *@param* **locals** _{Object}_  - object of local variables provided to the template   \r\n> *@param* **callback** _{Object}_  - callback(err, email)  \r\n\r\nRenders the email and passes it to the callback. Used by `Email.send()` but can also be called directly to generate a preview.\r\n\r\n\r\n\r\n<div class=\"code-header addGitHubLink\" data-file=\"lib/email.js#L172-L270\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> \r\n"
+    },
+    "menuTitle": ".render"
+  }
+}

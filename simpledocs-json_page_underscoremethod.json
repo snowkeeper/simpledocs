@@ -1,0 +1,43 @@
+---
+permalink: simpledocs-json/page/underscoremethod.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.Field.underscoreMethod",
+  "slug": "underscoremethod",
+  "page": {
+    "_id": "56d3874723e5f34d21a17288",
+    "sortBy": 1,
+    "currentOrder": 23,
+    "order": 23,
+    "slug": "underscoremethod",
+    "updatedBy": "54ce583de345cf3359db79bd",
+    "updatedAt": "2016-02-28T23:48:30.153Z",
+    "createdBy": "54ce583de345cf3359db79bd",
+    "createdAt": "2016-02-28T23:48:23.106Z",
+    "key": "underscoremethod",
+    "title": "Keystone.Field.underscoreMethod",
+    "parent": {
+      "_id": "56ce867a2016dcfc71d32102",
+      "order": 29,
+      "slug": "field",
+      "title": "Keystone.Field Class",
+      "parent": "56ce85b72016dcfc71d320fd"
+    },
+    "publish": "published",
+    "sortNumber": "23",
+    "type": 1,
+    "links": [],
+    "display": 1,
+    "externalLinks": "",
+    "markdown": {
+      "html": "<h4 id=\"field-underscoremethod-path-fn-\">Field.underscoreMethod( path, fn )</h4>\n<blockquote>\n<p><em>@param</em> <strong>path</strong> {String} \n<em>@param</em> <strong>item</strong> {Function} \n<em>@api</em> <strong>private</strong>   </p>\n</blockquote>\n<p>Adds a method to the underscoreMethods collection on the field&#39;s list, with a path prefix to match this field&#39;s path and bound to the document.  </p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"fields/types/Type.js#L248-L258\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> </p>\n",
+      "md": "#### Field.underscoreMethod( path, fn )   \r\n> *@param* **path** {String} \r\n> *@param* **item** {Function} \r\n> *@api* **private**   \r\n\r\nAdds a method to the underscoreMethods collection on the field's list, with a path prefix to match this field's path and bound to the document.  \r\n\r\n<div class=\"code-header addGitHubLink\" data-file=\"fields/types/Type.js#L248-L258\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> \r\n"
+    },
+    "menuTitle": ".underscoreMethod"
+  }
+}

@@ -1,0 +1,41 @@
+---
+permalink: simpledocs-json/page/field-types-html.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.Field.Types.Html",
+  "slug": "field-types-html",
+  "page": {
+    "_id": "56d7df5323816ef67d075cd2",
+    "title": "Keystone.Field.Types.Html",
+    "menuTitle": ".Html",
+    "parent": {
+      "_id": "56d3b3697262188f4f6ef23b",
+      "order": 30,
+      "slug": "keystonefieldtypes",
+      "title": "Keystone.Field.Types",
+      "parent": "56ce85b72016dcfc71d320fd"
+    },
+    "slug": "field-types-html",
+    "publish": "published",
+    "sortNumber": "13",
+    "type": 1,
+    "links": [],
+    "markdown": {
+      "md": "#### .Field.Types.Html( list, path, options )  \r\n> *@param* **list** _{Object}_  - valid Keystone list   \r\n> *@param* **path** _{String}_  - path   \r\n> *@param* **options** _{Object}_  - options   \r\n> *@api* **public**  \r\n\r\n<div class=\"code-header\"> <h4>defaults</h4></div><pre class=\" language-javascript\"><code class=\"language-javascript\">this._nativeType = String;\r\nthis._defaultSize = 'full';\r\nthis.wysiwyg = options.wysiwyg || false;\r\nthis.height = options.height || 180;\r\nthis._properties = ['wysiwyg', 'height'];</code></pre>\r\n  \r\n<div class=\"code-header addGitHubLink\" data-file=\"fields/types/html/HtmlType.js\"> <a href=\"#\" class=\"loadCode\"> code</a></div><pre class=\" language-javascript hideCode api\"></pre>  \r\n\r\n<span class=\"subMethod\"> .Field.Types.Html.addFilterToQuery( filter, query ) </span>   \r\n> *@param* **filter** {Object} - valid filter object   \r\n> *@param* **query** {Object} - valid query object   \r\n> *@api* **public**    \r\n\r\nAdd filters to a query.    \r\n<div class=\"code-header addGitHubLink\" data-file=\"fields/types/html/HtmlType.js#L21\">&nbsp; </div><pre class=\" language-javascript hideCode api\"></pre> \r\n\r\n\r\n",
+      "html": "<h4 id=\"-field-types-html-list-path-options-\">.Field.Types.Html( list, path, options )</h4>\n<blockquote>\n<p><em>@param</em> <strong>list</strong> <em>{Object}</em>  - valid Keystone list<br><em>@param</em> <strong>path</strong> <em>{String}</em>  - path<br><em>@param</em> <strong>options</strong> <em>{Object}</em>  - options<br><em>@api</em> <strong>public</strong>  </p>\n</blockquote>\n<p><div class=\"code-header\"> <h4>defaults</h4></div><pre class=\" language-javascript\"><code class=\"language-javascript\">this._nativeType = String;\nthis._defaultSize = &#39;full&#39;;\nthis.wysiwyg = options.wysiwyg || false;\nthis.height = options.height || 180;\nthis._properties = [&#39;wysiwyg&#39;, &#39;height&#39;];</code></pre></p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"fields/types/html/HtmlType.js\"> <a href=\"#\" class=\"loadCode\"> code</a></div><pre class=\" language-javascript hideCode api\"></pre>  </p>\n<p><span class=\"subMethod\"> .Field.Types.Html.addFilterToQuery( filter, query ) </span>   </p>\n<blockquote>\n<p><em>@param</em> <strong>filter</strong> {Object} - valid filter object<br><em>@param</em> <strong>query</strong> {Object} - valid query object<br><em>@api</em> <strong>public</strong>    </p>\n</blockquote>\n<p>Add filters to a query.    </p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"fields/types/html/HtmlType.js#L21\">&nbsp; </div><pre class=\" language-javascript hideCode api\"></pre> </p>\n"
+    },
+    "display": 1,
+    "currentOrder": 13,
+    "order": 13,
+    "externalLinks": "",
+    "key": "keystonefieldtypeshtml",
+    "sortBy": 1,
+    "updatedAt": "2016-03-03T07:09:22.820Z",
+    "updatedBy": "56d3ec56c3bc4bb55f32eb6f"
+  }
+}

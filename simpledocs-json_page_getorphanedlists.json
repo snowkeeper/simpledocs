@@ -1,0 +1,43 @@
+---
+permalink: simpledocs-json/page/getorphanedlists.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.getOrphanedLists",
+  "slug": "getorphanedlists",
+  "page": {
+    "_id": "56ceb08421152bbe7d485d6d",
+    "sortBy": 1,
+    "currentOrder": 8,
+    "order": 8,
+    "slug": "getorphanedlists",
+    "updatedBy": "54ce583de345cf3359db79bd",
+    "updatedAt": "2016-02-25T07:43:18.742Z",
+    "createdBy": "54ce583de345cf3359db79bd",
+    "createdAt": "2016-02-25T07:43:00.826Z",
+    "key": "getorphanedlists",
+    "title": "Keystone.getOrphanedLists",
+    "parent": {
+      "_id": "56ce85b72016dcfc71d320fd",
+      "order": 2,
+      "slug": "keystone",
+      "title": "Keystone",
+      "parent": "56d194a6020b01635cade433"
+    },
+    "publish": "published",
+    "sortNumber": "8",
+    "links": [],
+    "display": 1,
+    "externalLinks": "",
+    "markdown": {
+      "html": "<h4 id=\"-getorphanedlists-\">.getOrphanedLists( )</h4>\n<blockquote>\n<p><em>@return</em> <strong>nav</strong> </p>\n</blockquote>\n<p>Retrieves orphaned lists (those not in a nav section)</p>\n<pre><code class=\"lang-javascript\">var orphanLists = keystone.getOrphanedLists();\n</code></pre>\n<p><div class=\"code-header addGitHubLink\" data-file=\"lib/core/getOrphanedLists.js\"> <a href=\"#\" class=\"loadCode\"> code</a> </div><pre class=\" language-javascript hideCode api\"></pre> </p>\n",
+      "md": "#### .getOrphanedLists( )\r\n> _@return_ **nav** \r\n\r\nRetrieves orphaned lists (those not in a nav section)\r\n\r\n```javascript\r\nvar orphanLists = keystone.getOrphanedLists();\r\n```\r\n<div class=\"code-header addGitHubLink\" data-file=\"lib/core/getOrphanedLists.js\"> <a href=\"#\" class=\"loadCode\"> code</a> </div><pre class=\" language-javascript hideCode api\"></pre> \r\n"
+    },
+    "menuTitle": ".getOrphanedLists",
+    "type": 1
+  }
+}

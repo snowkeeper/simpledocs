@@ -1,0 +1,36 @@
+---
+permalink: simpledocs-json/page/field-types-Text.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.Field.Types.Text",
+  "slug": "field-types-Text",
+  "page": {
+    "_id": "56d7df5323816ef67d075ccd",
+    "title": "Keystone.Field.Types.Text",
+    "menuTitle": ".Text",
+    "parent": {
+      "_id": "56d3b3697262188f4f6ef23b",
+      "order": 30,
+      "slug": "keystonefieldtypes",
+      "title": "Keystone.Field.Types",
+      "parent": "56ce85b72016dcfc71d320fd"
+    },
+    "slug": "field-types-Text",
+    "publish": "published",
+    "sortNumber": "26",
+    "type": 1,
+    "links": [],
+    "markdown": {
+      "md": "#### .Field.Types.Text( list, path, options )  \n> *@param* **list** _{Object}_  - valid Keystone list   \n> *@param* **path** _{String}_  - path   \n> *@param* **options** _{Object}_  - options   \n> *@api* **public**  \n\n\n\n<div class=\"code-header\"> <h4>defaults</h4></div><pre class=\" language-javascript\"><code class=\"language-javascript\">this._nativeType = String;\nthis._underscoreMethods = ['crop'];</code></pre>\n\n<div class=\"code-header addGitHubLink\" data-file=\"fields/types/text/TextType.js\"> <a href=\"#\" class=\"loadCode\"> code</a></div><pre class=\" language-javascript hideCode api\"></pre> \n\n<span class=\"subMethod\"> .Field.Types.Text.addFilterToQuery( filter, query ) </span>  \n> *@param* **filter** {Object} - valid filter object   \n> *@param* **query** {Object} - valid query object    \n> *@api* **public**     \n\nAdds filters to a query.   \n\n<div class=\"code-header addGitHubLink\" data-file=\"fields/types/text/TextType.js#L17-L37\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> \n\n---\n\n<span class=\"subMethod\"> .Field.Types.Text.crop( item, length, append, preserveWords ) </span>  \n> *@param* **item** {Object} - valid field object   \n> *@param* **length** {Number} - length to crop to  \n> *@param* **append** {String} - string to append  \n> *@param* **preserveWords** {Boolean} - whether to preserve the last word in full  \n> *@return* {String} - cropped string   \n> *@api* **public**     \n\nCrops the string to the specifed length.  \n\n<div class=\"code-header addGitHubLink\" data-file=\"fields/types/text/TextType.js#L39-L44\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> \n\n",
+      "html": "<h4 id=\"-field-types-text-list-path-options-\">.Field.Types.Text( list, path, options )</h4>\n<blockquote>\n<p><em>@param</em> <strong>list</strong> <em>{Object}</em>  - valid Keystone list<br><em>@param</em> <strong>path</strong> <em>{String}</em>  - path<br><em>@param</em> <strong>options</strong> <em>{Object}</em>  - options<br><em>@api</em> <strong>public</strong>  </p>\n</blockquote>\n<p><div class=\"code-header\"> <h4>defaults</h4></div><pre class=\" language-javascript\"><code class=\"language-javascript\">this._nativeType = String;\nthis._underscoreMethods = [&#39;crop&#39;];</code></pre></p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"fields/types/text/TextType.js\"> <a href=\"#\" class=\"loadCode\"> code</a></div><pre class=\" language-javascript hideCode api\"></pre> </p>\n<p><span class=\"subMethod\"> .Field.Types.Text.addFilterToQuery( filter, query ) </span>  </p>\n<blockquote>\n<p><em>@param</em> <strong>filter</strong> {Object} - valid filter object<br><em>@param</em> <strong>query</strong> {Object} - valid query object<br><em>@api</em> <strong>public</strong>     </p>\n</blockquote>\n<p>Adds filters to a query.   </p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"fields/types/text/TextType.js#L17-L37\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> </p>\n<hr>\n<p><span class=\"subMethod\"> .Field.Types.Text.crop( item, length, append, preserveWords ) </span>  </p>\n<blockquote>\n<p><em>@param</em> <strong>item</strong> {Object} - valid field object<br><em>@param</em> <strong>length</strong> {Number} - length to crop to<br><em>@param</em> <strong>append</strong> {String} - string to append<br><em>@param</em> <strong>preserveWords</strong> {Boolean} - whether to preserve the last word in full<br><em>@return</em> {String} - cropped string<br><em>@api</em> <strong>public</strong>     </p>\n</blockquote>\n<p>Crops the string to the specifed length.  </p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"fields/types/text/TextType.js#L39-L44\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> </p>\n"
+    },
+    "display": 1,
+    "currentOrder": 26,
+    "order": 26
+  }
+}

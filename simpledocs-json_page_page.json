@@ -1,0 +1,43 @@
+---
+permalink: simpledocs-json/page/page.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.content.page",
+  "slug": "page",
+  "page": {
+    "_id": "56d22ea3d1902cec63bd2b50",
+    "sortBy": 1,
+    "currentOrder": 4,
+    "order": 4,
+    "slug": "page",
+    "updatedBy": "54ce583de345cf3359db79bd",
+    "updatedAt": "2016-02-27T23:18:13.840Z",
+    "createdBy": "54ce583de345cf3359db79bd",
+    "createdAt": "2016-02-27T23:17:55.566Z",
+    "key": "page-1",
+    "title": "Keystone.content.page",
+    "parent": {
+      "_id": "56ce862d2016dcfc71d320ff",
+      "order": 27,
+      "slug": "content-class",
+      "title": "Keystone.content Class",
+      "parent": "56ce85b72016dcfc71d320fd"
+    },
+    "publish": "published",
+    "sortNumber": "4",
+    "type": 1,
+    "links": [],
+    "display": 1,
+    "externalLinks": "",
+    "markdown": {
+      "html": "<h4 id=\"-content-page-key-page-\">.content.page( key, page )</h4>\n<blockquote>\n<p><em>@param</em> <strong>key</strong> <em>{String}</em><br><em>@param</em> <strong>page</strong> <em>{Object}</em><br><em>@api</em> <strong>private</strong>     </p>\n</blockquote>\n<p>Registers a page. Should not be called directly, use <code>.content.Page.register()</code> instead.</p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"lib/content/index.js#L131-L164\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> </p>\n",
+      "md": "#### .content.page( key, page )  \r\n> *@param* **key** _{String}_  \r\n> *@param* **page** _{Object}_  \r\n> *@api* **private**     \r\n\r\nRegisters a page. Should not be called directly, use `.content.Page.register()` instead.\r\n\r\n<div class=\"code-header addGitHubLink\" data-file=\"lib/content/index.js#L131-L164\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> \r\n"
+    },
+    "menuTitle": ".page"
+  }
+}

@@ -1,0 +1,34 @@
+---
+permalink: simpledocs-json/page/middleware-api.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.middleware.api",
+  "slug": "middleware-api",
+  "page": {
+    "_id": "56da2be54f877e13305e97fb",
+    "title": "Keystone.middleware.api",
+    "menuTitle": ".api",
+    "parent": {
+      "_id": "56da26d4dc8aef5a45e620eb",
+      "order": 32,
+      "slug": "keystone-middleware",
+      "title": "Keystone.middleware helpers",
+      "parent": "56ce85b72016dcfc71d320fd"
+    },
+    "slug": "middleware-api",
+    "publish": "published",
+    "sortNumber": "append",
+    "type": 1,
+    "links": [],
+    "markdown": {
+      "md": "#### .middleware.api\n> *@api* **public**     \n\n<div class=\"code-header\"> <h4>Adds helper methods to the `res` object</h4></div><pre class=\" language-javascript\"><code class=\"language-javascript\">res.apiResponse(data);\n  \nres.apiError(key, err, msg, code);  \n\nres.apiNotFound(err, msg);  \n\nres.apiNotAllowed(err, msg);\n\n</code></pre>\n\n<div class=\"code-header\"> <h4>Example</h4></div><pre class=\" language-javascript\"><code class=\"language-javascript\">app.all('/api*', keystone.middleware.api);\napp.get('/api/v2/posts', function( req, res ){\n\t// send back json data with included middleware\n\t... // get data\n\tres.apiResponse(data); \n});\n</code></pre>\n\n<div class=\"code-header addGitHubLink\" data-file=\"lib/middleware/api.js\"> <a href=\"#\" class=\"loadCode\"> code</a></div><pre class=\" language-javascript hideCode api\"></pre> \n",
+      "html": "<h4 id=\"-middleware-api\">.middleware.api</h4>\n<blockquote>\n<p><em>@api</em> <strong>public</strong>     </p>\n</blockquote>\n<p><div class=\"code-header\"> <h4>Adds helper methods to the <code>res</code> object</h4></div><pre class=\" language-javascript\"><code class=\"language-javascript\">res.apiResponse(data);</p>\n<p>res.apiError(key, err, msg, code);  </p>\n<p>res.apiNotFound(err, msg);  </p>\n<p>res.apiNotAllowed(err, msg);</p>\n<p></code></pre></p>\n<p><div class=\"code-header\"> <h4>Example</h4></div><pre class=\" language-javascript\"><code class=\"language-javascript\">app.all(&#39;/api*&#39;, keystone.middleware.api);\napp.get(&#39;/api/v2/posts&#39;, function( req, res ){\n    // send back json data with included middleware\n    ... // get data\n    res.apiResponse(data); \n});\n</code></pre></p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"lib/middleware/api.js\"> <a href=\"#\" class=\"loadCode\"> code</a></div><pre class=\" language-javascript hideCode api\"></pre> </p>\n"
+    },
+    "display": 1
+  }
+}

@@ -1,0 +1,43 @@
+---
+permalink: simpledocs-json/page/redirect.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.redirect",
+  "slug": "redirect",
+  "page": {
+    "_id": "56ceb2cdc27737507f93c89d",
+    "sortBy": 1,
+    "currentOrder": 19,
+    "order": 19,
+    "slug": "redirect",
+    "updatedBy": "54ce583de345cf3359db79bd",
+    "updatedAt": "2016-02-25T07:52:57.037Z",
+    "createdBy": "54ce583de345cf3359db79bd",
+    "createdAt": "2016-02-25T07:52:45.324Z",
+    "key": "redirect",
+    "title": "Keystone.redirect",
+    "parent": {
+      "_id": "56ce85b72016dcfc71d320fd",
+      "order": 2,
+      "slug": "keystone",
+      "title": "Keystone",
+      "parent": "56d194a6020b01635cade433"
+    },
+    "publish": "published",
+    "sortNumber": "19",
+    "type": 1,
+    "links": [],
+    "display": 1,
+    "externalLinks": "",
+    "markdown": {
+      "html": "<h4 id=\"-redirect-params-\">.redirect( ...params )</h4>\n<blockquote>\n<p><em>@param</em> <strong>params</strong> <em>{...String|Object}</em>  - String or Object of redirects<br><em>@return</em> <strong>callback events</strong> </p>\n</blockquote>\n<p>Adds one or more redirections (urls that are redirected when no matching routes are found, before treating the request as a 404)</p>\n<pre><code class=\"lang-javascript\">keystone.redirect(&#39;/old-route&#39;, &#39;new-route&#39;);\n\nkeystone.redirect({\n    &#39;old-route&#39;: &#39;new-route&#39;\n});\n</code></pre>\n<p><div class=\"code-header addGitHubLink\" data-file=\"lib/core/redirect.js\"> <a href=\"#\" class=\"loadCode\"> code</a> </div><pre class=\" language-javascript hideCode api\"></pre> </p>\n",
+      "md": "#### .redirect( ...params )\r\n> *@param* **params** _{...String|Object}_  - String or Object of redirects   \r\n> _@return_ **callback events** \r\n\r\nAdds one or more redirections (urls that are redirected when no matching routes are found, before treating the request as a 404)\r\n\r\n```javascript\r\nkeystone.redirect('/old-route', 'new-route');\r\n\r\nkeystone.redirect({\r\n    'old-route': 'new-route'\r\n});\r\n```\r\n<div class=\"code-header addGitHubLink\" data-file=\"lib/core/redirect.js\"> <a href=\"#\" class=\"loadCode\"> code</a> </div><pre class=\" language-javascript hideCode api\"></pre> \r\n"
+    },
+    "menuTitle": ".redirect"
+  }
+}
