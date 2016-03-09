@@ -1,0 +1,43 @@
+---
+permalink: -json/page/view.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.View Class",
+  "slug": "view",
+  "page": {
+    "_id": "56d2337a62dab7af73a83418",
+    "sortBy": 1,
+    "currentOrder": 35,
+    "order": 35,
+    "slug": "view",
+    "updatedBy": "54ce583de345cf3359db79bd",
+    "updatedAt": "2016-02-29T03:44:01.169Z",
+    "createdBy": "54ce583de345cf3359db79bd",
+    "createdAt": "2016-02-27T23:38:34.821Z",
+    "key": "keystoneview-class",
+    "title": "Keystone.View Class",
+    "parent": {
+      "_id": "56ce85b72016dcfc71d320fd",
+      "order": 2,
+      "slug": "keystone",
+      "title": "Keystone",
+      "parent": "56d194a6020b01635cade433"
+    },
+    "publish": "published",
+    "sortNumber": "35",
+    "type": 1,
+    "links": [],
+    "display": 1,
+    "externalLinks": "",
+    "markdown": {
+      "html": "<h4 id=\"new-keystone-view-req-res-\">new Keystone.View( req, res )</h4>\n<blockquote>\n<p><em>@param</em> <strong>req</strong> <em>{Object}</em>  - valid Express req object<br><em>@param</em> <strong>res</strong> <em>{Object}</em>  - valid Express res object<br><em>@return</em> <strong>Instance</strong>   </p>\n</blockquote>\n<p>Helper to simplify view logic in a Keystone application  </p>\n<pre><code class=\"language-javascript\">    var view = new keystone.View(req, res);\n\n    view.render(&#39;index&#39;);\n</code></pre>\n<p><div class=\"code-header addGitHubLink\" data-file=\"lib/view.js\"> <a href=\"#\" class=\"loadCode\"> code</a></div><pre class=\" language-javascript hideCode api\"></pre> </p>\n",
+      "md": "#### new Keystone.View( req, res )\r\n> *@param* **req** _{Object}_  - valid Express req object  \r\n> *@param* **res** _{Object}_  - valid Express res object   \r\n> _@return_ **Instance**   \r\n\r\nHelper to simplify view logic in a Keystone application  \r\n\r\n```javascript\r\n\tvar view = new keystone.View(req, res);\r\n    \r\n\tview.render('index');\r\n```  \r\n\r\n<div class=\"code-header addGitHubLink\" data-file=\"lib/view.js\"> <a href=\"#\" class=\"loadCode\"> code</a></div><pre class=\" language-javascript hideCode api\"></pre> \r\n\r\n"
+    },
+    "menuTitle": "Keystone.View"
+  }
+}

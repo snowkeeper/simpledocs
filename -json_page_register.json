@@ -1,0 +1,43 @@
+---
+permalink: -json/page/register.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": ".Page.register",
+  "slug": "register",
+  "page": {
+    "_id": "56d230cf62dab7af73a8340a",
+    "sortBy": 1,
+    "currentOrder": 6,
+    "order": 6,
+    "slug": "register",
+    "updatedBy": "54ce583de345cf3359db79bd",
+    "updatedAt": "2016-02-27T23:27:26.702Z",
+    "createdBy": "54ce583de345cf3359db79bd",
+    "createdAt": "2016-02-27T23:27:11.133Z",
+    "key": "register",
+    "title": ".Page.register",
+    "parent": {
+      "_id": "56ce86532016dcfc71d32100",
+      "order": 6,
+      "slug": "contentpage",
+      "title": "Keystone.content.Page",
+      "parent": "56ce862d2016dcfc71d320ff"
+    },
+    "publish": "published",
+    "sortNumber": "6",
+    "type": 1,
+    "links": [],
+    "display": 1,
+    "externalLinks": "",
+    "markdown": {
+      "html": "<h4 id=\"-content-page-register-\">.content.Page.register(  )</h4>\n<blockquote>\n<p><em>@api</em> <strong>public</strong>     </p>\n</blockquote>\n<p><div class=\"code-header\"> <h4>Registers the page with Keystone.</h4></div><pre class=\" language-javascript\"><code class=\"language-javascript\">var homePage = new keystone.content.Page(&#39;home&#39;);\n// ...\nhomePage.register();</p>\n<pre><code>// later...\nvar homePage = keystone.content.page(&#39;home&#39;);\n</code></pre><p></code></pre></p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"lib/content/page.js#L59-L69\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> </p>\n",
+      "md": "#### .content.Page.register(  )  \r\n> *@api* **public**     \r\n\r\n<div class=\"code-header\"> <h4>Registers the page with Keystone.</h4></div><pre class=\" language-javascript\"><code class=\"language-javascript\">var homePage = new keystone.content.Page('home');\r\n// ...\r\nhomePage.register();\r\n\r\n\t// later...\r\n\tvar homePage = keystone.content.page('home');\r\n\r\n</code></pre>\r\n\r\n\r\n<div class=\"code-header addGitHubLink\" data-file=\"lib/content/page.js#L59-L69\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> \r\n"
+    },
+    "menuTitle": ".register"
+  }
+}

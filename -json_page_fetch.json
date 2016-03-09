@@ -1,0 +1,43 @@
+---
+permalink: -json/page/fetch.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.content.fetch",
+  "slug": "fetch",
+  "page": {
+    "_id": "56d22baed1902cec63bd2b4e",
+    "sortBy": 1,
+    "currentOrder": 2,
+    "order": 2,
+    "slug": "fetch",
+    "updatedBy": "54ce583de345cf3359db79bd",
+    "updatedAt": "2016-02-27T23:05:38.966Z",
+    "createdBy": "54ce583de345cf3359db79bd",
+    "createdAt": "2016-02-27T23:05:18.459Z",
+    "key": "fetch",
+    "title": "Keystone.content.fetch",
+    "parent": {
+      "_id": "56ce862d2016dcfc71d320ff",
+      "order": 27,
+      "slug": "content-class",
+      "title": "Keystone.content Class",
+      "parent": "56ce85b72016dcfc71d320fd"
+    },
+    "publish": "published",
+    "sortNumber": "2",
+    "type": 1,
+    "links": [],
+    "display": 1,
+    "externalLinks": "",
+    "markdown": {
+      "html": "<h4 id=\"-content-fetch-page-callback-\">.content.fetch( page, callback )</h4>\n<blockquote>\n<p><em>@param</em> <strong>page</strong> <em>{String}</em><br><em>@param</em> <strong>callback</strong> <em>{Function}</em><br><em>@api</em> <strong>public</strong>     </p>\n</blockquote>\n<p><div class=\"code-header\"> <h4>Loads page content by page key (optional).</h4>If page key is not provided, returns a hash of all page contents in the database.</div><pre class=\" language-javascript\"><code class=\"language-javascript\">keystone.content.fetch(&#39;home&#39;, function(err, content) { ... });</code></pre> </p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"lib/content/index.js#L15-L82\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> </p>\n",
+      "md": "#### .content.fetch( page, callback )  \r\n> *@param* **page** _{String}_   \r\n> *@param* **callback** _{Function}_    \r\n> *@api* **public**     \r\n\r\n<div class=\"code-header\"> <h4>Loads page content by page key (optional).</h4>If page key is not provided, returns a hash of all page contents in the database.</div><pre class=\" language-javascript\"><code class=\"language-javascript\">keystone.content.fetch('home', function(err, content) { ... });</code></pre> \r\n\r\n<div class=\"code-header addGitHubLink\" data-file=\"lib/content/index.js#L15-L82\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> \r\n"
+    },
+    "menuTitle": ".fetch"
+  }
+}

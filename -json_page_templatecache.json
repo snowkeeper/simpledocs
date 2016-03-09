@@ -1,0 +1,43 @@
+---
+permalink: -json/page/templatecache.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.Email.templateCache",
+  "slug": "templatecache",
+  "page": {
+    "_id": "56d232c862dab7af73a83416",
+    "sortBy": 1,
+    "currentOrder": 9,
+    "order": 9,
+    "slug": "templatecache",
+    "updatedBy": "54ce583de345cf3359db79bd",
+    "updatedAt": "2016-02-27T23:36:07.956Z",
+    "createdBy": "54ce583de345cf3359db79bd",
+    "createdAt": "2016-02-27T23:35:36.500Z",
+    "key": "templatecache",
+    "title": "Keystone.Email.templateCache",
+    "parent": {
+      "_id": "56ce866b2016dcfc71d32101",
+      "order": 28,
+      "slug": "email",
+      "title": "Keystone.Email Class",
+      "parent": "56ce85b72016dcfc71d320fd"
+    },
+    "publish": "published",
+    "sortNumber": "9",
+    "type": 1,
+    "links": [],
+    "display": 1,
+    "externalLinks": "",
+    "markdown": {
+      "html": "<h4 id=\"email-templatecache\">Email.templateCache</h4>\n<blockquote>\n<p><em>@api</em> <strong>public</strong>  </p>\n</blockquote>\n<p>A cache of compiled templates organi(sz)ed by name.</p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"lib/email.js#L692\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> </p>\n",
+      "md": "#### Email.templateCache   \r\n> *@api* **public**  \r\n\r\nA cache of compiled templates organi(sz)ed by name.\r\n\r\n<div class=\"code-header addGitHubLink\" data-file=\"lib/email.js#L692\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> \r\n"
+    },
+    "menuTitle": ".templateCache"
+  }
+}

@@ -1,0 +1,43 @@
+---
+permalink: -json/page/addtoschema.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.Field.addToSchema",
+  "slug": "addtoschema",
+  "page": {
+    "_id": "56d3851623e5f34d21a17272",
+    "sortBy": 1,
+    "currentOrder": 1,
+    "order": 1,
+    "slug": "addtoschema",
+    "updatedBy": "54ce583de345cf3359db79bd",
+    "updatedAt": "2016-02-29T03:03:40.937Z",
+    "createdBy": "54ce583de345cf3359db79bd",
+    "createdAt": "2016-02-28T23:39:03.015Z",
+    "key": "addtoschema",
+    "title": "Keystone.Field.addToSchema",
+    "parent": {
+      "_id": "56ce867a2016dcfc71d32102",
+      "order": 29,
+      "slug": "field",
+      "title": "Keystone.Field Class",
+      "parent": "56ce85b72016dcfc71d320fd"
+    },
+    "publish": "published",
+    "sortNumber": "1",
+    "type": 1,
+    "links": [],
+    "display": 1,
+    "externalLinks": "",
+    "markdown": {
+      "html": "<h4 id=\"field-addtoschema-\">Field.addToSchema(  )</h4>\n<blockquote>\n<p><em>@api</em> <strong>private</strong>  </p>\n</blockquote>\n<p>Default method to register the field on the List&#39;s Mongoose Schema.  </p>\n<p class=\"caution-note\">Overridden by some fieldType Classes.</p>\n\n<p><div class=\"code-header addGitHubLink\" data-file=\"fields/types/Type.js#L218-L228\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> </p>\n",
+      "md": "#### Field.addToSchema(  )   \r\n> *@api* **private**  \r\n\r\nDefault method to register the field on the List's Mongoose Schema.  \r\n<p class=\"caution-note\">Overridden by some fieldType Classes.</p>\r\n\r\n<div class=\"code-header addGitHubLink\" data-file=\"fields/types/Type.js#L218-L228\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> \r\n"
+    },
+    "menuTitle": ".addToSchema"
+  }
+}

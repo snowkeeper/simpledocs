@@ -1,0 +1,43 @@
+---
+permalink: -json/page/start.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.start",
+  "slug": "start",
+  "page": {
+    "_id": "56ceb37ec27737507f93c8a1",
+    "sortBy": 1,
+    "currentOrder": 23,
+    "order": 23,
+    "slug": "start",
+    "updatedBy": "54ce583de345cf3359db79bd",
+    "updatedAt": "2016-02-25T07:56:04.006Z",
+    "createdBy": "54ce583de345cf3359db79bd",
+    "createdAt": "2016-02-25T07:55:42.288Z",
+    "key": "start",
+    "title": "Keystone.start",
+    "parent": {
+      "_id": "56ce85b72016dcfc71d320fd",
+      "order": 2,
+      "slug": "keystone",
+      "title": "Keystone",
+      "parent": "56d194a6020b01635cade433"
+    },
+    "publish": "published",
+    "sortNumber": "23",
+    "type": 1,
+    "links": [],
+    "display": 1,
+    "externalLinks": "",
+    "markdown": {
+      "html": "<h4 id=\"-start-_events_-\">.start( [<em>events</em>] )</h4>\n<blockquote>\n<p><em>@param</em> <strong>events</strong> <em>{...Function|Object}</em>  - Function or Object of events<br><em>@return</em> <strong>callback events</strong> </p>\n</blockquote>\n<p>Start the Keystone server.  You can work with the events in the example.</p>\n<pre><code class=\"lang-javascript\">keystone.start({\n    onMount: function() {\n\n    },\n    onStart: function() {\n\n    },\n    onHttpServerCreated: function() {\n\n    },\n    onHttpsServerCreated: function() {\n\n    },\n    onSocketServerCreated: function() {\n\n    },\n});\n</code></pre>\n<p><div class=\"code-header addGitHubLink\" data-file=\"lib/core/start.js\"> <a href=\"#\" class=\"loadCode\"> code</a> </div><pre class=\" language-javascript hideCode api\"></pre> </p>\n",
+      "md": "#### .start( [_events_] )\r\n> *@param* **events** _{...Function|Object}_  - Function or Object of events  \r\n> _@return_ **callback events** \r\n\r\nStart the Keystone server.  You can work with the events in the example.\r\n\r\n```javascript\r\nkeystone.start({\r\n    onMount: function() {\r\n\r\n    },\r\n    onStart: function() {\r\n    \r\n    },\r\n    onHttpServerCreated: function() {\r\n\r\n    },\r\n    onHttpsServerCreated: function() {\r\n\r\n    },\r\n    onSocketServerCreated: function() {\r\n\r\n    },\r\n});\r\n```\r\n<div class=\"code-header addGitHubLink\" data-file=\"lib/core/start.js\"> <a href=\"#\" class=\"loadCode\"> code</a> </div><pre class=\" language-javascript hideCode api\"></pre> \r\n"
+    },
+    "menuTitle": ".start"
+  }
+}

@@ -1,0 +1,43 @@
+---
+permalink: -json/page/bindemailtestroutes.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.bindEmailTestRoutes",
+  "slug": "bindemailtestroutes",
+  "page": {
+    "_id": "56ceaf6d21152bbe7d485d68",
+    "sortBy": 1,
+    "currentOrder": 3,
+    "order": 3,
+    "slug": "bindemailtestroutes",
+    "updatedBy": "54ce583de345cf3359db79bd",
+    "updatedAt": "2016-02-25T07:40:03.000Z",
+    "createdBy": "54ce583de345cf3359db79bd",
+    "createdAt": "2016-02-25T07:38:21.693Z",
+    "key": "bindemailtestroutes",
+    "title": "Keystone.bindEmailTestRoutes",
+    "parent": {
+      "_id": "56ce85b72016dcfc71d320fd",
+      "order": 2,
+      "slug": "keystone",
+      "title": "Keystone",
+      "parent": "56d194a6020b01635cade433"
+    },
+    "publish": "published",
+    "sortNumber": "3",
+    "links": [],
+    "display": 1,
+    "externalLinks": "",
+    "markdown": {
+      "html": "<h4 id=\"-bindemailtestroutes-app-emails-\">.bindEmailTestRoutes( app, emails )</h4>\n<blockquote>\n<p><em>@param</em> <strong>app</strong> <em>{Object}</em><br><em>@param</em> <strong>emails</strong> <em>{Object}</em><br><em>@api</em> <strong>private</strong> </p>\n</blockquote>\n<p><div class=\"code-header addGitHubLink\" data-file=\"lib/core/bindEmailTestRoutes.js\">  <a href=\"#\" class=\"loadCode\"> code</a></div><pre class=\" language-javascript hideCode api\"></pre> </p>\n",
+      "md": "#### .bindEmailTestRoutes( app, emails )\r\n> *@param* **app** _{Object}_   \r\n> *@param* **emails** _{Object}_   \r\n> _@api_ **private** \r\n\r\n\r\n\r\n<div class=\"code-header addGitHubLink\" data-file=\"lib/core/bindEmailTestRoutes.js\">  <a href=\"#\" class=\"loadCode\"> code</a></div><pre class=\" language-javascript hideCode api\"></pre> \r\n"
+    },
+    "menuTitle": ".bindEmailTestRoutes",
+    "type": 1
+  }
+}

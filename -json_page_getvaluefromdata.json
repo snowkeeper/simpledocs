@@ -1,0 +1,43 @@
+---
+permalink: -json/page/getvaluefromdata.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.Field.getValueFromData",
+  "slug": "getvaluefromdata",
+  "page": {
+    "_id": "56d3865623e5f34d21a1727d",
+    "sortBy": 1,
+    "currentOrder": 12,
+    "order": 12,
+    "slug": "getvaluefromdata",
+    "updatedBy": "54ce583de345cf3359db79bd",
+    "updatedAt": "2016-02-28T23:44:27.179Z",
+    "createdBy": "54ce583de345cf3359db79bd",
+    "createdAt": "2016-02-28T23:44:22.020Z",
+    "key": "getvaluefromdata",
+    "title": "Keystone.Field.getValueFromData",
+    "parent": {
+      "_id": "56ce867a2016dcfc71d32102",
+      "order": 29,
+      "slug": "field",
+      "title": "Keystone.Field Class",
+      "parent": "56ce85b72016dcfc71d320fd"
+    },
+    "publish": "published",
+    "sortNumber": "12",
+    "type": 1,
+    "links": [],
+    "display": 1,
+    "externalLinks": "",
+    "markdown": {
+      "html": "<h4 id=\"field-getvaluefromdata-\">Field.getValueFromData(  )</h4>\n<blockquote>\n<p><em>@api</em> <strong>private</strong>    </p>\n</blockquote>\n<p>Retrieves the value from an object, whether the path is nested or flattened.  </p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"fields/types/Type.js#L311-L318\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> </p>\n",
+      "md": "#### Field.getValueFromData(  )   \r\n> *@api* **private**    \r\n\r\nRetrieves the value from an object, whether the path is nested or flattened.  \r\n\r\n<div class=\"code-header addGitHubLink\" data-file=\"fields/types/Type.js#L311-L318\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> \r\n"
+    },
+    "menuTitle": ".getValueFromData"
+  }
+}

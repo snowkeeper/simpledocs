@@ -1,0 +1,34 @@
+---
+permalink: -json/page/list-set.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.List.set",
+  "slug": "list-set",
+  "page": {
+    "_id": "56d7dd389c22d3957d0f96cb",
+    "title": "Keystone.List.set",
+    "menuTitle": ".set",
+    "parent": {
+      "_id": "56d7d408dc8aef5a45e620ea",
+      "order": 31,
+      "slug": "keystone-list",
+      "title": "Keystone.List Class",
+      "parent": "56ce85b72016dcfc71d320fd"
+    },
+    "slug": "list-set",
+    "publish": "published",
+    "sortNumber": "append",
+    "type": 1,
+    "links": [],
+    "markdown": {
+      "md": "#### List.set( key, value )\n> _@param_ **key** {String} - key name  \n> _@param_ **value** {...String|Object|Array|Function} - value  \n> _@return_ **value** - value  \n\nGets and Sets list options. Aliased as `.get()`.  \n\n```javascript\nlist.set('test') // returns the 'test' value\nlist.set('test', value) // sets the 'test' option to `value`\n```\n\n<div class=\"code-header addGitHubLink\" data-file=\"lib/list/set.js\"><a href=\"#\" class=\"loadCode\"> code</a></div><pre class=\" language-javascript hideCode api\"></pre> \n",
+      "html": "<h4 id=\"list-set-key-value-\">List.set( key, value )</h4>\n<blockquote>\n<p><em>@param</em> <strong>key</strong> {String} - key name<br><em>@param</em> <strong>value</strong> {...String|Object|Array|Function} - value<br><em>@return</em> <strong>value</strong> - value  </p>\n</blockquote>\n<p>Gets and Sets list options. Aliased as <code>.get()</code>.  </p>\n<pre><code class=\"language-javascript\">list.set(&#39;test&#39;) // returns the &#39;test&#39; value\nlist.set(&#39;test&#39;, value) // sets the &#39;test&#39; option to `value`\n</code></pre>\n<p><div class=\"code-header addGitHubLink\" data-file=\"lib/list/set.js\"><a href=\"#\" class=\"loadCode\"> code</a></div><pre class=\" language-javascript hideCode api\"></pre> </p>\n"
+    },
+    "display": 1
+  }
+}
