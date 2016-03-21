@@ -21,6 +21,10 @@ snowUI.userjs =  {
 		Prism.highlightAll();
 	},
 	
+	unmountUI: function() {
+		$(document).off('click', '.loadCode', loadCode);
+	},
+	
 	mountedUI: function() { 
 		snowUI.userspace._cached = {}
 		snowUI.userspace.create_cached = function(version) {
@@ -28,36 +32,39 @@ snowUI.userjs =  {
 				snowUI.userspace._cached[version] = {}
 			}
 		}
-		$(document).on('click', '.loadCode', function(e) {
-			e.preventDefault();
-			var $this = $(this);
-			var target = $this.parent().data();
-			
-			if(target.file) {
-				
-				var url = 'https://raw.githubusercontent.com/keystonejs/keystone/v0.3.x/' +  target.file;
-				var $pre = $this.parent().next();
-				if(snowUI.userspace._cached[target.file]) {
-					$pre.text(snowUI.userspace._cached[target.file]);
-				} else {
-					
-					$.ajax({
-						url: url,
-						dataType: 'text',
-						success: function(results) {
-							snowUI.userspace.create_cached(target.file);
-							snowUI.userspace._cached[target.file] = results;
-							$pre.text(results);
-						},
-						error: function(err) {
-							console.log('Load error', err);
-							$pre.text('File not found');
-						}
-					});
-				}
-				$pre.slideToggle();		
-			}
-		});
+		$(document).on('click', '.loadCode', loadCode);
+	}
+}
+
+function loadCode(e) {
+	e.preventDefault();
+	var $this = $(this);
+	var target = $this.parent().data();
+	
+	if(target.file) {
 		
+		var url = 'https://raw.githubusercontent.com/keystonejs/keystone/v0.3.x/' +  target.file;
+		var $pre = $this.parent().next();
+		if(snowUI.userspace._cached[target.file]) {
+			$pre.html(snowUI.userspace._cached[target.file]);
+			
+		} else {
+			
+			$.ajax({
+				url: url,
+				dataType: 'text',
+				success: function(results) {
+					snowUI.userspace.create_cached(target.file);
+					snowUI.userspace._cached[target.file] = Prism.highlight(results, Prism.languages.javascript);
+					$pre.html(snowUI.userspace._cached[target.file]);
+					
+				},
+				error: function(err) {
+					console.log('Load error', err);
+					$pre.text('File not found');
+				}
+			});
+		}
+		$pre.slideToggle();		
 	}
 }
