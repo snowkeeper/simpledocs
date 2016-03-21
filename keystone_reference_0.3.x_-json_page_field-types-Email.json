@@ -1,0 +1,36 @@
+---
+permalink: keystone/reference/0.3.x/-json/page/field-types-Email.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.Field.Types.Email",
+  "slug": "field-types-Email",
+  "page": {
+    "_id": "56d7df5323816ef67d075cbc",
+    "title": "Keystone.Field.Types.Email",
+    "menuTitle": ".Email",
+    "parent": {
+      "_id": "56d3b3697262188f4f6ef23b",
+      "order": 30,
+      "slug": "keystonefieldtypes",
+      "title": "Keystone.Field.Types",
+      "parent": "56ce85b72016dcfc71d320fd"
+    },
+    "slug": "field-types-Email",
+    "publish": "published",
+    "sortNumber": "9",
+    "type": 1,
+    "links": [],
+    "markdown": {
+      "md": "#### .Field.Types.Email( list, path, options )  \n> *@param* **list** _{Object}_  - valid Keystone list   \n> *@param* **path** _{String}_  - path   \n> *@param* **options** _{Object}_  - options   \n> *@api* **public**  \n\n<div class=\"code-header\"> <h4>defaults</h4></div><pre class=\" language-javascript\"><code class=\"language-javascript\">this._nativeType = String;\nthis._underscoreMethods = ['gravatarUrl'];\nthis.typeDescription = 'email address';\n</code></pre>\n\n<div class=\"code-header addGitHubLink\" data-file=\"fields/types/email/EmailType.js\"> <a href=\"#\" class=\"loadCode\"> code</a></div><pre class=\" language-javascript hideCode api\"></pre> \n\n<span class=\"subMethod\"> .Field.Types.Email.addFilterToQuery( filter, query ) </span>   \n> *@param* **filter** {Object} - valid filter object   \n> *@param* **query** {Object} - valid query object   \n> *@api* **public**    \n\nAdd filters to a query.  \n<div class=\"code-header addGitHubLink\" data-file=\"fields/types/email/EmailType.js#L21\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> \n\n---\n<span class=\"subMethod\"> .Field.Types.Email.gravatarUrl( item, size, defaultImage, rating ) </span>  \n> *@param* **item** {Object} - valid item object  \n> *@param* **size** {Number} - size of images ranging from 1 to 2048 pixels, square   \n> *@param* **defaultImage** {String}    \n> *@param* **rating** {String}     \n> *@api* **public**     \n\nGet the value from a data object; may be simple or a pair of fields\n\n<div class=\"code-header addGitHubLink\" data-file=\"fields/types/email/EmailType.js#L23-L43\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> \n\n---\n<span class=\"subMethod\"> .Field.Types.Email.validateInput( data [, required, item ] )  </span> \n> *@param* **data** {Object} - valid data object  \n> *@param* **required** {Boolean} - true if this is a required field  \n> *@param* **item** {Object} - valid item object  \n> *@api* **public**   \n  \nValidates that a valid email has been provided in a data object\n\n<div class=\"code-header addGitHubLink\" data-file=\"fields/types/email/EmailType.js#L45-L55\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> \n\n\n---\n<span class=\"subMethod\"> .Field.Types.Email.updateItem( item, data )  </span> \n> *@param* **item** {Object} - valid field object  \n> *@param* **data** {Object} - data to update  \n> *@api* **public**  \n\nUpdates the value for this field in the item from a data object.  \nEnsures that the email address is lowercase.  \n\n<div class=\"code-header addGitHubLink\" data-file=\"fields/types/email/EmailType.js#L57-L69\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> \n",
+      "html": "<h4 id=\"-field-types-email-list-path-options-\">.Field.Types.Email( list, path, options )</h4>\n<blockquote>\n<p><em>@param</em> <strong>list</strong> <em>{Object}</em>  - valid Keystone list<br><em>@param</em> <strong>path</strong> <em>{String}</em>  - path<br><em>@param</em> <strong>options</strong> <em>{Object}</em>  - options<br><em>@api</em> <strong>public</strong>  </p>\n</blockquote>\n<p><div class=\"code-header\"> <h4>defaults</h4></div><pre class=\" language-javascript\"><code class=\"language-javascript\">this._nativeType = String;\nthis._underscoreMethods = [&#39;gravatarUrl&#39;];\nthis.typeDescription = &#39;email address&#39;;\n</code></pre></p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"fields/types/email/EmailType.js\"> <a href=\"#\" class=\"loadCode\"> code</a></div><pre class=\" language-javascript hideCode api\"></pre> </p>\n<p><span class=\"subMethod\"> .Field.Types.Email.addFilterToQuery( filter, query ) </span>   </p>\n<blockquote>\n<p><em>@param</em> <strong>filter</strong> {Object} - valid filter object<br><em>@param</em> <strong>query</strong> {Object} - valid query object<br><em>@api</em> <strong>public</strong>    </p>\n</blockquote>\n<p>Add filters to a query.  </p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"fields/types/email/EmailType.js#L21\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> </p>\n<hr>\n<p><span class=\"subMethod\"> .Field.Types.Email.gravatarUrl( item, size, defaultImage, rating ) </span>  </p>\n<blockquote>\n<p><em>@param</em> <strong>item</strong> {Object} - valid item object<br><em>@param</em> <strong>size</strong> {Number} - size of images ranging from 1 to 2048 pixels, square<br><em>@param</em> <strong>defaultImage</strong> {String}<br><em>@param</em> <strong>rating</strong> {String}<br><em>@api</em> <strong>public</strong>     </p>\n</blockquote>\n<p>Get the value from a data object; may be simple or a pair of fields</p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"fields/types/email/EmailType.js#L23-L43\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> </p>\n<hr>\n<p><span class=\"subMethod\"> .Field.Types.Email.validateInput( data [, required, item ] )  </span> </p>\n<blockquote>\n<p><em>@param</em> <strong>data</strong> {Object} - valid data object<br><em>@param</em> <strong>required</strong> {Boolean} - true if this is a required field<br><em>@param</em> <strong>item</strong> {Object} - valid item object<br><em>@api</em> <strong>public</strong>   </p>\n</blockquote>\n<p>Validates that a valid email has been provided in a data object</p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"fields/types/email/EmailType.js#L45-L55\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> </p>\n<hr>\n<p><span class=\"subMethod\"> .Field.Types.Email.updateItem( item, data )  </span> </p>\n<blockquote>\n<p><em>@param</em> <strong>item</strong> {Object} - valid field object<br><em>@param</em> <strong>data</strong> {Object} - data to update<br><em>@api</em> <strong>public</strong>  </p>\n</blockquote>\n<p>Updates the value for this field in the item from a data object.<br>Ensures that the email address is lowercase.  </p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"fields/types/email/EmailType.js#L57-L69\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> </p>\n"
+    },
+    "display": 1,
+    "currentOrder": 9,
+    "order": 9
+  }
+}

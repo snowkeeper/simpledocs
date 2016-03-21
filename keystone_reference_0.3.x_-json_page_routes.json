@@ -1,0 +1,43 @@
+---
+permalink: keystone/reference/0.3.x/-json/page/routes.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.routes",
+  "slug": "routes",
+  "page": {
+    "_id": "56ceb312c27737507f93c89f",
+    "sortBy": 1,
+    "currentOrder": 21,
+    "order": 21,
+    "slug": "routes",
+    "updatedBy": "54ce583de345cf3359db79bd",
+    "updatedAt": "2016-02-25T07:54:12.539Z",
+    "createdBy": "54ce583de345cf3359db79bd",
+    "createdAt": "2016-02-25T07:53:54.045Z",
+    "key": "routes",
+    "title": "Keystone.routes",
+    "parent": {
+      "_id": "56ce85b72016dcfc71d320fd",
+      "order": 2,
+      "slug": "keystone",
+      "title": "Keystone",
+      "parent": "56d194a6020b01635cade433"
+    },
+    "publish": "published",
+    "sortNumber": "21",
+    "type": 1,
+    "links": [],
+    "display": 1,
+    "externalLinks": "",
+    "markdown": {
+      "html": "<h4 id=\"-routes-app-\">.routes( app )</h4>\n<blockquote>\n<p><em>@param</em> <strong>app</strong> <em>{Express()}</em>  - Express app instance<br><em>@return</em> <strong>this</strong> </p>\n</blockquote>\n<p>Adds bindings for the keystone routes</p>\n<pre><code class=\"lang-javascript\">var app = express();\napp.use(...); // middlewareroutes, routes, etc. should come before keystone is mounted / started\nkeystone.routes(app);\n</code></pre>\n<p><div class=\"code-header addGitHubLink\" data-file=\"lib/core/routes.js\"> <a href=\"#\" class=\"loadCode\"> code</a> </div><pre class=\" language-javascript hideCode api\"></pre> </p>\n",
+      "md": "#### .routes( app )\r\n> *@param* **app** _{Express()}_  - Express app instance  \r\n> _@return_ **this** \r\n\r\nAdds bindings for the keystone routes\r\n\r\n```javascript\r\nvar app = express();\r\napp.use(...); // middlewareroutes, routes, etc. should come before keystone is mounted / started\r\nkeystone.routes(app);\r\n```\r\n<div class=\"code-header addGitHubLink\" data-file=\"lib/core/routes.js\"> <a href=\"#\" class=\"loadCode\"> code</a> </div><pre class=\" language-javascript hideCode api\"></pre> \r\n"
+    },
+    "menuTitle": ".routes"
+  }
+}

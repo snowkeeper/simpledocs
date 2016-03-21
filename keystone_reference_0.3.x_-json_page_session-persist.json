@@ -1,0 +1,34 @@
+---
+permalink: keystone/reference/0.3.x/-json/page/session-persist.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.session.persist",
+  "slug": "session-persist",
+  "page": {
+    "_id": "56da2d4ee6045843301b31c1",
+    "title": "Keystone.session.persist",
+    "menuTitle": ".persist",
+    "parent": {
+      "_id": "56da2889dc8aef5a45e620ed",
+      "order": 34,
+      "slug": "keystone-session",
+      "title": "Keystone.session helpers",
+      "parent": "56ce85b72016dcfc71d320fd"
+    },
+    "slug": "session-persist",
+    "publish": "published",
+    "sortNumber": "append",
+    "type": 1,
+    "links": [],
+    "markdown": {
+      "md": "#### .session.persist( req, res, next )  \n> *@param* **req** _{Object}_  - express request object  \n> *@param* **res** _{Object}_  - express response object  \n> *@param* **next** _{Object}_  - callback  \n\nMiddleware to ensure session persistence across server restarts.  \n\nLooks for a userId cookie, and if present, and there is no user signed in, automatically signs the user in.\n\n<div class=\"code-header addGitHubLink\" data-file=\"lib/session.js#L156-L188\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> \n",
+      "html": "<h4 id=\"-session-persist-req-res-next-\">.session.persist( req, res, next )</h4>\n<blockquote>\n<p><em>@param</em> <strong>req</strong> <em>{Object}</em>  - express request object<br><em>@param</em> <strong>res</strong> <em>{Object}</em>  - express response object<br><em>@param</em> <strong>next</strong> <em>{Object}</em>  - callback  </p>\n</blockquote>\n<p>Middleware to ensure session persistence across server restarts.  </p>\n<p>Looks for a userId cookie, and if present, and there is no user signed in, automatically signs the user in.</p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"lib/session.js#L156-L188\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> </p>\n"
+    },
+    "display": 1
+  }
+}

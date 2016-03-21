@@ -1,0 +1,43 @@
+---
+permalink: keystone/reference/0.3.x/-json/page/getoptions.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.Field.getOptions",
+  "slug": "getoptions",
+  "page": {
+    "_id": "56d385e323e5f34d21a1727a",
+    "sortBy": 1,
+    "currentOrder": 9,
+    "order": 9,
+    "slug": "getoptions",
+    "updatedBy": "54ce583de345cf3359db79bd",
+    "updatedAt": "2016-02-28T23:42:33.624Z",
+    "createdBy": "54ce583de345cf3359db79bd",
+    "createdAt": "2016-02-28T23:42:27.156Z",
+    "key": "getoptions",
+    "title": "Keystone.Field.getOptions",
+    "parent": {
+      "_id": "56ce867a2016dcfc71d32102",
+      "order": 29,
+      "slug": "field",
+      "title": "Keystone.Field Class",
+      "parent": "56ce85b72016dcfc71d320fd"
+    },
+    "publish": "published",
+    "sortNumber": "9",
+    "type": 1,
+    "links": [],
+    "display": 1,
+    "externalLinks": "",
+    "markdown": {
+      "html": "<h4 id=\"field-getoptions-\">Field.getOptions(  )</h4>\n<blockquote>\n<p><em>@api</em> <strong>private</strong>  </p>\n</blockquote>\n<p>Gets the options for the Field, as used by the React components.</p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"fields/types/Type.js#L83-L107\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> </p>\n",
+      "md": "#### Field.getOptions(  )   \r\n> *@api* **private**  \r\n\r\nGets the options for the Field, as used by the React components.\r\n\r\n<div class=\"code-header addGitHubLink\" data-file=\"fields/types/Type.js#L83-L107\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> \r\n"
+    },
+    "menuTitle": ".getOptions"
+  }
+}

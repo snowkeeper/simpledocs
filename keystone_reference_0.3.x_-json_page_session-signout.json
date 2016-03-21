@@ -1,0 +1,34 @@
+---
+permalink: keystone/reference/0.3.x/-json/page/session-signout.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.session.signout",
+  "slug": "session-signout",
+  "page": {
+    "_id": "56da2d4ee6045843301b31c3",
+    "title": "Keystone.session.signout",
+    "menuTitle": ".signout",
+    "parent": {
+      "_id": "56da2889dc8aef5a45e620ed",
+      "order": 34,
+      "slug": "keystone-session",
+      "title": "Keystone.session helpers",
+      "parent": "56ce85b72016dcfc71d320fd"
+    },
+    "slug": "session-signout",
+    "publish": "published",
+    "sortNumber": "append",
+    "type": 1,
+    "links": [],
+    "markdown": {
+      "md": "#### .session.signout( req, res, next )  \n> *@param* **req** _{Object}_  - express request object  \n> *@param* **res** _{Object}_  - express response object  \n> *@param* **next** _{Object}_  - callback  \n\nSigns the current user out and resets the session\n\n<div class=\"code-header\"> <h4>Example</h4>From <a href=\"http://www.sydjs.com\" target=\"_blank\">sydjs.com</a> <a href=\"https://github.com/JedWatson/sydjs-site/blob/master/routes/views/session/signout.js\" target=\"_blank\">(code)</a></div><pre class=\" language-javascript\"><code class=\"language-javascript\">\nfunction(req, res) {\n\t\n\t\tvar view = new keystone.View(req, res),\n\t\t\tlocals = res.locals;\n\t\t\n\t\tlocals.section = 'session';\n\t\t\n\t\tkeystone.session.signout(req, res, function() {\n\t\t\tres.redirect('/');\n\t\t});\n\t\n};\n</code></pre>\n\n<div class=\"code-header addGitHubLink\" data-file=\"lib/session.js#L127-L154\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> \n",
+      "html": "<h4 id=\"-session-signout-req-res-next-\">.session.signout( req, res, next )</h4>\n<blockquote>\n<p><em>@param</em> <strong>req</strong> <em>{Object}</em>  - express request object<br><em>@param</em> <strong>res</strong> <em>{Object}</em>  - express response object<br><em>@param</em> <strong>next</strong> <em>{Object}</em>  - callback  </p>\n</blockquote>\n<p>Signs the current user out and resets the session</p>\n<p><div class=\"code-header\"> <h4>Example</h4>From <a href=\"http://www.sydjs.com\" target=\"_blank\">sydjs.com</a> <a href=\"https://github.com/JedWatson/sydjs-site/blob/master/routes/views/session/signout.js\" target=\"_blank\">(code)</a></div><pre class=\" language-javascript\"><code class=\"language-javascript\">\nfunction(req, res) {</p>\n<pre><code>    var view = new keystone.View(req, res),\n        locals = res.locals;\n\n    locals.section = &#39;session&#39;;\n\n    keystone.session.signout(req, res, function() {\n        res.redirect(&#39;/&#39;);\n    });\n</code></pre><p>};\n</code></pre></p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"lib/session.js#L127-L154\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> </p>\n"
+    },
+    "display": 1
+  }
+}

@@ -1,0 +1,43 @@
+---
+permalink: keystone/reference/0.3.x/-json/page/on.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.View.on",
+  "slug": "on",
+  "page": {
+    "_id": "56d2339262dab7af73a83419",
+    "sortBy": 1,
+    "currentOrder": 1,
+    "order": 1,
+    "slug": "on",
+    "updatedBy": "56d3ec56c3bc4bb55f32eb6f",
+    "updatedAt": "2016-03-06T07:25:00.627Z",
+    "createdBy": "54ce583de345cf3359db79bd",
+    "createdAt": "2016-02-27T23:38:58.496Z",
+    "key": "on",
+    "title": "Keystone.View.on",
+    "parent": {
+      "_id": "56d2337a62dab7af73a83418",
+      "order": 35,
+      "slug": "view",
+      "title": "Keystone.View Class",
+      "parent": "56ce85b72016dcfc71d320fd"
+    },
+    "publish": "published",
+    "sortNumber": "1",
+    "type": 1,
+    "links": [],
+    "display": 1,
+    "externalLinks": "",
+    "markdown": {
+      "html": "<h4 id=\"view-on-on-callback-\">View.on( on [, callback ] )</h4>\n<blockquote>\n<p><em>@param</em> <strong>on</strong> <em>{Function|Object|String}</em>  - Method to be executed<br><em>@param</em> <strong>callback</strong> <em>{Function}</em>  - Function to run in parallel on <code>on</code>.<br><em>@return</em> <strong>this</strong>  </p>\n</blockquote>\n<p>Adds a method (or array of methods) to be executed in parallel to the <code>init</code>, <code>action</code> or <code>render</code> queue.</p>\n<h5 id=\"argument-on-options\">argument <code>on</code> options</h5>\n<ul>\n<li><strong>init</strong> - Init events are always fired in series, before any other actions<pre><code class=\"language-javascript\">view.on(&#39;init&#39;, function (next) {\n  // do something before any actions or queries have run\n});\n</code></pre>\n</li>\n<li><strong><code>Function</code></strong> - If the first argument is a <strong>Function</strong> that returns truthy then the second argument is added to the queue.</li>\n<li><strong>Dynamic</strong> - Do certain actions depending on information in the response object.  <pre><code class=\"language-javascript\">view.on({ &#39;user.name.first&#39;: &#39;Admin&#39; }, function(next) {\n    console.log(&#39;Hello Admin!&#39;);\n    next();\n});\n</code></pre>\n</li>\n<li><strong>get</strong> - HTTP verb  </li>\n<li><strong>post</strong> - HTTP verb  </li>\n<li><strong>put</strong> - HTTP verb  </li>\n<li><strong>delete</strong> - HTTP verb  </li>\n<li><strong>render</strong> - Render events are always fired last in parallel, after any other actions  <pre><code class=\"language-javascript\">view.on(&#39;render&#39;, function (next) {\n  // do something after init, action and query middleware has run\n});\n</code></pre>\n</li>\n</ul>\n<p><div class=\"code-header\"><h4>example</h4></div><pre class=\" language-javascript\"><code class=\"language-javascript\">view.on(function() {</p>\n<pre><code>    var thing = true;\n    return thing;\n\n}, function(next) {\n\n    console.log(&#39;thing is true!&#39;);\n    next();\n\n});\n</code></pre><p></code></pre>  </p>\n<p><div class=\"code-header\"> </p>\n<p><h4>grab posts</h4><br></div><pre class=\" language-javascript\"><code class=\"language-javascript\">    // Load posts\n    view.on(&#39;init&#39;, function(next) {</p>\n<pre><code>        var q = keystone.list(&#39;Post&#39;).paginate({\n                page: req.query.page || 1,\n                perPage: 10,\n                maxPages: 10\n            })\n            .where(&#39;state&#39;, &#39;published&#39;)\n            .sort(&#39;-publishedDate&#39;)\n            .populate(&#39;author categories&#39;);\n\n        if (locals.data.category) {\n            q.where(&#39;categories&#39;).in([locals.data.category]);\n        }\n\n        q.exec(function(err, results) {\n            locals.data.posts = results;\n            next(err);\n        });\n\n    });\n</code></pre><p></code></pre>  </p>\n<p><div class=\"code-header addGitHubLink\"  data-file=\"lib/view.js#L42-L193\">&nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> </p>\n",
+      "md": "#### View.on( on [, callback ] )\r\n> *@param* **on** _{Function|Object|String}_  - Method to be executed   \r\n> *@param* **callback** _{Function}_  - Function to run in parallel on `on`.   \r\n> _@return_ **this**  \r\n\r\nAdds a method (or array of methods) to be executed in parallel to the `init`, `action` or `render` queue.\r\n\r\n##### argument `on` options\r\n* **init** - Init events are always fired in series, before any other actions\r\n```javascript  \r\nview.on('init', function (next) {\r\n\t// do something before any actions or queries have run\r\n});\r\n```\r\n* **`Function`** - If the first argument is a **Function** that returns truthy then the second argument is added to the queue.\r\n* **Dynamic** - Do certain actions depending on information in the response object.  \r\n```javascript    \r\nview.on({ 'user.name.first': 'Admin' }, function(next) {\r\n\t  console.log('Hello Admin!');\r\n\t  next();\r\n});\r\n```\r\n* **get** - HTTP verb  \r\n* **post** - HTTP verb  \r\n* **put** - HTTP verb  \r\n* **delete** - HTTP verb  \r\n* **render** - Render events are always fired last in parallel, after any other actions  \r\n```javascript  \r\nview.on('render', function (next) {\r\n\t// do something after init, action and query middleware has run\r\n});\r\n```\r\n\r\n<div class=\"code-header\"><h4>example</h4></div><pre class=\" language-javascript\"><code class=\"language-javascript\">view.on(function() {\r\n\t\r\n        var thing = true;\r\n        return thing;\r\n\t\r\n    }, function(next) {\r\n\t\r\n        console.log('thing is true!');\r\n        next();\r\n\t\r\n    });\r\n</code></pre>  \r\n\r\n<div class=\"code-header\"> \r\n<h4>grab posts</h4>  \r\n</div><pre class=\" language-javascript\"><code class=\"language-javascript\">    // Load posts\r\n    view.on('init', function(next) {\r\n\t\t\r\n\t\t\tvar q = keystone.list('Post').paginate({\r\n\t\t\t\t\tpage: req.query.page || 1,\r\n\t\t\t\t\tperPage: 10,\r\n\t\t\t\t\tmaxPages: 10\r\n\t\t\t\t})\r\n\t\t\t\t.where('state', 'published')\r\n\t\t\t\t.sort('-publishedDate')\r\n\t\t\t\t.populate('author categories');\r\n\t\t\t\r\n\t\t\tif (locals.data.category) {\r\n\t\t\t\tq.where('categories').in([locals.data.category]);\r\n\t\t\t}\r\n\t\t\t\r\n\t\t\tq.exec(function(err, results) {\r\n\t\t\t\tlocals.data.posts = results;\r\n\t\t\t\tnext(err);\r\n\t\t\t});\r\n\t\t\r\n        });\r\n</code></pre>  \r\n\r\n<div class=\"code-header addGitHubLink\"  data-file=\"lib/view.js#L42-L193\">&nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> \r\n"
+    },
+    "menuTitle": ".on"
+  }
+}

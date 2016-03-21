@@ -1,0 +1,43 @@
+---
+permalink: keystone/reference/0.3.x/-json/page/getdata.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.Field.getData",
+  "slug": "getdata",
+  "page": {
+    "_id": "56d385b123e5f34d21a17278",
+    "sortBy": 1,
+    "currentOrder": 7,
+    "order": 7,
+    "slug": "getdata",
+    "updatedBy": "54ce583de345cf3359db79bd",
+    "updatedAt": "2016-02-28T23:41:43.681Z",
+    "createdBy": "54ce583de345cf3359db79bd",
+    "createdAt": "2016-02-28T23:41:37.484Z",
+    "key": "getdata",
+    "title": "Keystone.Field.getData",
+    "parent": {
+      "_id": "56ce867a2016dcfc71d32102",
+      "order": 29,
+      "slug": "field",
+      "title": "Keystone.Field Class",
+      "parent": "56ce85b72016dcfc71d320fd"
+    },
+    "publish": "published",
+    "sortNumber": "7",
+    "type": 1,
+    "links": [],
+    "display": 1,
+    "externalLinks": "",
+    "markdown": {
+      "html": "<h4 id=\"field-getdata-data-\">Field.getData( data )</h4>\n<blockquote>\n<p><em>@param</em> <strong>data</strong> {Object} - valid data object<br><em>@api</em> <strong>private</strong>  </p>\n</blockquote>\n<p>Gets the field&#39;s data from an Item, as used by the React components</p>\n<p><div class=\"code-header\"> <h4>Return</h4></div><pre class=\" language-javascript\"><code class=\"language-javascript\">return item.get(this.path);\n</code></pre></p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"fields/types/Type.js#L131-L136\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> </p>\n",
+      "md": "#### Field.getData( data )   \r\n> *@param* **data** {Object} - valid data object   \r\n> *@api* **private**  \r\n\r\nGets the field's data from an Item, as used by the React components\r\n\r\n<div class=\"code-header\"> <h4>Return</h4></div><pre class=\" language-javascript\"><code class=\"language-javascript\">return item.get(this.path);\r\n</code></pre>\r\n\r\n<div class=\"code-header addGitHubLink\" data-file=\"fields/types/Type.js#L131-L136\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> \r\n"
+    },
+    "menuTitle": ".getData"
+  }
+}

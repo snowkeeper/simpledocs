@@ -1,0 +1,34 @@
+---
+permalink: keystone/reference/0.3.x/-json/page/list-add.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.List.add",
+  "slug": "list-add",
+  "page": {
+    "_id": "56d7dd379c22d3957d0f96b1",
+    "title": "Keystone.List.add",
+    "menuTitle": ".add",
+    "parent": {
+      "_id": "56d7d408dc8aef5a45e620ea",
+      "order": 31,
+      "slug": "keystone-list",
+      "title": "Keystone.List Class",
+      "parent": "56ce85b72016dcfc71d320fd"
+    },
+    "slug": "list-add",
+    "publish": "published",
+    "sortNumber": "append",
+    "type": 1,
+    "links": [],
+    "markdown": {
+      "md": "#### List.add( fields )\n> *@param* **fields** _{Object}_  - Object of valid Keystone/Mongoose document fields  \n> _@return_ **this** \n\nAdds one or more fields to the List  \nBased on Mongoose's `Schema.add` \n\n```javascript\nPost.add({\n    title: { type: String, required: true },\n    state: { type: Types.Select, options: 'draft, published, archived', default: 'draft' },\n    author: { type: Types.Relationship, ref: 'User' },\n    createdAt: { type: Date, default: Date.now },\n    publishedAt: Date,\n    image: { type: Types.CloudinaryImage },\n    content: {\n        brief: { type: Types.Html, wysiwyg: true, height: 150 },\n        extended: { type: Types.Html, wysiwyg: true, height: 400 }\n    }\n});\n```\n<div class=\"code-header addGitHubLink\" data-file=\"lib/list/add.js\"> <a href=\"#\" class=\"loadCode\"> code</a> </div><pre class=\" language-javascript hideCode api\"></pre> \n",
+      "html": "<h4 id=\"list-add-fields-\">List.add( fields )</h4>\n<blockquote>\n<p><em>@param</em> <strong>fields</strong> <em>{Object}</em>  - Object of valid Keystone/Mongoose document fields<br><em>@return</em> <strong>this</strong> </p>\n</blockquote>\n<p>Adds one or more fields to the List<br>Based on Mongoose&#39;s <code>Schema.add</code> </p>\n<pre><code class=\"language-javascript\">Post.add({\n    title: { type: String, required: true },\n    state: { type: Types.Select, options: &#39;draft, published, archived&#39;, default: &#39;draft&#39; },\n    author: { type: Types.Relationship, ref: &#39;User&#39; },\n    createdAt: { type: Date, default: Date.now },\n    publishedAt: Date,\n    image: { type: Types.CloudinaryImage },\n    content: {\n        brief: { type: Types.Html, wysiwyg: true, height: 150 },\n        extended: { type: Types.Html, wysiwyg: true, height: 400 }\n    }\n});\n</code></pre>\n<p><div class=\"code-header addGitHubLink\" data-file=\"lib/list/add.js\"> <a href=\"#\" class=\"loadCode\"> code</a> </div><pre class=\" language-javascript hideCode api\"></pre> </p>\n"
+    },
+    "display": 1
+  }
+}

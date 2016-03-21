@@ -1,0 +1,43 @@
+---
+permalink: keystone/reference/0.3.x/-json/page/getpresavewatcher.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.Field.getPreSaveWatcher",
+  "slug": "getpresavewatcher",
+  "page": {
+    "_id": "56d3862323e5f34d21a1727b",
+    "sortBy": 1,
+    "currentOrder": 10,
+    "order": 10,
+    "slug": "getpresavewatcher",
+    "updatedBy": "54ce583de345cf3359db79bd",
+    "updatedAt": "2016-02-28T23:43:40.891Z",
+    "createdBy": "54ce583de345cf3359db79bd",
+    "createdAt": "2016-02-28T23:43:31.934Z",
+    "key": "getpresavewatcher",
+    "title": "Keystone.Field.getPreSaveWatcher",
+    "parent": {
+      "_id": "56ce867a2016dcfc71d32102",
+      "order": 29,
+      "slug": "field",
+      "title": "Keystone.Field Class",
+      "parent": "56ce85b72016dcfc71d320fd"
+    },
+    "publish": "published",
+    "sortNumber": "10",
+    "type": 1,
+    "links": [],
+    "display": 1,
+    "externalLinks": "",
+    "markdown": {
+      "html": "<h4 id=\"field-getpresavewatcher-\">Field.getPreSaveWatcher(  )</h4>\n<blockquote>\n<p><em>@api</em> <strong>private</strong>   </p>\n</blockquote>\n<p>Field watching implementation</p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"fields/types/Type.js#L138-L201\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> </p>\n",
+      "md": "#### Field.getPreSaveWatcher(  )    \r\n> *@api* **private**   \r\n\r\nField watching implementation\r\n\r\n<div class=\"code-header addGitHubLink\" data-file=\"fields/types/Type.js#L138-L201\"> &nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> \r\n"
+    },
+    "menuTitle": ".getPreSaveWatcher"
+  }
+}

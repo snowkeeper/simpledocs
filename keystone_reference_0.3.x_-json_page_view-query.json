@@ -1,0 +1,43 @@
+---
+permalink: keystone/reference/0.3.x/-json/page/view-query.json
+---
+{
+  "action": "simple documentation",
+  "command": "page",
+  "success": true,
+  "message": "Have a great day!",
+  "code": 200,
+  "title": "Keystone.View.query",
+  "slug": "view-query",
+  "page": {
+    "_id": "56d233b062dab7af73a8341a",
+    "sortBy": 1,
+    "currentOrder": 2,
+    "order": 2,
+    "slug": "view-query",
+    "updatedBy": "56d3ec56c3bc4bb55f32eb6f",
+    "updatedAt": "2016-03-06T07:25:25.921Z",
+    "createdBy": "54ce583de345cf3359db79bd",
+    "createdAt": "2016-02-27T23:39:28.674Z",
+    "key": "query",
+    "title": "Keystone.View.query",
+    "parent": {
+      "_id": "56d2337a62dab7af73a83418",
+      "order": 35,
+      "slug": "view",
+      "title": "Keystone.View Class",
+      "parent": "56ce85b72016dcfc71d320fd"
+    },
+    "publish": "published",
+    "sortNumber": "2",
+    "type": 1,
+    "links": [],
+    "display": 1,
+    "externalLinks": "",
+    "markdown": {
+      "html": "<h4 id=\"view-query-key-query-options-\">View.query( key, query, options )</h4>\n<blockquote>\n<p><em>@param</em> <strong>key</strong> <em>{Array}</em>  - Keys can be nested paths, containing objects will be created as required.<br><em>@param</em> <strong>query</strong> <em>{Object}</em>  - Mongoose query<br><em>@param</em> <strong>options</strong> <em>{Object}</em>  - Options<br><em>@return</em> <strong>chain</strong> - QueryCallbacks  </p>\n</blockquote>\n<p>Queues a mongoose query for execution before the view is rendered.<br>The results of the query are set in <code>locals[key]</code>.<br>Keys can be nested paths, containing objects will be created as required.<br>The third argument <code>then</code> can be a method to call after the query is completed such as <code class=\"default-value\"> function(err, results, callback)</code>, or a <code>populateRelated</code> definition (string or array).</p>\n<p><div class=\"code-header\"> <h4>Examples</h4></div><pre class=\" language-javascript\"><code class=\"language-javascript\"> </p>\n<pre><code>/* an array of books from the database will be added to locals.books.*/\nview.query(&#39;books&#39;, keystone.list(&#39;Book&#39;).model.find());\n\n/*  You can also nest properties on the locals variable. */\nview.query(\n    &#39;admin.books&#39;,\n    keystone.list(&#39;Book&#39;).model.find().where(&#39;user&#39;, &#39;Admin&#39;)\n);\n/* locals.admin.books will be the result of the query */\n\n\n/* views.query().then is always called if it is available */\nview.query(&#39;books&#39;, keystone.list(&#39;Book&#39;).model.find())\n    .then(function (err, results, next) {\n        if (err) return next(err);\n        console.log(results);\n        next();\n    });\n</code></pre><p></code></pre></p>\n<p><div class=\"code-header addGitHubLink\" data-file=\"lib/view.js#L214-L310\">&nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> </p>\n",
+      "md": "#### View.query( key, query, options )\r\n> *@param* **key** _{Array}_  - Keys can be nested paths, containing objects will be created as required.  \r\n> *@param* **query** _{Object}_  - Mongoose query  \r\n> *@param* **options** _{Object}_  - Options  \r\n> _@return_ **chain** - QueryCallbacks  \r\n\r\nQueues a mongoose query for execution before the view is rendered.  \r\nThe results of the query are set in `locals[key]`.  \r\nKeys can be nested paths, containing objects will be created as required.  \r\nThe third argument `then` can be a method to call after the query is completed such as <code class=\"default-value\"> function(err, results, callback)</code>, or a `populateRelated` definition (string or array).\r\n\r\n<div class=\"code-header\"> <h4>Examples</h4></div><pre class=\" language-javascript\"><code class=\"language-javascript\"> \r\n\r\n    /* an array of books from the database will be added to locals.books.*/\r\n    view.query('books', keystone.list('Book').model.find());\r\n    \r\n    /*  You can also nest properties on the locals variable. */\r\n    view.query(\r\n        'admin.books',\r\n        keystone.list('Book').model.find().where('user', 'Admin')\r\n    );\r\n    /* locals.admin.books will be the result of the query */\r\n    \r\n    \r\n    /* views.query().then is always called if it is available */\r\n    view.query('books', keystone.list('Book').model.find())\r\n\t\t.then(function (err, results, next) {\r\n\t\t\tif (err) return next(err);\r\n\t\t\tconsole.log(results);\r\n\t\t\tnext();\r\n\t\t});\r\n\t\t\r\n</code></pre>\r\n<div class=\"code-header addGitHubLink\" data-file=\"lib/view.js#L214-L310\">&nbsp;</div><pre class=\" language-javascript hideCode api\"></pre> \r\n"
+    },
+    "menuTitle": ".query"
+  }
+}
