@@ -241,7 +241,7 @@ export default class Status extends React.Component {
 						cols={1}
 						key="bliteTheme"
 						title="Bootstrap UI"
-						onClick={e => this.props.assets({
+						onClick={e => this.props.appState({
 							newconfirm: {
 								html: 'Do you want to switch to the Bootstrap UI?',
 								title: 'Bootstrap UI',

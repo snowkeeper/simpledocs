@@ -6,11 +6,11 @@ let	debug = debugging('epg:app:common:components:confirm');
 
 	
 let myStyles = {
-	textColor: Styles.Colors.blue600,
-	alternateTextColor: Styles.Colors.amber400,
-	accent1Color: "#FF6040",
-	accent2Color: "#F5001E",
-	accent3Color: "#FA905C"
+	//textColor: Styles.Colors.blue600,
+	//alternateTextColor: Styles.Colors.amber400,
+	//accent1Color: "#FF6040",
+	//accent2Color: "#F5001E",
+	//accent3Color: "#FA905C"
 }
 
 export default class Modal extends React.Component {
@@ -22,8 +22,9 @@ export default class Modal extends React.Component {
 	}
 	
 	getChildContext() {
+		console.log(this.props)
 		return {
-			muiTheme: Styles.ThemeManager.modifyRawThemePalette(Styles.ThemeManager.getMuiTheme(Styles.LightRawTheme), myStyles)
+			muiTheme: this.props.theme
 		};
 	}
 	

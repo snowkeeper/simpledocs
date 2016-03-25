@@ -200,120 +200,54 @@ Home.UI = {
 				}
 				var prev;
 				var next;
+				var makePageNavButton = (page, current, prev, text) => {
+					return (<FlatButton
+						label={text || ''}//{snowUI.menu[doc.parent.parent].docs[doc.parent.order].title}
+						onClick={e => {
+							e.preventDefault();
+							this.props.goTo({
+								page,
+								current
+							});
+						}}
+						labelPosition={prev ? "after" : "before"}
+						icon={<FontIcon className="material-icons" color={Styles.Colors.lightBlue600} hoverColor={Styles.Colors.lightBlue300} >{prev ? 'chevron_left' : 'chevron_right'}</FontIcon>}
+					/>);
+				}
 				/* navigation butoons for bottom */
 				if(snowUI.menu[doc._id]) {
 					prev = snowUI.menu[doc.parent._id] ? 
 						typeof snowUI.menu[doc.parent._id].docs[doc.order-2] === 'object' ? 
-							(
-								 <FlatButton
-									label={snowUI.menu[doc.parent._id].docs[doc.order-2].title}
-									onClick={e => {
-										e.preventDefault();
-										this.props.goTo({
-											page: snowUI.menu[doc.parent._id].docs[doc.order-2].slug,
-											current: snowUI.menu[doc.parent._id].docs[doc.order-2]
-										});
-									}}
-									secondary={true}
-									icon={<FontIcon className="material-icons" color={Styles.Colors.lightBlue600} hoverColor={Styles.Colors.lightBlue300} >chevron_left</FontIcon>}
-								/>
-							) 
+							makePageNavButton(snowUI.menu[doc.parent._id].docs[doc.order-2].slug, snowUI.menu[doc.parent._id].docs[doc.order-2], true, 'prev')
 							: <span /> 
 						: <span />;
 					next = snowUI.menu[doc._id] ? 
 						typeof snowUI.menu[doc._id].docs[0] === 'object' ? 
-							(
-								<FlatButton
-									label={snowUI.menu[doc._id].docs[0].title}
-									onClick={e => {
-										e.preventDefault();
-										this.props.goTo({
-											page: snowUI.menu[doc._id].docs[0].slug,
-											current: snowUI.menu[doc._id].docs[0]
-										});
-									}}
-									labelPosition="before"
-									secondary={true}
-									icon={<FontIcon className="material-icons" color={Styles.Colors.lightBlue600} hoverColor={Styles.Colors.lightBlue300} >chevron_right</FontIcon>}
-								/>
-							) 
+							makePageNavButton(snowUI.menu[doc._id].docs[0].slug, snowUI.menu[doc._id].docs[0], false, 'next') 
 							: <span /> 
 						: <span />;
 				} else if(doc.parent) {
 					prev = snowUI.menu[doc.parent._id] ?
 						typeof snowUI.menu[doc.parent._id].docs[doc.order-2] === 'object' ?
-							(
-								<FlatButton
-									label={snowUI.menu[doc.parent._id].docs[doc.order-2].title}
-									onClick={e => {
-										e.preventDefault();
-										this.props.goTo({
-											page: snowUI.menu[doc.parent._id].docs[doc.order-2].slug,
-											current: snowUI.menu[doc.parent._id].docs[doc.order-2]
-										});
-									}}
-									secondary={true}
-									icon={<FontIcon className="material-icons" color={Styles.Colors.lightBlue600} hoverColor={Styles.Colors.lightBlue300} >chevron_left</FontIcon>}
-								/>
-							) 
+							makePageNavButton(snowUI.menu[doc.parent._id].docs[doc.order-2].slug, snowUI.menu[doc.parent._id].docs[doc.order-2], true, 'prev')
 							:  snowUI.menu[doc.parent.parent] ?
 								typeof snowUI.menu[doc.parent.parent].docs[doc.parent.order-1] === 'object' ?
-									(
-										<FlatButton
-											label={snowUI.menu[doc.parent.parent].docs[doc.parent.order-1].title}
-											onClick={e => {
-												e.preventDefault();
-												this.props.goTo({
-													page: snowUI.menu[doc.parent.parent].docs[doc.parent.order-1].slug,
-													current: snowUI.menu[doc.parent.parent].docs[doc.parent.order-1]
-												});
-											}}
-											secondary={true}
-											icon={<FontIcon className="material-icons" color={Styles.Colors.lightBlue600} hoverColor={Styles.Colors.lightBlue300} >chevron_left</FontIcon>}
-										/>
-									
-									) 
+									makePageNavButton(snowUI.menu[doc.parent.parent].docs[doc.parent.order-1].slug, snowUI.menu[doc.parent.parent].docs[doc.parent.order-1], true, 'prev')
 									: <span />
 								: <span /> 
 						: <span />;
 					next = snowUI.menu[doc.parent._id] ?
 						typeof snowUI.menu[doc.parent._id].docs[doc.order] === 'object' ? 
-							(
-								<FlatButton
-									label={snowUI.menu[doc.parent._id].docs[doc.order].title}
-									onClick={e => {
-										e.preventDefault();
-										this.props.goTo({
-											page: snowUI.menu[doc.parent._id].docs[doc.order].slug,
-											current: snowUI.menu[doc.parent._id].docs[doc.order]
-										});
-									}}
-									labelPosition="before"
-									icon={<FontIcon className="material-icons" color={Styles.Colors.lightBlue600} hoverColor={Styles.Colors.lightBlue300} >chevron_right</FontIcon>}
-								/>
-							) 
+							makePageNavButton(snowUI.menu[doc.parent._id].docs[doc.order].slug, snowUI.menu[doc.parent._id].docs[doc.order], false, 'next')
 							: snowUI.menu[doc.parent.parent] ?
 								typeof snowUI.menu[doc.parent.parent].docs[doc.parent.order] === 'object' ? 
-									(
-										<FlatButton
-											label={snowUI.menu[doc.parent.parent].docs[doc.parent.order].title}
-											onClick={e => {
-												e.preventDefault();
-												this.props.goTo({
-													page: snowUI.menu[doc.parent.parent].docs[doc.parent.order].slug,
-													current: snowUI.menu[doc.parent.parent].docs[doc.parent.order]
-												});
-											}}
-											labelPosition="before"
-											
-											icon={<FontIcon className="material-icons" color={Styles.Colors.lightBlue600} hoverColor={Styles.Colors.lightBlue300} >chevron_right</FontIcon>}
-										/>
-									) 
+									makePageNavButton(snowUI.menu[doc.parent.parent].docs[doc.parent.order].slug, snowUI.menu[doc.parent.parent].docs[doc.parent.order], false, 'next')
 									: <span />
 								: <span />
 						: <span />;
 				}
 			}
+			
 			var related = []; 
 			if(Object.prototype.toString.call(doc.links) !== '[object Array]') {
 				doc.links=[];

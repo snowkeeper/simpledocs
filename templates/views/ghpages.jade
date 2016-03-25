@@ -9,12 +9,12 @@ html
 
 		title= title || 'SimpleDocs'
 		link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
-		link(href="styles/prism.css", rel="stylesheet")
-		link(href="styles/bootstrap.css", rel="stylesheet")
-		link(href="styles/bootstrap-ui.css", rel="stylesheet")
+		link(href="#{ghroute}/styles/prism.css", rel="stylesheet")
+		link(href="#{ghroute}/styles/bootstrap.css", rel="stylesheet")
+		link(href="#{ghroute}/styles/bootstrap-ui.css", rel="stylesheet")
 		
 		if(material)
-			link(href="styles/material-ui.css", rel="stylesheet")
+			link(href="#{ghroute}/styles/material-ui.css", rel="stylesheet")
 		
 		if(customeStyle)
 			link(href="#{customeStyle}", rel="stylesheet")
@@ -53,12 +53,12 @@ html
 			if(development)
 				| <script src="#{pathConfig}"></script>
 				| <script src="#{pathUser}"></script>
-				script(src='js/bundles/material-ui-dev.js')
+				| <script src="#{ghroute}/js/bundles/material-ui.js"></script>
 			else
 				| <script src="#{pathConfig}"></script>
 				| <script src="#{pathUser}"></script>
-				script(src='js/bundles/material-ui.js')
+				| <script src="#{ghroute}/js/bundles/material-ui.js"></script>
 		else
 			| <script src="#{pathConfig}"></script>
 			| <script src="#{pathUser}"></script>
-			script(src='js/bundles/bootstrap-ui.js')
+			| <script src="#{ghroute}/js/bundles/bootstrap-ui.js"></script>

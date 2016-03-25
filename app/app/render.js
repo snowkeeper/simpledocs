@@ -3,97 +3,20 @@ import ReactDOM from 'react-dom';
 import Path from 'path';
 import wrapListeners from './listen';
 import Debug from 'debug';
-import Gab from './common/gab';
-import Snackbar from './common/components/snackbar';
 import Menu from './common/components/menu';
 import Menu2 from './common/components/menu2';
 import Confirm from './common/components/confirm';
 import routes from './routes';
 import {Card, CardText, FontIcon, IconMenu, IconButton, AppBar, RaisedButton, LeftNav, MenuItem, Styles, Divider, List, ListItem} from 'material-ui/lib';
-import injectTapEventPlugin from 'react-tap-event-plugin';
-
-//Needed for onTouchTap
-//Can go away when react 1.0 release
-//Check this repo:
-//https://github.com/zilverline/react-tap-event-plugin
-injectTapEventPlugin();
 
 let debug = Debug('simpledocs:app:render');
 
-let myStyles = {
-	primary1Color: '#223E77',
-	textColor: Styles.Colors.blueGrey200,
-	alternateTextColor: Styles.Colors.lightBlue50,
-	primary2Color: '#3B71E2',
-	canvasColor: '#303234',
-	accent1Color: Styles.Colors.blueGrey50,
-	accent2Color: Styles.Colors.blueGrey400,
-	accent3Color: "#FA905C",
-	disabledColor: Styles.Colors.grey600,
-}
-let myStylesLight = {
-	primary1Color: 'initial',
-	primary2Color: Styles.Colors.lightBlue700,
-	textColor: Styles.Colors.grey700,
-	accent1Color: Styles.Colors.blueGrey50,
-    accent2Color: Styles.Colors.blueGrey500,
-    accent3Color: Styles.Colors.lightBlack,
-}
-let myStylesDefault = {
-	primary1Color: '#0C87C1',
-}
-let myStylesDefaultDark = {
-
-}
 class Main extends Component {
 	constructor(props) {
 		// we get props from Listener
 		super(props);
 		
-		debug(props, 'location', location,)
-		
-		this.styles = {
-			main: Styles.ThemeManager.modifyRawThemePalette(Styles.ThemeManager.getMuiTheme(Styles.LightRawTheme), Object.assign(myStylesLight, snowUI.materialStyle.main)),
-			night: Styles.ThemeManager.modifyRawThemePalette(Styles.ThemeManager.getMuiTheme(Styles.LightRawTheme), Object.assign(myStyles, snowUI.materialStyle.mainDark)),
-			blue: Styles.ThemeManager.modifyRawThemePalette(Styles.ThemeManager.getMuiTheme(Styles.LightRawTheme), Object.assign(myStylesDefault, snowUI.materialStyle.defaultLight) ),
-			dark: Styles.ThemeManager.modifyRawThemePalette(Styles.ThemeManager.getMuiTheme(Styles.DarkRawTheme), Object.assign(myStylesDefaultDark, snowUI.materialStyle.defaultDark) ),
-		}
-		debug('blue theme', this.styles.blue);
-
-		this.styles.main.appBar.textColor = Styles.Colors.grey700;
-		
-		const clean = location.pathname;
-			
-		let pages = clean.replace(snowUI.path.material, '').split('/');
-		let page = pages[1] || snowUI.homepage;
-		let anchor = pages[2] || false;
-		
-		debug('clean page', page, pages, anchor) 
-		
-		if(page.charAt(0) == '/') {
-			page = page.substring(1);
-		}
-		
-		var search = false;
-		if(page.search('::') > -1 ) {
-			var ss = page.split('::');
-			search = ss[1];
-		}
-		
-		this.state = Object.assign({
-			leftNav: false,
-			theme: this.styles.main,
-			current: {},
-			contents: false,
-			newalert: {},
-			allinone: (snowUI.allinone === 'only'),
-			newconfirm: {
-				open: false
-			},
-			anchor,
-			search: search || history.search || false,
-			page: page || snowUI.homepage,
-		}, props);
+		this.state = Object.assign({}, props);
 		
 		this._defaults = {
 			leftNav: false,
@@ -114,17 +37,15 @@ class Main extends Component {
 		this.allInOne = this.allInOne.bind(this);
 		this.goToAnchor = this.goToAnchor.bind(this);
 		this.setAsset = this.setAsset.bind(this);
+		this.appState = this.appState.bind(this);
 		this.answerConfirm = this.answerConfirm.bind(this);
 		this.switchTheme = this.switchTheme.bind(this);
 		this.searchToggle = this.searchToggle.bind(this);
 	}
 	
 	componentDidMount() {
-		
-		/* set the theme */
-		if(snowUI.materialTheme) {
-			this.switchTheme(snowUI.materialTheme);
-		}
+
+		this.switchTheme(this.props.currentTheme, false);
 		
 		/* set the height of the menu and minimum height of content */
 		var menu = document.getElementById('menu');
@@ -151,10 +72,10 @@ class Main extends Component {
 		
 	}
 	
-	switchTheme(theme = 'main') {
-		let style = this.styles[theme];
+	switchTheme(theme = 'blue', update = true) {
+		let style = this.props.styles[theme];
 		if(!style) {
-			style = this.styles.main;
+			style = this.props.styles.blue;
 		}
 		if(theme == 'dark') {
 			snowUI.setTheme('dark-theme');
@@ -175,13 +96,15 @@ class Main extends Component {
 			snowUI.setTheme('light-theme blue');
 			snowUI.shortenTitle = false;
 		}
-		this.setState({
-			theme: style,
-			forceUpdate: true
-		}, function() {
-			Prism.highlightAll();
-		});
-		
+		if(update) {
+			this.appState({
+				theme: style,
+				currentTheme: theme,
+				forceUpdate: true
+			}, function() {
+				Prism.highlightAll();
+			});
+		}
 	}
 	
 	getChildContext() {
@@ -194,14 +117,18 @@ class Main extends Component {
 		if(e && typeof e.preventDefault === 'function') {
 			e.preventDefault();
 		}
-		this.setState({leftNav: !this.state.leftNav});
-	}
+		if(this.state.desktop && (this.state.window.width > snowUI.breaks.sm.width)) {
+			this.appState({desktopNav: !this.state.desktopNav});
+		} else {
+			this.appState({leftNav: !this.state.leftNav});
+		}
+	} 
 	
 	LeftNavClose () {
-		this.setState({ leftNav: false });
+		this.appState({ leftNav: false });
 	}
 	
-	searchToggle(e) {
+	searchToggle(e) { 
 		let target = $(e.target).parent().prev();
 		target.toggleClass('open');
 		debug('searchToggle', target);
@@ -217,7 +144,7 @@ class Main extends Component {
 					search:  $input.val()
 				}
 				
-				this.props.setState(Object.assign({ ...this._defaults }, state), () => {
+				this.appState(Object.assign({ ...this._defaults }, state), () => {
 					this.state.history.push({
 						pathname: 'search::',
 						search: $input.val(),
@@ -240,7 +167,7 @@ class Main extends Component {
 			contents: this.props.contents
 		}
 		
-		this.props.setState(Object.assign({ ...this._defaults }, state), () => {
+		this.appState(Object.assign({ ...this._defaults }, state), () => {
 			this.state.history.push({
 				pathname: Path.join('/' , snowUI.singlePage, route),
 				search: this.state.query,
@@ -260,7 +187,7 @@ class Main extends Component {
 		
 		// fade the content div before its replaced
 		snowUI.fadeOut('slow', () => {
-			this.props.setState(Object.assign({ ...this._defaults }, state), () => {
+			this.appState(Object.assign({ ...this._defaults }, state), () => {
 				var simple = document.getElementById("simpledocs");
 				simple.scrollTop = 0;
 				debug('push history', '/', snowUI.singlePage, state.anchor);
@@ -291,7 +218,7 @@ class Main extends Component {
 		snowUI.fadeOut('slow', () => {
 			var send = Object.assign({ ...this._defaults }, state);
 				
-			this.props.setState(send, () => {
+			this.appState(send, () => {
 				debug('push history ', '/' , this.state.page, this._defaults, state, send)
 				this.state.history.push({
 					pathname: Path.join('/' , this.state.page),
@@ -303,11 +230,15 @@ class Main extends Component {
 	}
 	
 	setAsset(asset, callback) {
-		this.setState(asset, callback);
+		this.appState(asset, callback);
+	}
+	
+	appState(newState, callback) {
+		this.props.appState(newState, callback);
 	}
 	
 	dismissConfirm() {
-		this.setState({ 
+		this.appState({ 
 			newconfirm: {
 				show: false
 			}
@@ -322,7 +253,7 @@ class Main extends Component {
 				this[this.state.answerMethod](this.state.answerConfirm);
 			}
 		}
-		this.setState({
+		this.appState({
 			newconfirm: {
 				open: false,
 			},
@@ -336,10 +267,11 @@ class Main extends Component {
 		
 		let title = this.state.current.title || this.state.page;
 		
-		let isConnectedIcon = this.state.connected === true || !snowUI.usesockets ? 
-			<IconButton onClick={(e)=>{e.preventDefault();this.goTo('status');}} ><FontIcon className="material-icons"  >info_outline</FontIcon></IconButton>
-		:
-			<span><IconButton onClick={(e)=>{e.preventDefault();this.goTo('Status');}} ><FontIcon className="material-icons" style={{fontSize:'20px'}} color={Styles.Colors.red900} hoverColor={Styles.Colors.red500} title="Connection to server lost">cloud_offline</FontIcon></IconButton></span>
+		let isConnectedIcon = ( this.state.connected === true || !snowUI.usesockets )
+			? 
+				<IconButton onClick={(e)=>{e.preventDefault();this.goTo('status');}} ><FontIcon className="material-icons"  >info_outline</FontIcon></IconButton>
+			:
+				<span><IconButton onClick={(e)=>{e.preventDefault();this.goTo('status');}} ><FontIcon className="material-icons" style={{fontSize:'20px'}} color={Styles.Colors.red900} hoverColor={Styles.Colors.red500} title="Connection to server lost">cloud_offline</FontIcon></IconButton></span>
 		
 		let appBarRightIcons = (<span>
 			
@@ -371,12 +303,17 @@ class Main extends Component {
 			<div style={{width:20,height:20,display:'inline-block'}} />
 		</span>);
 		
-		let appbar =<div id="appbar"> <div style={{zIndex:1101, width: '100%', height: '64px' ,position: 'fixed', }} ><AppBar
-			title={<div id="appbarTitle" >{title}</div>}
-			onLeftIconButtonTouchTap={this.handleLeftNav} 
-			iconElementRight={appBarRightIcons}
-			style={{boxShadow: 'none'}}
-		/></div><div style={{height:65,width:'100%'}} /></div>;
+		let appbar = (<div id="appbar"> 
+			<div style={{zIndex:1101, width: '100%', height: '64px' ,position: 'fixed', }} >
+				<AppBar
+					title={<div id="appbarTitle" >{title}</div>}
+					onLeftIconButtonTouchTap={this.handleLeftNav} 
+					iconElementRight={appBarRightIcons}
+					style={{boxShadow: 'none'}}
+				/>
+			</div>
+			<div style={{height:65,width:'100%'}} />
+		</div>);
         
         const Page = routes(this.state.page);
         
@@ -389,6 +326,9 @@ class Main extends Component {
 		const mdC = snowUI.breaks.content[2] === 0 ? 'hidden-md' : 'col-md-' + snowUI.breaks.content[2];
 		const lgC = snowUI.breaks.content[3] === 0 ? 'hidden-lg' : 'col-lg-' + snowUI.breaks.content[3];
 		
+		let overrideMenu = (this.state.desktop && this.state.desktopNav) || !this.state.desktop ? xs + " " + sm + " " + md + " " + lg : ' hidden-xs hidden-sm hidden-md hidden-lg ';
+		let overrideContent = this.state.desktop && this.state.desktopNav ? xsC + " " + smC + " " + mdC + " " + lgC : ' col-xs-12 col-sm-12 col-md-12 col-lg-12 ';
+		
         return (<div>
 			{appbar}
 			
@@ -396,14 +336,14 @@ class Main extends Component {
 			
 			<div className="clearfix" />
 			<div className="simpledocs-container" >
-				<div className={xs + " " + sm + " " + md + " " + lg + " "}  style={{padding:0}} >
+				<div className={overrideMenu}  style={{padding:0}} >
 					<div  id="menu" className={xs + " " + sm + " " + md + " " + lg + " no-padding"}  >
 						<Menu2 update={snowUI.alwaysloadtree} docked={false} searchToggle={this.searchToggle} goTo={this.goTo} handleLeftNav={this.handleLeftNav} goToAnchor={this.goToAnchor} allInOne={this.allInOne} { ...this.state } />
 					</div>
 				</div>
-				<div style={{paddingRight:0, paddingLeft:0}} className={xsC + " " + smC + " " + mdC + " " + lgC + " "}  >
+				<div style={{paddingRight:0, paddingLeft:0}} className={overrideContent}>
 					<div id="content-fader">
-						<Page { ...this.state } assets={this.setAsset} switchTheme={this.switchTheme} goTo={this.goTo} handleLeftNav={this.handleLeftNav} goToAnchor={this.goToAnchor} allInOne={this.allInOne} />
+						<Page { ...this.state } assets={this.appState} appState={this.appState} switchTheme={this.switchTheme} goTo={this.goTo} handleLeftNav={this.handleLeftNav} goToAnchor={this.goToAnchor} allInOne={this.allInOne} />
 					</div>
 				</div>
 			</div>
@@ -418,6 +358,7 @@ class Main extends Component {
 				open={this.state.newconfirm.open}
 				yesText={this.state.newconfirm.yesText}
 				noText={this.state.newconfirm.noText}
+				theme={this.state.theme}
 			/>
         </div>);
 
@@ -428,6 +369,6 @@ Main.childContextTypes = {
     muiTheme: React.PropTypes.object
 };
 
-export default wrapListeners(Main);
+export let myComponent =  wrapListeners(Main);
 
-
+export default myComponent;

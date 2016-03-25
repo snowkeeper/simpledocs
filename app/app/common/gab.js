@@ -14,7 +14,7 @@ class Gab extends EventEmitter {
 	reset() {
 		
 	}
-	
+		
 	request(route, moon, callback) {
 		var _this = this;
 		if(!isFunction(callback)) {
@@ -68,6 +68,32 @@ class Gab extends EventEmitter {
 		// end request
 	}
 	
+	rawRequest(url, callback) {
+		var _this = this;
+		if(!isFunction(callback)) {
+			callback = function(){};
+		}
+		
+		debug('raw request', url);
+		
+		request
+			.get(url)
+			.set({
+				'Accept': 'application/json'
+			})
+			.end(function(err, res) {
+				debug('request result', err, res);
+				var result = {
+					success: false
+				}
+				if(err) {
+					return callback(result);
+				} else {
+					return callback(null, result);
+				}
+			});
+		// end request
+	}
 }
 
 export default new Gab()

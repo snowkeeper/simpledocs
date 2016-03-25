@@ -125,6 +125,34 @@ gulp.task('package', function() {
 		'app/jspm_packages/system.js',
 		'app/app.js'
     ])
+    .pipe(concat('material-ui.js'))
+    .pipe(gulp.dest('public/js/bundles'));
+    
+	return gulp.src([
+		'public/js/lib/snowbug.js',
+		'public/js/lib/jquery/jquery-2.1.1.min.js', 
+		'public/js/lib/bootstrap/bootstrap-3.2.0.min.js',
+		'public/js/lib/bone.io/bone.io.min.js',
+		'public/js/config.js',
+		'public/js/comms.js',
+		'public/js/user-code.js',
+		'public/js/lib/prism.js',
+		'public/js/lib/react/build/simpledocs.js',
+    ])
+    .pipe(concat('bootstrap-ui.js'))
+    .pipe(gulp.dest('public/js/bundles'))
+});
+
+gulp.task('package-dev', function() {
+	
+	gulp.src([
+		'public/js/lib/jquery/jquery-2.1.1.min.js', 
+		'public/js/lib/bootstrap/bootstrap-3.2.0.min.js',
+		'public/js/user-code.js',
+		'public/js/lib/prism.js',
+		'app/jspm_packages/system.js',
+		'app/app.js'
+    ])
     .pipe(concat('material-ui-dev.js'))
     .pipe(gulp.dest('public/js/bundles'));
     
@@ -184,7 +212,7 @@ gulp.task('watch-bootstrap', function() {
   gulp.watch('public/js/lib/react/jsx/**', ['bootstrap'])
 })
 gulp.task('watch-package', function() {
-  gulp.watch('public/js/lib/react/build/**', ['package'])
+  gulp.watch(['public/js/lib/react/build/**', 'app/app/**'], ['package-dev'])
 })
 
 gulp.task('default', [ 'scripts', 'vendor'])

@@ -933,7 +933,9 @@ snowUI.fadeIn = function(speed = 400, callback) {
 // sticky menu
 snowUI.unstickyMenu = function() {
 	var simpledocs = document.getElementById('simpledocs');
-	simpledocs.removeEventListeners();
+	if(simpledocs && typeof simpledocs.removeEventListeners === 'function') {
+		simpledocs.removeEventListeners();
+	}
 }
 snowUI.stickyMenu = function() {
 	

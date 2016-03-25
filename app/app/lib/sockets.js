@@ -63,7 +63,6 @@ Sockets.prototype.init = function(opts, callback) {
 	let _this = this;
 	
 	// connection
-	debug(snowUI);
 	this.io = io('//' + this.host + ':' + this.port + snowUI.namespace, { 'forceNew': true });
 	
 	this.io.on('connect',(data) => {
